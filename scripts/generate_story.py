@@ -39,28 +39,28 @@ def extract_json(text):
 
 
 def prompt_for(day, country, date_str):
-    return f'''Create one engaging, accurate, reader-friendly English story for a website called Stories of the World.
-Country: {country}
-Day number: {day}
-Date: {date_str}
+    return f'''Create one engaging, accurate, reader-friendly story in natural, simple Hindi for a Hindi-language website called Stories of the World.
+देश: {country}
+दिन संख्या: {day}
+तारीख: {date_str}
 
-Choose a genuinely famous historical event, legend, discovery, cultural tradition, or remarkable true incident connected to this country. Clearly distinguish folklore from verified history in the truth field. Do not invent quotations, dates, people, or facts. If uncertain, phrase cautiously. Avoid graphic violence.
+इस देश से जुड़ी कोई सचमुच प्रसिद्ध ऐतिहासिक घटना, लोककथा, सांस्कृतिक परंपरा, खोज या उल्लेखनीय सच्ची घटना चुनें। कहानी रोचक और सहज हिंदी में लिखें। लोककथा और प्रमाणित इतिहास में स्पष्ट अंतर रखें। मनगढ़ंत उद्धरण, तारीखें, व्यक्ति या तथ्य न जोड़ें। अनिश्चित होने पर सावधानी से लिखें। बहुत हिंसक विवरण न दें।
 
-Return ONLY valid JSON with exactly these keys and types:
+केवल वैध JSON लौटाएँ, ठीक इन्हीं keys और types के साथ:
 {{
   "day": {day},
   "date": "{date_str}",
   "country": "{country}",
-  "flag": "one suitable flag emoji",
-  "kind": "history or myth or culture or discovery",
-  "title": "short engaging title",
-  "story": ["8 to 12 paragraphs, each 2 to 4 sentences"],
-  "why": "2 to 4 sentences explaining why the story is famous",
-  "where": "2 to 4 sentences explaining where it is remembered or seen today",
-  "truth": "2 to 4 sentences separating established facts from legend or uncertainty",
-  "info": [["Capital", "..."], ["Language", "..."], ["Currency", "..."], ["Special", "one useful country fact"]]
+  "flag": "एक उपयुक्त झंडे का emoji",
+  "kind": "history या myth या culture या discovery",
+  "title": "हिंदी में छोटा और आकर्षक शीर्षक",
+  "story": ["8 से 12 अनुच्छेद, हर अनुच्छेद में 2 से 4 वाक्य, सभी हिंदी में"],
+  "why": "2 से 4 हिंदी वाक्यों में बताएँ कि कहानी प्रसिद्ध क्यों है",
+  "where": "2 से 4 हिंदी वाक्यों में बताएँ कि आज यह कहाँ याद की जाती है या देखी जा सकती है",
+  "truth": "2 से 4 हिंदी वाक्यों में प्रमाणित तथ्यों और लोककथा/अनिश्चितता का अंतर बताएँ",
+  "info": [["राजधानी", "..."], ["भाषा", "..."], ["मुद्रा", "..."], ["खास बात", "देश से जुड़ी एक उपयोगी जानकारी"]]
 }}
-The story must be original prose, not copied from a source. Keep all JSON strings valid and escape quotation marks correctly.'''
+कहानी मौलिक हो, किसी स्रोत से कॉपी न हो। JSON strings में quotation marks सही तरह escape करें। JSON keys अंग्रेज़ी में ही रखें, लेकिन कहानी और सभी दिखने वाले मान हिंदी में लिखें।'''
 
 
 def call_gemini(prompt, key):
