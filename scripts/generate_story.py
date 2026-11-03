@@ -24,8 +24,13 @@ COUNTRIES = [
 def request_json(url, headers, payload):
     data = json.dumps(payload).encode("utf-8")
     req = Request(url, data=data, headers={**headers, "Content-Type": "application/json"}, method="POST")
-    with urlopen(req, timeout=120) as response:
-        return json.loads(response.read().decode("utf-8"))
+    try:
+        with urlopen(req, timeout=120) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except HTTPError as exc:
+        # Include the provider's safe error message so Actions logs explain 401/403/404.
+        detail = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"AI provider returned HTTP {exc.code}: {detail[:1200]}") from exc
 
 
 def extract_json(text):
