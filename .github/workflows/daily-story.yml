@@ -1,1 +1,47 @@
-fhy
+name: Publish a new country story
+
+on:
+  schedule:
+    # Every day at 06:00 India time (00:30 UTC)
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-country-story
+  cancel-in-progress: false
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate next story
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_MODEL: gemini-3.5-flash
+          GROQ_MODEL: llama-3.3-70b-versatile
+        run: python scripts/generate_story.py
+
+      - name: Commit and publish story archive
+        run: |
+          if git diff --quiet -- stories.json; then
+            echo "No new story was generated."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stories.json
+          git commit -m "Publish daily country story"
+          git push
