@@ -66,7 +66,7 @@ dt{color:var(--muted)}dd{margin:0}
    after the last } with a comma in between. Then re-upload / redeploy the file.
    ===================================================== */
 const TOTAL = 208;
-const STORIES = [
+let STORIES = [
 {
   day: 1, date: "2026-11-04", country: "Egypt", flag: "🇪🇬", kind: "myth",
   title: "The Curse of the Pharaoh",
@@ -168,9 +168,22 @@ function route(){
   const m = location.hash.match(/^#day-(\d+)$/);
   m ? reader(+m[1]) : home();
 }
-applyPrefs();
-addEventListener("hashchange", route);
-route();
+async function init(){
+  try {
+    const response = await fetch("stories.json?v=" + Date.now());
+    if (response.ok) {
+      const extra = await response.json();
+      if (Array.isArray(extra)) {
+        const existing = new Set(STORIES.map(s => Number(s.day)));
+        STORIES = STORIES.concat(extra.filter(s => s && !existing.has(Number(s.day))));
+      }
+    }
+  } catch (e) { console.warn("Extra stories could not be loaded yet.", e); }
+  applyPrefs();
+  addEventListener("hashchange", route);
+  route();
+}
+init();
 </script>
 </body>
 </html>
