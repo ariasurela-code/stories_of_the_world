@@ -1,6 +1,11 @@
 name: Publish a new country story
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/daily-story.yml'
+      - 'scripts/generate_story.py'
   schedule:
     # Every day at 06:00 India time (00:30 UTC)
     - cron: '30 0 * * *'
