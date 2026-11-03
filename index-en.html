@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#10333A">
+<title>Stories of the World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E6EDEE;--card:#F3F7F7;--ink:#10262C;--muted:#52696F;--line:#C3D1D4;--accent:#B86A05;--onaccent:#fff;
+--serif:"Newsreader",Georgia,serif;--sans:"Hind",system-ui,sans-serif;--fs:19px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1D23;--card:#12272F;--ink:#E4EEEE;--muted:#8FA5AA;--line:#24404A;--accent:#F2B34A;--onaccent:#0D1D23}}
+:root[data-theme="dark"]{--bg:#0D1D23;--card:#12272F;--ink:#E4EEEE;--muted:#8FA5AA;--line:#24404A;--accent:#F2B34A;--onaccent:#0D1D23}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:680px;margin:0 auto;padding:20px 18px 64px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.brand{font-family:var(--serif);font-size:1.7rem;font-weight:400;margin:0;line-height:1.2}
+.ibtn{background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;min-height:40px}
+.sub{color:var(--muted);margin:2px 0 18px}
+.atlas{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 6px}
+.atlas i{width:8px;height:8px;border-radius:2px;background:var(--line)}
+.atlas i.on{background:var(--accent)}
+.count{font-size:.9rem;color:var(--muted);margin:0 0 20px}
+.search{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;margin-bottom:6px}
+.filters{display:flex;gap:8px;margin:8px 0 14px}
+.chip{border:1px solid var(--line);background:none;border-radius:99px;padding:4px 14px}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--onaccent);border-color:var(--accent)}
+.date{font-size:.9rem;color:var(--muted);margin:22px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.row{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px}
+.row .flag{font-size:1.9rem;line-height:1}
+.row .t{flex:1;min-width:0}
+.row b{display:block;font-family:var(--serif);font-weight:400;font-size:1.2rem}
+.row span{color:var(--muted);font-size:.92rem}
+.tick{color:var(--accent);font-size:.85rem;white-space:nowrap}
+.empty{color:var(--muted);padding:28px 0;text-align:center}
+.back{margin-bottom:14px}
+.hero{margin:6px 0 22px}
+.hero .flag{font-size:3rem;line-height:1}
+.hero h2{font-family:var(--serif);font-weight:400;font-size:2.1rem;line-height:1.2;margin:8px 0 4px}
+.hero p{margin:0;color:var(--muted)}
+.tools{display:flex;gap:8px;margin:12px 0 4px}
+article p{font-family:var(--serif);font-size:var(--fs);line-height:1.7;margin:0 0 1.1em}
+.box{border-left:3px solid var(--accent);background:var(--card);border-radius:0 10px 10px 0;padding:10px 16px;margin:22px 0}
+.box h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin:0 0 4px}
+.box p{font-family:var(--serif);font-size:calc(var(--fs) - 2px);margin:0;line-height:1.65}
+dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:1rem}
+dt{color:var(--muted)}dd{margin:0}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:30px}
+.nav button{flex:1;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.nav button:disabled{opacity:.4;cursor:default}
+@media (prefers-reduced-motion:no-preference){.view{animation:in .25s ease-out}@keyframes in{from{opacity:0}to{opacity:1}}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+/* =====================================================
+   How to add a new story each day:
+   Paste the new { ... } block at the end of the STORIES list below,
+   after the last } with a comma in between. Then re-upload / redeploy the file.
+   ===================================================== */
+const TOTAL = 208;
+const STORIES = [
+{
+  day: 1, date: "2026-11-04", country: "Egypt", flag: "🇪🇬", kind: "myth",
+  title: "The Curse of the Pharaoh",
+  story: [
+    "Near the city of Luxor lies a silent, scorching valley now called the Valley of the Kings. Thousands of years ago, the pharaohs of Egypt were buried here. Not far away stood the ancient capital, Thebes, once full of life.",
+    "Centuries later, around 1922, one man had been digging nothing but sand here for five years. His name was Howard Carter, a stubborn British archaeologist. Everyone laughed: \"Every tomb in this valley has already been found. There's nothing left.\" But one name would not let Carter rest: Tutankhamun, a boy-king who died at just 18 or 19, and whose tomb nobody had ever located.",
+    "The dig was paid for by Lord Carnarvon, a wealthy Englishman. After five years of failure, his patience had run out. He told Carter, \"One last chance. If you find nothing this time, I stop paying.\"",
+    "Then one morning, a boy who carried water to the workers stumbled on a stone buried in the sand. It was not a stone. It was the first step of a staircase!",
+    "Carter wired England at once: \"Come, I've found something.\" Carnarvon arrived in Egypt with his daughter, Lady Evelyn. At the bottom of the steps stood a sealed door. Carter made a small hole in the wall and pushed a candle through. Behind him stood Carnarvon, Lady Evelyn, and Carter's colleague Arthur Callender, all holding their breath.",
+    "Carnarvon asked anxiously, \"Can you see anything?\"",
+    "Carter was silent for a few moments. Then he said softly, \"Yes... very strange, very beautiful things.\"",
+    "After three thousand years of darkness, gold flashed in the candlelight. Golden chariots, chests, statues, and later the famous golden mask of the pharaoh. Everything looked as if someone had left it there only yesterday.",
+    "Newspapers around the world filled with the news. But the real story began after this, and it was a story of fear.",
+    "Only a few months later, Lord Carnarvon died in a hotel in Cairo. The cause was an infection in a mosquito bite that he had cut while shaving. But people said that the moment he died, all of Cairo's lights suddenly went out. And thousands of miles away in England, his dog howled and died.",
+    "The papers printed in huge letters: \"The Pharaoh's Curse Has Awakened!\"",
+    "Even Sir Arthur Conan Doyle, the creator of Sherlock Holmes, said some unseen force might be at work. A rumour spread that the tomb wall said, \"Death will fly on swift wings to whoever disturbs the king's sleep.\" Then someone claimed Carter's pet canary had been eaten by a cobra, and the cobra is the emblem on the pharaoh's crown. Death after death was added to the list, and each one became proof of the curse."
+  ],
+  why: "It had everything that pulls people in the most: gold, a king, mystery and the fear of death. Tutankhamun's tomb is counted among the greatest discoveries in history, because most pharaohs' tombs had been robbed centuries earlier, but this one was found almost intact. On top of that, the newspapers whipped up the sensation of a \"curse\".",
+  where: "In Egyptian school books and museum guides. Every year millions of tourists visit Luxor and Cairo just to see this treasure. Around the world, the \"mummy's curse\" in Hollywood films like The Mummy and in novels comes from this story. In Britain, the discovery by Carter and Carnarvon is still remembered as a national legend.",
+  truth: "No curse was ever found written on the tomb. It was invented by newspapers. Most of the people present at the opening lived long lives, and Carter himself lived for many more years. Scientists believe that a tomb sealed for centuries could hold mould and bacteria, which were dangerous for people in poor health.",
+  info: [["Capital","Cairo"],["River","Nile"],["Major cities","Luxor (ancient Thebes), Giza (the Pyramids), Alexandria, Aswan"],["Language","Arabic"],["Currency","Egyptian pound"],["Special","Tutankhamun's golden mask is kept in the Cairo museum"]]
+}
+];
+
+const $ = s => document.querySelector(s);
+const app = $("#app");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch(e){ return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+let read = store.get("read", []), saved = store.get("saved", []);
+let fs = store.get("fs", 19), theme = store.get("theme", "");
+let q = "", onlySaved = false;
+const sorted = () => [...STORIES].sort((a, b) => b.day - a.day);
+const fmtDate = d => { try { return new Date(d + "T00:00:00").toLocaleDateString("en-IN", {weekday:"long", day:"numeric", month:"long", year:"numeric"}); } catch(e){ return d; } };
+
+function applyPrefs(){
+  document.documentElement.style.setProperty("--fs", fs + "px");
+  if (theme) document.documentElement.dataset.theme = theme; else delete document.documentElement.dataset.theme;
+}
+function toggleTheme(){
+  const dark = theme ? theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+  theme = dark ? "light" : "dark"; store.set("theme", theme); applyPrefs();
+}
+
+function home(){
+  const have = new Set(STORIES.map(s => s.day));
+  let dots = ""; for (let i = 1; i <= TOTAL; i++) dots += `<i class="${have.has(i) ? "on" : ""}"></i>`;
+  const list = sorted().filter(s => (!onlySaved || saved.includes(s.day)) &&
+    (s.country + " " + s.title + " " + s.info.map(x => x.join(" ")).join(" ")).toLowerCase().includes(q.toLowerCase()));
+  let body = "", last = "";
+  for (const s of list){
+    if (s.date !== last){ body += `<div class="date">${esc(fmtDate(s.date))}</div>`; last = s.date; }
+    body += `<button class="row" data-day="${s.day}"><span class="flag">${s.flag}</span><span class="t"><b>${esc(s.title)}</b><span>Day ${s.day} · ${esc(s.country)}</span></span>${read.includes(s.day) ? '<span class="tick">Read ✓</span>' : ""}</button>`;
+  }
+  app.innerHTML = `<div class="view">
+    <div class="top"><h1 class="brand">Stories of the World</h1><button class="ibtn" id="theme" aria-label="Change theme">◐</button></div>
+    <p class="sub">One famous story from every country, one a day.</p>
+    <div class="atlas" aria-hidden="true">${dots}</div>
+    <p class="count">${STORIES.length} / ${TOTAL} countries done · ${read.length} stories read</p>
+    <input class="search" id="q" type="search" placeholder="Search a country, city or story" value="${esc(q)}" aria-label="Search">
+    <div class="filters"><button class="chip" id="saved" aria-pressed="${onlySaved}">★ Saved</button></div>
+    ${body || '<p class="empty">No stories found.</p>'}</div>`;
+  $("#theme").onclick = toggleTheme;
+  $("#q").oninput = e => { q = e.target.value; const p = e.target.selectionStart; home(); const n = $("#q"); n.focus(); n.setSelectionRange(p, p); };
+  $("#saved").onclick = () => { onlySaved = !onlySaved; home(); };
+  app.querySelectorAll(".row").forEach(b => b.onclick = () => location.hash = "day-" + b.dataset.day);
+}
+
+function reader(day){
+  const list = [...STORIES].sort((a, b) => a.day - b.day);
+  const i = list.findIndex(s => s.day === day);
+  if (i < 0) return home();
+  const s = list[i], prev = list[i - 1], next = list[i + 1];
+  if (!read.includes(s.day)){ read.push(s.day); store.set("read", read); }
+  const isSaved = saved.includes(s.day);
+  app.innerHTML = `<div class="view">
+    <button class="ibtn back" id="back">← All stories</button>
+    <header class="hero"><div class="flag">${s.flag}</div><h2>${esc(s.title)}</h2>
+      <p>Day ${s.day} · ${esc(s.country)} · ${esc(fmtDate(s.date))}</p>
+      <div class="tools"><button class="ibtn" id="sm" aria-label="Smaller text">A−</button><button class="ibtn" id="lg" aria-label="Larger text">A+</button><button class="ibtn" id="sv">${isSaved ? "★ Saved" : "☆ Save"}</button></div></header>
+    <article>${s.story.map(p => `<p>${esc(p)}</p>`).join("")}</article>
+    <section class="box"><h3>🌍 Why is this story so famous?</h3><p>${esc(s.why)}</p></section>
+    <section class="box"><h3>📍 Where is it famous?</h3><p>${esc(s.where)}</p></section>
+    <section class="box"><h3>🔍 What's the real truth?</h3><p>${esc(s.truth)}</p></section>
+    <section class="box"><h3>📚 Knowledge box: ${esc(s.country)}</h3><dl>${s.info.map(x => `<dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd>`).join("")}</dl></section>
+    <div class="nav"><button id="pv" ${prev ? "" : "disabled"}>← Previous</button><button id="nx" ${next ? "" : "disabled"}>Next →</button></div></div>`;
+  window.scrollTo(0, 0);
+  $("#back").onclick = () => location.hash = "";
+  $("#sm").onclick = () => { fs = Math.max(15, fs - 1); store.set("fs", fs); applyPrefs(); };
+  $("#lg").onclick = () => { fs = Math.min(28, fs + 1); store.set("fs", fs); applyPrefs(); };
+  $("#sv").onclick = () => { saved = isSaved ? saved.filter(d => d !== s.day) : [...saved, s.day]; store.set("saved", saved); reader(day); };
+  if (prev) $("#pv").onclick = () => location.hash = "day-" + prev.day;
+  if (next) $("#nx").onclick = () => location.hash = "day-" + next.day;
+}
+
+function route(){
+  const m = location.hash.match(/^#day-(\d+)$/);
+  m ? reader(+m[1]) : home();
+}
+applyPrefs();
+addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
