@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#10333A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="World Stories">
 <title>Stories of the World</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,7 +72,7 @@ dt{color:var(--muted)}dd{margin:0}
    after the last } with a comma in between. Then re-upload / redeploy the file.
    ===================================================== */
 const TOTAL = 208;
-let STORIES = [
+const STORIES = [
 {
   day: 1, date: "2026-11-04", country: "Egypt", flag: "🇪🇬", kind: "myth",
   title: "The Curse of the Pharaoh",
@@ -168,22 +174,10 @@ function route(){
   const m = location.hash.match(/^#day-(\d+)$/);
   m ? reader(+m[1]) : home();
 }
-async function init(){
-  try {
-    const response = await fetch("stories.json?v=" + Date.now());
-    if (response.ok) {
-      const extra = await response.json();
-      if (Array.isArray(extra)) {
-        const existing = new Set(STORIES.map(s => Number(s.day)));
-        STORIES = STORIES.concat(extra.filter(s => s && !existing.has(Number(s.day))));
-      }
-    }
-  } catch (e) { console.warn("Extra stories could not be loaded yet.", e); }
-  applyPrefs();
-  addEventListener("hashchange", route);
-  route();
-}
-init();
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+applyPrefs();
+addEventListener("hashchange", route);
+route();
 </script>
 </body>
 </html>
