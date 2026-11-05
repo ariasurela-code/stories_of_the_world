@@ -65,8 +65,8 @@ def prompt_for(day, country, date_str):
   "truth": "2 से 4 हिंदी वाक्यों में प्रमाणित तथ्यों और लोककथा/अनिश्चितता का अंतर बताएँ",
   "info": [["राजधानी", "..."], ["भाषा", "..."], ["मुद्रा", "..."], ["खास बात", "देश से जुड़ी एक उपयोगी जानकारी"]],
   "images": [
-    { "url": "Wikimedia Commons की वास्तविक direct image URL", "source": "उस Commons file page का URL", "en": "English caption", "hi": "हिंदी caption", "credit": "photographer और license" },
-    { "url": "दूसरी अलग वास्तविक direct image URL", "source": "दूसरे Commons file page का URL", "en": "English caption", "hi": "हिंदी caption", "credit": "photographer और license" }
+    {{ "url": "Wikimedia Commons की वास्तविक direct image URL", "source": "उस Commons file page का URL", "en": "English caption", "hi": "हिंदी caption", "credit": "photographer और license" }},
+    {{ "url": "दूसरी अलग वास्तविक direct image URL", "source": "दूसरे Commons file page का URL", "en": "English caption", "hi": "हिंदी caption", "credit": "photographer और license" }}
   ]
 }}
 कहानी मौलिक हो, किसी स्रोत से कॉपी न हो। JSON strings में quotation marks सही तरह escape करें। JSON keys अंग्रेज़ी में ही रखें, लेकिन कहानी और सभी दिखने वाले मान हिंदी में लिखें।'''
