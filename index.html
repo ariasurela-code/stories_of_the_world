@@ -100,88 +100,190 @@ figure.inline figcaption a{color:var(--accent2)}
 .nav button:disabled{opacity:.35;cursor:default}
 @media (prefers-reduced-motion:no-preference){.view{animation:in .3s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
 @media (max-width:480px){.cover h1{font-size:1.7rem}.feature h2{font-size:1.6rem}.brand{font-size:1.25rem}}
-/* ===== bento storybook ===== */
+/* ===== v3 : concise home + bento slide reader ===== */
 :root{--vermilion:#C8372D}
-.wrap.wide{max-width:1080px}
-.cover.slim{min-height:210px}.cover.slim .in{padding:54px 22px 20px}.cover.slim h1{font-size:1.8rem}
-.prog{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 16px;margin:16px 0 14px}
-.pt{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
-.pt b{font-family:var(--serif);font-size:1.05rem;font-weight:600}
-.pbar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
-.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--vermilion));border-radius:99px;transition:width .5s}
+body.reading{overflow:hidden}
+.wrap{padding-bottom:36px}
+.seg button{padding:6px 12px}
+/* ---- home ---- */
+.feature{min-height:250px;border-radius:22px}
+.feature h2{font-size:1.6rem;margin:8px 0 4px}
+.feature p{font-size:.95rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:var(--accent);color:var(--onaccent);font-weight:600;font-size:.92rem;padding:7px 16px;border-radius:99px}
+.fprog{display:block;height:4px;border-radius:9px;background:rgba(255,255,255,.3);margin-top:12px;overflow:hidden}
+.fprog u{display:block;height:100%;background:#fff;border-radius:9px}
+.tb{display:flex;gap:8px;margin:16px 0 14px}
+.sbox{flex:1;min-width:0;display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:0 12px}
+.sbox input{flex:1;min-width:0;border:0;background:none;color:var(--ink);font:inherit;padding:11px 0;outline:none}
+.sbox:focus-within{border-color:var(--accent2)}
+.sbox .x{border:0;background:none;padding:4px 6px;color:var(--muted)}
+.grid{grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px}
+.card{border-radius:18px;position:relative}
+.card .ph{aspect-ratio:4/3}
+.card .fl{position:absolute;top:8px;left:8px;max-width:calc(100% - 46px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:rgba(10,20,25,.55);backdrop-filter:blur(4px);border-radius:99px;padding:1px 8px;font-size:.78rem;color:#fff;font-weight:600}
+.card .chk{position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;background:#fff;color:#1a7f4b;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.card .tx{padding:10px 12px 12px}
+.card b{font-size:1rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0}
+.card .meta{margin-top:4px}
+.mp{display:block;height:3px;border-radius:9px;background:var(--line);margin-top:8px;overflow:hidden}
+.mp u{display:block;height:100%;background:var(--accent)}
+.foot{margin-top:26px}
+
+/* ---- reader shell ---- */
+.rwrap{max-width:1180px;margin:0 auto;padding:0}
+.rd{height:calc(100vh - env(safe-area-inset-top,0px));height:calc(100dvh - env(safe-area-inset-top,0px));display:flex;flex-direction:column;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}
+.rtop{display:flex;align-items:center;gap:8px;flex:none}
+.rtitle{flex:1;min-width:0;line-height:1.25}
+.rtitle small{display:block;color:var(--muted);font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rtitle b{display:block;font-family:var(--serif);font-weight:600;font-size:.98rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.deck{flex:1;min-height:0;position:relative}
+.segs{display:flex;gap:4px;flex:none}
+.segs i{flex:1;height:5px;border-radius:5px;background:var(--line);transition:background .3s,transform .3s}
+.segs i.full{background:var(--accent)}
+.segs i.now{background:var(--vermilion);transform:scaleY(1.5)}
+.dock{display:flex;justify-content:space-between;gap:2px;flex:none}
+.ib{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:1px;border:0;background:none;padding:4px 0;border-radius:12px;color:var(--ink)}
+.ib span{font-size:1.2rem;line-height:1.25}
+.ib small{font-size:.64rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.ib:hover{background:var(--card)}
+.ib.on span{color:var(--vermilion)}
+.rnav{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr);gap:10px;align-items:center;flex:none}
+.rnav>button{padding:12px 8px;border-radius:16px;border:1px solid var(--line);background:var(--card);font-weight:600;min-height:48px}
+.rnav>button#nx{background:var(--accent);border-color:var(--accent);color:var(--onaccent)}
+.rnav>button:disabled{opacity:.35;cursor:default}
+.pc{text-align:center;line-height:1.2}
+.pc b{font-family:var(--serif);font-size:1.15rem}
+.pc small{display:block;color:var(--muted);font-size:.72rem}
+
+/* ---- the bento slide ---- */
+.slide{position:absolute;inset:0;display:grid;gap:10px}
+.st{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);background:linear-gradient(135deg,var(--accent2),#1b2f36);isolation:isolate;min-width:0;min-height:0}
+.m{grid-area:m;color:#fff;margin:0}.s{grid-area:s;color:#fff;margin:0}.tt{grid-area:t}
+.m::before,.s::before{content:"";position:absolute;inset:6px;border:1px solid rgba(255,255,255,.38);border-radius:16px;pointer-events:none;z-index:2}
+.m>img,.s>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--op,50% 50%);z-index:-1;animation:kb 16s ease-out both}
+@keyframes kb{from{transform:scale(1.1)}to{transform:scale(1)}}
+.ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5rem;opacity:.35;z-index:-2}
+.stamp{position:absolute;top:12px;left:12px;z-index:3;min-width:28px;height:28px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;background:var(--vermilion);color:#fff;font-family:var(--serif);font-weight:700;font-size:.82rem;border-radius:6px;transform:rotate(-4deg);box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.stamp.s{position:static;vertical-align:middle;margin-right:6px;width:auto;height:24px;min-width:24px;font-size:.74rem}
+.cr{position:absolute;top:12px;right:12px;z-index:3;max-width:58%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.66rem;padding:3px 9px;border-radius:99px;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);color:#fff;text-decoration:none}
+.mcap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:46px 18px 16px;color:#fff;background:linear-gradient(transparent,rgba(6,14,18,.86))}
+.mcap h2{margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(1.25rem,1rem + 1.4vw,2.1rem);line-height:1.2;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+/* auto contrast: bright photo -> dark heading on light scrim */
+.slide[data-tone="light"] .mcap{color:#10242b;background:linear-gradient(transparent,rgba(255,250,240,.93))}
+.slide[data-tone="light"] .mcap h2{text-shadow:none}
+.tt{background:var(--card);color:var(--ink);border-top:3px solid var(--vermilion);display:flex;flex-direction:column}
+.tscroll{flex:1;min-height:0;overflow-y:auto;padding:16px 20px 18px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.tt .more{display:none;position:absolute;left:0;right:0;bottom:0;height:34px;pointer-events:none;background:linear-gradient(transparent,var(--card));text-align:center;color:var(--muted);font-size:.9rem;line-height:44px}
+.tt.more .more{display:block}
+.kick{font-size:.82rem;letter-spacing:.03em;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;flex-wrap:wrap}
+.tt h2{font-family:var(--serif);font-weight:600;font-size:1.35rem;line-height:1.25;margin:0 0 10px}
+.otxt p{font-family:var(--serif);font-size:calc(var(--fs) - 1px);line-height:1.75;margin:0 0 .85em}
+.otxt p:last-child{margin-bottom:0}
+/* layouts (desktop) */
+.L1{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);grid-template-areas:"m t"}
+.L1r{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);grid-template-areas:"t m"}
+.L2{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);grid-template-rows:minmax(0,1.6fr) minmax(0,1fr);grid-template-areas:"m t" "s t"}
+.L2b{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);grid-template-rows:minmax(0,2.1fr) minmax(0,1fr);grid-template-areas:"m s" "t t"}
+.L3{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1.6fr) minmax(0,1fr);grid-template-areas:"m" "t"}
+.L4{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);grid-template-areas:"x"}
+.L4 .m{grid-area:x}
+.L4 .tt{grid-area:x;align-self:end;justify-self:start;width:min(46%,540px);max-height:80%;margin:18px;z-index:2;border-top:0;border-radius:20px;background:rgba(255,251,244,.92);color:#1d2a2e;backdrop-filter:blur(6px)}
+.L4.rt .tt{justify-self:end}
+.L4 .kick{color:#5b6a6e}
+.L4 .tt .more{background:linear-gradient(transparent,rgba(255,251,244,.95))}
+.slide.L4[data-tone="light"] .tt{background:rgba(12,26,32,.86);color:#f4f1ea}
+.slide.L4[data-tone="light"] .kick{color:#b9c6c9}
+.slide.L4[data-tone="light"] .tt .more{background:linear-gradient(transparent,rgba(12,26,32,.95))}
+/* 8 different opening animations (one per tile, cycling) */
+.slide .m,.slide .s,.slide .tt{animation-duration:.8s;animation-timing-function:cubic-bezier(.2,.7,.2,1);animation-fill-mode:both}
+.o0 .m{animation-name:oFade}.o1 .m{animation-name:oUp}.o2 .m{animation-name:oZoom}.o3 .m{animation-name:oFlip}
+.o4 .m{animation-name:oLeft}.o5 .m{animation-name:oBlur}.o6 .m{animation-name:oWipe}.o7 .m{animation-name:oSpin}
+.slide .s{animation-name:oZoom;animation-delay:.25s}
+.slide .tt{animation-name:oText;animation-delay:.15s}
+.o1 .tt,.o4 .tt,.o6 .tt{animation-name:oTextR}
+.rv{animation:rv .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(.35s + var(--i,0) * .1s)}
+@keyframes oFade{from{opacity:0}}
+@keyframes oUp{from{opacity:0;transform:translateY(40px)}}
+@keyframes oZoom{from{opacity:0;transform:scale(.8)}}
+@keyframes oFlip{from{opacity:0;transform:perspective(900px) rotateY(-60deg);transform-origin:left center}}
+@keyframes oLeft{from{opacity:0;transform:translateX(-50px)}}
+@keyframes oBlur{from{opacity:0;filter:blur(16px);transform:scale(1.05)}}
+@keyframes oWipe{from{clip-path:inset(0 100% 0 0 round 22px)}to{clip-path:inset(0 0 0 0 round 22px)}}
+@keyframes oSpin{from{opacity:0;transform:rotate(-6deg) scale(.86)}}
+@keyframes oText{from{opacity:0;transform:translateY(26px)}}
+@keyframes oTextR{from{opacity:0;transform:translateX(34px)}}
+@keyframes rv{from{opacity:0;transform:translateY(12px)}}
+/* slide-to-slide transition (one slide at a time) */
+.slide.enter-r{animation:enR .45s cubic-bezier(.2,.7,.2,1)}
+.slide.enter-l{animation:enL .45s cubic-bezier(.2,.7,.2,1)}
+.slide.enter-z{animation:enZ .5s cubic-bezier(.2,.7,.2,1)}
+.slide.leave-l{animation:lvL .2s ease-in forwards}
+.slide.leave-r{animation:lvR .2s ease-in forwards}
+@keyframes enR{from{opacity:0;transform:translateX(8%)}}
+@keyframes enL{from{opacity:0;transform:translateX(-8%)}}
+@keyframes enZ{from{opacity:0;transform:scale(.97)}}
+@keyframes lvL{to{opacity:0;transform:translateX(-7%) scale(.98)}}
+@keyframes lvR{to{opacity:0;transform:translateX(7%) scale(.98)}}
+@media (prefers-reduced-motion:reduce){.slide,.slide *,.sheet *,.tile{animation:none!important;transition:none!important}}
+
+/* ---- sheets (separate sections: all tiles / full text / facts / sources) ---- */
+.sheet{position:fixed;inset:0;z-index:60;display:flex;align-items:flex-end;justify-content:center}
+.sheet[hidden]{display:none}
+.sh-bg{position:absolute;inset:0;background:rgba(5,12,16,.6);backdrop-filter:blur(3px);animation:fadeIn .25s}
+.sh-box{position:relative;width:100%;max-width:980px;max-height:90vh;max-height:90dvh;background:var(--bg);color:var(--ink);border-radius:24px 24px 0 0;display:flex;flex-direction:column;animation:sheetUp .35s cubic-bezier(.2,.7,.2,1);border:1px solid var(--line)}
+.sh-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px 10px}
+.sh-top b{font-family:var(--serif);font-size:1.2rem;font-weight:600}
+.sh-body{overflow-y:auto;padding:4px 16px calc(20px + env(safe-area-inset-bottom,0px));-webkit-overflow-scrolling:touch}
+.sh-body .otxt p{font-size:var(--fs)}
+.sh-body .box{margin:0 0 12px}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes sheetUp{from{transform:translateY(40px);opacity:0}}
+@media (min-width:800px){.sheet{align-items:center}.sh-box{border-radius:24px}}
+.sh-body p.cred{font-size:.8rem;color:var(--muted);margin:0 0 6px}
+.sh-body p.cred a{color:var(--accent2)}
+/* bento overview grid (inside the "All tiles" sheet) */
 .bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:128px;gap:12px}
 .tile{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:20px;padding:0;text-align:left;color:#fff;background:linear-gradient(135deg,var(--accent2),#1b2f36);box-shadow:var(--shadow);grid-column:var(--dc);grid-row:var(--dr);isolation:isolate;transition:transform .25s,box-shadow .25s}
 .tile:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(10,20,25,.28)}
 .tile>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .tile:hover>img{transform:scale(1.07)}
-.tile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,14,18,.05) 35%,rgba(6,14,18,.82) 100%)}
+.tile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,14,18,.05) 35%,rgba(6,14,18,.85) 100%)}
 .tile::before{content:"";position:absolute;inset:6px;border:1px solid rgba(255,255,255,.4);border-radius:15px;pointer-events:none;z-index:1}
-.ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.35;z-index:-2}
-.stamp{position:absolute;top:12px;left:12px;z-index:2;min-width:28px;height:28px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;background:var(--vermilion);color:#fff;font-family:var(--serif);font-weight:700;font-size:.82rem;border-radius:6px;transform:rotate(-4deg);box-shadow:0 2px 6px rgba(0,0,0,.35)}
-.stamp.s{position:static;display:inline-flex;vertical-align:middle;margin-right:6px}
+.tile.cur{outline:3px solid var(--vermilion);outline-offset:2px}
+.tile .stamp{top:12px;left:12px}
 .ok{position:absolute;top:12px;right:12px;z-index:2;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.92);color:#1a7f4b;font-size:.85rem;font-weight:700;display:none;align-items:center;justify-content:center}
 .tile.seen .ok{display:flex}
-.cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 16px;z-index:2;display:block}
-.cap h3{font-family:var(--serif);font-weight:600;font-size:1.02rem;line-height:1.25;margin:0;text-shadow:0 1px 8px rgba(0,0,0,.5)}
-.tile.d-big .cap h3{font-size:1.45rem}
-.ex{display:none;margin-top:6px;font-size:.92rem;line-height:1.45;opacity:.92;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.tile.d-big .ex{display:-webkit-box}
-.hint{text-align:center;color:var(--muted);font-size:.86rem;margin:12px 0 4px}
-.fulltext{margin:18px 0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:4px 18px}
-.fulltext summary{cursor:pointer;padding:12px 0;font-weight:600}
-.pre{opacity:0}
-.in{animation-duration:.75s;animation-timing-function:cubic-bezier(.2,.7,.2,1);animation-fill-mode:backwards;animation-delay:var(--d,0ms)}
-.tile.a0.in{animation-name:tFade}.tile.a1.in{animation-name:tUp}.tile.a2.in{animation-name:tZoom}
-.tile.a3.in{animation-name:tFlip}.tile.a4.in{animation-name:tLeft}.tile.a5.in{animation-name:tBlur}
-@keyframes tFade{from{opacity:0}}
-@keyframes tUp{from{opacity:0;transform:translateY(34px)}}
-@keyframes tZoom{from{opacity:0;transform:scale(.82)}}
-@keyframes tFlip{from{opacity:0;transform:perspective(700px) rotateX(-65deg);transform-origin:top}}
-@keyframes tLeft{from{opacity:0;transform:translateX(-40px)}}
-@keyframes tBlur{from{opacity:0;filter:blur(14px);transform:scale(1.06)}}
-@media (prefers-reduced-motion:reduce){.pre{opacity:1}.in{animation:none!important}}
-/* overlay */
-body.lock{overflow:hidden}
-.ov{position:fixed;inset:0;z-index:50;background:#0b161b;color:#f4f1ea;display:flex;flex-direction:column;animation:ovIn .3s ease-out}
-.ov[hidden]{display:none}
-@keyframes ovIn{from{opacity:0;transform:scale(1.03)}}
-.osegs{display:flex;gap:4px;padding:10px 14px 0;padding-top:max(10px,env(safe-area-inset-top))}
-.osegs i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.22)}
-.osegs i.full{background:var(--accent)}.osegs i.now{background:#fff}
-.otop{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px}
-.otitle{font-family:var(--serif);opacity:.8;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.ov .seg,.ov .ibtn{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#fff}
-.ov .seg button[aria-pressed="true"]{background:var(--accent);color:#1b1306}
-.stage{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
-.stage.in-r{animation:sR .4s cubic-bezier(.2,.7,.2,1)}.stage.in-l{animation:sL .4s cubic-bezier(.2,.7,.2,1)}.stage.in-z{animation:sZ .45s cubic-bezier(.2,.7,.2,1)}
-@keyframes sR{from{opacity:0;transform:translateX(60px)}}@keyframes sL{from{opacity:0;transform:translateX(-60px)}}@keyframes sZ{from{opacity:0;transform:scale(.94)}}
-.ohero{position:relative;margin:0 14px;height:42vh;min-height:190px;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,var(--accent2),#1b2f36);border:1px solid rgba(255,255,255,.18);flex:none}
-.ohero img{width:100%;height:100%;object-fit:cover;display:block}
-.ohero figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 8px;font-size:.74rem;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.7))}
-.ohero figcaption a{color:#ffd9a0}
-.obody{flex:1;min-height:0;overflow-y:auto;padding:16px 20px 12px;-webkit-overflow-scrolling:touch}
-.kick{font-size:.84rem;letter-spacing:.04em;color:#cfc9bb;margin-bottom:6px}
-.obody h2{font-family:var(--serif);font-weight:600;font-size:1.65rem;line-height:1.22;margin:0 0 12px}
-.otxt p{font-family:var(--serif);font-size:var(--fs);line-height:1.85;margin:0 0 1em;color:#f1ede4}
-.onav{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px;padding-bottom:max(12px,env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.12)}
-.onav button{padding:13px;border-radius:14px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-weight:600}
-.onav button:last-child{background:var(--accent);color:#1b1306;border-color:var(--accent)}
-.onav button:disabled{opacity:.3}
-@media (min-width:900px){
-  .stage{flex-direction:row;max-width:1180px;width:100%;margin:0 auto;padding:6px 14px 6px;gap:26px}
-  .ohero{flex:1.15;margin:0;height:auto;min-height:0}
-  .obody{flex:1;padding:18px 8px 12px 0}
-  .obody h2{font-size:2.2rem}
-  .osegs,.otop,.onav{max-width:1180px;width:100%;margin:0 auto}
-  .onav{border-top:0}
-}
-@media (max-width:640px){
+.cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 14px;z-index:2;display:block}
+.cap h3{font-family:var(--serif);font-weight:600;font-size:1rem;line-height:1.25;margin:0;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.tile.d-big .cap h3{font-size:1.4rem}
+.tile.in{animation-duration:.6s;animation-timing-function:cubic-bezier(.2,.7,.2,1);animation-fill-mode:backwards;animation-delay:var(--d,0ms)}
+.tile.a0.in{animation-name:oFade}.tile.a1.in{animation-name:oUp}.tile.a2.in{animation-name:oZoom}.tile.a3.in{animation-name:oFlip}.tile.a4.in{animation-name:oLeft}.tile.a5.in{animation-name:oBlur}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);background:#10333A;color:#fff;padding:9px 18px;border-radius:99px;font-size:.9rem;opacity:0;pointer-events:none;transition:.25s;z-index:80;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (min-width:701px){.otxt p{font-size:calc(var(--fs) + 1px)}.tt h2{font-size:1.6rem}.tscroll{padding:20px 26px 22px}}
+/* ---- phones ---- */
+@media (max-width:700px){
+  .brand{font-size:1.15rem}.brand small{font-size:.7rem}
+  .feature{min-height:220px}.feature h2{font-size:1.4rem}
+  .rd{padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));gap:6px}
+  .L1,.L1r,.L3{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1.3fr) minmax(0,1fr);grid-template-areas:"m" "t"}
+  .L2,.L2b{grid-template-columns:minmax(0,2fr) minmax(0,1fr);grid-template-rows:minmax(0,1.2fr) minmax(0,1fr);grid-template-areas:"m s" "t t"}
+  .L4 .tt{width:auto;justify-self:stretch;margin:10px;max-height:66%}
+  .st{border-radius:18px}
+  .tscroll{padding:12px 16px 16px}
+  .otxt p{font-size:calc(var(--fs) - 3px);line-height:1.65}
+  .tt h2{font-size:1.15rem}
+  .mcap{padding:34px 14px 12px}.mcap h2{font-size:1.2rem}
+  .s .cr{display:none}
   .bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:104px;gap:10px}
   .tile{grid-column:var(--mc);grid-row:var(--mr);border-radius:16px}
-  .tile.d-big .ex{display:none}.tile.m-big .ex{display:-webkit-box}
-  .tile.d-big .cap h3{font-size:1.02rem}.tile.m-big .cap h3{font-size:1.28rem}
-  .cover.slim h1{font-size:1.5rem}
+  .tile.d-big .cap h3{font-size:1rem}.tile.m-big .cap h3{font-size:1.25rem}
 }
+@media (max-height:520px) and (orientation:landscape){
+  .dock .ib small{display:none}.rtop .rtitle small{display:none}
+}
+
 </style>
 </head>
 <body>
@@ -307,7 +409,10 @@ function toggleTheme(){
   const dark = theme ? theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
   theme = dark ? "light" : "dark"; store.set("theme", theme); applyPrefs();
 }
-function setLanguage(next){ language = next; store.set("language", next); applyPrefs(); route(); }
+function setLanguage(next){
+  language = next; store.set("language", next); applyPrefs();
+  if (R && $("#deck")){ const d = R.day, k = R.idx; TC[d] = 0; mountReader(d, k); } else route();
+}
 
 const langSeg = () => `<div class="seg" role="group" aria-label="Language"><button class="lg-hi" aria-pressed="${language==="hi"}">हिंदी</button><button class="lg-en" aria-pressed="${language==="en"}">English</button></div>`;
 const bindCommon = () => {
@@ -315,39 +420,11 @@ const bindCommon = () => {
   const t = $("#theme"); if (t) t.onclick = toggleTheme;
 };
 
-function home(){
-  app.classList.remove("wide"); document.body.classList.remove("lock"); window.onscroll = null; $("#progress").style.width = "0";
-  const all = sorted();
-  const needle = q.trim().toLowerCase();
-  const list = all.filter(s => (!onlySaved || saved.includes(s.day)) &&
-    (!needle || (s.country + " " + tr(s, "title") + " " + (tr(s, "info") || []).map(x => x.join(" ")).join(" ")).toLowerCase().includes(needle)));
-  const latest = all[0];
-  const showFeature = latest && !needle && !onlySaved;
-  const rest = showFeature ? list.filter(s => s.day !== latest.day) : list;
-  const card = s => { const im = imgs(s)[0]; return `<button class="card" data-day="${s.day}">
-      <div class="ph">${im ? imgTag(im) : s.flag}</div>
-      <div class="tx"><div class="meta"><span>${s.flag} ${esc(s.country)}</span><span>· ${esc(kindLabel(s))}</span>${read.includes(s.day) ? `<span class="done">· ✓</span>` : ""}</div>
-      <b>${esc(tr(s, "title"))}</b></div></button>`; };
-  app.innerHTML = `<div class="view">
-    <div class="bar"><h1 class="brand">Stories of the World<small>${L("हर दिन, एक देश की एक कहानी", "One country · One story · Every day")}</small></h1>
-      <div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="Theme">◐</button></div></div>
-    ${showFeature ? (() => { const im = imgs(latest)[0]; return `<button class="feature" data-day="${latest.day}">${imgTag(im)}
-      <div class="in"><span class="tag k">${L("आज की कहानी", "Today's story")}</span> <span class="tag">${latest.flag} ${esc(latest.country)}</span>
-      <h2>${esc(tr(latest, "title"))}</h2><p>${esc(teaser(latest))}</p></div></button>`; })() : ""}
-    <input class="search" id="q" type="search" placeholder="${L("देश या कहानी खोजें", "Search a country or story")}" value="${esc(q)}" aria-label="Search">
-    <div class="filters"><button class="chip" id="saved" aria-pressed="${onlySaved}">★ ${L("सहेजी हुई", "Saved")}</button>
-      <span class="count">${STORIES.length} / ${TOTAL} ${L("देश", "countries")}</span></div>
-    ${rest.length ? `<div class="grid">${rest.map(card).join("")}</div>` : (showFeature ? "" : `<p class="empty">${L("कोई कहानी नहीं मिली।", "No stories found.")}</p>`)}
-    <p class="foot">${L("तस्वीरें: Wikimedia Commons", "Photos: Wikimedia Commons")}</p></div>`;
-  bindCommon();
-  $("#q").oninput = e => { q = e.target.value; const p = e.target.selectionStart; home(); const n = $("#q"); n.focus(); n.setSelectionRange(p, p); };
-  $("#saved").onclick = () => { onlySaved = !onlySaved; home(); };
-  app.querySelectorAll("[data-day]").forEach(b => b.onclick = () => location.hash = "day-" + b.dataset.day);
-}
-
-/* ================= BENTO STORYBOOK ================= */
-let curDay = null, curTiles = [], curStory = null, curIdx = -1;
-
+/* ================= SHARED: tiles ================= */
+let R = null, loaded = false, lockUntil = 0;
+const FS_STEPS = [16, 18, 20, 23, 26];
+const reduceMotion = matchMedia("(prefers-reduced-motion:reduce)").matches;
+const pad = n => String(n).padStart(2, "0");
 const tilesRead = () => store.get("tiles", {});
 function markTile(day, i, total){
   const all = tilesRead(), arr = all[day] || [];
@@ -356,7 +433,7 @@ function markTile(day, i, total){
   return arr;
 }
 
-/* Same grouping rule as scripts/generate_story.py (plan_groups) - used only when a story has no saved tile plan. */
+/* Same grouping rule as scripts/generate_story.py (plan_groups) - only used when a story has no saved tile plan. */
 function fallbackPlan(n){
   const s = Math.max(1, Math.min(n, Math.max(6, Math.min(11, n))));
   const base = Math.floor(n / s), extra = n % s, out = []; let i = 0;
@@ -364,6 +441,7 @@ function fallbackPlan(n){
   return out;
 }
 
+/* Every story -> chronological tiles (10-15). Each tile = heading + a slice of the story + an image. Nothing is dropped. */
 function buildTiles(s){
   const paras = tr(s, "story") || [];
   const plan = (Array.isArray(s.tiles) && s.tiles.length) ? s.tiles : fallbackPlan(paras.length);
@@ -384,8 +462,11 @@ function buildTiles(s){
   });
   return tiles;
 }
+const TC = {};
+const tileTotal = s => TC[s.day] || (TC[s.day] = buildTiles(s).length);
+const coverOf = s => imgs(s)[0] || (buildTiles(s).find(t => t.img) || {}).img || null;
 
-/* Bento placement: every block fills exactly 2 grid rows (desktop, 6 cols) so there are never gaps. */
+/* Bento placement for the "All tiles" sheet: every block fills exactly 2 grid rows (desktop, 6 cols) -> no gaps. */
 const DBLK = {
   A: [[1,1,4,2],[5,1,2,1],[5,2,2,1]], B: [[1,1,2,1],[1,2,2,1],[3,1,4,2]], C: [[1,1,2,2],[3,1,2,2],[5,1,2,2]],
   E: [[1,1,3,2],[4,1,3,2]], F: [[1,1,2,2],[3,1,4,2]], G: [[1,1,1,1]]
@@ -413,136 +494,255 @@ function layoutFor(n){
   return out;
 }
 
-const excerpt = t => { const x = (t.text[0] || "").replace(/\s+/g, " "); const m = x.match(/^.{40,130}?[।.!?]/); return m ? m[0] : (x.length > 120 ? x.slice(0, 117).replace(/\s+\S*$/, "") + "…" : x); };
-const pad = n => String(n).padStart(2, "0");
+/* ================= HOME (concise) ================= */
+function toast(msg){
+  const t = $("#toast"); if (!t) return;
+  t.textContent = msg; t.classList.add("show"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("show"), 1800);
+}
+function home(){
+  R = null; document.body.classList.remove("reading", "lock"); app.className = "wrap";
+  const all = sorted(), needle = q.trim().toLowerCase(), rd = tilesRead();
+  const list = all.filter(s => (!onlySaved || saved.includes(s.day)) &&
+    (!needle || (s.country + " " + tr(s, "title") + " " + (tr(s, "info") || []).map(x => x.join(" ")).join(" ")).toLowerCase().includes(needle)));
+  const latest = all[0];
+  const showFeature = latest && !needle && !onlySaved;
+  const rest = showFeature ? list.filter(s => s.day !== latest.day) : list;
+  const prog = s => { const n = tileTotal(s); return {n, d: (rd[s.day] || []).filter(k => k < n).length}; };
+  const card = s => { const im = coverOf(s), p = prog(s);
+    return `<button class="card" data-day="${s.day}" aria-label="${esc(s.country)}: ${esc(tr(s, "title"))}">
+      <div class="ph">${im ? imgTag(im) : s.flag}<span class="fl">${s.flag} ${esc(s.country)}</span>${p.d >= p.n ? `<span class="chk">✓</span>` : ""}</div>
+      <div class="tx"><b>${esc(tr(s, "title"))}</b><div class="meta"><span>${esc(kindLabel(s))}</span><span>· ${L("दिन", "Day")} ${s.day}</span></div>
+      ${p.d > 0 && p.d < p.n ? `<i class="mp"><u style="width:${p.d / p.n * 100}%"></u></i>` : ""}</div></button>`; };
+  let feat = "";
+  if (showFeature){ const im = coverOf(latest), p = prog(latest);
+    feat = `<button class="feature" data-day="${latest.day}">${imgTag(im)}
+      <div class="in"><span class="tag k">${L("आज की कहानी", "Today's story")}</span> <span class="tag">${latest.flag} ${esc(latest.country)}</span>
+      <h2>${esc(tr(latest, "title"))}</h2><p>${esc(teaser(latest))}</p>
+      <span class="go">${p.d >= p.n ? L("↺ फिर से पढ़ें", "↺ Read again") : p.d > 0 ? L("▶ आगे पढ़ें", "▶ Continue") : L("▶ पढ़ना शुरू करें", "▶ Start reading")}</span>
+      ${p.d > 0 && p.d < p.n ? `<span class="fprog"><u style="width:${p.d / p.n * 100}%"></u></span>` : ""}</div></button>`; }
+  app.innerHTML = `<div class="view">
+    <div class="bar"><h1 class="brand">Stories of the World<small>${STORIES.length} / ${TOTAL} ${L("देश", "countries")}</small></h1>
+      <div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="${L("थीम बदलें", "Switch theme")}">◐</button></div></div>
+    ${feat}
+    <div class="tb"><label class="sbox"><span aria-hidden="true">🔎</span><input id="q" type="search" placeholder="${L("देश या कहानी खोजें", "Search a country or story")}" value="${esc(q)}" aria-label="Search">${q ? `<button class="x" id="qx" aria-label="${L("साफ़ करें", "Clear")}">✕</button>` : ""}</label>
+      <button class="chip" id="saved" aria-pressed="${onlySaved}">★ ${L("सहेजी", "Saved")}</button></div>
+    ${rest.length ? `<div class="grid">${rest.map(card).join("")}</div>` : (showFeature ? "" : `<p class="empty">${onlySaved && !saved.length ? L("अभी कोई कहानी सहेजी नहीं गई। कहानी में ☆ दबाएँ।", "No saved stories yet. Tap ☆ inside a story.") : L("कोई कहानी नहीं मिली।", "No stories found.")}</p>`)}
+    <p class="foot">${L("तस्वीरें: Wikimedia Commons", "Photos: Wikimedia Commons")}</p></div><div class="toast" id="toast" role="status"></div>`;
+  bindCommon();
+  window.scrollTo(0, 0);
+  $("#q").oninput = e => { q = e.target.value; const p = e.target.selectionStart; home(); const n = $("#q"); n.focus(); n.setSelectionRange(p, p); };
+  const qx = $("#qx"); if (qx) qx.onclick = () => { q = ""; home(); };
+  $("#saved").onclick = () => { onlySaved = !onlySaved; home(); };
+  app.querySelectorAll("[data-day]").forEach(b => b.onclick = () => location.hash = "day-" + b.dataset.day);
+}
 
-function reader(day, tileNo){
+/* ================= SLIDE READER ================= */
+function imgFail(i){ if (i.hasAttribute("crossorigin")){ i.removeAttribute("crossorigin"); i.src = i.src; } else i.remove(); }
+/* If the photo is bright, switch the heading / glass panel to the dark style (and vice-versa) so text never matches the picture. */
+function tone(i){
+  const sl = i.closest(".slide"); if (!sl || !i.closest(".m") || !i.hasAttribute("crossorigin")) return;
+  try {
+    const c = document.createElement("canvas"); c.width = c.height = 24;
+    const x = c.getContext("2d", {willReadFrequently: true}), w = i.naturalWidth, h = i.naturalHeight;
+    x.drawImage(i, 0, h * .5, w, h * .5, 0, 0, 24, 24);
+    const d = x.getImageData(0, 0, 24, 24).data; let sum = 0;
+    for (let p = 0; p < d.length; p += 4) sum += .2126 * d[p] + .7152 * d[p + 1] + .0722 * d[p + 2];
+    sl.dataset.tone = (sum / (d.length / 4) / 255) > .58 ? "light" : "dark";
+  } catch(e){}
+}
+const slideImg = im => im ? `<img src="${esc(im.url)}" alt="${esc(capOf(im))}" crossorigin="anonymous" referrerpolicy="no-referrer" decoding="async" onload="tone(this)" onerror="imgFail(this)">` : "";
+const credit = im => !im || !im.credit ? "" : (im.source
+  ? `<a class="cr" href="${esc(im.source)}" target="_blank" rel="noopener noreferrer" title="${esc(capOf(im))}">📷 ${esc(im.credit)} ↗</a>`
+  : `<span class="cr">📷 ${esc(im.credit)}</span>`);
+const OPS = ["50% 50%", "30% 40%", "70% 55%", "50% 30%", "40% 60%", "65% 45%"];
+
+function layoutOf(k, hasM, hasS){
+  if (!hasM) return ["L1", "L1r", "L3"][k % 3];
+  const seq = hasS ? ["L2", "L4", "L2b", "L1r", "L1", "L4"] : ["L1", "L4", "L1r", "L3"];
+  return seq[k % seq.length];
+}
+function secondaryFor(k, m){
+  const p = R.pool; if (p.length < 2) return null;
+  for (let j = 0; j < p.length; j++){ const c = p[(k * 3 + 1 + j) % p.length]; if (!m || c.url !== m.url) return c; }
+  return null;
+}
+
+function slideHtml(k){
+  const t = R.tiles[k], s = R.story, total = R.tiles.length;
+  const m = t.img, sec = m ? secondaryFor(k, m) : null;
+  const lay = layoutOf(k, !!m, !!sec);
+  const hasSec = sec && (lay === "L2" || lay === "L2b");
+  const head = `<h2>${esc(t.h)}</h2>`;
+  const media = `<figure class="st m" style="--op:${OPS[k % OPS.length]}">${m ? slideImg(m) : ""}${m ? "" : `<span class="ghost">${s.flag}</span>`}
+    <span class="stamp">${pad(k + 1)}</span>${credit(m)}${lay === "L4" ? "" : `<figcaption class="mcap">${head}</figcaption>`}</figure>`;
+  const second = hasSec ? `<figure class="st s" style="--op:${OPS[(k + 3) % OPS.length]}">${slideImg(sec)}${credit(sec)}</figure>` : "";
+  const text = `<div class="st tt"><div class="tscroll">
+      <div class="kick rv" style="--i:0">${k + 1} / ${total} · ${s.flag} ${esc(s.country)}</div>
+      ${lay === "L4" ? `<h2 class="rv" style="--i:1">${esc(t.h)}</h2>` : ""}
+      <div class="otxt">${t.text.map((p, n) => `<p class="rv" style="--i:${n + 2}">${esc(p)}</p>`).join("")}</div></div><span class="more" aria-hidden="true">⌄</span></div>`;
+  return `<article class="slide ${lay}${lay === "L4" && ((k >> 1) % 2) ? " rt" : ""} o${k % 8}" data-tone="dark" aria-label="${esc(t.h)}">${media}${second}${text}</article>`;
+}
+
+function dockBtn(id, icon, hi, en, extra = ""){
+  return `<button class="ib ${extra}" id="${id}" aria-label="${L(hi[1], en[1])}" title="${L(hi[1], en[1])}"><span aria-hidden="true">${icon}</span><small>${L(hi[0], en[0])}</small></button>`;
+}
+
+function mountReader(day, idx){
   const list = [...STORIES].sort((a, b) => a.day - b.day);
   const i = list.findIndex(s => s.day === day);
   if (i < 0) return home();
-  const s = list[i], prev = list[i - 1], next = list[i + 1];
-  const isSaved = saved.includes(s.day);
-  const pics = imgs(s);
-  const tiles = buildTiles(s), lay = layoutFor(tiles.length);
-  curDay = day; curStory = s; curTiles = tiles;
-  const done = tilesRead()[day] || [];
-  const srcs = sourcesOf(s);
-  const tileHtml = tiles.map((t, k) => `<button class="tile pre a${k % 6}${lay[k].big ? " d-big" : ""}${lay[k].mbig ? " m-big" : ""}${t.img ? "" : " noimg"}${done.includes(k) ? " seen" : ""}" data-i="${k}"
-      style="--dc:${lay[k].dc};--dr:${lay[k].dr};--mc:${lay[k].mc};--mr:${lay[k].mr};--d:${(k % 4) * 90}ms" aria-label="${esc(t.h)}">
-      ${t.img ? imgTag(t.img) : `<span class="ghost">${s.flag}</span>`}
-      <span class="stamp">${pad(k + 1)}</span><span class="ok" aria-hidden="true">✓</span>
-      <span class="cap"><h3>${esc(t.h)}</h3><span class="ex">${esc(excerpt(t))}</span></span></button>`).join("");
-  app.innerHTML = `<div class="view story-view">
-    <div class="bar"><button class="ibtn" id="back">← ${L("सभी कहानियाँ", "All stories")}</button><div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="Theme">◐</button></div></div>
-    <header class="cover slim">${imgTag(pics[0] || (tiles[0] && tiles[0].img))}<div class="in">
-      <span class="tag k">${esc(kindLabel(s))}</span> <span class="tag">${s.flag} ${esc(s.country)}</span>
-      <h1>${esc(tr(s, "title"))}</h1>
-      <div class="m">${L("दिन", "Day")} ${s.day} · ${esc(fmtDate(s.date))} · ${minutes(s)} ${L("मिनट का पाठ", "min read")}</div></div></header>
-    <div class="tools"><button class="ibtn" id="sm" aria-label="Smaller text">A−</button><button class="ibtn" id="lg" aria-label="Larger text">A+</button><button class="ibtn" id="sv">${isSaved ? L("★ सहेजी गई", "★ Saved") : L("☆ सहेजें", "☆ Save")}</button>${navigator.share ? `<button class="ibtn" id="sh">${L("↗ साझा करें", "↗ Share")}</button>` : ""}</div>
-    ${tr(s, "teaser") ? `<p class="lede">${esc(tr(s, "teaser"))}</p>` : ""}
-    <div class="prog"><div class="pt"><b id="pcount"></b><button class="ibtn" id="go"></button></div><div class="pbar"><i id="pfill"></i></div></div>
-    <div class="bento" id="bento">${tileHtml}</div>
-    <p class="hint">${L("किसी भी टाइल को छुएँ और कहानी को पूरे पर्दे पर पढ़ें · ← → से आगे-पीछे", "Tap any tile to read it full-screen · use ← → to move")}</p>
-    <details class="fulltext"><summary>📖 ${L("पूरी कहानी एक साथ पढ़ें", "Read the whole story as text")}</summary><article>${(tr(s, "story") || []).map((p, n) => `<p class="${n === 0 ? "first" : ""}">${esc(p)}</p>`).join("")}</article></details>
-    <section class="box"><h3>📚 ${esc(s.country)} — ${L("जानने लायक बातें", "Quick facts")}</h3><dl class="facts">${(tr(s, "info") || []).map(x => `<div><dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd></div>`).join("")}</dl></section>
-    <section class="box"><h3>🔗 ${L("और गहराई से जानें", "Go deeper")}</h3><ul class="src">${srcs.map(x => `<li><a href="${esc(language === "hi" && x.hi_url ? x.hi_url : x.url)}" target="_blank" rel="noopener noreferrer"><b>${esc(x.title)} ↗</b><span>${esc(x.publisher || "Wikipedia")}${x.note ? " · " + esc(x.note) : ""}</span></a></li>`).join("")}</ul></section>
-    <div class="nav"><button id="pv" ${prev ? "" : "disabled"}><small>← ${L("पिछली कहानी", "Previous story")}</small><b>${prev ? esc(tr(prev, "title")) : ""}</b></button><button id="nx" ${next ? "" : "disabled"}><small>${L("अगली कहानी", "Next story")} →</small><b>${next ? esc(tr(next, "title")) : ""}</b></button></div></div>
-    <div class="ov" id="ov" hidden></div>`;
-  app.classList.add("wide"); window.scrollTo(0, 0); bindCommon();
-  window.onscroll = null; $("#progress").style.width = "0";
-  $("#back").onclick = () => location.hash = "";
-  $("#sm").onclick = () => { fs = Math.max(15, fs - 1); store.set("fs", fs); applyPrefs(); };
-  $("#lg").onclick = () => { fs = Math.min(28, fs + 1); store.set("fs", fs); applyPrefs(); };
-  $("#sv").onclick = () => { saved = isSaved ? saved.filter(d => d !== s.day) : [...saved, s.day]; store.set("saved", saved); reader(day); };
-  const sh = $("#sh"); if (sh) sh.onclick = () => navigator.share({title: tr(s, "title"), text: teaser(s), url: location.href.split("#")[0]}).catch(() => {});
-  if (prev) $("#pv").onclick = () => location.hash = "day-" + prev.day;
-  if (next) $("#nx").onclick = () => location.hash = "day-" + next.day;
-  app.querySelectorAll(".tile").forEach(b => b.onclick = () => location.hash = `day-${day}/${+b.dataset.i + 1}`);
-  updateProgress();
-  revealTiles();
-  if (tileNo) showTile(tileNo - 1, 0);
+  const s = list[i], tiles = buildTiles(s), seen = new Set();
+  const pool = [...tiles.map(t => t.img), ...imgs(s)].filter(x => x && x.url && !seen.has(x.url) && seen.add(x.url));
+  tiles.forEach((t, k) => {   // a tile without its own photo borrows one from the story (never the same as the previous tile)
+    if (!t.img && pool.length){ let c = pool[(k * 2 + 1) % pool.length]; const pv = tiles[k - 1] && tiles[k - 1].img;
+      if (pv && c.url === pv.url && pool.length > 1) c = pool[(k * 2 + 2) % pool.length]; t.img = c; }
+  });
+  R = {day, story: s, tiles, pool, prev: list[i - 1], next: list[i + 1], idx: -1};
+  document.body.classList.add("reading"); document.body.classList.remove("lock"); app.className = "rwrap";
+  const isSaved = saved.includes(day);
+  app.innerHTML = `<div class="rd">
+    <header class="rtop"><button class="ibtn sq" id="back" aria-label="${L("होम पर जाएँ", "Back to home")}" title="${L("होम", "Home")}">←</button>
+      <div class="rtitle"><small>${s.flag} ${esc(s.country)} · ${L("दिन", "Day")} ${s.day} · ${minutes(s)} ${L("मिनट", "min")}</small><b>${esc(tr(s, "title"))}</b></div>
+      ${langSeg()}<button class="ibtn sq" id="theme" aria-label="${L("थीम बदलें", "Switch theme")}">◐</button></header>
+    <main class="deck" id="deck"></main>
+    <div class="segs" id="segs" aria-hidden="true"></div>
+    <div class="dock">
+      ${dockBtn("bt-tiles", "▦", ["टाइलें", "सभी टाइलें देखें"], ["Tiles", "See all tiles"])}
+      ${dockBtn("bt-text", "📖", ["पाठ", "पूरी कहानी पढ़ें"], ["Text", "Read the full story"])}
+      ${dockBtn("bt-facts", "📚", ["तथ्य", "जानने लायक बातें"], ["Facts", "Quick facts"])}
+      ${dockBtn("bt-src", "🔗", ["स्रोत", "स्रोत और तस्वीरों का श्रेय"], ["Sources", "Sources and photo credits"])}
+      ${dockBtn("bt-save", isSaved ? "★" : "☆", ["सहेजें", "कहानी सहेजें"], ["Save", "Save this story"], isSaved ? "on" : "")}
+      ${dockBtn("bt-share", "↗", ["साझा", "कहानी साझा करें"], ["Share", "Share this story"])}
+      ${dockBtn("bt-fs", "Aa", ["अक्षर", "अक्षरों का आकार बदलें"], ["Size", "Change text size"])}
+    </div>
+    <nav class="rnav"><button id="pv"></button><div class="pc" id="pc"></div><button id="nx"></button></nav></div>
+    <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="shT"><div class="sh-bg" id="shbg"></div>
+      <div class="sh-box"><div class="sh-top"><b id="shT"></b><button class="ibtn sq" id="shx" aria-label="${L("बंद करें", "Close")}">✕</button></div><div class="sh-body" id="shB"></div></div></div>
+    <div class="toast" id="toast" role="status"></div>`;
+  window.scrollTo(0, 0); bindCommon();
+  $("#back").onclick = () => { location.hash = ""; };
+  $("#pv").onclick = () => step(-1);
+  $("#nx").onclick = () => step(1);
+  $("#bt-tiles").onclick = () => openSheet("tiles");
+  $("#bt-text").onclick = () => openSheet("text");
+  $("#bt-facts").onclick = () => openSheet("facts");
+  $("#bt-src").onclick = () => openSheet("src");
+  $("#bt-save").onclick = () => {
+    saved = saved.includes(day) ? saved.filter(d => d !== day) : [...saved, day]; store.set("saved", saved);
+    const on = saved.includes(day), b = $("#bt-save");
+    b.classList.toggle("on", on); b.firstElementChild.textContent = on ? "★" : "☆";
+    toast(on ? L("कहानी सहेज ली गई", "Story saved") : L("सहेजी हुई सूची से हटाई गई", "Removed from saved"));
+  };
+  $("#bt-share").onclick = async () => {
+    const data = {title: tr(s, "title"), text: teaser(s), url: location.href.split("#")[0] + "#day-" + day};
+    try { if (navigator.share){ await navigator.share(data); return; } } catch(e){ if (e && e.name === "AbortError") return; }
+    try { await navigator.clipboard.writeText(data.url); toast(L("लिंक कॉपी हो गया", "Link copied")); } catch(e){ toast(data.url); }
+  };
+  $("#bt-fs").onclick = () => {
+    const nx = FS_STEPS.find(v => v > fs) || FS_STEPS[0]; fs = nx; store.set("fs", fs); applyPrefs();
+    toast(L("अक्षर आकार: ", "Text size: ") + fs); checkMore();
+  };
+  $("#shx").onclick = closeSheet; $("#shbg").onclick = closeSheet;
+  const deck = $("#deck");
+  deck.addEventListener("touchstart", e => { tstart = e.touches.length === 1 ? {x: e.touches[0].clientX, y: e.touches[0].clientY} : null; }, {passive: true});
+  deck.addEventListener("touchend", e => {
+    if (!tstart) return; const dx = e.changedTouches[0].clientX - tstart.x, dy = e.changedTouches[0].clientY - tstart.y; tstart = null;
+    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) step(dx < 0 ? 1 : -1);
+  }, {passive: true});
+  show(Math.max(0, Math.min(tiles.length - 1, idx || 0)), 0);
+}
+let tstart = null;
+
+/* One call = one slide. Clicks/swipes during the transition are ignored. */
+function step(d){
+  if (!R || Date.now() < lockUntil) return;
+  const k = R.idx + d;
+  if (k < 0) return;
+  if (k >= R.tiles.length){ markTile(R.day, R.tiles.length - 1, R.tiles.length); return R.next ? (location.hash = `day-${R.next.day}/1`) : (location.hash = ""); }
+  show(k, d);
+}
+function show(k, dir){
+  const deck = $("#deck"); if (!deck || !R) return;
+  const old = deck.querySelector(".slide"), total = R.tiles.length;
+  const paint = () => {
+    R.idx = k; deck.innerHTML = slideHtml(k);
+    const sl = deck.firstElementChild; sl.classList.add(dir > 0 ? "enter-r" : dir < 0 ? "enter-l" : "enter-z");
+    markTile(R.day, k, total);
+    const ps = store.get("pos", {}); ps[R.day] = k; store.set("pos", ps);
+    const nt = R.tiles[k + 1]; if (nt && nt.img){ const pi = new Image(); pi.crossOrigin = "anonymous"; pi.referrerPolicy = "no-referrer"; pi.src = nt.img.url; }
+    updateDock(); checkMore();
+    try { history.replaceState(null, "", location.pathname + location.search + `#day-${R.day}/${k + 1}`); } catch(e){}
+    lockUntil = Date.now() + (reduceMotion ? 0 : 420);
+  };
+  if (old && dir && !reduceMotion){ lockUntil = Date.now() + 700; old.classList.add(dir > 0 ? "leave-l" : "leave-r"); setTimeout(paint, 190); } else paint();
+}
+function updateDock(){
+  const total = R.tiles.length, k = R.idx, done = (tilesRead()[R.day] || []).filter(x => x < total);
+  $("#segs").innerHTML = R.tiles.map((_, j) => `<i class="${done.includes(j) ? "full" : ""}${j === k ? " now" : ""}"></i>`).join("");
+  $("#pc").innerHTML = `<b>${done.length} / ${total}</b><small>${L("टाइलें पढ़ी गईं", "tiles read")}</small>`;
+  const pv = $("#pv"), nx = $("#nx");
+  pv.textContent = "← " + L("पिछली", "Previous"); pv.disabled = k === 0;
+  nx.textContent = k < total - 1 ? L("अगली", "Next") + " →" : (R.next ? L("अगली कहानी", "Next story") + " →" : L("समाप्त ✓", "Finish ✓"));
+}
+function checkMore(){
+  const tt = document.querySelector(".slide .tt"), ts = tt && tt.querySelector(".tscroll"); if (!ts) return;
+  const upd = () => tt.classList.toggle("more", ts.scrollHeight - ts.scrollTop - ts.clientHeight > 6);
+  ts.onscroll = upd; setTimeout(upd, 50); setTimeout(upd, 900);
 }
 
-function updateProgress(){
-  const total = curTiles.length, done = (tilesRead()[curDay] || []).filter(k => k < total);
-  const pc = $("#pcount"); if (!pc) return;
-  pc.textContent = L(`${done.length} / ${total} टाइलें पढ़ी गईं`, `${done.length} / ${total} tiles read`);
-  $("#pfill").style.width = (done.length / total * 100) + "%";
-  const go = $("#go"), first = [...Array(total).keys()].find(k => !done.includes(k));
-  go.textContent = done.length === 0 ? L("▶ कहानी शुरू करें", "▶ Start the story") : (first === undefined ? L("↺ फिर से पढ़ें", "↺ Read again") : L("▶ आगे पढ़ें", "▶ Continue"));
-  go.onclick = () => location.hash = `day-${curDay}/${(first === undefined ? 0 : first) + 1}`;
-  app.querySelectorAll(".tile").forEach(b => b.classList.toggle("seen", done.includes(+b.dataset.i)));
+/* ---------- separate sections (sheets) ---------- */
+function openSheet(kind){
+  if (!R) return; const s = R.story; let title = "", body = "";
+  if (kind === "tiles"){
+    title = L("सभी टाइलें · छूकर सीधे वहाँ जाएँ", "All tiles · tap to jump");
+    const lay = layoutFor(R.tiles.length), done = tilesRead()[R.day] || [];
+    body = `<div class="bento">${R.tiles.map((t, k) => `<button class="tile in a${k % 6}${lay[k].big ? " d-big" : ""}${lay[k].mbig ? " m-big" : ""}${done.includes(k) ? " seen" : ""}${k === R.idx ? " cur" : ""}" data-i="${k}"
+      style="--dc:${lay[k].dc};--dr:${lay[k].dr};--mc:${lay[k].mc};--mr:${lay[k].mr};--d:${(k % 5) * 70}ms" aria-label="${pad(k + 1)}. ${esc(t.h)}">
+      ${t.img ? imgTag(t.img) : `<span class="ghost">${s.flag}</span>`}<span class="stamp">${pad(k + 1)}</span><span class="ok" aria-hidden="true">✓</span>
+      <span class="cap"><h3>${esc(t.h)}</h3></span></button>`).join("")}</div>`;
+  } else if (kind === "text"){
+    title = L("पूरी कहानी", "The full story");
+    body = `<div class="otxt">${(tr(s, "story") || []).map(p => `<p>${esc(p)}</p>`).join("")}</div>`;
+  } else if (kind === "facts"){
+    title = `📚 ${esc(s.country)} — ${L("जानने लायक बातें", "Quick facts")}`;
+    body = `<dl class="facts box">${(tr(s, "info") || []).map(x => `<div><dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd></div>`).join("") || `<p>${L("कोई जानकारी उपलब्ध नहीं।", "No facts available.")}</p>`}</dl>`;
+  } else {
+    title = `🔗 ${L("स्रोत और तस्वीरें", "Sources & photos")}`;
+    const srcs = sourcesOf(s);
+    body = `<section class="box"><h3>${L("और गहराई से जानें", "Go deeper")}</h3><ul class="src">${srcs.map(x => `<li><a href="${esc(language === "hi" && x.hi_url ? x.hi_url : x.url)}" target="_blank" rel="noopener noreferrer"><b>${esc(x.title)} ↗</b><span>${esc(x.publisher || "Wikipedia")}${x.note ? " · " + esc(x.note) : ""}</span></a></li>`).join("")}</ul></section>
+      <section class="box"><h3>📷 ${L("तस्वीरों का श्रेय", "Photo credits")}</h3>${R.pool.map(im => `<p class="cred">${esc(capOf(im))}${im.credit ? " · " + esc(im.credit) : ""}${im.source ? ` · <a href="${esc(im.source)}" target="_blank" rel="noopener noreferrer">${L("स्रोत", "source")}</a>` : ""}</p>`).join("") || `<p class="cred">—</p>`}</section>`;
+  }
+  $("#shT").innerHTML = title; $("#shB").innerHTML = body;
+  const sh = $("#sheet"); sh.hidden = false; sh.dataset.kind = kind;
+  $("#shB").scrollTop = 0;
+  if (kind === "tiles"){
+    $("#shB").querySelectorAll(".tile").forEach(b => b.onclick = () => { const i = +b.dataset.i; closeSheet(); if (i !== R.idx) { lockUntil = 0; show(i, i > R.idx ? 1 : -1); } });
+    const cur = $("#shB .tile.cur"); if (cur) setTimeout(() => cur.scrollIntoView({block: "center"}), 60);
+  }
+  $("#shx").focus({preventScroll: true});
 }
+function closeSheet(){ const sh = $("#sheet"); if (sh && !sh.hidden){ sh.hidden = true; $("#shB").innerHTML = ""; } }
 
-function revealTiles(){
-  const els = [...app.querySelectorAll(".tile.pre")];
-  const go = el => { el.classList.remove("pre"); el.classList.add("in"); };
-  if (!("IntersectionObserver" in window)) return els.forEach(go);
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ go(e.target); io.unobserve(e.target); } }), {threshold: .12});
-  els.forEach(el => io.observe(el));
-  setTimeout(() => els.forEach(el => el.classList.contains("pre") && go(el)), 3500);
-}
-
-/* ---------- immersive overlay ---------- */
-function showTile(k, dir){
-  const total = curTiles.length;
-  if (k < 0 || k >= total) return closeTile();
-  const t = curTiles[k], ov = $("#ov"), first = ov.hidden;
-  curIdx = k;
-  markTile(curDay, k, total); updateProgress();
-  const segs = curTiles.map((_, j) => `<i class="${j < k ? "full" : j === k ? "now" : ""}"></i>`).join("");
-  const stage = `<div class="stage ${dir > 0 ? "in-r" : dir < 0 ? "in-l" : "in-z"}">
-      <figure class="ohero">${t.img ? imgTag(t.img) : `<span class="ghost">${curStory.flag}</span>`}
-        ${t.img ? `<figcaption>${esc(capOf(t.img))}${t.img.credit ? ` · ${esc(t.img.credit)}` : ""}${t.img.source ? ` · <a href="${esc(t.img.source)}" target="_blank" rel="noopener noreferrer">${L("स्रोत", "source")}</a>` : ""}</figcaption>` : ""}</figure>
-      <div class="obody"><div class="kick"><span class="stamp s">${pad(k + 1)}</span> ${k + 1} / ${total} · ${curStory.flag} ${esc(curStory.country)}</div>
-        <h2>${esc(t.h)}</h2><div class="otxt">${t.text.map(p => `<p>${esc(p)}</p>`).join("")}</div></div></div>`;
-  ov.innerHTML = `<div class="osegs" aria-hidden="true">${segs}</div>
-    <div class="otop"><span class="otitle">${esc(tr(curStory, "title"))}</span><div class="ctrl">${langSeg()}<button class="ibtn sq" id="oclose" aria-label="${L("बंद करें", "Close")}">✕</button></div></div>
-    ${stage}
-    <div class="onav"><button id="oprev" ${k === 0 ? "disabled" : ""}>← ${L("पिछली", "Previous")}</button><button id="onext">${k === total - 1 ? L("समाप्त ✓", "Finish ✓") : L("अगली", "Next") + " →"}</button></div>`;
-  ov.hidden = false; document.body.classList.add("lock");
-  ov.querySelectorAll(".lg-hi").forEach(b => b.onclick = () => setLanguage("hi"));
-  ov.querySelectorAll(".lg-en").forEach(b => b.onclick = () => setLanguage("en"));
-  $("#oclose").onclick = closeTile;
-  $("#oprev").onclick = () => k > 0 && (location.hash = `day-${curDay}/${k}`);
-  $("#onext").onclick = () => k < total - 1 ? (location.hash = `day-${curDay}/${k + 2}`) : closeTile();
-  if (first) $("#oclose").focus({preventScroll: true});
-  const txt = ov.querySelector(".obody"); if (txt) txt.scrollTop = 0;
-}
-function closeTile(){
-  const ov = $("#ov"); if (ov) { ov.hidden = true; ov.innerHTML = ""; }
-  document.body.classList.remove("lock"); curIdx = -1;
-  if (/^#day-\d+\/\d+$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search + "#day-" + curDay);
-}
 addEventListener("keydown", e => {
-  if (curIdx < 0) return;
-  if (e.key === "Escape") closeTile();
-  else if (e.key === "ArrowRight") curIdx < curTiles.length - 1 ? location.hash = `day-${curDay}/${curIdx + 2}` : closeTile();
-  else if (e.key === "ArrowLeft" && curIdx > 0) location.hash = `day-${curDay}/${curIdx}`;
+  if (!R || /INPUT|TEXTAREA/.test((e.target || {}).tagName || "")) return;
+  const sh = $("#sheet"), open = sh && !sh.hidden;
+  if (e.key === "Escape"){ if (open) closeSheet(); else location.hash = ""; }
+  else if (open) return;
+  else if (e.key === "ArrowRight") step(1);
+  else if (e.key === "ArrowLeft") step(-1);
 });
-let tx = null;
-addEventListener("touchstart", e => { tx = curIdx >= 0 ? e.touches[0].clientX : null; }, {passive: true});
-addEventListener("touchend", e => {
-  if (tx === null || curIdx < 0) return;
-  const dx = e.changedTouches[0].clientX - tx; tx = null;
-  if (Math.abs(dx) < 60) return;
-  if (dx < 0) curIdx < curTiles.length - 1 ? location.hash = `day-${curDay}/${curIdx + 2}` : closeTile();
-  else if (curIdx > 0) location.hash = `day-${curDay}/${curIdx}`;
-}, {passive: true});
 
-let lastTile = -1;
 function route(){
   const m = location.hash.match(/^#day-(\d+)(?:\/(\d+))?$/);
-  if (!m){ curDay = null; curIdx = -1; document.body.classList.remove("lock"); return home(); }
+  if (!m) return home();
   const day = +m[1], no = m[2] ? +m[2] : 0;
-  const sv0 = $(".story-view");
-  if (curDay === day && $("#bento") && sv0 && sv0.dataset.lang === language){
-    if (no) { const dir = no - 1 > lastTile ? 1 : -1; showTile(no - 1, curIdx < 0 ? 0 : dir); lastTile = no - 1; }
-    else closeTile();
-    return;
+  if (!STORIES.some(s => s.day === day)){
+    if (!loaded){ document.body.classList.remove("reading"); app.className = "wrap"; app.innerHTML = `<p class="empty">${L("कहानी लोड हो रही है…", "Loading the story…")}</p>`; return; }
+    return home();
   }
-  reader(day, no); lastTile = no - 1;
-  const sv = $(".story-view"); if (sv) sv.dataset.lang = language;
+  if (R && R.day === day && $("#deck")){ if (no && no - 1 !== R.idx){ lockUntil = 0; show(Math.min(no, R.tiles.length) - 1, no - 1 > R.idx ? 1 : -1); } return; }
+  const pos = store.get("pos", {})[day], total = tileTotal(STORIES.find(s => s.day === day));
+  mountReader(day, no ? no - 1 : (pos != null && pos < total - 1 ? pos : 0));
 }
 
 
@@ -553,7 +753,7 @@ route();
 fetch("stories.json?v=" + Date.now(), {cache: "no-store"})
   .then(r => r.ok ? r.json() : [])
   .then(list => {
-    if (!Array.isArray(list)) return;
+    if (!Array.isArray(list)){ loaded = true; if (!R) route(); return; }
     const have = new Set(STORIES.map(s => s.day));
     let added = false;
     for (const st of list){
@@ -566,9 +766,11 @@ fetch("stories.json?v=" + Date.now(), {cache: "no-store"})
         st.day = +st.day; st.info = st.info || []; STORIES.push(st); have.add(st.day); added = true;
       }
     }
-    if (added){ const sv = $(".story-view"); if (sv) sv.dataset.lang = ""; route(); }
+    loaded = true;
+    if (added){ for (const k in TC) delete TC[k]; if (R && $("#deck")){ const d = R.day, i = R.idx; mountReader(d, i); } else route(); }
+    else if (!R) route();
   })
-  .catch(() => {});
+  .catch(() => { loaded = true; if (!R) route(); });
 </script>
 </body>
 </html>
