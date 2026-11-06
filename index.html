@@ -215,6 +215,8 @@ body.reading{overflow:hidden}
 .country-ending .story-overlay h2{font-size:clamp(1.4rem,1.05rem + 1.7vw,2.1rem)}
 .country-ending .story-overlay .otxt p{font-size:calc(var(--fs) - 2px);line-height:1.48;margin-bottom:.58em}
 .country-ending .stamp{background:#0b5961}
+.country-flag-on-image{position:absolute;z-index:5;top:20px;right:20px;font-family:system-ui,sans-serif;font-size:clamp(3rem,7vw,5.5rem);line-height:1;filter:drop-shadow(0 3px 8px rgba(0,0,0,.65));pointer-events:none}
+
 
 
 /* 8 different opening animations (one per tile, cycling) */
@@ -629,7 +631,7 @@ function slideHtml(k){
     <div class="otxt">${t.text.map((p, n) => `<p class="rv" style="--i:${n + 2}">${esc(p)}</p>`).join("")}</div>
   </div>`;
   const media = `<figure class="st m full-story-tile ${t.countryCard ? "country-ending" : ""}" style="--op:${OPS[k % OPS.length]}">${m ? slideImg(m) : `<span class="ghost">${s.flag}</span>`}
-    <span class="stamp">${pad(k + 1)}</span>${credit(m)}${text}</figure>`;
+    ${t.countryCard ? `<span class="country-flag-on-image" role="img" aria-label="${esc(s.country)} flag">${s.flag || "🌍"}</span>` : ""}<span class="stamp">${pad(k + 1)}</span>${credit(m)}${text}</figure>`;
   return `<article class="slide full-slide o${k % 8}" data-tone="dark" aria-label="${esc(t.h)}">${media}</article>`;
 }
 function dockBtn(id, icon, hi, en, extra = ""){
