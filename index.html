@@ -353,11 +353,34 @@ body.reading{overflow:hidden}
 }
 /* Deliberately do not resize .feature, .grid, .card, or story tiles. */
 
+
+/* Interactive story globe */
+.globe-entry{width:100%;display:flex;align-items:center;gap:14px;text-align:left;margin:0 0 14px;padding:13px 16px;border:1px solid rgba(110,170,180,.35);border-radius:18px;background:radial-gradient(circle at 12% 50%,rgba(80,170,190,.28),transparent 36%),linear-gradient(110deg,#102f3b,#173f4b 58%,#102832);color:#f5fbfb;box-shadow:0 8px 24px rgba(10,35,42,.16);overflow:hidden}
+.globe-entry .orb{flex:none;width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#b8f2ed 0 3%,#58b9c0 12%,#176477 48%,#092d43 76%);box-shadow:inset -8px -7px 14px rgba(0,0,0,.45),0 0 22px rgba(97,207,211,.35);position:relative}
+.globe-entry .orb:before{content:"";position:absolute;inset:7px 12px;border:1px solid rgba(220,255,250,.7);border-radius:50%;transform:rotate(-25deg)}
+.globe-entry .orb:after{content:"";position:absolute;inset:14px 4px;border-top:1px solid rgba(220,255,250,.65);border-bottom:1px solid rgba(220,255,250,.55);border-radius:50%}
+.globe-entry .gl-copy{flex:1;min-width:0}.globe-entry b{display:block;font-family:var(--serif);font-size:1.1rem;font-weight:600}.globe-entry small{display:block;color:#c3dcdf;font-size:.82rem;line-height:1.35}.globe-entry .gl-arrow{font-size:1.3rem;color:#c7eff0}
+.globe-view{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 50% 42%,#173e4c 0,#0b202a 55%,#07141d 100%);color:#f5fbfb;display:flex;flex-direction:column;overflow:hidden}
+.globe-top{display:flex;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 8px;z-index:2}
+.globe-back{width:40px;height:40px;border-radius:50%;border:1px solid rgba(220,245,245,.25);background:rgba(255,255,255,.08);color:#fff;font-size:1.2rem}
+.globe-heading{flex:1;min-width:0}.globe-heading b{display:block;font:600 1.3rem var(--serif)}.globe-heading small{color:#b7d1d5;font-size:.8rem}
+.globe-stage{position:relative;flex:1;min-height:0;width:100%;touch-action:pan-y}
+.globe-stage canvas{display:block}
+.globe-hint{position:absolute;left:16px;right:16px;bottom:12px;text-align:center;color:#c4dadd;font-size:.82rem;pointer-events:none;text-shadow:0 1px 8px #06131a}
+.globe-bottom{z-index:2;padding:8px 16px calc(16px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:10px}
+.globe-control{border:1px solid rgba(220,245,245,.25);background:rgba(255,255,255,.08);color:#f5fbfb;border-radius:99px;padding:8px 15px;font-size:.88rem}
+.globe-control:active{background:rgba(255,255,255,.18)}
+.globe-loading{position:absolute;inset:0;display:grid;place-items:center;color:#cce4e6;font-size:.95rem;pointer-events:none}
+.globe-label{background:rgba(5,20,28,.9);border:1px solid rgba(180,230,230,.25);border-radius:9px;padding:6px 9px;color:#fff;font:500 12px var(--sans);white-space:nowrap}
+@media(max-width:480px){.globe-entry{padding:11px 12px;gap:11px}.globe-entry .orb{width:48px;height:48px}.globe-heading b{font-size:1.15rem}}
+
 </style>
 </head>
 <body>
 <div id="progress"></div>
 <div class="wrap" id="app"></div>
+<script src="https://cdn.jsdelivr.net/npm/globe.gl@2.45.0/dist/globe.gl.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <script>
 const TOTAL = 208;
 const STORIES = [
@@ -610,6 +633,7 @@ function home(){
     <div class="bar"><h1 class="brand">Stories of the World<small>${STORIES.length} / ${TOTAL} ${L("देश", "countries")}</small></h1>
       <div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="${L("थीम बदलें", "Switch theme")}">◐</button></div></div>
     ${feat}
+    <button class="globe-entry" id="globe-open" type="button"><span class="orb" aria-hidden="true"></span><span class="gl-copy"><b>${L("दुनिया को ग्लोब पर खोजें", "Explore the world")}</b><small>${L("घुमाएँ, ज़ूम करें और देशों की कहानियाँ खोलें", "Rotate, zoom and open stories by country")}</small></span><span class="gl-arrow" aria-hidden="true">↗</span></button>
     <div class="tb"><label class="sbox"><span aria-hidden="true">🔎</span><input id="q" type="search" placeholder="${L("देश या कहानी खोजें", "Search a country or story")}" value="${esc(q)}" aria-label="Search">${q ? `<button class="x" id="qx" aria-label="${L("साफ़ करें", "Clear")}">✕</button>` : ""}</label>
       <button class="chip" id="saved" aria-pressed="${onlySaved}">★ ${L("सहेजी", "Saved")}</button></div>
     ${rest.length ? `<div class="grid">${rest.map(card).join("")}</div>` : (showFeature ? "" : `<p class="empty">${onlySaved && !saved.length ? L("अभी कोई कहानी सहेजी नहीं गई। कहानी में ☆ दबाएँ।", "No saved stories yet. Tap ☆ inside a story.") : L("कोई कहानी नहीं मिली।", "No stories found.")}</p>`)}
@@ -619,6 +643,7 @@ function home(){
   $("#q").oninput = e => { q = e.target.value; const p = e.target.selectionStart; home(); const n = $("#q"); n.focus(); n.setSelectionRange(p, p); };
   const qx = $("#qx"); if (qx) qx.onclick = () => { q = ""; home(); };
   $("#saved").onclick = () => { onlySaved = !onlySaved; home(); };
+  const globeOpen = $("#globe-open"); if (globeOpen) globeOpen.onclick = () => { location.hash = "globe"; };
   app.querySelectorAll("[data-day]").forEach(b => b.onclick = () => location.hash = "day-" + b.dataset.day);
 }
 
@@ -828,7 +853,78 @@ addEventListener("keydown", e => {
   else if (e.key === "ArrowLeft") step(-1);
 });
 
+
+/* ================= INTERACTIVE 3D STORY GLOBE ================= */
+const STORY_COORDS = {
+  "Egypt":[26.8206,30.8025], "Afghanistan":[33.9391,67.7100], "India":[20.5937,78.9629],
+  "United States":[37.0902,-95.7129], "United Kingdom":[55.3781,-3.4360], "France":[46.2276,2.2137],
+  "Italy":[41.8719,12.5674], "China":[35.8617,104.1954], "Japan":[36.2048,138.2529],
+  "Brazil":[-14.2350,-51.9253], "Mexico":[23.6345,-102.5528], "Greece":[39.0742,21.8243],
+  "Turkey":[38.9637,35.2433], "Iran":[32.4279,53.6880], "Iraq":[33.2232,43.6793],
+  "Pakistan":[30.3753,69.3451], "Nepal":[28.3949,84.1240], "Bangladesh":[23.6850,90.3563],
+  "Sri Lanka":[7.8731,80.7718], "Indonesia":[-0.7893,113.9213], "Thailand":[15.8700,100.9925],
+  "Cambodia":[12.5657,104.9910], "Vietnam":[14.0583,108.2772], "South Korea":[35.9078,127.7669],
+  "Australia":[-25.2744,133.7751], "New Zealand":[-40.9006,174.8860], "South Africa":[-30.5595,22.9375],
+  "Kenya":[-0.0236,37.9062], "Ethiopia":[9.1450,40.4897], "Morocco":[31.7917,-7.0926],
+  "Nigeria":[9.0820,8.6753], "Ghana":[7.9465,-1.0232], "Tanzania":[-6.3690,34.8888],
+  "Peru":[-9.1900,-75.0152], "Argentina":[-38.4161,-63.6167], "Canada":[56.1304,-106.3468],
+  "Spain":[40.4637,-3.7492], "Germany":[51.1657,10.4515], "Russia":[61.5240,105.3188],
+  "Ukraine":[48.3794,31.1656], "Saudi Arabia":[23.8859,45.0792], "Jordan":[30.5852,36.2384],
+  "Syria":[34.8021,38.9968], "Lebanon":[33.8547,35.8623], "Myanmar":[21.9162,95.9560],
+  "Mongolia":[46.8625,103.8467], "Uzbekistan":[41.3775,64.5853], "Georgia":[42.3154,43.3569]
+};
+let storyGlobe = null;
+function stopStoryGlobe(){ if(storyGlobe && storyGlobe.pauseAnimation) storyGlobe.pauseAnimation(); storyGlobe=null; }
+function mountGlobe(){
+  stopStoryGlobe(); document.body.classList.remove("reading","lock"); app.className="";
+  app.innerHTML = `<section class="globe-view" aria-label="Interactive world globe">
+    <header class="globe-top"><button class="globe-back" id="globe-back" aria-label="${L("वापस","Back")}">←</button><div class="globe-heading"><b>${L("दुनिया की कहानियाँ","Stories around the world")}</b><small>${L("ग्लोब घुमाएँ · ज़ूम करें · देश चुनें","Drag · zoom · select a country")}</small></div></header>
+    <div class="globe-stage" id="globe-stage"><div class="globe-loading" id="globe-loading">${L("ग्लोब लोड हो रहा है…","Loading the globe…")}</div><div class="globe-hint">${L("किसी चमकते बिंदु पर टैप करके कहानी खोलें","Tap a glowing marker to open its story")}</div></div>
+    <div class="globe-bottom"><button class="globe-control" id="globe-zoom-in">＋ ${L("ज़ूम","Zoom")}</button><button class="globe-control" id="globe-reset">${L("रीसेट","Reset view")}</button><button class="globe-control" id="globe-zoom-out">− ${L("ज़ूम","Zoom")}</button></div>
+  </section>`;
+  $("#globe-back").onclick=()=>{location.hash="";};
+  const stage=$("#globe-stage"), loading=$("#globe-loading");
+  const points=sorted().map(st=>{
+    const c=STORY_COORDS[st.country];
+    return c?{lat:c[0],lng:c[1],country:st.country,flag:st.flag,day:st.day,title:tr(st,"title")}:null;
+  }).filter(Boolean);
+  const fallback=()=>{loading.textContent=L("3D ग्लोब अभी लोड नहीं हुआ। इंटरनेट कनेक्शन जाँचकर फिर कोशिश करें।","The 3D globe could not load. Check your connection and try again.");};
+  if(typeof Globe!=="function" || typeof topojson==="undefined"){fallback();return;}
+  try{
+    storyGlobe=Globe()(stage)
+      .width(stage.clientWidth).height(stage.clientHeight)
+      .backgroundColor("rgba(0,0,0,0)")
+      .showAtmosphere(true).atmosphereColor("#70d9e0").atmosphereAltitude(.19)
+      .showGraticules(true)
+      .pointsData(points).pointLat("lat").pointLng("lng")
+      .pointAltitude(.025).pointRadius(.48).pointResolution(18)
+      .pointColor(()=>"#ffd477")
+      .pointLabel(d=>`<div class="globe-label">${d.flag} ${d.country}<br><small>${String(d.title).replace(/[&<>"]/g,"")}</small></div>`)
+      .onPointClick(d=>{if(d && d.day) location.hash="day-"+d.day;});
+    storyGlobe.pointOfView({lat:20,lng:25,altitude:2.15},0);
+    fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
+      .then(r=>{if(!r.ok)throw new Error("map");return r.json();})
+      .then(world=>{
+        if(!storyGlobe)return;
+        const countries=topojson.feature(world,world.objects.countries).features;
+        storyGlobe.polygonsData(countries)
+          .polygonAltitude(.006)
+          .polygonCapColor(()=>"rgba(55,126,139,.48)")
+          .polygonSideColor(()=>"rgba(3,24,34,.22)")
+          .polygonStrokeColor(()=>"rgba(161,218,220,.42)")
+          .polygonsTransitionDuration(650);
+        loading.remove();
+      }).catch(()=>{loading.textContent=L("ग्लोब तैयार है, लेकिन देश की सीमाएँ लोड नहीं हुईं।","Globe is ready, but country borders did not load.");});
+    $("#globe-zoom-in").onclick=()=>{const p=storyGlobe.pointOfView();storyGlobe.pointOfView({...p,altitude:Math.max(.75,p.altitude*.78)},450);};
+    $("#globe-zoom-out").onclick=()=>{const p=storyGlobe.pointOfView();storyGlobe.pointOfView({...p,altitude:Math.min(4.5,p.altitude*1.28)},450);};
+    $("#globe-reset").onclick=()=>storyGlobe.pointOfView({lat:20,lng:25,altitude:2.15},800);
+    addEventListener("resize",()=>{if(storyGlobe && location.hash==="#globe")storyGlobe.width(stage.clientWidth).height(stage.clientHeight);},{passive:true});
+  }catch(e){fallback();}
+}
+
 function route(){
+  if(location.hash === "#globe"){ mountGlobe(); return; }
+  stopStoryGlobe();
   const m = location.hash.match(/^#day-(\d+)(?:\/(\d+))?$/);
   if (!m) return home();
   const day = +m[1], no = m[2] ? +m[2] : 0;
