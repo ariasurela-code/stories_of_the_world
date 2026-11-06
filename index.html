@@ -239,6 +239,21 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
 applyPrefs();
 addEventListener("hashchange", route);
 route();
+// Load the auto-generated archive (stories.json) and merge it with the built-in stories.
+fetch("stories.json?v=" + Date.now(), {cache: "no-store"})
+  .then(r => r.ok ? r.json() : [])
+  .then(list => {
+    if (!Array.isArray(list)) return;
+    const have = new Set(STORIES.map(s => s.day));
+    let added = false;
+    for (const st of list){
+      if (st && typeof st === "object" && Number.isFinite(+st.day) && !have.has(+st.day)){
+        st.day = +st.day; STORIES.push(st); have.add(st.day); added = true;
+      }
+    }
+    if (added) route();
+  })
+  .catch(() => {});
 </script>
 </body>
 </html>
