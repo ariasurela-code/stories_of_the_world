@@ -2,6 +2,7 @@ import json
 import os
 import re
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -22,15 +23,44 @@ COUNTRIES = [
 
 
 def request_json(url, headers, payload):
+    """POST JSON with bounded retries for temporary provider/network failures."""
     data = json.dumps(payload).encode("utf-8")
-    req = Request(url, data=data, headers={**headers, "Content-Type": "application/json"}, method="POST")
-    try:
-        with urlopen(req, timeout=120) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except HTTPError as exc:
-        # Include the provider's safe error message so Actions logs explain 401/403/404.
-        detail = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"AI provider returned HTTP {exc.code}: {detail[:1200]}") from exc
+    request_headers = {
+        **headers,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "User-Agent": "StoriesOfTheWorld-GitHubActions/1.0",
+    }
+    last_error = None
+    for attempt in range(3):
+        req = Request(url, data=data, headers=request_headers, method="POST")
+        try:
+            with urlopen(req, timeout=120) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")
+            last_error = RuntimeError(
+                f"AI provider returned HTTP {exc.code}: {detail[:1200]}"
+            )
+            # Retry only errors that are commonly temporary. Authentication,
+            # permission and Cloudflare 1010 blocks need configuration changes.
+            if exc.code not in (408, 425, 429, 500, 502, 503, 504) or attempt == 2:
+                raise last_error from exc
+            retry_after = exc.headers.get("Retry-After")
+            try:
+                delay = min(30, max(1, int(retry_after))) if retry_after else 2 ** attempt
+            except ValueError:
+                delay = 2 ** attempt
+            print(f"Temporary AI HTTP {exc.code}; retrying in {delay}s (attempt {attempt + 2}/3).")
+            time.sleep(delay)
+        except (URLError, TimeoutError) as exc:
+            last_error = RuntimeError(f"AI provider network error: {exc}")
+            if attempt == 2:
+                raise last_error from exc
+            delay = 2 ** attempt
+            print(f"Temporary AI network error; retrying in {delay}s (attempt {attempt + 2}/3).")
+            time.sleep(delay)
+    raise last_error or RuntimeError("AI provider request failed for an unknown reason.")
 
 
 def extract_json(text):
@@ -86,7 +116,8 @@ def call_gemini(prompt, key):
 def call_groq(prompt, key):
     model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
     result = request_json("https://api.groq.com/openai/v1/chat/completions", {
-        "Authorization": f"Bearer {key}"
+        "Authorization": f"Bearer {key}",
+        "User-Agent": "StoriesOfTheWorld-GitHubActions/1.0"
     }, {
         "model": model,
         "temperature": 0.7,
