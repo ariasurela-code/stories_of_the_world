@@ -962,7 +962,7 @@ function renderWorldPage(page){
 }
 
 function route(){
-  const page=location.hash.slice(1); const targetStory=location.hash.match(/^#day-(\\d+)/); if("speechSynthesis" in window && speechSynthesis.speaking && !backgroundAudio && (!targetStory || +targetStory[1]!==activeAudioDay)){speechSynthesis.cancel();activeUtterance=null;activeAudioDay=null;} if(page==="globe"){mountGlobe();return;} stopStoryGlobe();
+  const page=location.hash.slice(1); const targetStory=location.hash.match(/^#day-(\d+)/); if("speechSynthesis" in window && speechSynthesis.speaking && !backgroundAudio && (!targetStory || +targetStory[1]!==activeAudioDay)){speechSynthesis.cancel();activeUtterance=null;activeAudioDay=null;} if(page==="globe"){mountGlobe();return;} stopStoryGlobe();
   if(["explore","continents","collections","timeline","passport","gallery","library","search","audio"].includes(page)){renderWorldPage(page);return;}
   const m = location.hash.match(/^#day-(\d+)(?:\/(\d+))?$/);
   if (!m) return home();
