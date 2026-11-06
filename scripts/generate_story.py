@@ -218,26 +218,79 @@ def ask_ai(prompt):
     raise RuntimeError("No AI provider succeeded. " + " | ".join(errors or ["Add GEMINI_API_KEY or GROQ_API_KEY repository secret."]))
 
 
+def tile_request(story):
+    groups = plan_groups(len(story.get("story") or []))
+    if not groups or story.get("tiles"):
+        return groups, ""
+    lines = [f"TILE {k}: paragraphs {a + 1}-{b + 1}" for k, (a, b) in enumerate(groups, 1)]
+    return groups, (
+        f" Also add a key 'tiles': an array of exactly {len(groups)} objects in order, one per consecutive group of Hindi "
+        "paragraphs listed below, each {\"heading_hi\": short evocative Hindi heading (2-5 words), \"heading_en\": the same "
+        "heading in English, \"image_query\": English Wikimedia Commons search query (2-5 words) for a REAL relevant photo of "
+        "the concrete place/object/landmark/tradition that group is about}. Groups: " + "; ".join(lines) + ".")
+
+
 def translate_prompt(story):
     src = {k: story[k] for k in ("title", "teaser", "story", "why", "where", "truth", "info") if k in story}
     return ("Translate this Hindi story into vivid, natural English storytelling prose (not word-for-word). Keep facts exactly the same, keep the "
             "same number of paragraphs and the same structure. Return ONLY valid JSON with exactly these keys: "
             "title (string), teaser (string, if present), story (array of strings), why (string), where (string), truth (string), "
             "info (array of [label, value] pairs, labels and values in English).\n\n"
-            + json.dumps(src, ensure_ascii=False))
+            + tile_request(story)[1] + "\n\n" + json.dumps(src, ensure_ascii=False))
+
+
+def tiles_from_items(story, groups, items):
+    if not isinstance(items, list) or len(items) != len(groups):
+        raise ValueError("storyboard has the wrong number of tiles")
+    tiles = [{"p": g, "h": {"hi": str(it.get("heading_hi", "")).strip() or "भाग", "en": str(it.get("heading_en", "")).strip() or "Part"},
+              "q": str(it.get("image_query", "")).strip()} for g, it in zip(groups, items)]
+    resolve_tile_images(tiles, story.get("country", ""), story.get("flag", ""), story.get("images") or [])
+    story["tiles"], story["tiles_n"] = tiles, len(story["story"])
 
 
 def add_english(story):
+    groups, _ = tile_request(story)
     en = extract_json(ask_ai(translate_prompt(story)))
+    if groups and not story.get("tiles") and isinstance(en.get("tiles"), list):
+        try:
+            tiles_from_items(story, groups, en["tiles"])
+        except Exception as exc:
+            print(f"Tiles from translation failed: {exc}", file=sys.stderr)
     if not isinstance(en.get("story"), list) or not en.get("title"):
         raise ValueError("English translation is incomplete")
     story["en"] = {k: en[k] for k in ("title", "teaser", "story", "why", "where", "truth", "info") if k in en}
 
 
+WIKI_UA = "StoriesOfTheWorldBot/1.0 (https://github.com/ariasurela-code/stories_of_the_world; educational storybook)"
+_last_wiki = [0.0]
+
+
 def http_get_json(url):
-    req = Request(url, headers={"User-Agent": BROWSER_UA, "Accept": "application/json"})
-    with urlopen(req, timeout=60) as r:
-        return json.loads(r.read().decode("utf-8"))
+    """Polite Wikimedia API client: descriptive User-Agent, throttling and Retry-After handling."""
+    last = None
+    for attempt in range(5):
+        wait = 1.3 - (time.time() - _last_wiki[0])
+        if wait > 0:
+            time.sleep(wait)
+        _last_wiki[0] = time.time()
+        req = Request(url, headers={"User-Agent": WIKI_UA, "Accept": "application/json", "Api-User-Agent": WIKI_UA})
+        try:
+            with urlopen(req, timeout=60) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except HTTPError as exc:
+            last = exc
+            if exc.code not in (429, 500, 502, 503, 504):
+                raise
+            try:
+                delay = min(60, max(2, int(exc.headers.get("Retry-After", ""))))
+            except ValueError:
+                delay = 5 * (attempt + 1)
+            print(f"Wikimedia HTTP {exc.code}; waiting {delay}s", file=sys.stderr)
+            time.sleep(delay)
+        except (URLError, TimeoutError) as exc:
+            last = exc
+            time.sleep(3 * (attempt + 1))
+    raise last
 
 
 def strip_html(t):
@@ -252,7 +305,7 @@ def commons_images(queries, country, flag, limit=2, exclude=()):
             break
         params = {
             "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
-            "gsrsearch": q + " filetype:bitmap", "gsrlimit": 12, "prop": "imageinfo",
+            "gsrsearch": q, "gsrlimit": 12, "prop": "imageinfo",
             "iiprop": "url|mime|size|extmetadata", "iiurlwidth": 900,
         }
         try:
@@ -265,7 +318,7 @@ def commons_images(queries, country, flag, limit=2, exclude=()):
             info = (pg.get("imageinfo") or [None])[0]
             if not info or info.get("mime") not in ("image/jpeg", "image/png"):
                 continue
-            if info.get("width", 0) < 700 or info.get("width", 0) < info.get("height", 0) * 0.7:
+            if info.get("width", 0) < 600 or info.get("width", 0) < info.get("height", 0) * 0.7:
                 continue
             thumb = info.get("thumburl") or info.get("url")
             if not thumb or thumb in seen:
@@ -352,8 +405,7 @@ def resolve_tile_images(tiles, country, flag, story_images=()):
         if found:
             t["image"] = found[0]
             used.add(found[0]["url"])
-        time.sleep(0.3)
-
+        
 
 def add_tiles(story):
     """AI storyboard: heading (hi+en) and a real Commons photo for each tile."""
@@ -374,24 +426,25 @@ def add_tiles(story):
 
 
 def finish_story(story, country):
-    """Attach English text, real photos and real sources to a generated story."""
+    """Attach real photos, English text, tile plan and real sources to a generated story."""
     story.pop("images", None)  # never keep AI-invented image URLs
-    try:
-        add_english(story)
-    except Exception as exc:
-        print(f"English translation failed (will be backfilled next run): {exc}", file=sys.stderr)
-    title_en = (story.get("en") or {}).get("title", "")
-    iq = list(story.get("image_queries") or []) + [f"{country} {title_en}".strip(), f"{country} landmark"]
+    iq = list(story.get("image_queries") or []) + [f"{country} landmark", f"{country} {story.get('title', '')}".strip()]
     imgs = commons_images(iq, country, story.get("flag", ""))
     if imgs:
         story["images"] = imgs
+    try:
+        add_english(story)  # also returns the tile storyboard in the same AI call
+    except Exception as exc:
+        print(f"English translation failed (will be backfilled next run): {exc}", file=sys.stderr)
+    title_en = (story.get("en") or {}).get("title", "")
     srcs = wikipedia_sources(list(story.get("source_queries") or []) + ([title_en] if title_en else []), country)
     if srcs:
         story["sources"] = srcs
-    try:
-        add_tiles(story)
-    except Exception as exc:
-        print(f"Storyboard failed (will be backfilled next run): {exc}", file=sys.stderr)
+    if not story.get("tiles"):
+        try:
+            add_tiles(story)
+        except Exception as exc:
+            print(f"Storyboard failed (will be backfilled next run): {exc}", file=sys.stderr)
     story["story_version"] = 2
     return story
 
