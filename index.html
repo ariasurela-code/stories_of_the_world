@@ -323,6 +323,36 @@ body.reading{overflow:hidden}
 @keyframes toolsIn{from{opacity:0;transform:translateY(-6px) scale(.97)}to{opacity:1;transform:none}}
 @media(max-width:700px){.tools-menu{top:48px;right:4px;width:min(280px,calc(100vw - 24px));gap:6px;padding:9px}.tool-item{padding:9px 8px}}
 @media(prefers-reduced-motion:reduce){.tools-menu{animation:none}}
+
+/* Homepage compact layout refinement; story cards and reader tiles remain unchanged */
+.bar{gap:8px;margin-bottom:12px}
+.brand{font-size:1.3rem;line-height:1.12}
+.brand small{font-size:.7rem}
+.ctrl{gap:5px}
+.seg button{padding:5px 9px;min-height:33px;font-size:.88rem}
+.ibtn{padding:5px 9px;min-height:33px;font-size:.88rem}
+.ibtn.sq{width:33px;min-height:33px;padding:0}
+.tb{gap:7px;margin:11px 0 12px}
+.sbox{gap:6px;padding:0 10px}
+.sbox input{padding:8px 0;font-size:.93rem}
+.chip{padding:3px 10px;min-height:31px;font-size:.85rem}
+.foot{margin-top:18px}
+@media(max-width:480px){
+ .wrap{padding:12px 12px 34px}
+ .bar{margin-bottom:10px}
+ .brand{font-size:1.16rem}
+ .brand small{font-size:.66rem}
+ .ctrl{gap:4px}
+ .seg button{padding:4px 7px;min-height:31px;font-size:.82rem}
+ .ibtn{padding:4px 7px;min-height:31px}
+ .ibtn.sq{width:31px;min-height:31px}
+ .tb{gap:6px;margin:10px 0 11px}
+ .sbox{padding:0 8px}
+ .sbox input{padding:7px 0;font-size:.89rem}
+ .chip{padding:3px 8px;min-height:29px;font-size:.8rem}
+}
+/* Deliberately do not resize .feature, .grid, .card, or story tiles. */
+
 </style>
 </head>
 <body>
