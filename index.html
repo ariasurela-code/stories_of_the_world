@@ -385,6 +385,11 @@ body.reading{overflow:hidden}
 .passport-card{border-radius:20px;overflow:hidden;background:var(--card);border:1px solid var(--line)}.passport-cover{padding:24px;color:#fff;background:linear-gradient(125deg,#102d3b,#17606a)}.passport-cover>span{font-size:2.5rem;display:block}.passport-cover small{letter-spacing:.14em;font-size:.7rem}.passport-cover h2{font:600 1.6rem var(--serif);margin:6px 0}.passport-cover p{margin:0;color:#d4e6e6}.passport-stats{padding:16px 18px}.passport-stats b{font:600 1.4rem var(--serif);display:block}.passport-stats span{color:var(--muted);font-size:.86rem}.passport-stats i,.passport-stats u{display:block;height:6px;border-radius:9px}.passport-stats i{background:var(--line);margin-top:10px;overflow:hidden}.passport-stats u{background:var(--accent)}.stamp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:0 14px 16px}.passport-stamp{min-height:92px;border:1px dashed var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);opacity:.55}.passport-stamp.earned{opacity:1;border:1px solid var(--accent);color:var(--ink);background:color-mix(in srgb,var(--accent) 9%,var(--card))}.passport-stamp span{font-size:1.6rem}.passport-stamp small{font-size:.72rem;text-align:center}.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.photo-item{position:relative;min-height:160px;border:0;border-radius:14px;overflow:hidden;padding:0;background:var(--card);color:white;text-align:left}.photo-item img{width:100%;height:100%;min-height:160px;object-fit:cover;display:block}.photo-item>span{position:absolute;inset:auto 0 0;padding:30px 10px 10px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:.8rem}.photo-item b{display:block;font:600 .95rem var(--serif)}.audio-note,.empty-state{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--muted);margin-bottom:14px}.audio-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.audio-row>div{min-width:0}.audio-row small{display:block;color:var(--muted);font-size:.78rem}.audio-row b{display:block;font:600 1rem var(--serif)}.advanced-search select{width:100%;padding:11px 12px;margin:0 0 10px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit}.empty-state{text-align:center}.empty-state>span{font-size:2rem}
 @media(max-width:480px){.feature-links{gap:8px}.feature-links button{min-height:88px;padding:10px}.stamp-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.section-head h1{font-size:1.2rem}}
 
+
+/* Make Explore immediately visible and show a selected country's flag while zoomed */
+.globe-entry{margin:12px 0 16px;position:relative}.globe-country-card{position:absolute;z-index:4;left:14px;right:14px;bottom:48px;display:flex;align-items:center;gap:11px;padding:12px 14px;border:1px solid rgba(205,240,240,.28);border-radius:17px;background:rgba(5,22,31,.92);box-shadow:0 12px 34px rgba(0,0,0,.35);backdrop-filter:blur(14px);color:#fff}.globe-country-card[hidden]{display:none}.country-flag{font-size:2.4rem;line-height:1}.country-copy{flex:1;min-width:0}.country-copy b,.country-copy small{display:block}.country-copy b{font:600 1.05rem var(--serif)}.country-copy small{font-size:.76rem;color:#c4dadd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.globe-country-story{border:1px solid rgba(205,240,240,.3);border-radius:99px;background:#d6f1ed;color:#10343c;padding:9px 12px;font-weight:700;white-space:nowrap;font-size:.78rem}
+@media(max-width:480px){.globe-country-card{left:9px;right:9px;bottom:45px;padding:10px}.country-flag{font-size:2rem}.globe-country-story{padding:8px 9px;font-size:.72rem}}
+
 </style>
 </head>
 <body>
@@ -628,8 +633,8 @@ function home(){
  const card=st=>{const im=coverOf(st),p=prog(st);return `<button class="card" data-day="${st.day}" aria-label="${esc(st.country)}: ${esc(tr(st,"title"))}"><div class="ph">${im?imgTag(im):st.flag}<span class="fl">${st.flag} ${esc(st.country)}</span>${p.d>=p.n?'<span class="chk">✓</span>':""}</div><div class="tx"><b>${esc(tr(st,"title"))}</b><div class="meta"><span>${esc(kindLabel(st))}</span><span>· ${L("दिन","Day")} ${st.day}</span></div>${p.d>0&&p.d<p.n?`<i class="mp"><u style="width:${p.d/p.n*100}%"></u></i>`:""}</div></button>`;};
  let feat="";
  if(showFeature){const im=coverOf(latest),p=prog(latest);feat=`<button class="feature" data-day="${latest.day}">${imgTag(im)}<div class="in"><span class="tag k">${L("आज की कहानी","Today's story")}</span> <span class="tag">${latest.flag} ${esc(latest.country)}</span><h2>${esc(tr(latest,"title"))}</h2><p>${esc(teaser(latest))}</p><span class="go">${p.d>=p.n?L("↺ फिर से पढ़ें","↺ Read again"):p.d>0?L("▶ आगे पढ़ें","▶ Continue"):L("▶ पढ़ना शुरू करें","▶ Start reading")}</span>${p.d>0&&p.d<p.n?`<span class="fprog"><u style="width:${p.d/p.n*100}%"></u></span>`:""}</div></button>`;}
- app.innerHTML=`<div class="view"><div class="bar"><h1 class="brand">Stories of the World<small>${STORIES.length} / ${TOTAL} ${L("देश","countries")}</small></h1><div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="${L("थीम बदलें","Switch theme")}">◐</button></div></div>${feat}
- <button class="globe-entry" id="globe-open"><span class="orb" aria-hidden="true"></span><span class="gl-copy"><b>${L("दुनिया एक्सप्लोर करें","Explore the world")}</b><small>${L("महाद्वीप, टाइमलाइन, कलेक्शन और 3D ग्लोब","Continents, timeline, collections and 3D globe")}</small></span><span class="gl-arrow">↗</span></button>
+ app.innerHTML=`<div class="view"><div class="bar"><h1 class="brand">Stories of the World<small>${STORIES.length} / ${TOTAL} ${L("देश","countries")}</small></h1><div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="${L("थीम बदलें","Switch theme")}">◐</button></div></div><button class="globe-entry" id="globe-open"><span class="orb" aria-hidden="true"></span><span class="gl-copy"><b>${L("दुनिया एक्सप्लोर करें","Explore the world")}</b><small>${L("3D ग्लोब, देश, इतिहास और कहानियाँ","3D globe, countries, history and stories")}</small></span><span class="gl-arrow">↗</span></button>
+ ${feat}
  <div class="tb"><label class="sbox"><span>🔎</span><input id="q" type="search" placeholder="${L("देश या कहानी खोजें","Search a country or story")}" value="${esc(q)}" aria-label="Search">${q?'<button class="x" id="qx">✕</button>':""}</label><button class="chip discover-chip" id="discover">✦ ${L("नई कहानी","Surprise me")}</button></div>
  ${rest.length?`<div class="grid">${rest.map(card).join("")}</div>`:(showFeature?"":`<p class="empty">${onlySaved&&!saved.length?L("अभी कोई कहानी सहेजी नहीं गई।","No saved stories yet."):L("कोई कहानी नहीं मिली।","No stories found.")}</p>`)}
  <p class="foot"><a class="foot-link" href="#library">★ ${L("मेरी लाइब्रेरी · सहेजी हुई कहानियाँ","My Library · Saved stories")}</a><br>${L("तस्वीरें: Wikimedia Commons","Photos: Wikimedia Commons")}</p></div><div class="toast" id="toast" role="status"></div>`;
@@ -868,7 +873,7 @@ function mountGlobe(){
   stopStoryGlobe(); document.body.classList.remove("reading","lock"); app.className="";
   app.innerHTML = `<section class="globe-view" aria-label="Interactive world globe">
     <header class="globe-top"><button class="globe-back" id="globe-back" aria-label="${L("वापस","Back")}">←</button><div class="globe-heading"><b>${L("दुनिया की कहानियाँ","Stories around the world")}</b><small>${L("ग्लोब घुमाएँ · ज़ूम करें · देश चुनें","Drag · zoom · select a country")}</small></div></header>
-    <div class="globe-stage" id="globe-stage"><div class="globe-loading" id="globe-loading">${L("ग्लोब लोड हो रहा है…","Loading the globe…")}</div><div class="globe-hint">${L("किसी चमकते बिंदु पर टैप करके कहानी खोलें","Tap a glowing marker to open its story")}</div></div>
+    <div class="globe-stage" id="globe-stage"><div class="globe-loading" id="globe-loading">${L("ग्लोब लोड हो रहा है…","Loading the globe…")}</div><div class="globe-hint" id="globe-hint">${L("देश के चमकते बिंदु पर टैप करें — ग्लोब वहाँ ज़ूम होगा और झंडा दिखेगा","Tap a country's glowing marker to zoom in and see its flag")}</div><div class="globe-country-card" id="globe-country-card" hidden><span class="country-flag" id="globe-country-flag">🌍</span><div class="country-copy"><b id="globe-country-name"></b><small id="globe-country-title"></small></div><button id="globe-country-story" class="globe-country-story">${L("कहानी पढ़ें","Read story")} ↗</button></div></div>
     <div class="globe-bottom"><button class="globe-control" id="globe-zoom-in">＋ ${L("ज़ूम","Zoom")}</button><button class="globe-control" id="globe-reset">${L("रीसेट","Reset view")}</button><button class="globe-control" id="globe-zoom-out">− ${L("ज़ूम","Zoom")}</button></div>
   </section>`;
   $("#globe-back").onclick=()=>{location.hash="";};
@@ -889,7 +894,17 @@ function mountGlobe(){
       .pointAltitude(.025).pointRadius(.48).pointResolution(18)
       .pointColor(()=>"#ffd477")
       .pointLabel(d=>`<div class="globe-label">${d.flag} ${d.country}<br><small>${String(d.title).replace(/[&<>"]/g,"")}</small></div>`)
-      .onPointClick(d=>{if(d && d.day) location.hash="day-"+d.day;});
+      .onPointClick(d=>{
+        if(!d)return;
+        const card=$("#globe-country-card");
+        $("#globe-country-flag").textContent=d.flag||"🌍";
+        $("#globe-country-name").textContent=d.country||"";
+        $("#globe-country-title").textContent=d.title||"";
+        $("#globe-country-story").onclick=()=>{if(d.day)location.hash="day-"+d.day;};
+        card.hidden=false;
+        $("#globe-hint").textContent=L("चुना गया देश — झंडा और नाम नीचे दिख रहे हैं","Selected country — its flag and name are shown below");
+        storyGlobe.pointOfView({lat:d.lat,lng:d.lng,altitude:.72},1000);
+      });
     storyGlobe.pointOfView({lat:20,lng:25,altitude:2.15},0);
     fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
       .then(r=>{if(!r.ok)throw new Error("map");return r.json();})
