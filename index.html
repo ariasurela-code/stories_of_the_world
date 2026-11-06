@@ -284,6 +284,20 @@ body.reading{overflow:hidden}
   .dock .ib small{display:none}.rtop .rtitle small{display:none}
 }
 
+/* Compact corner action menu: keeps reading controls out of the story flow */
+.rd{position:relative}
+.tools-backdrop{position:fixed;inset:0;z-index:40;background:transparent}
+.tools-backdrop[hidden],.tools-menu[hidden]{display:none!important}
+.tools-menu{position:absolute;z-index:50;top:52px;right:8px;width:min(290px,calc(100vw - 28px));display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:10px;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:0 14px 42px rgba(0,0,0,.28);transform-origin:top right;animation:toolsIn .18s ease-out}
+.tool-item{display:flex;align-items:center;gap:9px;min-width:0;padding:10px 9px;border:1px solid var(--line);border-radius:12px;background:var(--bg);text-align:left}
+.tool-item span{font-size:1.15rem;line-height:1}
+.tool-item small{font-size:.78rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tool-item.on{border-color:var(--accent);color:var(--accent)}
+#tools-toggle{font-size:1.45rem;font-weight:700;line-height:1}
+#tools-toggle[aria-expanded="true"]{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+@keyframes toolsIn{from{opacity:0;transform:translateY(-6px) scale(.97)}to{opacity:1;transform:none}}
+@media(max-width:700px){.tools-menu{top:48px;right:4px;width:min(280px,calc(100vw - 24px));gap:6px;padding:9px}.tool-item{padding:9px 8px}}
+@media(prefers-reduced-motion:reduce){.tools-menu{animation:none}}
 </style>
 </head>
 <body>
@@ -603,23 +617,32 @@ function mountReader(day, idx){
   app.innerHTML = `<div class="rd">
     <header class="rtop"><button class="ibtn sq" id="back" aria-label="${L("होम पर जाएँ", "Back to home")}" title="${L("होम", "Home")}">←</button>
       <div class="rtitle"><small>${s.flag} ${esc(s.country)} · ${L("दिन", "Day")} ${s.day} · ${minutes(s)} ${L("मिनट", "min")}</small><b>${esc(tr(s, "title"))}</b></div>
-      ${langSeg()}<button class="ibtn sq" id="theme" aria-label="${L("थीम बदलें", "Switch theme")}">◐</button></header>
+      ${langSeg()}<button class="ibtn sq" id="theme" aria-label="${L("थीम बदलें", "Switch theme")}">◐</button><button class="ibtn sq" id="tools-toggle" aria-label="${L("अन्य विकल्प", "More options")}" aria-haspopup="true" aria-controls="tools-menu" aria-expanded="false" title="${L("अन्य विकल्प", "More options")}">⋯</button></header>
     <main class="deck" id="deck"></main>
     <div class="segs" id="segs" aria-hidden="true"></div>
-    <div class="dock">
-      ${dockBtn("bt-tiles", "▦", ["टाइलें", "सभी टाइलें देखें"], ["Tiles", "See all tiles"])}
-      ${dockBtn("bt-text", "📖", ["पाठ", "पूरी कहानी पढ़ें"], ["Text", "Read the full story"])}
-      ${dockBtn("bt-facts", "📚", ["तथ्य", "जानने लायक बातें"], ["Facts", "Quick facts"])}
-      ${dockBtn("bt-src", "🔗", ["स्रोत", "स्रोत और तस्वीरों का श्रेय"], ["Sources", "Sources and photo credits"])}
-      ${dockBtn("bt-save", isSaved ? "★" : "☆", ["सहेजें", "कहानी सहेजें"], ["Save", "Save this story"], isSaved ? "on" : "")}
-      ${dockBtn("bt-share", "↗", ["साझा", "कहानी साझा करें"], ["Share", "Share this story"])}
-      ${dockBtn("bt-fs", "Aa", ["अक्षर", "अक्षरों का आकार बदलें"], ["Size", "Change text size"])}
+    <div class="tools-backdrop" id="tools-backdrop" hidden></div>
+    <div class="tools-menu" id="tools-menu" hidden role="group" aria-label="Story options">
+      ${dockBtn("bt-tiles", "▦", ["टाइलें", "सभी टाइलें देखें"], ["Tiles", "See all tiles"], "tool-item")}
+      ${dockBtn("bt-text", "📖", ["पाठ", "पूरी कहानी पढ़ें"], ["Text", "Read the full story"], "tool-item")}
+      ${dockBtn("bt-facts", "📚", ["तथ्य", "जानने लायक बातें"], ["Facts", "Quick facts"], "tool-item")}
+      ${dockBtn("bt-src", "🔗", ["स्रोत", "स्रोत और तस्वीरों का श्रेय"], ["Sources", "Sources and photo credits"], "tool-item")}
+      ${dockBtn("bt-save", isSaved ? "★" : "☆", ["सहेजें", "कहानी सहेजें"], ["Save", "Save this story"], isSaved ? "tool-item on" : "tool-item")}
+      ${dockBtn("bt-share", "↗", ["साझा", "कहानी साझा करें"], ["Share", "Share this story"], "tool-item")}
+      ${dockBtn("bt-fs", "Aa", ["अक्षर", "अक्षरों का आकार बदलें"], ["Size", "Change text size"], "tool-item")}
     </div>
     <nav class="rnav"><button id="pv"></button><div class="pc" id="pc"></div><button id="nx"></button></nav></div>
     <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="shT"><div class="sh-bg" id="shbg"></div>
       <div class="sh-box"><div class="sh-top"><b id="shT"></b><button class="ibtn sq" id="shx" aria-label="${L("बंद करें", "Close")}">✕</button></div><div class="sh-body" id="shB"></div></div></div>
     <div class="toast" id="toast" role="status"></div>`;
   window.scrollTo(0, 0); bindCommon();
+  const toolsMenu = $("#tools-menu"), toolsToggle = $("#tools-toggle"), toolsBackdrop = $("#tools-backdrop");
+  const closeToolsMenu = () => { toolsMenu.hidden = true; toolsBackdrop.hidden = true; toolsToggle.setAttribute("aria-expanded", "false"); };
+  toolsToggle.onclick = () => {
+    const opening = toolsMenu.hidden;
+    toolsMenu.hidden = !opening; toolsBackdrop.hidden = !opening;
+    toolsToggle.setAttribute("aria-expanded", String(opening));
+  };
+  toolsBackdrop.onclick = closeToolsMenu;
   $("#back").onclick = () => { location.hash = ""; };
   $("#pv").onclick = () => step(-1);
   $("#nx").onclick = () => step(1);
@@ -627,18 +650,18 @@ function mountReader(day, idx){
   $("#bt-text").onclick = () => openSheet("text");
   $("#bt-facts").onclick = () => openSheet("facts");
   $("#bt-src").onclick = () => openSheet("src");
-  $("#bt-save").onclick = () => {
+  $("#bt-save").onclick = () => { closeToolsMenu(); closeToolsMenu(); closeToolsMenu(); closeToolsMenu(); closeToolsMenu();
     saved = saved.includes(day) ? saved.filter(d => d !== day) : [...saved, day]; store.set("saved", saved);
     const on = saved.includes(day), b = $("#bt-save");
     b.classList.toggle("on", on); b.firstElementChild.textContent = on ? "★" : "☆";
     toast(on ? L("कहानी सहेज ली गई", "Story saved") : L("सहेजी हुई सूची से हटाई गई", "Removed from saved"));
   };
-  $("#bt-share").onclick = async () => {
+  $("#bt-share").onclick = async () => { closeToolsMenu();
     const data = {title: tr(s, "title"), text: teaser(s), url: location.href.split("#")[0] + "#day-" + day};
     try { if (navigator.share){ await navigator.share(data); return; } } catch(e){ if (e && e.name === "AbortError") return; }
     try { await navigator.clipboard.writeText(data.url); toast(L("लिंक कॉपी हो गया", "Link copied")); } catch(e){ toast(data.url); }
   };
-  $("#bt-fs").onclick = () => {
+  $("#bt-fs").onclick = () => { closeToolsMenu();
     const nx = FS_STEPS.find(v => v > fs) || FS_STEPS[0]; fs = nx; store.set("fs", fs); applyPrefs();
     toast(L("अक्षर आकार: ", "Text size: ") + fs); checkMore();
   };
@@ -726,7 +749,7 @@ function closeSheet(){ const sh = $("#sheet"); if (sh && !sh.hidden){ sh.hidden 
 addEventListener("keydown", e => {
   if (!R || /INPUT|TEXTAREA/.test((e.target || {}).tagName || "")) return;
   const sh = $("#sheet"), open = sh && !sh.hidden;
-  if (e.key === "Escape"){ if (open) closeSheet(); else location.hash = ""; }
+  if (e.key === "Escape"){ if (open) closeSheet(); else if ($("#tools-menu") && !$("#tools-menu").hidden){ $("#tools-menu").hidden = true; $("#tools-backdrop").hidden = true; $("#tools-toggle").setAttribute("aria-expanded", "false"); } else location.hash = ""; }
   else if (open) return;
   else if (e.key === "ArrowRight") step(1);
   else if (e.key === "ArrowLeft") step(-1);
