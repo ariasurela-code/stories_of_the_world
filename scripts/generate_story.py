@@ -80,12 +80,18 @@ def extract_json(text):
 
 
 def prompt_for(day, country, date_str):
-    return f'''Create one engaging, accurate, reader-friendly story in natural, simple Hindi for a Hindi-language website called Stories of the World.
+    return f'''आप एक मशहूर हिंदी क़िस्सागो हैं, जो दादी-नानी की तरह सुनाते हैं पर तथ्यों के मामले में एक अच्छे इतिहासकार जितने सावधान हैं। नीचे दिए देश की एक सचमुच प्रसिद्ध ऐतिहासिक घटना, लोककथा, सांस्कृतिक परंपरा, खोज या सच्ची घटना चुनें और उसे ऐसे सुनाएँ कि पाठक कहानी के भीतर पहुँच जाए।
 देश: {country}
 दिन संख्या: {day}
 तारीख: {date_str}
 
-इस देश से जुड़ी कोई सचमुच प्रसिद्ध ऐतिहासिक घटना, लोककथा, सांस्कृतिक परंपरा, खोज या उल्लेखनीय सच्ची घटना चुनें। कहानी रोचक और सहज हिंदी में लिखें। लोककथा और प्रमाणित इतिहास में स्पष्ट अंतर रखें। मनगढ़ंत उद्धरण, तारीखें, व्यक्ति या तथ्य न जोड़ें। अनिश्चित होने पर सावधानी से लिखें। बहुत हिंसक विवरण न दें।
+कहानी सुनाने का ढंग:
+- पहला अनुच्छेद किसी दृश्य से शुरू हो: कोई जगह, मौसम, आवाज़, रोशनी या सवाल, ताकि पाठक तुरंत बँध जाए। "यह कहानी ... की है" जैसी सपाट शुरुआत बिल्कुल न करें।
+- कहानी का क्रम हो: माहौल, उलझन या रहस्य, मोड़, नतीजा, और अंत में एक ऐसी बात जो पढ़ने के बाद भी मन में रहे।
+- बोलचाल की सहज हिंदी, जैसे कोई सामने बैठकर सुना रहा हो। छोटे-बड़े वाक्य मिलाएँ। कभी-कभी "सोचिए," या "कल्पना कीजिए," जैसे वाक्य ठीक हैं। अनुवाद जैसी भारी-भरकम या किताबी हिंदी न लिखें।
+- जगह, मौसम, मिट्टी, इमारत, खाने, पहनावे के ऐसे ब्योरे डालें जो सचमुच सच हैं। जो आपको पक्का न पता हो, उसे गढ़ें नहीं।
+- मनगढ़ंत उद्धरण, संवाद, तारीख़ें, संख्याएँ, नाम या तथ्य न जोड़ें। अनिश्चित हो तो "कहा जाता है", "माना जाता है" जैसे शब्द रखें। लोककथा और प्रमाणित इतिहास का फ़र्क साफ़ रखें। बहुत हिंसक विवरण न दें।
+- कहानी 10 से 14 अनुच्छेदों की हो, हर अनुच्छेद में 3 से 5 वाक्य।
 
 केवल वैध JSON लौटाएँ, ठीक इन्हीं keys और types के साथ:
 {{
@@ -94,15 +100,17 @@ def prompt_for(day, country, date_str):
   "country": "{country}",
   "flag": "एक उपयुक्त झंडे का emoji",
   "kind": "history या myth या culture या discovery",
-  "title": "हिंदी में छोटा और आकर्षक शीर्षक",
-  "story": ["8 से 12 अनुच्छेद, हर अनुच्छेद में 2 से 4 वाक्य, सभी हिंदी में"],
+  "title": "हिंदी में छोटा, जिज्ञासा जगाने वाला शीर्षक",
+  "teaser": "कहानी का एक मोहक वाक्य (20 शब्दों तक) जो पढ़ने की इच्छा जगाए, पर पूरा राज़ न खोले",
+  "story": ["10 से 14 अनुच्छेद, सभी हिंदी में"],
   "why": "2 से 4 हिंदी वाक्यों में बताएँ कि कहानी प्रसिद्ध क्यों है",
   "where": "2 से 4 हिंदी वाक्यों में बताएँ कि आज यह कहाँ याद की जाती है या देखी जा सकती है",
   "truth": "2 से 4 हिंदी वाक्यों में प्रमाणित तथ्यों और लोककथा/अनिश्चितता का अंतर बताएँ",
   "info": [["राजधानी", "..."], ["भाषा", "..."], ["मुद्रा", "..."], ["खास बात", "देश से जुड़ी एक उपयोगी जानकारी"]],
-  "image_queries": ["Wikimedia Commons पर असली फ़ोटो खोजने के लिए अंग्रेज़ी search query (कहानी के मुख्य स्थान/वस्तु की)", "दूसरी अलग अंग्रेज़ी search query"]
+  "image_queries": ["Wikimedia Commons पर असली फ़ोटो खोजने के लिए अंग्रेज़ी search query (कहानी के मुख्य स्थान/वस्तु की)", "दूसरी अलग अंग्रेज़ी search query"],
+  "source_queries": ["इस कहानी के विषय पर English Wikipedia लेख का सटीक शीर्षक या search query", "दूसरा संबंधित लेख", "तीसरा संबंधित लेख"]
 }}
-कहानी मौलिक हो, किसी स्रोत से कॉपी न हो। JSON strings में quotation marks सही तरह escape करें। image_queries सिर्फ़ अंग्रेज़ी में हों और कोई URL न दें। JSON keys अंग्रेज़ी में ही रखें, लेकिन कहानी और सभी दिखने वाले मान हिंदी में लिखें।'''
+कहानी मौलिक हो, किसी स्रोत से कॉपी न हो। image_queries और source_queries सिर्फ़ अंग्रेज़ी में हों और कोई URL न दें। JSON strings में quotation marks सही तरह escape करें। JSON keys अंग्रेज़ी में ही रखें, लेकिन कहानी और सभी दिखने वाले मान हिंदी में लिखें।'''
 
 
 def call_gemini(prompt, key):
@@ -115,7 +123,7 @@ def call_gemini(prompt, key):
         try:
             result = request_json(url, {"x-goog-api-key": key}, {
                 "contents": [{"parts": [{"text": prompt}]}],
-                "generationConfig": {"temperature": 0.7, "responseMimeType": "application/json"}
+                "generationConfig": {"temperature": 0.85, "responseMimeType": "application/json"}
             })
             print(f"Gemini model used: {model}")
             return result["candidates"][0]["content"]["parts"][0]["text"]
@@ -135,7 +143,7 @@ def call_groq(prompt, key):
                 "Authorization": f"Bearer {key}",
             }, {
                 "model": model,
-                "temperature": 0.7,
+                "temperature": 0.85,
                 "response_format": {"type": "json_object"},
                 "messages": [
                     {"role": "system", "content": "You write accurate, engaging educational country stories and return only valid JSON."},
@@ -170,10 +178,10 @@ def ask_ai(prompt):
 
 
 def translate_prompt(story):
-    src = {k: story[k] for k in ("title", "story", "why", "where", "truth", "info")}
-    return ("Translate this Hindi story content into clear, natural English. Keep facts exactly the same, keep the "
+    src = {k: story[k] for k in ("title", "teaser", "story", "why", "where", "truth", "info") if k in story}
+    return ("Translate this Hindi story into vivid, natural English storytelling prose (not word-for-word). Keep facts exactly the same, keep the "
             "same number of paragraphs and the same structure. Return ONLY valid JSON with exactly these keys: "
-            "title (string), story (array of strings), why (string), where (string), truth (string), "
+            "title (string), teaser (string, if present), story (array of strings), why (string), where (string), truth (string), "
             "info (array of [label, value] pairs, labels and values in English).\n\n"
             + json.dumps(src, ensure_ascii=False))
 
@@ -182,7 +190,7 @@ def add_english(story):
     en = extract_json(ask_ai(translate_prompt(story)))
     if not isinstance(en.get("story"), list) or not en.get("title"):
         raise ValueError("English translation is incomplete")
-    story["en"] = {k: en[k] for k in ("title", "story", "why", "where", "truth", "info") if k in en}
+    story["en"] = {k: en[k] for k in ("title", "teaser", "story", "why", "where", "truth", "info") if k in en}
 
 
 def http_get_json(url):
@@ -238,12 +246,79 @@ def commons_images(queries, country, flag, limit=2):
     return found
 
 
-def repair_archive(existing):
-    """Backfill English text and real Commons photos for any story missing them."""
-    changed = False
-    for st in existing:
-        if not isinstance(st, dict):
+def wikipedia_sources(queries, country, limit=3):
+    """Real Wikipedia articles (verified via the API) for readers who want more detail."""
+    out, seen = [], set()
+    for q in list(queries) + [country]:
+        if len(out) >= limit:
+            break
+        try:
+            params = {"action": "query", "format": "json", "generator": "search", "gsrsearch": q,
+                      "gsrlimit": 1, "prop": "extracts|langlinks|info", "exintro": 1, "explaintext": 1,
+                      "exsentences": 1, "lllang": "hi", "inprop": "url"}
+            data = http_get_json("https://en.wikipedia.org/w/api.php?" + urlencode(params))
+        except Exception as exc:
+            print(f"Wikipedia lookup failed for '{q}': {exc}", file=sys.stderr)
             continue
+        for pg in (data.get("query", {}).get("pages", {})).values():
+            url = pg.get("fullurl")
+            if not url or url in seen:
+                continue
+            seen.add(url)
+            item = {"title": pg.get("title", q), "url": url, "publisher": "Wikipedia",
+                    "note": (pg.get("extract") or "").strip()[:160]}
+            hi = (pg.get("langlinks") or [{}])[0].get("*")
+            if hi:
+                item["hi_url"] = "https://hi.wikipedia.org/wiki/" + hi.replace(" ", "_")
+            out.append(item)
+    return out
+
+
+def finish_story(story, country):
+    """Attach English text, real photos and real sources to a generated story."""
+    story.pop("images", None)  # never keep AI-invented image URLs
+    try:
+        add_english(story)
+    except Exception as exc:
+        print(f"English translation failed (will be backfilled next run): {exc}", file=sys.stderr)
+    title_en = (story.get("en") or {}).get("title", "")
+    iq = list(story.get("image_queries") or []) + [f"{country} {title_en}".strip(), f"{country} landmark"]
+    imgs = commons_images(iq, country, story.get("flag", ""))
+    if imgs:
+        story["images"] = imgs
+    srcs = wikipedia_sources(list(story.get("source_queries") or []) + ([title_en] if title_en else []), country)
+    if srcs:
+        story["sources"] = srcs
+    story["story_version"] = 2
+    return story
+
+
+def validate_story(story, day, date_str, country):
+    required = {"day", "date", "country", "flag", "kind", "title", "story", "why", "where", "truth", "info"}
+    if not required.issubset(story):
+        raise ValueError("AI story is missing required fields: " + ", ".join(sorted(required - set(story))))
+    story["day"], story["date"], story["country"] = day, date_str, country
+    if not isinstance(story["story"], list) or len(story["story"]) < 8:
+        raise ValueError("AI story has too few paragraphs")
+
+
+def repair_archive(existing, max_regen=6):
+    """Upgrade older stories: retell with the richer storytelling prompt, then fill gaps (English, photos, sources)."""
+    changed, regen = False, 0
+    for idx, st in enumerate(existing):
+        if not isinstance(st, dict) or int(st.get("day", 0)) < 3:
+            continue  # Day 1 and 2 live inside index.html
+        if st.get("story_version", 1) < 2 and regen < max_regen:
+            regen += 1
+            try:
+                new = extract_json(ask_ai(prompt_for(st["day"], st["country"], st.get("date", ""))))
+                validate_story(new, st["day"], st.get("date", ""), st["country"])
+                existing[idx] = st = finish_story(new, st["country"])
+                changed = True
+                print(f"Retold Day {st['day']} ({st['country']}) with the new storytelling prompt.")
+                continue
+            except Exception as exc:
+                print(f"Retelling Day {st.get('day')} failed, keeping old version: {exc}", file=sys.stderr)
         if "en" not in st and isinstance(st.get("story"), list):
             try:
                 add_english(st); changed = True
@@ -256,7 +331,12 @@ def repair_archive(existing):
             imgs = commons_images(queries, st.get("country", ""), st.get("flag", ""))
             if imgs:
                 st["images"] = imgs; changed = True
-                print(f"Added {len(imgs)} Commons image(s) for Day {st.get('day')}.")
+        if not st.get("sources"):
+            title_en = (st.get("en") or {}).get("title", "")
+            srcs = wikipedia_sources(list(st.get("source_queries") or []) + ([title_en] if title_en else []), st.get("country", ""))
+            if srcs:
+                st["sources"] = srcs; changed = True
+                print(f"Added sources for Day {st.get('day')}.")
     return changed
 
 
@@ -289,21 +369,8 @@ def main():
 
     date_str = datetime.now(timezone.utc).date().isoformat()
     story = extract_json(ask_ai(prompt_for(next_day, country, date_str)))
-    required = {"day", "date", "country", "flag", "kind", "title", "story", "why", "where", "truth", "info"}
-    if not required.issubset(story):
-        raise ValueError("AI story is missing required fields: " + ", ".join(sorted(required - set(story))))
-    story["day"], story["date"], story["country"] = next_day, date_str, country
-    if not isinstance(story["story"], list) or len(story["story"]) < 5:
-        raise ValueError("AI story has too few paragraphs")
-    story.pop("images", None)  # never keep AI-invented image URLs
-    try:
-        add_english(story)
-    except Exception as exc:
-        print(f"English translation failed (will be backfilled next run): {exc}", file=sys.stderr)
-    queries = list(story.get("image_queries") or []) + [f"{country} {(story.get('en') or {}).get('title', '')}".strip(), f"{country} landmark"]
-    imgs = commons_images(queries, country, story.get("flag", ""))
-    if imgs:
-        story["images"] = imgs
+    validate_story(story, next_day, date_str, country)
+    finish_story(story, country)
     existing.append(story)
     save(existing)
     print(f"Published Day {next_day}: {country}")

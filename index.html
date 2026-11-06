@@ -1,78 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#10333A">
-<link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="World Stories">
+<meta name="description" content="हर दिन एक देश की एक सच्ची, दिलचस्प कहानी। One true story from every country, every day.">
 <title>Stories of the World</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Noto+Serif+Devanagari:wght@400;600;700&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#E6EDEE;--card:#F3F7F7;--ink:#10262C;--muted:#52696F;--line:#C3D1D4;--accent:#B86A05;--onaccent:#fff;
---serif:"Newsreader",Georgia,serif;--sans:"Hind",system-ui,sans-serif;--fs:19px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1D23;--card:#12272F;--ink:#E4EEEE;--muted:#8FA5AA;--line:#24404A;--accent:#F2B34A;--onaccent:#0D1D23}}
-:root[data-theme="dark"]{--bg:#0D1D23;--card:#12272F;--ink:#E4EEEE;--muted:#8FA5AA;--line:#24404A;--accent:#F2B34A;--onaccent:#0D1D23}
+:root{--bg:#F3EEE6;--card:#FFFDF9;--ink:#1D2A2E;--muted:#667579;--line:#E1D8CA;--accent:#B5600A;--accent2:#0F4C5C;--onaccent:#fff;--shadow:0 1px 2px rgba(20,30,35,.06),0 8px 24px rgba(20,30,35,.08);
+--serif:"Newsreader","Noto Serif Devanagari",Georgia,serif;--sans:"Hind",system-ui,sans-serif;--fs:19px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1A20;--card:#122730;--ink:#E8EFEF;--muted:#93A8AD;--line:#24404A;--accent:#F2B34A;--accent2:#6CC1D1;--onaccent:#0C1A20;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--bg:#0C1A20;--card:#122730;--ink:#E8EFEF;--muted:#93A8AD;--line:#24404A;--accent:#F2B34A;--accent2:#6CC1D1;--onaccent:#0C1A20;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35)}
 *{box-sizing:border-box}
-html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6}
+html{padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
 button{font:inherit;color:inherit;cursor:pointer}
+a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:680px;margin:0 auto;padding:20px 18px 64px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
-.brand{font-family:var(--serif);font-size:1.7rem;font-weight:400;margin:0;line-height:1.2}
-.ibtn{background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;min-height:40px}
-.sub{color:var(--muted);margin:2px 0 18px}
-.atlas{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 6px}
-.atlas i{width:8px;height:8px;border-radius:2px;background:var(--line)}
-.atlas i.on{background:var(--accent)}
-.count{font-size:.9rem;color:var(--muted);margin:0 0 20px}
-.search{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;margin-bottom:6px}
-.filters{display:flex;gap:8px;margin:8px 0 14px}
-.chip{border:1px solid var(--line);background:none;border-radius:99px;padding:4px 14px}
+.wrap{max-width:760px;margin:0 auto;padding:18px 18px 72px}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:20;transition:width .1s}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}
+.brand{font-family:var(--serif);font-size:1.45rem;font-weight:600;margin:0;line-height:1.15;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--sans);font-size:.78rem;font-weight:500;color:var(--muted);letter-spacing:.04em}
+.ctrl{display:flex;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:99px;overflow:hidden;background:var(--card)}
+.seg button{background:none;border:0;padding:6px 14px;min-height:38px;font-weight:500}
+.seg button[aria-pressed="true"]{background:var(--accent2);color:#fff}
+.ibtn{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 14px;min-height:38px}
+.ibtn.sq{width:38px;padding:0}
+/* home */
+.feature{position:relative;display:block;width:100%;text-align:left;border:0;border-radius:20px;overflow:hidden;min-height:340px;color:#fff;background:var(--accent2);box-shadow:var(--shadow);padding:0}
+.feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feature::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,25,.05) 25%,rgba(8,20,25,.88) 100%)}
+.feature .in{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:22px}
+.feature h2{font-family:var(--serif);font-weight:600;font-size:1.9rem;line-height:1.22;margin:8px 0 6px}
+.feature p{margin:0;opacity:.92;font-size:1.02rem}
+.tag{display:inline-block;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.18);backdrop-filter:blur(4px);color:#fff}
+.tag.k{background:var(--accent);color:var(--onaccent)}
+.search{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);font:inherit;margin:22px 0 10px}
+.filters{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:0 0 14px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:4px 14px;min-height:34px}
 .chip[aria-pressed="true"]{background:var(--accent);color:var(--onaccent);border-color:var(--accent)}
-.date{font-size:.9rem;color:var(--muted);margin:22px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
-.row{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px}
-.row .flag{font-size:1.9rem;line-height:1}
-.row .t{flex:1;min-width:0}
-.row b{display:block;font-family:var(--serif);font-weight:400;font-size:1.2rem}
-.row span{color:var(--muted);font-size:.92rem}
-.tick{color:var(--accent);font-size:.85rem;white-space:nowrap}
-.empty{color:var(--muted);padding:28px 0;text-align:center}
-.back{margin-bottom:14px}
-.hero{margin:6px 0 22px}
-.hero .flag{font-size:3rem;line-height:1}
-.hero h2{font-family:var(--serif);font-weight:400;font-size:2.1rem;line-height:1.2;margin:8px 0 4px}
-.hero p{margin:0;color:var(--muted)}
-.tools{display:flex;gap:8px;margin:12px 0 4px}
-article p{font-family:var(--serif);font-size:var(--fs);line-height:1.7;margin:0 0 1.1em}
-.box{border-left:3px solid var(--accent);background:var(--card);border-radius:0 10px 10px 0;padding:10px 16px;margin:22px 0}
-.box h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin:0 0 4px}
-.box p{font-family:var(--serif);font-size:calc(var(--fs) - 2px);margin:0;line-height:1.65}
-dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:1rem}
-dt{color:var(--muted)}dd{margin:0}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:30px}
-.nav button{flex:1;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
-.nav button:disabled{opacity:.4;cursor:default}
-@media (prefers-reduced-motion:no-preference){.view{animation:in .25s ease-out}@keyframes in{from{opacity:0}to{opacity:1}}}
-
-.gallery{margin:22px 0 26px}.gallery h3{font-family:var(--serif);font-size:1.35rem;font-weight:400;margin:0 0 10px}.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gallery a{display:block;color:var(--muted);text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}.gallery img{display:block;width:100%;height:190px;object-fit:cover;background:var(--line)}.gallery figcaption{font-size:.88rem;padding:7px 9px}.gallery small{display:block;color:var(--muted);font-size:.75rem;padding:0 9px 8px}@media(max-width:420px){.gallery-grid{grid-template-columns:1fr}.gallery img{height:210px}}
+.count{font-size:.88rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.card{display:flex;flex-direction:column;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;padding:0;box-shadow:var(--shadow);transition:transform .15s}
+.card:hover{transform:translateY(-2px)}
+.card .ph{aspect-ratio:16/10;background:linear-gradient(135deg,var(--accent2),var(--accent));display:flex;align-items:center;justify-content:center;font-size:3rem;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.card .tx{padding:12px 14px 14px}
+.card .meta{font-size:.8rem;color:var(--muted);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.card b{display:block;font-family:var(--serif);font-weight:600;font-size:1.14rem;line-height:1.3;margin:4px 0 0}
+.done{color:var(--accent);font-weight:600}
+.empty{color:var(--muted);padding:34px 0;text-align:center}
+.foot{margin-top:40px;text-align:center;color:var(--muted);font-size:.82rem}
+/* reader */
+.back{margin-bottom:12px}
+.cover{position:relative;border-radius:20px;overflow:hidden;min-height:300px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;box-shadow:var(--shadow)}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,25,.1) 20%,rgba(8,20,25,.9) 100%)}
+.cover .in{position:relative;z-index:1;padding:90px 22px 22px}
+.cover h1{font-family:var(--serif);font-weight:600;font-size:2.05rem;line-height:1.2;margin:10px 0 8px}
+.cover .m{font-size:.92rem;opacity:.92}
+.tools{display:flex;gap:8px;margin:14px 0 6px;flex-wrap:wrap}
+.lede{font-family:var(--serif);font-style:italic;font-size:calc(var(--fs) + 2px);line-height:1.55;color:var(--accent2);margin:22px 0 6px;padding-left:16px;border-left:3px solid var(--accent)}
+article{margin-top:18px}
+article p{font-family:var(--serif);font-size:var(--fs);line-height:1.85;margin:0 0 1.15em}
+article p.first::first-letter{font-size:3.6em;float:left;line-height:.85;padding:.08em .1em 0 0;color:var(--accent);font-weight:700}
+figure.inline{margin:26px -4px;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+figure.inline img{display:block;width:100%;max-height:420px;object-fit:cover}
+figure.inline figcaption{padding:10px 14px;font-size:.86rem;color:var(--muted)}
+figure.inline figcaption a{color:var(--accent2)}
+.sep{text-align:center;color:var(--accent);letter-spacing:.6em;margin:26px 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:18px 0}
+.box h3{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 6px}
+.box p{font-family:var(--serif);font-size:calc(var(--fs) - 2px);margin:0;line-height:1.7}
+.box.truth{border-left:4px solid var(--accent)}
+.facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin:0}
+.facts div{background:var(--bg);border-radius:12px;padding:10px 12px}
+.facts dt{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+.facts dd{margin:2px 0 0;font-weight:500}
+.src{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.src a{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:11px 14px;background:var(--bg)}
+.src a:hover{border-color:var(--accent2)}
+.src b{display:block;color:var(--accent2)}
+.src span{font-size:.84rem;color:var(--muted)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:34px}
+.nav button{padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-align:left}
+.nav button:last-child{text-align:right}
+.nav small{display:block;color:var(--muted)}
+.nav b{font-family:var(--serif);font-weight:600;font-size:.98rem;line-height:1.3;display:block}
+.nav button:disabled{opacity:.35;cursor:default}
+@media (prefers-reduced-motion:no-preference){.view{animation:in .3s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
+@media (max-width:480px){.cover h1{font-size:1.7rem}.feature h2{font-size:1.6rem}.brand{font-size:1.25rem}}
 </style>
 </head>
 <body>
+<div id="progress"></div>
 <div class="wrap" id="app"></div>
 <script>
-/* =====================================================
-   How to add a new story each day:
-   Paste the new { ... } block at the end of the STORIES list below,
-   after the last } with a comma in between. Then re-upload / redeploy the file.
-   ===================================================== */
 const TOTAL = 208;
 const STORIES = [
 {
@@ -139,8 +172,6 @@ const STORIES = [
   ]
 }
 ];
-
-
 const STORY_IMAGES = {
   1: [
     {url:"https://commons.wikimedia.org/wiki/Special:FilePath/Inside_the_tomb_of_Tutankhamun.jpg",en:"Inside Tutankhamun’s tomb",hi:"तूतनख़ामुन की कब्र के अंदर",credit:"Romagy · CC BY-SA 4.0",source:"https://commons.wikimedia.org/wiki/File:Inside_the_tomb_of_Tutankhamun.jpg"},
@@ -151,59 +182,85 @@ const STORY_IMAGES = {
     {url:"https://commons.wikimedia.org/wiki/Special:FilePath/Jamafghanistangrorharirud.jpg",en:"Minaret detail and brickwork",hi:"मीनार की ईंटों की बारीक सजावट",credit:"David Adamec · Public domain",source:"https://commons.wikimedia.org/wiki/File:Jamafghanistangrorharirud.jpg"}
   ]
 };
-
 const TRANSLATIONS = {"en":{"2":{"title":"The Minaret of Jam: A Mystery Among the Mountains","story":["In Ghor province, Afghanistan, the Hari Rud and Jam rivers meet near a remote valley. High among the mountains, a tall brick tower rises above the landscape.","This is the Minaret of Jam, about 65 metres tall. It was built during the Ghurid period in the twelfth century, when Ghurid power extended across parts of present-day Afghanistan, Iran, Central Asia and northern India.","The minaret is associated with Sultan Ghiyath al-Din Muhammad. Its exact date remains debated: UNESCO gives 1194, while research discussed in Encyclopaedia Iranica supports reading the inscription as 1174–75.","Its original purpose is not certain. It may have commemorated a political or military victory. Nearby remains have been linked by some scholars to Firuzkuh, a Ghurid capital, but that identification is not conclusive.","The tower has an eight-sided base and tiers of baked brick that narrow as they rise. Its exterior is decorated with intricate geometric patterns, plasterwork and bands of calligraphy.","Kufic inscriptions include royal titles and Qur’anic passages. The lower section carries the complete text of Surah Maryam, the nineteenth chapter of the Qur’an. Turquoise glazed tiles survive in one inscription band.","The remote monument entered wider archaeological study after surveys in the mid-twentieth century. It offers rare evidence of Ghurid craftsmanship, architecture and calligraphy.","In 2002, UNESCO added the Minaret of Jam and its archaeological remains to the World Heritage List. It was also placed on the List of World Heritage in Danger because of flooding, river erosion and conservation challenges.","Those risks remain real. UNESCO's 2026 reporting continued to identify seasonal floods as a serious threat. Monitoring, flood protection and other conservation work remain important, while specialists also watch the tower's inclination.","The minaret is more than an old tower: it is a remarkable record of Ghurid art and the region's cultural history. Its architectural tradition is part of the wider story of Islamic architecture across Central and South Asia."],"why":"It is famous for its height, intricate baked-brick decoration and remarkable Kufic inscriptions, including the complete text of Surah Maryam. It is one of the most important surviving monuments of Ghurid architecture.","where":"The minaret stands in Ghor province, near the meeting of the Hari Rud and Jam rivers in central Afghanistan. Its remote location makes access difficult, but it is internationally recognised as a major Afghan heritage site.","truth":"The date is disputed: UNESCO lists 1194, while scholarship discussed in Encyclopaedia Iranica supports 1174–75. The proposed link to Firuzkuh and the idea that it commemorated a victory remain interpretations, not settled facts. The site has been on UNESCO's List of World Heritage in Danger since 2002.","info":[["Capital","Kabul"],["Languages","Dari and Pashto"],["Currency","Afghani (AFN)"],["Geography","The Hindu Kush mountains shape much of the country's landscape and history"]]}},"hi":{"1":{"title":"फ़राओ का श्राप: तूतनख़ामुन की कब्र का रहस्य","story":["मिस्र के लक्सर शहर के पास एक सूखी और शांत घाटी है, जिसे आज राजाओं की घाटी कहा जाता है। हज़ारों साल पहले मिस्र के फ़राओ को यहीं दफ़नाया जाता था। पास ही प्राचीन नगर थीब्स कभी जीवन से भरा हुआ था।","1922 के आसपास पुरातत्वविद् हॉवर्ड कार्टर यहाँ कई वर्षों से खुदाई कर रहे थे। उनका लक्ष्य युवा राजा तूतनख़ामुन की कब्र ढूँढ़ना था। तूतनख़ामुन की मृत्यु लगभग 18 या 19 वर्ष की आयु में हुई थी और उसकी कब्र का स्थान अब तक नहीं मिला था।","खुदाई का खर्च धनी अंग्रेज़ लॉर्ड कार्नार्वन उठा रहे थे। लगातार असफलताओं के बाद उन्होंने कार्टर को एक आख़िरी मौसम का समय दिया। तभी एक मज़दूर को रेत के नीचे सीढ़ी का पहला पत्थर दिखाई दिया। खुदाई आगे बढ़ी तो बंद दरवाज़ा मिला।","कार्टर ने दीवार में छोटा छेद करके भीतर झाँका। मोमबत्ती की रोशनी में सोने की वस्तुएँ, रथ, संदूक और मूर्तियाँ चमक रही थीं। तीन हज़ार साल से बंद यह कब्र लगभग अछूती मिली थी। बाद में तूतनख़ामुन का प्रसिद्ध स्वर्ण मुखौटा भी दुनिया के सामने आया।","इस खोज की खबर दुनिया भर में फैल गई। कुछ महीनों बाद कार्नार्वन की काहिरा में संक्रमण के कारण मृत्यु हो गई। उनके मच्छर के काटने से बने घाव में संक्रमण हुआ था। लेकिन अख़बारों ने इसे फ़राओ के श्राप से जोड़ना शुरू कर दिया।","कहानियाँ फैलने लगीं कि कब्र खोलने वालों को रहस्यमय मौतें घेर रही हैं। किसी ने दावा किया कि कब्र की दीवार पर चेतावनी लिखी थी। इन दावों ने रहस्य को और सनसनीखेज़ बना दिया।","समय के साथ यह घटना फ़राओ के श्राप की मशहूर कथा बन गई। मगर असली खोज इससे भी अधिक महत्वपूर्ण थी: इसने प्राचीन मिस्र की कला, दफ़नाने की परंपराओं और राजसी जीवन के बारे में असाधारण जानकारी दी।"],"why":"इस कहानी में पुरातत्व की महान खोज, सोने से भरी कब्र और रहस्य का आकर्षण एक साथ हैं। तूतनख़ामुन की लगभग अछूती कब्र प्राचीन मिस्र के इतिहास की सबसे प्रसिद्ध खोजों में गिनी जाती है।","where":"यह कथा मिस्र के लक्सर और राजाओं की घाटी से जुड़ी है। तूतनख़ामुन के ख़ज़ाने और स्वर्ण मुखौटे को देखने के लिए दुनिया भर के लोग मिस्र के संग्रहालयों में आते हैं। फ़राओ के श्राप का विचार किताबों और फ़िल्मों में भी लोकप्रिय हुआ।","truth":"कब्र पर किसी श्राप का प्रमाण नहीं मिला। कार्नार्वन की मृत्यु संक्रमण से हुई थी; इसे अलौकिक घटना मानने का कोई विश्वसनीय प्रमाण नहीं है। कब्र खोलने वाले अधिकांश लोग लंबे समय तक जीवित रहे और हॉवर्ड कार्टर भी कई वर्ष बाद तक जीवित थे। कथित चेतावनी को प्रमाणित नहीं किया गया है।","info":[["राजधानी","काहिरा"],["प्रमुख नदी","नील"],["प्रमुख शहर","लक्सर, गीज़ा, अलेक्ज़ेंड्रिया और असवान"],["भाषा","अरबी"],["मुद्रा","मिस्री पाउंड"],["विशेष पहचान","प्राचीन पिरामिड और फ़राओ की सभ्यता"]]}}};
 const $ = s => document.querySelector(s);
 const app = $("#app");
-const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const store = {
   get(k, d){ try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch(e){ return d; } },
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
 };
-let language = store.get('language', 'hi');
+let language = store.get("language", "hi");
+const L = (hi, en) => language === "hi" ? hi : en;
 function tr(story, field){
   if (story[language] && typeof story[language] === "object" && story[language][field] != null) return story[language][field];
   return (TRANSLATIONS[language] && TRANSLATIONS[language][story.day] && TRANSLATIONS[language][story.day][field]) || story[field];
 }
-const L = (hi, en) => language === "hi" ? hi : en;
-function setLanguage(next){ language=next; store.set('language', next); route(); }
 let read = store.get("read", []), saved = store.get("saved", []);
 let fs = store.get("fs", 19), theme = store.get("theme", "");
 let q = "", onlySaved = false;
+
+const KINDS = {history:["इतिहास","History"], myth:["लोककथा","Folklore"], culture:["संस्कृति","Culture"], discovery:["खोज","Discovery"]};
+const kindLabel = s => (KINDS[s.kind] || KINDS.history)[language === "hi" ? 0 : 1];
 const sorted = () => [...STORIES].sort((a, b) => b.day - a.day);
-const fmtDate = d => { try { return new Date(d + "T00:00:00").toLocaleDateString("en-IN", {weekday:"long", day:"numeric", month:"long", year:"numeric"}); } catch(e){ return d; } };
+const imgs = s => (s.images || STORY_IMAGES[s.day] || []).filter(i => i && i.url);
+const capOf = im => language === "hi" ? (im.hi || im.en || "") : (im.en || im.hi || "");
+const fmtDate = d => { try { return new Date(d + "T00:00:00").toLocaleDateString(language === "hi" ? "hi-IN" : "en-IN", {day:"numeric", month:"long", year:"numeric"}); } catch(e){ return d; } };
+const minutes = s => Math.max(1, Math.round((tr(s, "story") || []).join(" ").split(/\s+/).length / (language === "hi" ? 170 : 200)));
+const teaser = s => { const t = tr(s, "teaser"); if (t) return t; const p = (tr(s, "story") || [""])[0] || ""; return p.length > 150 ? p.slice(0, 147).replace(/\s+\S*$/, "") + "…" : p; };
+const imgTag = (im, extra = "") => im ? `<img src="${esc(im.url)}" alt="${esc(capOf(im))}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()" ${extra}>` : "";
+
+function sourcesOf(s){
+  const own = (s.sources || []).filter(x => x && x.url);
+  if (own.length) return own;
+  return [{title: s.country, url: "https://en.wikipedia.org/wiki/" + encodeURIComponent(String(s.country).replace(/ /g, "_")), publisher: "Wikipedia"}];
+}
 
 function applyPrefs(){
   document.documentElement.style.setProperty("--fs", fs + "px");
+  document.documentElement.lang = language;
   if (theme) document.documentElement.dataset.theme = theme; else delete document.documentElement.dataset.theme;
 }
 function toggleTheme(){
   const dark = theme ? theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
   theme = dark ? "light" : "dark"; store.set("theme", theme); applyPrefs();
 }
+function setLanguage(next){ language = next; store.set("language", next); applyPrefs(); route(); }
+
+const langSeg = () => `<div class="seg" role="group" aria-label="Language"><button id="lang-hi" aria-pressed="${language==="hi"}">हिंदी</button><button id="lang-en" aria-pressed="${language==="en"}">English</button></div>`;
+const bindCommon = () => {
+  $("#lang-hi").onclick = () => setLanguage("hi"); $("#lang-en").onclick = () => setLanguage("en");
+  const t = $("#theme"); if (t) t.onclick = toggleTheme;
+};
 
 function home(){
-  const have = new Set(STORIES.map(s => s.day));
-  let dots = ""; for (let i = 1; i <= TOTAL; i++) dots += `<i class="${have.has(i) ? "on" : ""}"></i>`;
-  const list = sorted().filter(s => (!onlySaved || saved.includes(s.day)) &&
-    (s.country + " " + s.title + " " + s.info.map(x => x.join(" ")).join(" ")).toLowerCase().includes(q.toLowerCase()));
-  let body = "", last = "";
-  for (const s of list){
-    if (s.date !== last){ body += `<div class="date">${esc(fmtDate(s.date))}</div>`; last = s.date; }
-    body += `<button class="row" data-day="${s.day}"><span class="flag">${s.flag}</span><span class="t"><b>${esc(tr(s,"title"))}</b><span>Day ${s.day} · ${esc(s.country)}</span></span>${read.includes(s.day) ? '<span class="tick">Read ✓</span>' : ""}</button>`;
-  }
+  window.onscroll = null; $("#progress").style.width = "0";
+  const all = sorted();
+  const needle = q.trim().toLowerCase();
+  const list = all.filter(s => (!onlySaved || saved.includes(s.day)) &&
+    (!needle || (s.country + " " + tr(s, "title") + " " + (tr(s, "info") || []).map(x => x.join(" ")).join(" ")).toLowerCase().includes(needle)));
+  const latest = all[0];
+  const showFeature = latest && !needle && !onlySaved;
+  const rest = showFeature ? list.filter(s => s.day !== latest.day) : list;
+  const card = s => { const im = imgs(s)[0]; return `<button class="card" data-day="${s.day}">
+      <div class="ph">${im ? imgTag(im) : s.flag}</div>
+      <div class="tx"><div class="meta"><span>${s.flag} ${esc(s.country)}</span><span>· ${esc(kindLabel(s))}</span>${read.includes(s.day) ? `<span class="done">· ✓</span>` : ""}</div>
+      <b>${esc(tr(s, "title"))}</b></div></button>`; };
   app.innerHTML = `<div class="view">
-    <div class="top"><h1 class="brand">Stories of the World</h1><div><button class="ibtn" id="lang-hi">हिंदी</button> <button class="ibtn" id="lang-en">English</button> <button class="ibtn" id="theme" aria-label="Change theme">◐</button></div></div>
-    <p class="sub">${language==="hi"?"हर देश की एक प्रसिद्ध कहानी, हर दिन।":"One famous story from every country, one a day."}</p>
-    <div class="atlas" aria-hidden="true">${dots}</div>
-    <p class="count">${STORIES.length} / ${TOTAL} countries done · ${read.length} stories read</p>
-    <input class="search" id="q" type="search" placeholder="Search a country, city or story" value="${esc(q)}" aria-label="Search">
-    <div class="filters"><button class="chip" id="saved" aria-pressed="${onlySaved}">★ Saved</button></div>
-    ${body || '<p class="empty">No stories found.</p>'}</div>`;
-  $("#theme").onclick = toggleTheme; $("#lang-hi").onclick=()=>setLanguage("hi"); $("#lang-en").onclick=()=>setLanguage("en");
+    <div class="bar"><h1 class="brand">Stories of the World<small>${L("हर दिन, एक देश की एक कहानी", "One country · One story · Every day")}</small></h1>
+      <div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="Theme">◐</button></div></div>
+    ${showFeature ? (() => { const im = imgs(latest)[0]; return `<button class="feature" data-day="${latest.day}">${imgTag(im)}
+      <div class="in"><span class="tag k">${L("आज की कहानी", "Today's story")}</span> <span class="tag">${latest.flag} ${esc(latest.country)}</span>
+      <h2>${esc(tr(latest, "title"))}</h2><p>${esc(teaser(latest))}</p></div></button>`; })() : ""}
+    <input class="search" id="q" type="search" placeholder="${L("देश या कहानी खोजें", "Search a country or story")}" value="${esc(q)}" aria-label="Search">
+    <div class="filters"><button class="chip" id="saved" aria-pressed="${onlySaved}">★ ${L("सहेजी हुई", "Saved")}</button>
+      <span class="count">${STORIES.length} / ${TOTAL} ${L("देश", "countries")}</span></div>
+    ${rest.length ? `<div class="grid">${rest.map(card).join("")}</div>` : (showFeature ? "" : `<p class="empty">${L("कोई कहानी नहीं मिली।", "No stories found.")}</p>`)}
+    <p class="foot">${L("तस्वीरें: Wikimedia Commons", "Photos: Wikimedia Commons")}</p></div>`;
+  bindCommon();
   $("#q").oninput = e => { q = e.target.value; const p = e.target.selectionStart; home(); const n = $("#q"); n.focus(); n.setSelectionRange(p, p); };
   $("#saved").onclick = () => { onlySaved = !onlySaved; home(); };
-  app.querySelectorAll(".row").forEach(b => b.onclick = () => location.hash = "day-" + b.dataset.day);
+  app.querySelectorAll("[data-day]").forEach(b => b.onclick = () => location.hash = "day-" + b.dataset.day);
 }
 
 function reader(day){
@@ -213,24 +270,37 @@ function reader(day){
   const s = list[i], prev = list[i - 1], next = list[i + 1];
   if (!read.includes(s.day)){ read.push(s.day); store.set("read", read); }
   const isSaved = saved.includes(s.day);
+  const pics = imgs(s), paras = tr(s, "story") || [];
+  const mid = Math.min(3, Math.max(1, Math.floor(paras.length / 2) - 1));
+  const body = paras.map((p, n) => `<p class="${n === 0 ? "first" : ""}">${esc(p)}</p>` +
+    (n === mid && pics[1] ? `<figure class="inline">${imgTag(pics[1])}<figcaption>${esc(capOf(pics[1]))}${pics[1].credit ? ` · <i>${esc(pics[1].credit)}</i>` : ""}${pics[1].source ? ` · <a href="${esc(pics[1].source)}" target="_blank" rel="noopener noreferrer">${L("मूल फ़ाइल", "Source")}</a>` : ""}</figcaption></figure>` : "") +
+    (n === Math.floor(paras.length * 0.66) - 1 && paras.length > 6 ? `<div class="sep" aria-hidden="true">✦ ✦ ✦</div>` : "")).join("");
+  const srcs = sourcesOf(s);
   app.innerHTML = `<div class="view">
-    <div style="display:flex;gap:6px;margin-bottom:12px"><button class="ibtn" id="lang-hi">हिंदी</button><button class="ibtn" id="lang-en">English</button></div><button class="ibtn back" id="back">← ${language==="hi"?"सभी कहानियाँ":"All stories"}</button>
-    <header class="hero"><div class="flag">${s.flag}</div><h2>${esc(tr(s,"title"))}</h2>
-      <p>${L("दिन","Day")} ${s.day} · ${esc(s.country)} · ${esc(fmtDate(s.date))}</p>
-      <div class="tools"><button class="ibtn" id="sm" aria-label="Smaller text">A−</button><button class="ibtn" id="lg" aria-label="Larger text">A+</button><button class="ibtn" id="sv">${isSaved ? L("★ सहेजी गई","★ Saved") : L("☆ सहेजें","☆ Save")}</button></div></header>
-    <section class="gallery" aria-label="Story photographs"><h3>${language==="hi"?"📷 कहानी से जुड़ी तस्वीरें":"📷 Photos related to this story"}</h3><div class="gallery-grid">${(s.images || STORY_IMAGES[s.day] || []).slice(0,2).map(im => '<a href="'+esc(im.url)+'" target="_blank" rel="noopener noreferrer"><img src="'+esc(im.url)+'" alt="'+esc(language==="hi"?(im.hi||im.en):(im.en||im.hi))+'" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest(\'a\').style.display=\'none\'"><figcaption>'+esc(language==="hi"?(im.hi||im.en):(im.en||im.hi))+'</figcaption><small>'+esc(im.credit||"")+' · '+(language==="hi"?"बड़ी तस्वीर खोलें":"Open full image")+'</small></a>').join("")}</div></section>
-    <article>${tr(s,"story").map(p => `<p>${esc(p)}</p>`).join("")}</article>
-    <section class="box"><h3>🌍 ${L("यह कहानी इतनी प्रसिद्ध क्यों है?","Why is this story so famous?")}</h3><p>${esc(tr(s,"why"))}</p></section>
-    <section class="box"><h3>📍 ${L("यह कहाँ प्रसिद्ध है?","Where is it famous?")}</h3><p>${esc(tr(s,"where"))}</p></section>
-    <section class="box"><h3>🔍 ${L("असली सच क्या है?","What's the real truth?")}</h3><p>${esc(tr(s,"truth"))}</p></section>
-    <section class="box"><h3>📚 ${L("ज्ञान बॉक्स","Knowledge box")}: ${esc(s.country)}</h3><dl>${tr(s,"info").map(x => `<dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd>`).join("")}</dl></section>
-    <div class="nav"><button id="pv" ${prev ? "" : "disabled"}>← ${L("पिछली","Previous")}</button><button id="nx" ${next ? "" : "disabled"}>${L("अगली","Next")} →</button></div></div>`;
-  window.scrollTo(0, 0);
-  $("#lang-hi").onclick=()=>setLanguage("hi"); $("#lang-en").onclick=()=>setLanguage("en");
+    <div class="bar"><button class="ibtn" id="back">← ${L("सभी कहानियाँ", "All stories")}</button><div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="Theme">◐</button></div></div>
+    <header class="cover">${imgTag(pics[0])}<div class="in">
+      <span class="tag k">${esc(kindLabel(s))}</span> <span class="tag">${s.flag} ${esc(s.country)}</span>
+      <h1>${esc(tr(s, "title"))}</h1>
+      <div class="m">${L("दिन", "Day")} ${s.day} · ${esc(fmtDate(s.date))} · ${minutes(s)} ${L("मिनट का पाठ", "min read")}</div></div></header>
+    ${pics[0] ? `<p class="count" style="margin:6px 4px 0">📷 ${esc(capOf(pics[0]))}${pics[0].credit ? ` — ${esc(pics[0].credit)}` : ""}${pics[0].source ? ` · <a href="${esc(pics[0].source)}" target="_blank" rel="noopener noreferrer">${L("स्रोत", "source")}</a>` : ""}</p>` : ""}
+    <div class="tools"><button class="ibtn" id="sm" aria-label="Smaller text">A−</button><button class="ibtn" id="lg" aria-label="Larger text">A+</button><button class="ibtn" id="sv">${isSaved ? L("★ सहेजी गई", "★ Saved") : L("☆ सहेजें", "☆ Save")}</button>${navigator.share ? `<button class="ibtn" id="sh">${L("↗ साझा करें", "↗ Share")}</button>` : ""}</div>
+    ${tr(s, "teaser") ? `<p class="lede">${esc(tr(s, "teaser"))}</p>` : ""}
+    <article>${body}</article>
+    <section class="box"><h3>🌍 ${L("यह कहानी इतनी मशहूर क्यों है?", "Why is this story so famous?")}</h3><p>${esc(tr(s, "why"))}</p></section>
+    <section class="box"><h3>📍 ${L("आज यह कहाँ याद की जाती है?", "Where is it remembered today?")}</h3><p>${esc(tr(s, "where"))}</p></section>
+    <section class="box truth"><h3>🔍 ${L("सच और कहानी में फ़र्क", "Fact vs. folklore")}</h3><p>${esc(tr(s, "truth"))}</p></section>
+    <section class="box"><h3>📚 ${esc(s.country)} — ${L("जानने लायक बातें", "Quick facts")}</h3><dl class="facts">${(tr(s, "info") || []).map(x => `<div><dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd></div>`).join("")}</dl></section>
+    <section class="box"><h3>🔗 ${L("और गहराई से जानें", "Go deeper")}</h3><ul class="src">${srcs.map(x => `<li><a href="${esc(language === "hi" && x.hi_url ? x.hi_url : x.url)}" target="_blank" rel="noopener noreferrer"><b>${esc(x.title)} ↗</b><span>${esc(x.publisher || "Wikipedia")}${x.note ? " · " + esc(x.note) : ""}</span></a></li>`).join("")}</ul></section>
+    <div class="nav"><button id="pv" ${prev ? "" : "disabled"}><small>← ${L("पिछली", "Previous")}</small><b>${prev ? esc(tr(prev, "title")) : ""}</b></button><button id="nx" ${next ? "" : "disabled"}><small>${L("अगली", "Next")} →</small><b>${next ? esc(tr(next, "title")) : ""}</b></button></div></div>`;
+  window.scrollTo(0, 0); bindCommon();
+  const bar = $("#progress");
+  window.onscroll = () => { const h = document.documentElement; bar.style.width = Math.min(100, (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100) + "%"; };
+  window.onscroll();
   $("#back").onclick = () => location.hash = "";
   $("#sm").onclick = () => { fs = Math.max(15, fs - 1); store.set("fs", fs); applyPrefs(); };
   $("#lg").onclick = () => { fs = Math.min(28, fs + 1); store.set("fs", fs); applyPrefs(); };
   $("#sv").onclick = () => { saved = isSaved ? saved.filter(d => d !== s.day) : [...saved, s.day]; store.set("saved", saved); reader(day); };
+  const sh = $("#sh"); if (sh) sh.onclick = () => navigator.share({title: tr(s, "title"), text: teaser(s), url: location.href}).catch(() => {});
   if (prev) $("#pv").onclick = () => location.hash = "day-" + prev.day;
   if (next) $("#nx").onclick = () => location.hash = "day-" + next.day;
 }
@@ -239,7 +309,6 @@ function route(){
   const m = location.hash.match(/^#day-(\d+)$/);
   m ? reader(+m[1]) : home();
 }
-if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 applyPrefs();
 addEventListener("hashchange", route);
 route();
@@ -251,8 +320,8 @@ fetch("stories.json?v=" + Date.now(), {cache: "no-store"})
     const have = new Set(STORIES.map(s => s.day));
     let added = false;
     for (const st of list){
-      if (st && typeof st === "object" && Number.isFinite(+st.day) && !have.has(+st.day)){
-        st.day = +st.day; STORIES.push(st); have.add(st.day); added = true;
+      if (st && typeof st === "object" && Number.isFinite(+st.day) && Array.isArray(st.story) && !have.has(+st.day)){
+        st.day = +st.day; st.info = st.info || []; STORIES.push(st); have.add(st.day); added = true;
       }
     }
     if (added) route();
