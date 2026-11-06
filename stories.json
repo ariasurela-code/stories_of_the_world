@@ -38,7 +38,43 @@
         "खास बात",
         "हिंदूकुश पर्वतमाला देश के भूगोल और इतिहास का महत्वपूर्ण हिस्सा है"
       ]
-    ]
+    ],
+    "en": {
+      "title": "The Brick Minaret Standing Amidst Mountains: The Mystery of Jam",
+      "story": [
+        "In Afghanistan's Ghor province, two rivers—the Hari Rud and the Jam—flow close to each other. Near their confluence, in an inaccessible valley approximately 1,900 meters above sea level, a brick minaret rises towards the sky. Tall mountains surround it, and major cities are far away.",
+        "This is the Minaret of Jam. Its height is approximately 65 meters—comparable to a tall building. It was constructed in the 12th century during the reign of the Ghurid rulers, when their influence extended beyond present-day Afghanistan to parts of Iran, Central Asia, and North India.",
+        "This minaret is associated with the reign of the Ghurid Sultan Ghiyath al-Din Muhammad. However, scholars have differed on its exact construction date. UNESCO states it as 1194, while later research cited in historian Finbarr Barry Flood's Encyclopaedia Iranica article suggests that reading the inscription's date as 1174–75 is more accurate.",
+        "We also do not have a complete answer as to why it was built. One possibility is that it was a monument constructed in memory of a major political or military victory. Some scholars link the surrounding ruins to Firozkoh, the Ghurids' summer capital, but there is no complete consensus on this identification either.",
+        "The minaret's structure is marvelous in itself. Its base is octagonal and approximately nine meters wide. Above, the circular brick sections progressively taper. It was built with baked bricks, and its outer surface features raised geometric patterns, plasterwork, and decorative layers of clay.",
+        "The walls feature not just decoration, but also script. Inscriptions in Kufic script include the Sultan's name and titles, religious phrases, and verses from the Quran. Most remarkably, the entire text of the nineteenth surah of the Quran—Surah Maryam—is engraved in decorative bands on the lower section. An inscription in the middle also shows the use of lustrous turquoise tiles.",
+        "Today, this place is as famous as it is isolated. The minaret is mentioned in some 19th-century accounts, but systematic study and documentation advanced after archaeological surveys in 1957. This introduced the world to an extraordinary example of Ghurid art and architecture.",
+        "In 2002, the Minaret of Jam and its surrounding archaeological remains were inscribed on UNESCO's World Heritage List. In the same year, it was also placed on the List of World Heritage in Danger. The reasons for this are not just its age, but also floods, riverbank erosion, and difficulties in conservation.",
+        "This threat remains real today. According to UNESCO's 2026 committee report, seasonal floods are still a serious challenge, and climate change could exacerbate them. Work such as site monitoring, robust protection structures for flood prevention, and a suspension bridge for local people are ongoing; the minaret's tilt is also being monitored.",
+        "The Minaret of Jam is important because it is not just an old building, but a testament to the craftsmanship, calligraphy, and Ghurid civilization of that era. According to UNESCO, the influence of this region's architectural tradition extended further into South Asia; the Qutub Minar of Delhi is also viewed in the context of this widespread architectural influence. Standing in this mountain valley, the minaret reminds us that history sometimes leaves its mark even in the most remote places."
+      ],
+      "why": "This minaret is famous for its approximate height of 65 meters, intricate baked brick decoration, and Kufic calligraphy. Its inscriptions include the Sultan's name along with the complete text of Surah Maryam from the Quran. It is a rare testament to Ghurid art and architecture, and UNESCO has also recognized its significant regional architectural influence.",
+      "where": "It is located in Afghanistan's Ghor province, near the confluence of the Hari Rud and Jam rivers. The location is very inaccessible, making it difficult to reach. It is remembered as an important monument of Afghanistan's cultural heritage and the Islamic architectural history of Central and South Asia.",
+      "truth": "There is disagreement on the construction date: UNESCO's list states 1194, while Finbarr Barry Flood in Encyclopaedia Iranica mentions research that reads the inscription as 1174–75. Interpreting it as part of Firozkoh's capital or a victory monument is a possible explanation, not a definitive conclusion. The site has been on the List of World Heritage in Danger since 2002; in 2026, UNESCO kept it on the list and again highlighted the challenges of floods and conservation.",
+      "info": [
+        [
+          "Capital",
+          "Kabul"
+        ],
+        [
+          "Languages",
+          "Dari and Pashto"
+        ],
+        [
+          "Currency",
+          "Afghan Afghani (AFN)"
+        ],
+        [
+          "Key Feature",
+          "The Hindu Kush mountain range is a significant part of the country's geography and history"
+        ]
+      ]
+    }
   },
   {
     "day": 3,
@@ -81,20 +117,49 @@
     ],
     "images": [
       {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/National_Historical_Museum%2C_Tirana%2C_Albania_%282019%29.jpg/800px-National_Historical_Museum%2C_Tirana%2C_Albania_%282019%29.jpg",
-        "source": "https://commons.wikimedia.org/wiki/File:National_Historical_Museum,_Tirana,_Albania_(2019).jpg",
-        "en": "National Historical Museum in Tirana, Albania",
-        "hi": "तिराना, अल्बानिया का राष्ट्रीय इतिहास संग्रहालय",
-        "credit": "Diego Delso, CC BY-SA 4.0"
-      },
-      {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kruj%C3%AB_Castle_02.jpg/800px-Kruj%C3%AB_Castle_02.jpg",
-        "source": "https://commons.wikimedia.org/wiki/File:Kruj%C3%AB_Castle_02.jpg",
-        "en": "Kruja Castle, an iconic symbol of Albanian history and heritage",
-        "hi": "क्रूजा किला, अल्बानियाई इतिहास और विरासत का प्रतीक",
-        "credit": "Decathenor, CC BY-SA 4.0"
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Earth_from_Space-_Tirana%2C_Albania_ESA507074.jpg/960px-Earth_from_Space-_Tirana%2C_Albania_ESA507074.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Earth_from_Space-_Tirana,_Albania_ESA507074.jpg",
+        "en": "Earth from Space- Tirana, Albania ESA507074",
+        "hi": "🇦🇱 Albania: Earth from Space- Tirana, Albania ESA507074",
+        "credit": "European Space Agency, Attribution",
+        "commons": true
       }
-    ]
+    ],
+    "en": {
+      "title": "Besa: Albania's Unbreakable Promise That Saved Thousands of Lives",
+      "story": [
+        "During the dark days of World War II, when innocent people were being persecuted across Europe, Albania, a small mountainous country in Europe, set a unique example of humanity to the world. Ordinary Albanian citizens risked their lives to shelter thousands of refugees.",
+        "Behind this great humanitarian act was Albania's centuries-old cultural tradition, known as 'Besa'. Besa is not just a promise; it's a code of honor and commitment that teaches to protect at all costs anyone who comes under one's refuge.",
+        "According to Albanian tradition, when a stranger knocks on your door and asks for shelter, they are no longer just a guest. From that moment, they become part of the family, and their safety becomes the sole responsibility of the homeowner.",
+        "When Nazi forces began rounding up Jews during World War II, ordinary Albanian citizens hid them in their homes. People from both Muslim and Christian communities participated in this effort without any discrimination.",
+        "Albanian families treated refugees like their own relatives and gave them local attire. Many even gave them Albanian names and arranged for fake identity cards to protect them from the eyes of Nazi soldiers.",
+        "Whenever soldiers came to search homes, Albanians, without regard for their own lives, would hide their guests in safe places. Due to the tradition of 'Besa', no citizen even thought of betraying a refugee.",
+        "The result of this unbreakable commitment was that after the war ended, Albania became the only country in Europe where the Jewish population increased rather than decreased. Many people who fled from neighboring countries found a safe life here.",
+        "This historical event proves that even in the most difficult times, moral values and social traditions can protect humanity. The principle of 'Besa' is still considered the greatest identity of Albanian society today.",
+        "The courage of the Albanian people is remembered with respect around the world today. This story teaches us that helping a person in distress is the greatest dharma and a secular duty."
+      ],
+      "why": "The story of Besa is famous because it saved thousands of innocent Jews and refugees during the horrific period of World War II. It is a global example of the courage, unique hospitality, and unbreakable promise of the Albanian people.",
+      "where": "Today, historical documents related to this event can be seen in the National Historical Museum in Tirana, the capital of Albania. Furthermore, the great contribution of Albanian citizens is also honored at the Yad Vashem memorial in Jerusalem.",
+      "truth": "'Besa' is not just a fictional folktale, but a historically proven part of Albania's traditional legal system. The assistance provided by Albanian families to refugees during World War II is fully substantiated by historical documents and the testimonies of survivors.",
+      "info": [
+        [
+          "Capital",
+          "Tirana"
+        ],
+        [
+          "Language",
+          "Albanian"
+        ],
+        [
+          "Currency",
+          "Albanian Lek (ALL)"
+        ],
+        [
+          "Key Fact",
+          "Albania is located on the Balkan Peninsula in Europe and is known for its beautiful coastline and ancient castles."
+        ]
+      ]
+    }
   },
   {
     "day": 4,
@@ -140,20 +205,52 @@
     ],
     "images": [
       {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Maqam_Echahid_Algiers_01.jpg",
-        "source": "https://commons.wikimedia.org/wiki/File:Maqam_Echahid_Algiers_01.jpg",
-        "en": "The Maqam Echahid (Martyrs' Memorial) in Algiers, commemorating the Algerian War of Independence.",
-        "hi": "अल्जीयर्स में माक़ाम एचाहीद (शहीद स्मारक), जो अल्जीरियाई स्वतंत्रता संग्राम के शहीदों को समर्पित है।",
-        "credit": "Toufik alger / CC BY-SA 4.0"
-      },
-      {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Alger_la_blanche_2023.jpg",
-        "source": "https://commons.wikimedia.org/wiki/File:Alger_la_blanche_2023.jpg",
-        "en": "A panoramic view of Algiers, the capital city of Algeria, often called 'Alger la Blanche' (Algiers the White).",
-        "hi": "अल्जीयर्स का एक विहंगम दृश्य, अल्जीरिया की राजधानी जिसे अक्सर 'अल्जीयर्स ला ब्लैंच' (श्वेत अल्जीयर्स) कहा जाता है।",
-        "credit": "Hamza Benaissa / CC BY-SA 4.0"
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Ksar_Ben_Idriss_%28Ouargla%2C_Algeria%29.jpg/960px-Ksar_Ben_Idriss_%28Ouargla%2C_Algeria%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Ksar_Ben_Idriss_(Ouargla,_Algeria).jpg",
+        "en": "The Palace of Ben Idris Fu, the continent of Pamnell, is among the palaces of Warqala, which includes 18 archaeological landmarks.",
+        "hi": "🇩🇿 Algeria: Ksar Ben Idriss (Ouargla, Algeria)",
+        "credit": "اسماعيل ياسين شنين, CC BY-SA 4.0",
+        "commons": true
       }
-    ]
+    ],
+    "en": {
+      "title": "Algeria's War of Independence: The Birth of a Nation",
+      "story": [
+        "Algeria is a vast and historic country in North Africa. Over centuries, it has witnessed many civilizations and regimes. One significant period among these was French colonial rule.",
+        "For approximately 132 years, Algerians remained under French control. During this time, attempts were made to suppress their language, culture, and identity. They were treated as second-class citizens in their own country.",
+        "However, the flame of freedom in the hearts of the Algerian people never extinguished. They yearned for their land, their pride, and their right to self-determination. Gradually, this desire for independence transformed into a large movement.",
+        "On November 1, 1954, the National Liberation Front (FLN) of Algeria was formed. It declared an armed struggle against French rule. This marked the beginning of the Algerian War of Independence.",
+        "This conflict was an unequal battle. On one side was the powerful French army, and on the other, Algerian freedom fighters. But the determination of the Algerian people was unwavering.",
+        "The call for freedom resonated throughout the country. Men and women fought shoulder to shoulder. This struggle also attracted international attention, and many countries supported the Algerian people.",
+        "In this eight-year-long war, the Algerian people paid a heavy price. Countless lives were lost. But they never gave up.",
+        "Ultimately, France had to accept Algeria's demand for independence. In 1962, the Evian Accords were signed. This was a victory for the Algerian people.",
+        "On July 5, 1962, Algeria formally declared its independence. This was the most glorious day in Algeria's history. There was an atmosphere of celebration across the country.",
+        "A new, independent nation was born. The Algerian people took their destiny into their own hands. They had to build their own future.",
+        "Today, the Algerian War of Independence is remembered not only in Algeria but throughout the world as an inspiring example of anti-colonial struggles. It is the foundation of the nation's identity.",
+        "This story illustrates the courage, sacrifice, and unwavering love for freedom of the Algerian people. It teaches us that with strong will, nothing is impossible."
+      ],
+      "why": "This story is the cornerstone of the Algerian nation's birth and identity. It illustrates the great sacrifice and unwavering determination of the Algerian people to achieve liberation from French colonialism. It serves as an inspiring symbol for anti-colonial struggles worldwide.",
+      "where": "Today in Algeria, this war of independence is commemorated through national monuments, such as Maqam Echahid (Martyrs' Memorial) in Algiers. July 5th is celebrated as Independence Day, and several museums are dedicated to this history.",
+      "truth": "This is a verified and well-documented historical event in Algeria's history. It is not a folktale or a myth, but a real war that brought the country independence. Its facts and dates are recorded in historical archives.",
+      "info": [
+        [
+          "Capital",
+          "Algiers"
+        ],
+        [
+          "Languages",
+          "Arabic, Berber, French"
+        ],
+        [
+          "Currency",
+          "Algerian Dinar"
+        ],
+        [
+          "Key Fact",
+          "Algeria is the largest country in Africa and includes a significant portion of the Sahara Desert."
+        ]
+      ]
+    }
   },
   {
     "day": 5,
@@ -199,18 +296,149 @@
     ],
     "images": [
       {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Andorra_la_Vella_from_the_mountains.jpg",
-        "source": "https://commons.wikimedia.org/wiki/File:Andorra_la_Vella_from_the_mountains.jpg",
-        "en": "Andorra la Vella, the capital of Andorra, seen from the mountains.",
-        "hi": "अंडोरा ला वेला, अंडोरा की राजधानी, पहाड़ों से दिखती हुई।",
-        "credit": "User:Diliff, CC BY-SA 3.0"
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Dish%2C_footed_%28AM_2417-3%29.jpg/960px-Dish%2C_footed_%28AM_2417-3%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Dish,_footed_(AM_2417-3).jpg",
+        "en": "Talavera dish on stem",
+        "hi": "🇦🇩 Andorra: Dish, footed (AM 2417-3)",
+        "credit": "Unknown authorUnknown author, CC BY 4.0",
+        "commons": true
+      }
+    ],
+    "en": {
+      "title": "Andorra's Unique Co-Principality: The Story of the Pariatges",
+      "story": [
+        "Andorra, a small, independent country nestled in the Pyrenees mountains of southwestern Europe, boasts a history and governance system among the most unique in the world. For centuries, this nation has successfully maintained its identity amidst its powerful neighbors, France and Spain.",
+        "During the medieval period, the land of Andorra was primarily governed by the Count of Urgell. Over time, this Count granted certain rights and lands to the Bishop of Urgell. Thus, the influence of two significant powers became established in Andorra.",
+        "However, as time passed, disputes over jurisdiction escalated between the Bishop of Urgell and the Count of Foix. The Count of Foix had inherited rights from the Count of Urgell. These disputes often led to instability for the people of Andorra.",
+        "A solution was needed to end these constant conflicts and establish peace. Both parties, namely the Bishop of Urgell and the Count of Foix, chose the path of negotiation. These talks proved to be a significant turning point in Andorra's history.",
+        "In the year 1278, a historic agreement known as the \"Pariatges\" was reached. This agreement was signed, laying the foundation for Andorra's future. This document marked the establishment of a co-principality system.",
+        "According to the Pariatges, a joint rule by two co-princes was established in Andorra. These rulers were the Bishop of Urgell and the Count of Foix. Later, the rights of the Count of Foix were transferred to the Head of State of France.",
+        "This unique agreement ensured Andorra's independence and protected it from being annexed by its larger and more powerful neighbors. It provided Andorra with a peaceful and stable existence that endured for many centuries.",
+        "The Pariatges laid down rules and laws for the rights and duties of the co-princes, as well as for the people of Andorra. This document was not merely a treaty but became the very foundation of Andorra's national identity.",
+        "Even today, Andorra is governed under this co-principality system. It is one of the oldest parliamentary co-principalities in the world. The Pariatges symbolize Andorra's independence, peace, and unique system of governance for its people.",
+        "This historical event is so crucial to Andorra's existence that it is even recognized in the country's constitution. It demonstrates how a small nation maintained its sovereignty through diplomacy and agreement.",
+        "Andorra's story is proof of how major conflicts can be avoided and a nation's identity strengthened through wisdom and negotiation. The Pariatges have bestowed a unique legacy upon Andorra.",
+        "This agreement is not just a historical event but a living tradition that is still reflected in the daily lives of the Andorran people and their governance today. It is an integral part of Andorra's glorious history."
+      ],
+      "why": "This story is the most famous in Andorra's history because the \"Pariatges\" are the foundational documents that established the country's unique co-principality. These agreements ensured Andorra's independence and political stability for centuries. They demonstrate how a small nation maintained its sovereignty through diplomacy.",
+      "where": "Even today, the spirit of the Pariatges lives on in Andorra's constitution and its system of governance. Andorra's co-principality is remembered worldwide as a unique political model. The historical documents are preserved, and the people of Andorra consider them a vital part of their heritage.",
+      "truth": "The Pariatges are actual, historical treaties signed in 1278 and 1288, not folklore. These documents authenticate the agreements made between the Bishop of Urgell and the Count of Foix. Their historical authenticity is undeniable, and they form the legal basis of the Andorran nation.",
+      "info": [
+        [
+          "Capital",
+          "Andorra la Vella"
+        ],
+        [
+          "Language",
+          "Catalan (official), Spanish, French, Portuguese"
+        ],
+        [
+          "Currency",
+          "Euro"
+        ],
+        [
+          "Key Fact",
+          "One of the world's oldest independent states, with its co-principality dating back to 1278."
+        ]
+      ]
+    }
+  },
+  {
+    "day": 6,
+    "date": "2026-11-06",
+    "country": "Angola",
+    "flag": "🇦🇴",
+    "kind": "history",
+    "title": "रानी नज़िंगा: अंगोला की वीर योद्धा",
+    "story": [
+      "अफ्रीका के दक्षिण-पश्चिमी तट पर स्थित अंगोला, एक समृद्ध इतिहास वाला देश है। सदियों पहले, इसे यूरोपीय उपनिवेशवादियों, विशेषकर पुर्तगालियों के आगमन का सामना करना पड़ा था। इस दौरान, कई अफ्रीकी राज्यों ने अपनी स्वतंत्रता बनाए रखने के लिए संघर्ष किया।",
+      "इसी संघर्ष के बीच, 1583 में, न्दोंगो राज्य में एक असाधारण नेता का जन्म हुआ – नज़िंगा म्बांडे। वह न्दोंगो के राजा न्गोला किलांजी की बेटी थीं। बचपन से ही, नज़िंगा ने बुद्धिमत्ता और रणनीतिक कौशल के संकेत दिखाए।",
+      "नज़िंगा ने अपने भाई, राजा न्गोला न्गांडी के शासनकाल में एक महत्वपूर्ण राजनयिक के रूप में कार्य किया। उन्होंने पुर्तगालियों के साथ शांति वार्ता में अपनी कुशलता का प्रदर्शन किया। यह उनके नेतृत्व की पहली बड़ी परीक्षा थी।",
+      "1622 में, जब वह पुर्तगाली गवर्नर से मिलने गईं, तो उन्हें बैठने के लिए केवल एक चटाई की पेशकश की गई, जबकि गवर्नर कुर्सी पर बैठे थे। नज़िंगा ने अपनी एक दासी को खुद के लिए कुर्सी बनाने के लिए कहा, जिससे उन्होंने समानता का संदेश दिया। यह घटना उनकी दृढ़ इच्छाशक्ति और सम्मान की प्रतीक बन गई।",
+      "1626 में, अपने भाई की मृत्यु के बाद, नज़िंगा न्दोंगो की रानी बनीं। उन्होंने तुरंत पुर्तगाली उपनिवेशवाद का विरोध करने का संकल्प लिया। उनका शासनकाल अंगोला के इतिहास में एक महत्वपूर्ण मोड़ था।",
+      "रानी नज़िंगा ने पुर्तगाली सेना के खिलाफ कई युद्ध लड़े। उन्होंने गुरिल्ला युद्धनीति का उपयोग किया, जिससे पुर्तगालियों को काफी नुकसान हुआ। उनकी सेना में महिला योद्धाओं का भी महत्वपूर्ण स्थान था।",
+      "नज़िंगा केवल एक योद्धा नहीं थीं, बल्कि एक कुशल कूटनीतिज्ञ भी थीं। उन्होंने पड़ोसी अफ्रीकी राज्यों और यहाँ तक कि डचों के साथ भी गठबंधन किया, ताकि पुर्तगाली शक्ति को कमजोर किया जा सके। उन्होंने अपनी राजधानी को मतम्बा में स्थानांतरित कर दिया, जो प्रतिरोध का एक नया केंद्र बन गया।",
+      "उन्होंने लगभग 40 वर्षों तक पुर्तगालियों के खिलाफ संघर्ष जारी रखा। उनकी रणनीति में कभी पीछे हटना, फिर से संगठित होना और फिर से हमला करना शामिल था। उन्होंने अपनी प्रजा की स्वतंत्रता और भूमि की रक्षा के लिए अथक प्रयास किए।",
+      "1663 में 80 वर्ष की आयु में उनका निधन हो गया, लेकिन उनका संघर्ष व्यर्थ नहीं गया। उन्होंने पुर्तगालियों को पूरी तरह से अंगोला पर हावी होने से रोका। उनकी विरासत ने भविष्य की पीढ़ियों को उपनिवेशवाद के खिलाफ लड़ने के लिए प्रेरित किया।",
+      "आज, रानी नज़िंगा अंगोला की राष्ट्रीय नायिका हैं। वह साहस, लचीलेपन और स्वतंत्रता के प्रतीक के रूप में याद की जाती हैं। उनकी कहानी अंगोला के लोगों के लिए गौरव और प्रेरणा का स्रोत है।"
+    ],
+    "why": "रानी नज़िंगा अंगोला के इतिहास की एक अत्यंत प्रसिद्ध हस्ती हैं। उन्होंने लगभग चार दशकों तक पुर्तगाली उपनिवेशवाद का बहादुरी से विरोध किया। उनकी कूटनीतिक कुशलता और सैन्य नेतृत्व ने उन्हें अपनी प्रजा के लिए स्वतंत्रता का प्रतीक बना दिया।",
+    "where": "आज रानी नज़िंगा को अंगोला में एक राष्ट्रीय नायिका के रूप में याद किया जाता है। लुआंडा की राजधानी में उनकी एक प्रभावशाली प्रतिमा है और उनकी कहानी स्कूलों में पढ़ाई जाती है। वह अंगोला की पहचान और प्रतिरोध की भावना का अभिन्न अंग हैं।",
+    "truth": "रानी नज़िंगा म्बांडे का अस्तित्व और पुर्तगालियों के खिलाफ उनका संघर्ष ऐतिहासिक रूप से प्रमाणित है। 1622 की प्रसिद्ध कुर्सी वाली घटना भी व्यापक रूप से स्वीकार की जाती है, हालांकि इसके सटीक संवाद समय के साथ लोककथाओं का हिस्सा बन गए होंगे। उनके जीवन और युद्धों का विस्तृत दस्तावेज़ीकरण मौजूद है।",
+    "info": [
+      [
+        "राजधानी",
+        "लुआंडा"
+      ],
+      [
+        "भाषा",
+        "पुर्तगाली"
+      ],
+      [
+        "मुद्रा",
+        "अंगोलन क्वांजा"
+      ],
+      [
+        "खास बात",
+        "अंगोला अफ्रीका के सबसे बड़े तेल उत्पादक देशों में से एक है और प्राकृतिक संसाधनों, विशेषकर हीरे, से भी समृद्ध है।"
+      ]
+    ],
+    "image_queries": [
+      "Queen Nzinga Mbande statue Luanda",
+      "Angola historical maps Portuguese colonial era"
+    ],
+    "en": {
+      "title": "Queen Nzinga: The Brave Warrior of Angola",
+      "story": [
+        "Angola, located on the southwestern coast of Africa, is a country with a rich history. Centuries ago, it faced the arrival of European colonizers, particularly the Portuguese. During this period, many African states struggled to maintain their independence.",
+        "Amidst this struggle, in 1583, an extraordinary leader was born in the Ndongo kingdom – Nzinga Mbande. She was the daughter of King Ngola Kiluanji of Ndongo. From childhood, Nzinga showed signs of intelligence and strategic skill.",
+        "Nzinga served as an important diplomat during the reign of her brother, King Ngola Ngandi. She demonstrated her skill in peace negotiations with the Portuguese. This was her first major test of leadership.",
+        "In 1622, when she went to meet the Portuguese governor, she was offered only a mat to sit on, while the governor sat on a chair. Nzinga instructed one of her attendants to create a chair for her, thereby sending a message of equality. This incident became a symbol of her strong will and dignity.",
+        "In 1626, after the death of her brother, Nzinga became the Queen of Ndongo. She immediately resolved to resist Portuguese colonialism. Her reign marked a significant turning point in Angola's history.",
+        "Queen Nzinga fought several wars against the Portuguese army. She employed guerrilla tactics, causing significant losses to the Portuguese. Women warriors also held an important place in her army.",
+        "Nzinga was not only a warrior but also a skilled diplomat. She forged alliances with neighboring African states and even the Dutch to weaken Portuguese power. She relocated her capital to Matamba, which became a new center of resistance.",
+        "She continued her struggle against the Portuguese for nearly 40 years. Her strategy involved retreating, reorganizing, and attacking again. She tirelessly worked to protect the freedom of her people and their land.",
+        "She passed away in 1663 at the age of 80, but her struggle was not in vain. She prevented the Portuguese from completely dominating Angola. Her legacy inspired future generations to fight against colonialism.",
+        "Today, Queen Nzinga is a national heroine of Angola. She is remembered as a symbol of courage, resilience, and freedom. Her story is a source of pride and inspiration for the people of Angola."
+      ],
+      "why": "Queen Nzinga is an extremely famous figure in Angolan history. She bravely resisted Portuguese colonialism for nearly four decades. Her diplomatic skill and military leadership made her a symbol of freedom for her people.",
+      "where": "Today, Queen Nzinga is remembered as a national heroine in Angola. There is an impressive statue of her in the capital, Luanda, and her story is taught in schools. She is an integral part of Angola's identity and spirit of resistance.",
+      "truth": "The existence of Queen Nzinga Mbande and her struggle against the Portuguese are historically verified. The famous chair incident of 1622 is also widely accepted, although its exact dialogue may have become part of folklore over time. Detailed documentation of her life and wars exists.",
+      "info": [
+        [
+          "Capital",
+          "Luanda"
+        ],
+        [
+          "Language",
+          "Portuguese"
+        ],
+        [
+          "Currency",
+          "Angolan Kwanza"
+        ],
+        [
+          "Special Fact",
+          "Angola is one of Africa's largest oil-producing countries and is also rich in natural resources, especially diamonds."
+        ]
+      ]
+    },
+    "images": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Nzingambande.jpg/960px-Nzingambande.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Nzingambande.jpg",
+        "en": "Estátua de Dona Ana de Sousa, Ngola Ana Nzinga Mbande, rainha de Ndongo e Matamba, Luanda, Angola.",
+        "hi": "🇦🇴 Angola: Nzingambande",
+        "credit": "Erik Cleves Kristensen, CC BY 2.0",
+        "commons": true
       },
       {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Casa_de_la_Vall_-_Andorra.jpg",
-        "source": "https://commons.wikimedia.org/wiki/File:Casa_de_la_Vall_-_Andorra.jpg",
-        "en": "Casa de la Vall, the historic seat of Andorra's General Council (parliament).",
-        "hi": "कासा दे ला वल, अंडोरा की जनरल काउंसिल (संसद) का ऐतिहासिक आसन।",
-        "credit": "Amadalvarez, CC BY-SA 4.0"
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Pepetela_-_%22O_quase_fim_do_mundo%22_%28%22Almost_the_world%27s_end%22%29_%2818830099015%29.jpg/960px-Pepetela_-_%22O_quase_fim_do_mundo%22_%28%22Almost_the_world%27s_end%22%29_%2818830099015%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Pepetela_-_%22O_quase_fim_do_mundo%22_(%22Almost_the_world%27s_end%22)_(18830099015).jpg",
+        "en": "Pepetela - \"O quase fim do mundo\" (\"Almost the world's end\") (18830099015)",
+        "hi": "🇦🇴 Angola: Pepetela - \"O quase fim do mundo\" (\"Almost the world's end\") (18830099015)",
+        "credit": "Pedro Ribeiro Simões from Lisboa, Portugal, CC BY 2.0",
+        "commons": true
       }
     ]
   }
