@@ -50,7 +50,8 @@ def request_json(url, headers, payload):
             )
             # Retry only errors that are commonly temporary. Authentication,
             # permission and Cloudflare 1010 blocks need configuration changes.
-            if exc.code not in (408, 425, 429, 500, 502, 503, 504) or attempt == MAX_ATTEMPTS - 1:
+            quota_gone = exc.code == 429 and re.search(r"quota|RESOURCE_EXHAUSTED|rate_limit_exceeded|tokens per day", detail, re.I)
+            if exc.code not in (408, 425, 429, 500, 502, 503, 504) or attempt == MAX_ATTEMPTS - 1 or (quota_gone and attempt >= 1):
                 raise last_error from exc
             retry_after = exc.headers.get("Retry-After")
             try:
@@ -113,12 +114,53 @@ def prompt_for(day, country, date_str):
 कहानी मौलिक हो, किसी स्रोत से कॉपी न हो। image_queries और source_queries सिर्फ़ अंग्रेज़ी में हों और कोई URL न दें। JSON strings में quotation marks सही तरह escape करें। JSON keys अंग्रेज़ी में ही रखें, लेकिन कहानी और सभी दिखने वाले मान हिंदी में लिखें।'''
 
 
+def list_models(url, headers):
+    try:
+        req = Request(url, headers={"User-Agent": BROWSER_UA, "Accept": "application/json", **headers})
+        with urlopen(req, timeout=30) as r:
+            return json.loads(r.read().decode("utf-8"))
+    except Exception as exc:
+        print(f"Model listing failed: {str(exc)[:150]}", file=sys.stderr)
+        return {}
+
+
+def version_key(name):
+    nums = re.findall(r"\d+(?:\.\d+)?", name)
+    return [float(n) for n in nums] or [0.0]
+
+
+def gemini_candidates(key):
+    """Configured model first, then every currently available Flash model (newest first)."""
+    found = []
+    data = list_models("https://generativelanguage.googleapis.com/v1beta/models?pageSize=200", {"x-goog-api-key": key})
+    for m in data.get("models", []):
+        name = m.get("name", "").replace("models/", "")
+        if "flash" in name and "generateContent" in m.get("supportedGenerationMethods", []) \
+                and not re.search(r"lite|image|tts|live|audio|embed|thinking|exp", name):
+            found.append(name)
+    found.sort(key=version_key, reverse=True)
+    out = [os.getenv("GEMINI_MODEL"), *found, "gemini-2.5-flash"]
+    return list(dict.fromkeys(m for m in out if m))
+
+
+def groq_candidates(key):
+    found = []
+    data = list_models("https://api.groq.com/openai/v1/models", {"Authorization": f"Bearer {key}"})
+    for m in data.get("data", []):
+        mid = m.get("id", "")
+        if m.get("active", True) and not re.search(r"whisper|guard|tts|playai|orpheus|embed|safeguard|compound", mid, re.I):
+            found.append(mid)
+    def score(mid):
+        return (("120b" in mid) * 3 + ("70b" in mid) * 3 + ("llama" in mid) * 2 + ("gpt-oss" in mid) * 2 + ("qwen" in mid)
+                - ("8b" in mid) * 2 - ("instant" in mid))
+    found.sort(key=score, reverse=True)
+    out = [os.getenv("GROQ_MODEL"), *found, "llama-3.3-70b-versatile"]
+    return list(dict.fromkeys(m for m in out if m))
+
+
 def call_gemini(prompt, key):
-    # Try the configured model first, then stable fallbacks (a busy/missing model must not stop the day's story).
-    models = [m for m in [os.getenv("GEMINI_MODEL"), "gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-flash-lite"] if m]
-    models = list(dict.fromkeys(models))
     last = None
-    for model in models:
+    for model in gemini_candidates(key)[:4]:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
         try:
             result = request_json(url, {"x-goog-api-key": key}, {
@@ -134,10 +176,8 @@ def call_gemini(prompt, key):
 
 
 def call_groq(prompt, key):
-    models = [m for m in [os.getenv("GROQ_MODEL"), "llama-3.3-70b-versatile", "llama-3.1-8b-instant"] if m]
-    models = list(dict.fromkeys(models))
     last = None
-    for model in models:
+    for model in groq_candidates(key)[:4]:
         try:
             result = request_json("https://api.groq.com/openai/v1/chat/completions", {
                 "Authorization": f"Bearer {key}",
@@ -146,7 +186,7 @@ def call_groq(prompt, key):
                 "temperature": 0.85,
                 "response_format": {"type": "json_object"},
                 "messages": [
-                    {"role": "system", "content": "You write accurate, engaging educational country stories and return only valid JSON."},
+                    {"role": "system", "content": "You are a gifted storyteller who writes accurate, vivid educational stories and returns only valid JSON."},
                     {"role": "user", "content": prompt}
                 ]
             })
@@ -161,6 +201,7 @@ def call_groq(prompt, key):
 def ask_ai(prompt):
     """Gemini first (with model fallbacks), then Groq. Returns raw text."""
     errors = []
+    time.sleep(6)  # stay under free-tier requests-per-minute limits
     gemini_key, groq_key = os.getenv("GEMINI_API_KEY"), os.getenv("GROQ_API_KEY")
     if gemini_key:
         try:
@@ -348,32 +389,38 @@ def main():
     existing = json.loads(ARCHIVE.read_text(encoding="utf-8")) if ARCHIVE.exists() else []
     if not isinstance(existing, list):
         raise ValueError("stories.json must contain a JSON array")
-    # Fix older stories first (English text + working photos). Saved immediately so it is never lost.
+
+    failure = None
+    # 1) Today's story comes first: it is what the site needs every day.
     try:
-        if repair_archive(existing):
+        used_days = [int(s.get("day", 0)) for s in existing if isinstance(s, dict)]
+        # The original Egypt story (Day 1) lives inside index.html, so the archive starts at Day 2.
+        next_day = max([1] + used_days) + 1
+        used_countries = {str(s.get("country", "")).casefold() for s in existing if isinstance(s, dict)}
+        country = next((c for c in COUNTRIES if c.casefold() not in used_countries and c.casefold() != "egypt"), None)
+        if not country:
+            print("Country list completed; no new country generated.")
+        else:
+            date_str = datetime.now(timezone.utc).date().isoformat()
+            story = extract_json(ask_ai(prompt_for(next_day, country, date_str)))
+            validate_story(story, next_day, date_str, country)
+            finish_story(story, country)
+            existing.append(story)
+            save(existing)
+            print(f"Published Day {next_day}: {country}")
+    except Exception as exc:
+        failure = exc
+        print(f"New story failed: {exc}", file=sys.stderr)
+
+    # 2) Then upgrade older stories (retell, English, photos, sources). Never blocks the daily story.
+    try:
+        if repair_archive(existing, max_regen=2 if failure is None else 0):
             save(existing)
     except Exception as exc:
         print(f"Archive repair skipped: {exc}", file=sys.stderr)
 
-    used_days = [int(s.get("day", 0)) for s in existing if isinstance(s, dict)]
-    # The original Egypt story (Day 1) lives inside index.html, so the archive starts at Day 2.
-    next_day = max([1] + used_days) + 1
-    if any(int(s.get("day", -1)) == next_day for s in existing if isinstance(s, dict)):
-        raise RuntimeError("This day already exists; refusing to duplicate it")
-
-    used_countries = {str(s.get("country", "")).casefold() for s in existing if isinstance(s, dict)}
-    country = next((c for c in COUNTRIES if c.casefold() not in used_countries and c.casefold() != "egypt"), None)
-    if not country:
-        print("Country list completed; no new country generated.")
-        return
-
-    date_str = datetime.now(timezone.utc).date().isoformat()
-    story = extract_json(ask_ai(prompt_for(next_day, country, date_str)))
-    validate_story(story, next_day, date_str, country)
-    finish_story(story, country)
-    existing.append(story)
-    save(existing)
-    print(f"Published Day {next_day}: {country}")
+    if failure:
+        raise failure
 
 if __name__ == "__main__":
     main()
