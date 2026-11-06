@@ -123,6 +123,14 @@
         "hi": "🇦🇱 Albania: Earth from Space- Tirana, Albania ESA507074",
         "credit": "European Space Agency, Attribution",
         "commons": true
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/M%C3%BCnster%2C_St.-Paulus-Dom%2C_Chorumgang_--_2019_--_3920.jpg/960px-M%C3%BCnster%2C_St.-Paulus-Dom%2C_Chorumgang_--_2019_--_3920.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:M%C3%BCnster,_St.-Paulus-Dom,_Chorumgang_--_2019_--_3920.jpg",
+        "en": "Münster, St.-Paulus-Dom, Chorumgang -- 2019 -- 3920",
+        "hi": "🇦🇱 Albania: Münster, St.-Paulus-Dom, Chorumgang -- 2019 -- 3920",
+        "credit": "Dietmar Rabich, CC BY-SA 4.0",
+        "commons": true
       }
     ],
     "en": {
@@ -211,6 +219,14 @@
         "hi": "🇩🇿 Algeria: Ksar Ben Idriss (Ouargla, Algeria)",
         "credit": "اسماعيل ياسين شنين, CC BY-SA 4.0",
         "commons": true
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Ketchaoua_Mosque.png/960px-Ketchaoua_Mosque.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Ketchaoua_Mosque.png",
+        "en": "Ketchaoua Mosque",
+        "hi": "🇩🇿 Algeria: Ketchaoua Mosque",
+        "credit": "SilverBullet X, CC0",
+        "commons": true
       }
     ],
     "en": {
@@ -296,10 +312,18 @@
     ],
     "images": [
       {
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Dish%2C_footed_%28AM_2417-3%29.jpg/960px-Dish%2C_footed_%28AM_2417-3%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "https://commons.wikimedia.org/wiki/File:Dish,_footed_(AM_2417-3).jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Dish%2C_footed_%28AM_2417-4%29.jpg/960px-Dish%2C_footed_%28AM_2417-4%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Dish,_footed_(AM_2417-4).jpg",
         "en": "Talavera dish on stem",
-        "hi": "🇦🇩 Andorra: Dish, footed (AM 2417-3)",
+        "hi": "🇦🇩 Andorra: Dish, footed (AM 2417-4)",
+        "credit": "Unknown authorUnknown author, CC BY 4.0",
+        "commons": true
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Dish%2C_footed_%28AM_2417-1%29.jpg/960px-Dish%2C_footed_%28AM_2417-1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Dish,_footed_(AM_2417-1).jpg",
+        "en": "Talavera dish on stem",
+        "hi": "🇦🇩 Andorra: Dish, footed (AM 2417-1)",
         "credit": "Unknown authorUnknown author, CC BY 4.0",
         "commons": true
       }
@@ -438,6 +462,105 @@
         "en": "Pepetela - \"O quase fim do mundo\" (\"Almost the world's end\") (18830099015)",
         "hi": "🇦🇴 Angola: Pepetela - \"O quase fim do mundo\" (\"Almost the world's end\") (18830099015)",
         "credit": "Pedro Ribeiro Simões from Lisboa, Portugal, CC BY 2.0",
+        "commons": true
+      }
+    ]
+  },
+  {
+    "day": 7,
+    "date": "2026-11-06",
+    "country": "Antigua and Barbuda",
+    "flag": "🇦🇬",
+    "kind": "history",
+    "title": "नेल्सन डॉकयार्ड: एंटीगुआ का समुद्री इतिहास",
+    "story": [
+      "कैरिबियन सागर के नीले पानी में बसा, एंटीगुआ और बारबुडा एक ऐसा द्वीप समूह है जो अपनी प्राकृतिक सुंदरता के लिए जाना जाता है। लेकिन इसकी सुनहरी रेत और शांत लहरों के पीछे एक समृद्ध और महत्वपूर्ण इतिहास भी छिपा है। यह कहानी हमें उस समय में ले जाती है जब इन द्वीपों का रणनीतिक महत्व बहुत अधिक था।",
+      "18वीं शताब्दी में, अटलांटिक और कैरिबियन के बीच स्थित होने के कारण, एंटीगुआ यूरोपीय शक्तियों के लिए एक महत्वपूर्ण केंद्र बन गया। ब्रिटिश साम्राज्य ने इस क्षेत्र में अपनी नौसैनिक शक्ति को मजबूत करने की आवश्यकता महसूस की। इसी आवश्यकता ने एक ऐसे स्थान को जन्म दिया जो आज भी इतिहास प्रेमियों को आकर्षित करता है।",
+      "यह स्थान था नेल्सन डॉकयार्ड, जो एंटीगुआ के इंग्लिश हार्बर में स्थित है। इसे ब्रिटिश रॉयल नेवी के जहाजों की मरम्मत, रखरखाव और उन्हें फिर से आपूर्ति करने के लिए बनाया गया था। यह कैरिबियन में ब्रिटिश नौसेना का मुख्य अड्डा था।",
+      "प्रसिद्ध एडमिरल होरेशियो नेल्सन ने भी इस डॉकयार्ड में सेवा की थी। उन्होंने 1784 से 1787 तक एंटीगुआ स्टेशन के सीनियर कैप्टन के रूप में यहाँ समय बिताया था। उनके नेतृत्व में यह डॉकयार्ड ब्रिटिश नौसेना के लिए एक महत्वपूर्ण केंद्र बना रहा।",
+      "डॉकयार्ड हमेशा चहल-पहल भरा रहता था। कुशल कारीगर, नाविक और मज़दूर दिन-रात जहाजों के निर्माण और मरम्मत में लगे रहते थे। यहाँ लकड़ी के काम करने वाले, लोहार और पाल बनाने वाले जैसे कई लोग काम करते थे।",
+      "यह डॉकयार्ड केवल मरम्मत का केंद्र नहीं था, बल्कि ब्रिटिश नौसैनिक शक्ति का एक महत्वपूर्ण प्रतीक भी था। इसने ब्रिटिश साम्राज्य को कैरिबियन में अपनी पकड़ मजबूत रखने में मदद की। यहाँ से ब्रिटिश जहाज दुश्मनों पर नज़र रखते थे और व्यापार मार्गों की रक्षा करते थे।",
+      "19वीं सदी की शुरुआत में गुलामी प्रथा के उन्मूलन के बाद, डॉकयार्ड को श्रम की कमी का सामना करना पड़ा। भाप से चलने वाले जहाजों के उदय और नेपोलियन युद्धों के अंत के साथ, इसका रणनीतिक महत्व धीरे-धीरे कम होता गया। आखिरकार, 1889 में इसे छोड़ दिया गया और यह जीर्ण-शीर्ण होने लगा।",
+      "कई दशकों तक यह स्थान उपेक्षित रहा और प्रकृति ने इसे अपने आगोश में ले लिया। लेकिन 20वीं सदी के मध्य में, इसके ऐतिहासिक महत्व को पहचानते हुए, संरक्षणवादियों ने इसे बहाल करने का बीड़ा उठाया। अथक प्रयासों से इस ऐतिहासिक स्थल को पुनर्जीवित किया गया।",
+      "आज, नेल्सन डॉकयार्ड एक यूनेस्को विश्व धरोहर स्थल है और एंटीगुआ के सबसे लोकप्रिय पर्यटन स्थलों में से एक है। इसके जॉर्जियाई युग की इमारतें और समुद्री इतिहास आगंतुकों को मंत्रमुग्ध कर देते हैं। यह अतीत और वर्तमान को जोड़ने वाला एक पुल है।",
+      "पर्यटक यहाँ संग्रहालयों का दौरा कर सकते हैं, ऐतिहासिक इमारतों की वास्तुकला का अध्ययन कर सकते हैं और सुंदर इंग्लिश हार्बर का नज़ारा ले सकते हैं। यह स्थान एंटीगुआ के समृद्ध इतिहास की एक जीवित गवाही है। यह हमें ब्रिटिश साम्राज्य के दिनों और कैरिबियन के नौसैनिक महत्व की याद दिलाता है।"
+    ],
+    "why": "यह कहानी एंटीगुआ और बारबुडा के सबसे प्रसिद्ध ऐतिहासिक स्थलों में से एक, नेल्सन डॉकयार्ड के महत्व को दर्शाती है। यह ब्रिटिश औपनिवेशिक काल और नौसैनिक शक्ति का एक महत्वपूर्ण प्रतीक है। इसकी बहाली और यूनेस्को विश्व धरोहर स्थल के रूप में पहचान इसे विश्व स्तर पर प्रसिद्ध बनाती है।",
+    "where": "नेल्सन डॉकयार्ड आज भी एंटीगुआ के इंग्लिश हार्बर में मौजूद है। यह एक राष्ट्रीय उद्यान और यूनेस्को विश्व धरोहर स्थल है, जहाँ पर्यटक इतिहास और नौसैनिक वास्तुकला को देख सकते हैं। यहाँ संग्रहालय, रेस्तरां और मरीना भी हैं, जो इसे एक जीवंत केंद्र बनाते हैं।",
+    "truth": "यह कहानी पूरी तरह से प्रमाणित ऐतिहासिक तथ्यों पर आधारित है। नेल्सन डॉकयार्ड वास्तव में 18वीं सदी में ब्रिटिश नौसेना का एक महत्वपूर्ण अड्डा था और एडमिरल होरेशियो नेल्सन ने यहाँ सेवा की थी। इसके निर्माण, उपयोग और बहाली के सभी विवरण ऐतिहासिक अभिलेखों में दर्ज हैं। इसमें कोई लोककथा या मनगढ़ंत तत्व शामिल नहीं हैं।",
+    "info": [
+      [
+        "राजधानी",
+        "सेंट जॉन (St. John's)"
+      ],
+      [
+        "भाषा",
+        "अंग्रेज़ी"
+      ],
+      [
+        "मुद्रा",
+        "पूर्वी कैरिबियन डॉलर (XCD)"
+      ],
+      [
+        "खास बात",
+        "एंटीगुआ में 365 खूबसूरत रेतीले समुद्र तट हैं, हर दिन के लिए एक!"
+      ]
+    ],
+    "image_queries": [
+      "Nelson's Dockyard Antigua",
+      "English Harbour Antigua historic"
+    ],
+    "en": {
+      "title": "Nelson's Dockyard: Antigua's Maritime History",
+      "story": [
+        "Nestled in the blue waters of the Caribbean Sea, Antigua and Barbuda is an archipelago known for its natural beauty. But behind its golden sands and calm waves lies a rich and significant history. This story takes us back to a time when these islands held immense strategic importance.",
+        "In the 18th century, due to its location between the Atlantic and the Caribbean, Antigua became a crucial hub for European powers. The British Empire felt the need to strengthen its naval power in this region. This necessity gave birth to a place that still attracts history enthusiasts today.",
+        "This place was Nelson's Dockyard, located in English Harbour, Antigua. It was built for the repair, maintenance, and resupply of British Royal Navy ships. It served as the main base for the British Navy in the Caribbean.",
+        "The famous Admiral Horatio Nelson also served at this dockyard. He spent time here from 1784 to 1787 as the Senior Captain of the Antigua Station. Under his leadership, this dockyard remained a vital center for the British Navy.",
+        "The dockyard was always bustling with activity. Skilled craftsmen, sailors, and laborers worked day and night on the construction and repair of ships. Many people, such as carpenters, blacksmiths, and sailmakers, worked here.",
+        "This dockyard was not just a repair center but also a significant symbol of British naval power. It helped the British Empire maintain its stronghold in the Caribbean. From here, British ships kept an eye on enemies and protected trade routes.",
+        "Following the abolition of slavery in the early 19th century, the dockyard faced a labor shortage. With the rise of steam-powered ships and the end of the Napoleonic Wars, its strategic importance gradually diminished. Eventually, it was abandoned in 1889 and fell into disrepair.",
+        "For several decades, the site remained neglected, and nature reclaimed it. But in the mid-20th century, recognizing its historical significance, conservationists undertook its restoration. Through tireless efforts, this historic site was revived.",
+        "Today, Nelson's Dockyard is a UNESCO World Heritage Site and one of Antigua's most popular tourist destinations. Its Georgian-era buildings and maritime history captivate visitors. It serves as a bridge connecting the past and the present.",
+        "Tourists can visit museums here, study the architecture of the historic buildings, and enjoy the beautiful views of English Harbour. This place is a living testament to Antigua's rich history. It reminds us of the days of the British Empire and the naval importance of the Caribbean."
+      ],
+      "why": "This story illustrates the significance of Nelson's Dockyard, one of Antigua and Barbuda's most famous historical sites. It is a vital symbol of the British colonial era and naval power. Its restoration and recognition as a UNESCO World Heritage Site make it globally renowned.",
+      "where": "Nelson's Dockyard is still located in English Harbour, Antigua, today. It is a national park and a UNESCO World Heritage Site, where tourists can explore history and naval architecture. It also features museums, restaurants, and a marina, making it a vibrant hub.",
+      "truth": "This story is entirely based on verifiable historical facts. Nelson's Dockyard was indeed a crucial base for the British Navy in the 18th century, and Admiral Horatio Nelson served here. All details of its construction, use, and restoration are recorded in historical archives. It contains no folklore or fabricated elements.",
+      "info": [
+        [
+          "Capital",
+          "St. John's"
+        ],
+        [
+          "Language",
+          "English"
+        ],
+        [
+          "Currency",
+          "Eastern Caribbean Dollar (XCD)"
+        ],
+        [
+          "Special Feature",
+          "Antigua boasts 365 beautiful sandy beaches, one for every day of the year!"
+        ]
+      ]
+    },
+    "images": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Antigua_English_Harbour_Nelson%27s_Dockyard_2.jpg/960px-Antigua_English_Harbour_Nelson%27s_Dockyard_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Antigua_English_Harbour_Nelson%27s_Dockyard_2.jpg",
+        "en": "Antigua: en:Nelson's Dockyard",
+        "hi": "🇦🇬 Antigua and Barbuda: Antigua English Harbour Nelson's Dockyard 2",
+        "credit": "Dr. Thomas Liptak, CC BY 4.0",
+        "commons": true
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Nelson%27s_Dockyard.jpg/960px-Nelson%27s_Dockyard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Nelson%27s_Dockyard.jpg",
+        "en": "Nelson's Dockyard was built between 1743 and 1889 at English Harbour on the south side of Antigua.",
+        "hi": "🇦🇬 Antigua and Barbuda: Nelson's Dockyard",
+        "credit": "David Stanley, CC BY 2.0",
         "commons": true
       }
     ]
