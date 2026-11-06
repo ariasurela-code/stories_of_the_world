@@ -403,7 +403,163 @@
         "note": "During classical antiquity, Albania was home to several Illyrian tribes such as the Albanoi, Ardiaei, Bylliones, Dassaretii, Enchele, Labeatae, Taulantii, Parth"
       }
     ],
-    "story_version": 2
+    "story_version": 2,
+    "tiles": [
+      {
+        "p": [
+          0,
+          1
+        ],
+        "h": {
+          "hi": "पहाड़ों की छाया",
+          "en": "Shadows of Mountains"
+        },
+        "q": "Albanian mountains Adriatic",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Stamp_of_Albania_-_1928_-_Colnect_689078_-_Airplane_Crossing_Mountains_overprinted.jpeg/960px-Stamp_of_Albania_-_1928_-_Colnect_689078_-_Airplane_Crossing_Mountains_overprinted.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Stamp_of_Albania_-_1928_-_Colnect_689078_-_Airplane_Crossing_Mountains_overprinted.jpeg",
+          "en": "SHQYRTARE instead of ‭SHQYPTARE",
+          "hi": "🇦🇱 Albania: Stamp of Albania - 1928 - Colnect 689078 - Airplane Crossing Mountains overprinted",
+          "credit": "Post of Albania, Public domain",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          2,
+          2
+        ],
+        "h": {
+          "hi": "जवानी में बंधक",
+          "en": "Boy Turned Warrior"
+        },
+        "q": "Skanderbeg portrait Albania",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Skanderbeg_by_Spiro_Xega.jpg/960px-Skanderbeg_by_Spiro_Xega.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Skanderbeg_by_Spiro_Xega.jpg",
+          "en": "Portrait of Skanderbeg",
+          "hi": "🇦🇱 Albania: Skanderbeg by Spiro Xega",
+          "credit": "Spiro Xega, Public domain",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          3,
+          3
+        ],
+        "h": {
+          "hi": "विद्रोह की चिंगारी",
+          "en": "Spark of Rebellion"
+        },
+        "q": "Skanderbeg 1443 battle"
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "किले पर ध्वज",
+          "en": "Flag on Castle"
+        },
+        "q": "Kruje Castle flag Albania",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Castle_of_Kruja_%28Kalaja_e_Krujes%29.jpg/960px-Castle_of_Kruja_%28Kalaja_e_Krujes%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Castle_of_Kruja_(Kalaja_e_Krujes).jpg",
+          "en": "This is a photo of the Castle of Kruja. I took this photo when I visited Albania last week.",
+          "hi": "🇦🇱 Albania: Castle of Kruja (Kalaja e Krujes)",
+          "credit": "Miran100897, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "एकता की योजना",
+          "en": "Plan for Unity"
+        },
+        "q": "Albanian tribal meeting"
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "लेज़े का सभा",
+          "en": "Lezhe Assembly"
+        },
+        "q": "Lezhe town square Albania"
+      },
+      {
+        "p": [
+          7,
+          7
+        ],
+        "h": {
+          "hi": "लीग का गठन",
+          "en": "Formation of League"
+        },
+        "q": "League of Lezhe 1444",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Lezh%C3%AB%2C_Albania_%E2%80%93_Kuvendi_i_Lezh%C3%ABs_%28Lezh%C3%AB_Assembly%29_Memorial_2016_02.jpg/960px-Lezh%C3%AB%2C_Albania_%E2%80%93_Kuvendi_i_Lezh%C3%ABs_%28Lezh%C3%AB_Assembly%29_Memorial_2016_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Lezh%C3%AB,_Albania_%E2%80%93_Kuvendi_i_Lezh%C3%ABs_(Lezh%C3%AB_Assembly)_Memorial_2016_02.jpg",
+          "en": "The memorial of the 1444 Lezhë Assembly in Lezhë, Albania",
+          "hi": "🇦🇱 Albania: Lezhë, Albania – Kuvendi i Lezhës (Lezhë Assembly) Memorial 2016 02",
+          "credit": "Pasztilla aka Attila Terbócs, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          8,
+          8
+        ],
+        "h": {
+          "hi": "समान सेना",
+          "en": "Unified Army"
+        },
+        "q": "Albanian army Skanderbeg"
+      },
+      {
+        "p": [
+          9,
+          9
+        ],
+        "h": {
+          "hi": "किले की दृढ़ता",
+          "en": "Fortress Resilience"
+        },
+        "q": "Kruje fortress siege"
+      },
+      {
+        "p": [
+          10,
+          10
+        ],
+        "h": {
+          "hi": "पहचान की लड़ाई",
+          "en": "Battle for Identity"
+        },
+        "q": "Skanderbeg legacy Albania"
+      },
+      {
+        "p": [
+          11,
+          11
+        ],
+        "h": {
+          "hi": "नायक की स्मृति",
+          "en": "Hero's Memory"
+        },
+        "q": "Skanderbeg statue Albania"
+      }
+    ],
+    "tiles_n": 12
   },
   {
     "day": 4,
@@ -535,7 +691,147 @@
           "Algeria is the largest country in Africa by land area, with most of its territory dominated by the Sahara Desert."
         ]
       ]
-    }
+    },
+    "tiles": [
+      {
+        "p": [
+          0,
+          1
+        ],
+        "h": {
+          "hi": "गरमी का अल्जीयर्स",
+          "en": "Hot Algiers"
+        },
+        "q": "Algiers Casbah Algeria",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Architectural_and_Cultural_Heritage_of_the_Casbah_of_Algiers_6.jpg/960px-Architectural_and_Cultural_Heritage_of_the_Casbah_of_Algiers_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Architectural_and_Cultural_Heritage_of_the_Casbah_of_Algiers_6.jpg",
+          "en": "Door of the spice Market, the building with his door are a part of the architectural and Cultural Heritage of the Casbah of Algiers, Algeria",
+          "hi": "🇩🇿 Algeria: Architectural and Cultural Heritage of the Casbah of Algiers 6",
+          "credit": "Rachid Hamatou, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          2,
+          2
+        ],
+        "h": {
+          "hi": "बकाया ऋण विवाद",
+          "en": "Debt Dispute"
+        },
+        "q": "Pierre Deval France",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Le_temple_Maju_Deval_%28Katmandou%29_%288602993846%29.jpg/960px-Le_temple_Maju_Deval_%28Katmandou%29_%288602993846%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Le_temple_Maju_Deval_(Katmandou)_(8602993846).jpg",
+          "en": "Le temple Maju Deval (Katmandou) (8602993846)",
+          "hi": "🇩🇿 Algeria: Le temple Maju Deval (Katmandou) (8602993846)",
+          "credit": "Jean-Pierre Dalbéra from Paris, France, CC BY 2.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          3,
+          3
+        ],
+        "h": {
+          "hi": "स्वाभिमान का संघर्ष",
+          "en": "Sovereignty Struggle"
+        },
+        "q": "Algerian protest 1820s"
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "दरबार में तनाव",
+          "en": "Court Tension"
+        },
+        "q": "Algiers royal court 1820s"
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "पंखा स्पर्श घटना",
+          "en": "Fan Touch Incident"
+        },
+        "q": "Algerian fan 19th century"
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "पंखा का प्रतीक",
+          "en": "Fan Symbolism"
+        },
+        "q": "Traditional Algerian fan"
+      },
+      {
+        "p": [
+          7,
+          7
+        ],
+        "h": {
+          "hi": "पेरिस को रिपोर्ट",
+          "en": "Report to Paris"
+        },
+        "q": "Paris foreign ministry 1820s"
+      },
+      {
+        "p": [
+          8,
+          8
+        ],
+        "h": {
+          "hi": "बंदरगाह की घेराबंदी",
+          "en": "Port Blockade"
+        },
+        "q": "Algiers port blockade 1820s"
+      },
+      {
+        "p": [
+          9,
+          9
+        ],
+        "h": {
+          "hi": "फ्रांसीसी आक्रमण 1830",
+          "en": "French Invasion 1830"
+        },
+        "q": "French invasion Algeria 1830"
+      },
+      {
+        "p": [
+          10,
+          10
+        ],
+        "h": {
+          "hi": "औपनिवेशिक शासन की शुरुआत",
+          "en": "Colonial Rule Begins"
+        },
+        "q": "Algeria colonization 1830"
+      },
+      {
+        "p": [
+          11,
+          11
+        ],
+        "h": {
+          "hi": "इतिहास में स्मृति",
+          "en": "Historical Memory"
+        },
+        "q": "Algerian history museum"
+      }
+    ],
+    "tiles_n": 12
   },
   {
     "day": 5,
@@ -668,7 +964,179 @@
           "Andorra is one of the world's oldest co-principalities and uses the Euro despite not being an official member of the European Union."
         ]
       ]
-    }
+    },
+    "tiles": [
+      {
+        "p": [
+          0,
+          1
+        ],
+        "h": {
+          "hi": "बर्फीली चोटियों की घाटी",
+          "en": "Valley of Snowy Peaks"
+        },
+        "q": "Andorra Pyrenees mountain landscape"
+      },
+      {
+        "p": [
+          2,
+          3
+        ],
+        "h": {
+          "hi": "दो शक्तियों का टकराव",
+          "en": "Clash of Two Powers"
+        },
+        "q": "Cathedral of Santa Maria d Urgell"
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "सदियों का तनाव",
+          "en": "Centuries of Tension"
+        },
+        "q": "Chateau de Foix castle"
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "शांति की तलाश",
+          "en": "Search for Peace"
+        },
+        "q": "Medieval manuscript seal parchment"
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "वर्षों की लंबी बातचीत",
+          "en": "Years of Long Negotiations"
+        },
+        "q": "Casa de la Vall Andorra",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Casa_de_la_Vall%2C_Andorra_la_Vieja%2C_Andorra%2C_2013-12-30%2C_DD_01.JPG/960px-Casa_de_la_Vall%2C_Andorra_la_Vieja%2C_Andorra%2C_2013-12-30%2C_DD_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Casa_de_la_Vall,_Andorra_la_Vieja,_Andorra,_2013-12-30,_DD_01.JPG",
+          "en": "Casa de la Vall, Andorra la Vella, Andorra",
+          "hi": "🇦🇩 Andorra: Casa de la Vall, Andorra la Vieja, Andorra, 2013-12-30, DD 01",
+          "credit": "Diego Delso, CC BY-SA 3.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          7,
+          7
+        ],
+        "h": {
+          "hi": "ऐतिहासिक पारियाजेस समझौता",
+          "en": "Historic Pareages Agreement"
+        },
+        "q": "Pareages of Andorra 1278",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Casa_de_la_Vall_and_7th_centenary_of_pareatges_Andorra.jpg/960px-Casa_de_la_Vall_and_7th_centenary_of_pareatges_Andorra.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Casa_de_la_Vall_and_7th_centenary_of_pareatges_Andorra.jpg",
+          "en": "Casa de la Vall and 7th centenary of the signature of the Pareatges in Andorra la Vella.",
+          "hi": "🇦🇩 Andorra: Casa de la Vall and 7th centenary of pareatges Andorra",
+          "credit": "FrankAndProust, CC0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          8,
+          8
+        ],
+        "h": {
+          "hi": "अनोखा सह-राजतंत्र",
+          "en": "Unique Co Principality"
+        },
+        "q": "Coat of arms of Andorra",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Coat_of_Arms_Boris_I.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "source": "https://commons.wikimedia.org/wiki/File:Coat_of_Arms_Boris_I.png",
+          "en": "The Coat of Arms of the King of Andorra.",
+          "hi": "🇦🇩 Andorra: Coat of Arms Boris I",
+          "credit": "Graf In-Albon, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          9,
+          9
+        ],
+        "h": {
+          "hi": "घाटी में आई स्थिरता",
+          "en": "Stability in the Valley"
+        },
+        "q": "Encamp village stone houses Andorra"
+      },
+      {
+        "p": [
+          10,
+          10
+        ],
+        "h": {
+          "hi": "स्वायत्तता की रक्षा",
+          "en": "Preserving Centuries of Independence"
+        },
+        "q": "Sant Joan de Caselles Andorra",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Saint_John_church_in_Caselles_%288%29.jpg/960px-Saint_John_church_in_Caselles_%288%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Saint_John_church_in_Caselles_(8).jpg",
+          "en": "Saint John church in Caselles, Canillo parish, Andorra",
+          "hi": "🇦🇩 Andorra: Saint John church in Caselles (8)",
+          "credit": "Krzysztof Golik, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          11,
+          11
+        ],
+        "h": {
+          "hi": "आज भी जीवित परंपरा",
+          "en": "Living Seven Hundred Year Tradition"
+        },
+        "q": "Andorra la Vella parliament building",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Casa_de_la_Vall%2C_Andorra_la_Vieja%2C_Andorra%2C_2013-12-30%2C_DD_03.JPG/960px-Casa_de_la_Vall%2C_Andorra_la_Vieja%2C_Andorra%2C_2013-12-30%2C_DD_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Casa_de_la_Vall,_Andorra_la_Vieja,_Andorra,_2013-12-30,_DD_03.JPG",
+          "en": "Casa de la Vall, Andorra la Vella, Andorra",
+          "hi": "🇦🇩 Andorra: Casa de la Vall, Andorra la Vieja, Andorra, 2013-12-30, DD 03",
+          "credit": "Diego Delso, CC BY-SA 3.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          12,
+          12
+        ],
+        "h": {
+          "hi": "सह-अस्तित्व की मिसाल",
+          "en": "Example of Peaceful Coexistence"
+        },
+        "q": "Andorra la Vella valley view",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Andorra_la_Vella_-_footpath.jpg/960px-Andorra_la_Vella_-_footpath.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Andorra_la_Vella_-_footpath.jpg",
+          "en": "Footpath and view to city of Andorra la Vella.",
+          "hi": "🇦🇩 Andorra: Andorra la Vella - footpath",
+          "credit": "Tiia Monto, CC BY-SA 3.0",
+          "commons": true
+        }
+      }
+    ],
+    "tiles_n": 13
   },
   {
     "day": 6,
@@ -800,7 +1268,139 @@
         "hi_url": "https://hi.wikipedia.org/wiki/पुर्तगाली_अंगोला"
       }
     ],
-    "story_version": 2
+    "story_version": 2,
+    "tiles": [
+      {
+        "p": [
+          0,
+          1
+        ],
+        "h": {
+          "hi": "लुआंडा का दरबार",
+          "en": "Luanda Court"
+        },
+        "q": "Luanda Angola historic",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Luanda_railway_line_locomotive.jpg/960px-Luanda_railway_line_locomotive.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Luanda_railway_line_locomotive.jpg",
+          "en": "Historic locomotive on Luanda railway line, Angola",
+          "hi": "🇦🇴 Angola: Luanda railway line locomotive",
+          "credit": "Bunks), CC BY-SA 3.0 de",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          2,
+          2
+        ],
+        "h": {
+          "hi": "राजकीय पोशाक",
+          "en": "Royal Attire"
+        },
+        "q": "Ndongo royal costume"
+      },
+      {
+        "p": [
+          3,
+          3
+        ],
+        "h": {
+          "hi": "गवर्नर का कुर्सी",
+          "en": "Governor's Seat"
+        },
+        "q": "João Correia de Sousa portrait"
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "सैन्य की नज़र",
+          "en": "Soldiers Watching"
+        },
+        "q": "Portuguese soldiers Angola"
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "सेविका का इशारा",
+          "en": "Servant Gesture"
+        },
+        "q": "Ndongo palace servant"
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "मानव कुर्सी",
+          "en": "Human Chair"
+        },
+        "q": "African human chair"
+      },
+      {
+        "p": [
+          7,
+          7
+        ],
+        "h": {
+          "hi": "समता की बैठक",
+          "en": "Equal Negotiation"
+        },
+        "q": "Ndongo diplomatic meeting"
+      },
+      {
+        "p": [
+          8,
+          8
+        ],
+        "h": {
+          "hi": "एक ही कुर्सी",
+          "en": "One Chair"
+        },
+        "q": "Ndongo royal protocol"
+      },
+      {
+        "p": [
+          9,
+          9
+        ],
+        "h": {
+          "hi": "रानी नज़िंगा",
+          "en": "Queen Nzinga"
+        },
+        "q": "Queen Nzinga portrait"
+      },
+      {
+        "p": [
+          10,
+          10
+        ],
+        "h": {
+          "hi": "गरिमा की कहानी",
+          "en": "Story of Dignity"
+        },
+        "q": "Angola cultural heritage"
+      },
+      {
+        "p": [
+          11,
+          11
+        ],
+        "h": {
+          "hi": "लुआंडा की याद",
+          "en": "Luanda Remembrance"
+        },
+        "q": "Luanda street today"
+      }
+    ],
+    "tiles_n": 12
   },
   {
     "day": 7,
@@ -921,7 +1521,179 @@
         "note": "Betty's Hope was a sugarcane plantation in Diamonds, Antigua."
       }
     ],
-    "story_version": 2
+    "story_version": 2,
+    "tiles": [
+      {
+        "p": [
+          0,
+          0
+        ],
+        "h": {
+          "hi": "गर्म रात की चमक",
+          "en": "Warm Night Glow"
+        },
+        "q": "St. John's Antigua church",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/DSC_0494._Caribbean_Cruise._Antigua._St_Johns._Seventh-Day_Adventist_Church.jpg/960px-DSC_0494._Caribbean_Cruise._Antigua._St_Johns._Seventh-Day_Adventist_Church.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:DSC_0494._Caribbean_Cruise._Antigua._St_Johns._Seventh-Day_Adventist_Church.jpg",
+          "en": "St Johns Seventh-Day Adventist Church",
+          "hi": "🇦🇬 Antigua and Barbuda: DSC 0494. Caribbean Cruise. Antigua. St Johns. Seventh-Day Adventist Church",
+          "credit": "Anne and David, Public domain",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          1,
+          1
+        ],
+        "h": {
+          "hi": "स्वतंत्रता का प्रस्ताव",
+          "en": "Freedom Proposal"
+        },
+        "q": "Antigua 1834 emancipation law",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/%22Liberty.%22_%281839%29_%2814783361705%29.jpg/960px-%22Liberty.%22_%281839%29_%2814783361705%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:%22Liberty.%22_(1839)_(14783361705).jpg",
+          "en": "\"Liberty.\" (1839) (14783361705)",
+          "hi": "🇦🇬 Antigua and Barbuda: \"Liberty.\" (1839) (14783361705)",
+          "credit": "Internet Archive Book Images, No restrictions",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          2,
+          2
+        ],
+        "h": {
+          "hi": "पूर्ण आज़ादी का दृढ़ संकल्प",
+          "en": "Determined Full Freedom"
+        },
+        "q": "Antigua colonial council",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/The_history_of_the_island_of_Antigua%2C_one_of_the_Leeward_Caribbees_in_the_West_Indies%2C_from_the_first_settlement_in_1635_to_the_present_time_%281894%29_%2814770644584%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:The_history_of_the_island_of_Antigua,_one_of_the_Leeward_Caribbees_in_the_West_Indies,_from_the_first_settlement_in_1635_to_the_present_time_(1894)_(14770644584).jpg",
+          "en": "The history of the island of Antigua, one of the Leeward Caribbees in the West Indies, from the first settlement in 1635 to the present time (1894) (14770644584)",
+          "hi": "🇦🇬 Antigua and Barbuda: The history of the island of Antigua, one of the Leeward Caribbees in the West Indies, from the first settlement in 1635 to the present time (1894) (14770644584)",
+          "credit": "Oliver, Vere Langford, No restrictions",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          3,
+          3
+        ],
+        "h": {
+          "hi": "शर्करायुक्त प्रतिरोध",
+          "en": "Sugar Revolt"
+        },
+        "q": "Antigua sugar plantation",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Plantation_sugar_mills.jpg/960px-Plantation_sugar_mills.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Plantation_sugar_mills.jpg",
+          "en": "Plantation sugar mills: Antigua, June 2003. Sugar mills in the old plantations.",
+          "hi": "🇦🇬 Antigua and Barbuda: Plantation sugar mills",
+          "credit": "Z_dead from London, UK, CC BY 2.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "मंद दीप प्रार्थना",
+          "en": "Silent Candle Prayer"
+        },
+        "q": "Antigua church interior",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Iglesia_de_Nuestra_Se%C3%B1ora_de_la_Antigua_-_Interior.jpg/960px-Iglesia_de_Nuestra_Se%C3%B1ora_de_la_Antigua_-_Interior.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Iglesia_de_Nuestra_Se%C3%B1ora_de_la_Antigua_-_Interior.jpg",
+          "en": "Interior of the Iglesia de Nuestra Señora de la Antigua, Antigua, Fuerteventura, Canary Islands. The church was built in the 18th century.",
+          "hi": "🇦🇬 Antigua and Barbuda: Iglesia de Nuestra Señora de la Antigua - Interior",
+          "credit": "H. Zell, CC BY-SA 3.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "घड़ी की ध्वनि",
+          "en": "Midnight Clock Chimes"
+        },
+        "q": "St. John's Cathedral clock",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Clock_of_1912_in_St_Giles%27_Cathedral%2C_Edinburgh.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "source": "https://commons.wikimedia.org/wiki/File:Clock_of_1912_in_St_Giles%27_Cathedral,_Edinburgh.png",
+          "en": "The clock of 1912 in St Giles' Cathedral, Edinburgh, by James Ritchie.",
+          "hi": "🇦🇬 Antigua and Barbuda: Clock of 1912 in St Giles' Cathedral, Edinburgh",
+          "credit": "John Smith, Public domain",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "जश्न की ध्वनि",
+          "en": "Celebration Cheers"
+        },
+        "q": "Antigua freedom celebration"
+      },
+      {
+        "p": [
+          7,
+          7
+        ],
+        "h": {
+          "hi": "सुबह का उजाला",
+          "en": "Morning Radiance"
+        },
+        "q": "Antigua sunrise hills"
+      },
+      {
+        "p": [
+          8,
+          8
+        ],
+        "h": {
+          "hi": "कार्निवल की जड़",
+          "en": "Carnival Roots"
+        },
+        "q": "Antigua Carnival parade"
+      },
+      {
+        "p": [
+          9,
+          9
+        ],
+        "h": {
+          "hi": "बेटीज़ होप ध्वनि",
+          "en": "Beti's Hope Echo"
+        },
+        "q": "Beti's Hope windmill"
+      },
+      {
+        "p": [
+          10,
+          10
+        ],
+        "h": {
+          "hi": "शांत रात का संकल्प",
+          "en": "Midnight Resolve"
+        },
+        "q": "Antigua historic monument"
+      }
+    ],
+    "tiles_n": 11
   },
   {
     "day": 8,
@@ -1052,6 +1824,455 @@
         "hi_url": "https://hi.wikipedia.org/wiki/टेलेविसा"
       }
     ],
+    "story_version": 2,
+    "tiles": [
+      {
+        "p": [
+          0,
+          0
+        ],
+        "h": {
+          "hi": "बर्फ़ीली एंडीज़ रात",
+          "en": "Snowy Andes Night"
+        },
+        "q": "Andes snow peaks Argentina"
+      },
+      {
+        "p": [
+          1,
+          1
+        ],
+        "h": {
+          "hi": "मेनडोज़ा की योजना",
+          "en": "Mendoza Strategy"
+        },
+        "q": "Mendoza Argentina city"
+      },
+      {
+        "p": [
+          2,
+          2
+        ],
+        "h": {
+          "hi": "ऊँचे एंडीज़ दर्रे",
+          "en": "High Andes Passes"
+        },
+        "q": "Andes mountain passes Argentina"
+      },
+      {
+        "p": [
+          3,
+          3
+        ],
+        "h": {
+          "hi": "झूठी जासूसी योजना",
+          "en": "Deceptive Spy Plot"
+        },
+        "q": "San Martin secret map"
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "मेनडोज़ा की तैयारियाँ",
+          "en": "Mendoza Preparations"
+        },
+        "q": "Mendoza soldiers poncho"
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "भारी कारवाँ प्रस्थान",
+          "en": "Massive Caravan Departure"
+        },
+        "q": "San Martin army march"
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "पर्वतीय यात्रा कठिन",
+          "en": "Mountain Trek Hardship"
+        },
+        "q": "Andes mountain trek"
+      },
+      {
+        "p": [
+          7,
+          7
+        ],
+        "h": {
+          "hi": "संक्रमित जनरल साहस",
+          "en": "Ill General Courage"
+        },
+        "q": "San Martin portrait"
+      },
+      {
+        "p": [
+          8,
+          8
+        ],
+        "h": {
+          "hi": "स्पेनिश आश्चर्यचकित",
+          "en": "Spanish Shocked"
+        },
+        "q": "Chacabuco battlefield Argentina"
+      },
+      {
+        "p": [
+          9,
+          9
+        ],
+        "h": {
+          "hi": "चाकाबुको की जीत",
+          "en": "Chacabuco Victory"
+        },
+        "q": "Battle of Chacabuco"
+      },
+      {
+        "p": [
+          10,
+          10
+        ],
+        "h": {
+          "hi": "आज के एंडीज़",
+          "en": "Andes Today"
+        },
+        "q": "Andes mountain passes Chile"
+      }
+    ],
+    "tiles_n": 11
+  },
+  {
+    "day": 9,
+    "date": "2026-11-06",
+    "country": "Armenia",
+    "flag": "🇦🇲",
+    "kind": "history",
+    "title": "36 अक्षरों का चमत्कार: अर्मेनिया की अमर लिपि",
+    "teaser": "जब एक साम्राज्य के पास भाषा तो थी पर अक्षर नहीं, तब एक साधु की खोज ने पूरी सभ्यता की तकदीर बदल दी।",
+    "story": [
+      "ठंडी पहाड़ी हवा में बहती पुरानी गुफाओं की महक और अर्मेनिया की ऊँची चोटियों पर चढ़ता सुबह का सूरज। पाँचवीं सदी की शुरुआत थी, और मठों में सिर झुकाए साधु पन्नों पर कुछ लिख रहे थे, पर वे शब्द उनके अपने नहीं थे। क्या आपने कभी सोचा है कि अगर किसी देश की अपनी कोई लिपि ही न हो, तो उसकी बोली सदियों तक कैसे ज़िंदा रहती होगी? अर्मेनिया के इतिहास में एक ऐसा मोड़ आया जब उसकी पहचान मिटने की कगार पर खड़ी थी।",
+      "उस ज़माने में अर्मेनिया के लोग घरों और बाज़ारों में अपनी मधुर अर्मेनियाई भाषा बोलते थे। पर जब लिखने की नौबत आती, तो उन्हें यूनानी या सीरियाई लिपि का सहारा लेना पड़ता था। गाँव के चौक पर लोग जमा होते, पर राजा का फ़रमान हो या प्रार्थना के पद, सब बेगाने अक्षरों में पढ़े जाते थे। आम इंसान के लिए वे अक्षर सिर्फ़ काली लकीरें थे, जिनका उनके दिलों से कोई सीधा नाता न था।",
+      "देश उस समय दो बड़े साम्राज्यों के बीच बँटा हुआ था—एक तरफ़ बीजान्टिन और दूसरी तरफ़ ससानी फ़ारस। अर्मेनिया की संस्कृति और बोली पर धीरे-धीरे पड़ोसी ताकतों की छाप गहरी होती जा रही थी। विद्वानों और राजा को डर सताने लगा कि अगर अपनी भाषा को लिखने का साधन न मिला, तो यह अनूठी सभ्यता वक़्त की धूल में खो जाएगी।",
+      "ऐसे कठिन समय में सामने आए मेस्रोप माशटोट्स, जो कभी राजदरबार में उच्च अधिकारी थे और बाद में साधु बन गए थे। माशटोट्स केवल ज्ञान के साधक नहीं थे, वे जानते थे कि भाषा ही किसी जाति की आत्मा होती है। उन्होंने संकल्प लिया कि वे अर्मेनियाई बोली के हर छोटे-बड़े उच्चारण को अक्षरों में ढालकर ही दम लेंगे।",
+      "मेस्रोप ने अपने कुछ शिष्यों को साथ लिया और ज्ञान की खोज में निकल पड़े। वे उस दौर के बड़े विद्वता केंद्रों जैसे एडेसा और समोसाता की ओर गए। वे हर उस शहर में ठहरे जहाँ लिपियों और ध्वनियों के ज्ञाता रहते थे। पर अर्मेनियाई भाषा की अनूठी ध्वनियाँ किसी पुरानी वर्णमाला के ढाँचे में फ़िट ही नहीं बैठती थीं।",
+      "महीनों बीत गए, मोमबत्तियाँ पिघलती रहीं और चर्मपत्र पर बार-बार आकृतियाँ उकेरी और मिटाई गईं। अर्मेनियाई बोली में कुछ ऐसी ध्वनियाँ थीं जो न यूनानी में थीं और न ही शामी (सेमिटिक) भाषाओं में। माशटोट्स की रातें बेचैनी में बीततीं, क्योंकि एक भी ध्वनि का छूट जाना पूरी भाषा के साथ अन्याय होता।",
+      "लोककथाओं में कहा जाता है कि एक रात एडेसा में प्रार्थना करते हुए माशटोट्स को एक दिव्य अनुभूति हुई। उन्हें लगा जैसे कोई अदृश्य हाथ पत्थर की शिला पर अनोखे अक्षर उकेर रहा हो। ऐतिहासिक दृष्टि से देखें तो यह उनकी बरसों की अटूट साधना, ध्वनि-विज्ञान के गहरे अध्ययन और बारीक विश्लेषण का परिणाम था।",
+      "सन 405 में, माशटोट्स ने 36 अक्षरों की एक ऐसी वर्णमाला तैयार की, जो वैज्ञानिक रूप से अर्मेनियाई भाषा की हर ध्वनि को सटीक रूप से दर्ज करती थी। पहला अक्षर ईश्वर के नाम की ध्वनि से शुरू हुआ और आख़िरी अक्षर तक हर वर्ण का अपना रूप और भार था। जब वे यह वर्णमाला लेकर वाग़ारशापात लौटे, तो राजा व्रामशापुह और कैथोलिकोस साहाक ने उनका स्वागत किसी महान विजेता की तरह किया।",
+      "इसके बाद शुरू हुआ अनुवाद का एक सुनहरा दौर, जिसे अर्मेनियाई इतिहास में 'स्वर्ण युग' कहा जाता है। मेस्रोप और उनके शिष्यों ने सबसे पहले धार्मिक और दार्शनिक ग्रंथों का अर्मेनियाई में अनुवाद किया। मिट्टी के दीयों की रोशनी में पन्नों पर मोर के पंख से अर्मेनियाई शब्द लिखे जाने लगे, और पहली बार आम लोग अपनी लिपि में ज्ञान पढ़ने लगे।",
+      "सोचिए, उसके बाद सदियाँ बीतीं, कई साम्राज्य ढह गए, भयानक युद्ध हुए और अर्मेनिया का नक्शा बदलता रहा। पर इन अक्षरों ने अर्मेनियाई पहचान को एक अभेद्य कवच की तरह बचाए रखा। विदेशी शासक आए और चले गए, पर यह लिपि अर्मेनियाई लोगों के दिलों और किताबों में सुरक्षित तैरती रही।",
+      "आज भी जब अर्मेनिया में कोई बच्चा पहली बार स्कूल जाता है, तो वह सबसे पहले माशटोट्स के बनाए अक्षरों से ही दोस्ती करता है। अरागत्स पहाड़ की तलहटी में पत्थरों को काटकर बनाए गए इन अक्षरों के विशाल बुत आज भी हवा में खड़े हैं। यह कहानी हमें सिखाती है कि शब्द और अक्षर भले ही काग़ज़ पर छोटे दिखें, पर वे एक पूरी क़ौम को अमर बना सकते हैं।"
+    ],
+    "why": "यह कहानी इसलिए प्रसिद्ध है क्योंकि अर्मेनियाई वर्णमाला का निर्माण केवल अक्षरों की खोज नहीं, बल्कि एक पूरी सभ्यता और संस्कृति को बचाने का ऐतिहासिक अभियान था। मेस्रोप माशटोट्स द्वारा 405 ईस्वी में बनाई गई यह लिपि दुनिया की सबसे सटीक और वैज्ञानिक वर्णमालाओं में से एक मानी जाती है।",
+    "where": "आज अर्मेनिया की राजधानी येरेवन में स्थित 'मातेनादारान' ग्रंथालय में इस लिपि में लिखी हज़ारों प्राचीन पांडुलिपियों को देखा जा सकता है। इसके अलावा ओशाकान गाँव में मेस्रोप माशटोट्स का मज़ार है, और अरागत्सोत्न प्रांत में पत्थरों से बनी अर्मेनियाई वर्णमाला का एक प्रसिद्ध स्मारक मौजूद है।",
+    "truth": "मेस्रोप माशटोट्स द्वारा 405 ईस्वी में अर्मेनियाई वर्णमाला का निर्माण एक प्रमाणित ऐतिहासिक तथ्य है, जिसका विवरण उनके शिष्य कोरियुन की लिखी जीवनी में मिलता है। हालाँकि, गुफ़ा में दिव्य रोशनी से अक्षर पत्थर पर उकेरे जाने की बात लोक-आस्था और आध्यात्मिक परंपरा का हिस्सा है।",
+    "info": [
+      [
+        "राजधानी",
+        "येरेवन"
+      ],
+      [
+        "भाषा",
+        "अर्मेनियाई"
+      ],
+      [
+        "मुद्रा",
+        "अर्मेनियाई ड्राम"
+      ],
+      [
+        "खास बात",
+        "अर्मेनिया सन 301 में ईसाई धर्म को राष्ट्रधर्म के रूप में अपनाने वाला दुनिया का पहला देश था।"
+      ]
+    ],
+    "image_queries": [
+      "Mesrop Mashtots statue Matenadaran Yerevan",
+      "Armenian Alphabet Monument Artashavan"
+    ],
+    "source_queries": [
+      "Mesrop Mashtots",
+      "Armenian alphabet",
+      "Matenadaran"
+    ],
+    "en": {
+      "title": "The Miracle of 36 Letters: Armenia’s Immortal Script",
+      "teaser": "When a nation had a spoken language but no letters of its own, a monk’s quest reshaped the destiny of an entire civilization.",
+      "story": [
+        "The scent of ancient caves drifted through the crisp mountain air as the morning sun began its ascent over Armenia’s towering peaks. It was the turn of the fifth century, and inside quiet monasteries, monks sat bowed over parchment, carefully tracing words—yet those words were not their own. Have you ever wondered how a people’s tongue survives for centuries if they have no script to call their own? Armenia stood at a monumental crossroads in its history, teetering on the precipice of losing its very identity.",
+        "In those days, the people of Armenia spoke their melodious native tongue in their homes and bustling marketplaces. Yet whenever a thought had to be committed to writing, they were forced to rely on Greek or Syriac scripts. Crowds gathered in village squares, but whether it was a royal decree or a sacred hymn, everything was read aloud in alien characters. To the average person, those symbols were mere dark squiggles, disconnected from the rhythm of their hearts.",
+        "At the time, the land was fractured, caught between two formidable empires—the Byzantines to the west and the Sasanian Persians to the east. Slowly but relentlessly, the shadow of neighboring superpowers deepened over Armenian culture and speech. Scholars and the king grew haunted by a persistent dread: without a written anchor for their language, this unique civilization would inevitably be swept away by the winds of time.",
+        "Step forward Mesrop Mashtots in this hour of peril—a former high official of the royal court who had renounced worldly power to become a monk. Mashtots was more than a seeker of wisdom; he understood that a language is the very soul of a people. He swore a solemn vow that he would not rest until every subtle inflection and sound of spoken Armenian was forged into living letters.",
+        "Gathering a handful of dedicated disciples, Mashtots set out on a grand quest for knowledge. Their journey led them to the renowned scholarly capitals of the era, including Edessa and Samosata. They paused in every city where master linguists and phoneticians gathered. Yet, the unique sounds of the Armenian tongue refused to fit neatly into the rigid molds of existing alphabets.",
+        "Months bled into one another as candles burned low and parchment sheets were etched and erased time and again. Spoken Armenian contained singular phonetic nuances that existed neither in Greek nor in Semitic languages. Mashtots spent sleepless nights tormented by the thought that omitting even a single sound would do a grave injustice to his mother tongue.",
+        "Legend has it that one fateful night while praying in Edessa, Mashtots experienced a divine vision. It felt as though an invisible hand were carving otherworldly letters onto a slab of stone. Historical analysis suggests this breakthrough was the culmination of years of unyielding devotion, profound phonetic study, and meticulous linguistic analysis.",
+        "In the year 405 AD, Mashtots unveiled an alphabet of 36 letters—a masterpiece of linguistic science that perfectly captured every sound of the Armenian language. The inaugural letter began with the sound of God's name, and each character down to the last possessed its own distinct form and phonetic weight. When he returned to Vagharshapat bearing this revolutionary gift, King Vramshapuh and Catholicos Sahak welcomed him like a triumphant conqueror.",
+        "What followed was a glorious era of translation, forever celebrated in Armenian history as the 'Golden Age.' Mashtots and his disciples set about rendering sacred and philosophical texts into Armenian for the very first time. Under the warm glow of oil lamps, peacock feathers dipped in ink traced Armenian words on parchment, empowering ordinary people to read wisdom in their own native script.",
+        "Consider how the centuries unfolded afterward: empires crumbled, devastating wars swept the land, and Armenia’s map was redrawn again and again. Yet these 36 letters served as an impenetrable shield, safeguarding Armenian identity through the ages. Foreign conquerors came and went, but the script floated safely, anchored in the hearts of the people and the pages of their books.",
+        "Even today, when a child in Armenia attends school for the first time, their journey begins by befriending the letters born of Mashtots’ vision. At the foot of Mount Aragats, monumental stone statues of these characters stand tall against the open sky. This story reminds us that while words and letters may appear small on paper, they hold the power to render an entire nation immortal."
+      ],
+      "why": "This story is famous because the creation of the Armenian alphabet was not merely a linguistic discovery, but a historic crusade to rescue an entire civilization and culture. Created by Mesrop Mashtots in 405 AD, this script is considered one of the most precise and scientifically crafted alphabets in the world.",
+      "where": "Today, thousands of ancient manuscripts written in this script can be viewed at the Matenadaran library in Yerevan, the capital of Armenia. Additionally, the tomb of Mesrop Mashtots is located in the village of Oshakan, and a famous stone monument dedicated to the Armenian alphabet stands in the Aragatsotn Province.",
+      "truth": "The creation of the Armenian alphabet by Mesrop Mashtots in 405 AD is an authenticated historical fact, detailed in the biography written by his disciple Koryun. However, the tale of divine light etching the letters into stone during a vision in a cave belongs to popular faith and spiritual folklore.",
+      "info": [
+        [
+          "Capital",
+          "Yerevan"
+        ],
+        [
+          "Language",
+          "Armenian"
+        ],
+        [
+          "Currency",
+          "Armenian Dram"
+        ],
+        [
+          "Special Fact",
+          "Armenia was the world's first nation to adopt Christianity as its state religion in 301 AD."
+        ]
+      ]
+    },
+    "images": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Matenadaran%2C_Yerevan%2C_Armenia_%28%D5%84%D5%A1%D5%BF%D5%A5%D5%B6%D5%A1%D5%A4%D5%A1%D6%80%D5%A1%D5%B6%D0%B1%2C_2026%29.jpg/960px-Matenadaran%2C_Yerevan%2C_Armenia_%28%D5%84%D5%A1%D5%BF%D5%A5%D5%B6%D5%A1%D5%A4%D5%A1%D6%80%D5%A1%D5%B6%D0%B1%2C_2026%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Matenadaran,_Yerevan,_Armenia_(%D5%84%D5%A1%D5%BF%D5%A5%D5%B6%D5%A1%D5%A4%D5%A1%D6%80%D5%A1%D5%B6%D0%B1,_2026).jpg",
+        "en": "This is a photo of a monument in Armenia identified by the ID",
+        "hi": "🇦🇲 Armenia: Matenadaran, Yerevan, Armenia (Մատենադարանб, 2026)",
+        "credit": "Petar Milošević, CC BY-SA 4.0",
+        "commons": true
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/2014_Erywa%C5%84%2C_Matenadaran_%2816%29.jpg/960px-2014_Erywa%C5%84%2C_Matenadaran_%2816%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:2014_Erywa%C5%84,_Matenadaran_(16).jpg",
+        "en": "This is a photo of a monument in Armenia identified by the ID",
+        "hi": "🇦🇲 Armenia: 2014 Erywań, Matenadaran (16)",
+        "credit": "Marcin Konsek, CC BY-SA 4.0",
+        "commons": true
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mesrop Mashtots",
+        "url": "https://en.wikipedia.org/wiki/Mesrop_Mashtots",
+        "publisher": "Wikipedia",
+        "note": "Mesrop Mashtots (; Armenian: Մեսրոպ Մաշտոց, romanized: Mesrop Maštocʻ  362 – 17 February 440 AD) was an  Armenian linguist, composer, theologian, statesman, and"
+      },
+      {
+        "title": "Armenian alphabet",
+        "url": "https://en.wikipedia.org/wiki/Armenian_alphabet",
+        "publisher": "Wikipedia",
+        "note": "The Armenian alphabet (Armenian: Հայոց գրեր, romanized: Hayocʼ grer or Հայոց այբուբեն, Hayocʼ aybuben) or, more broadly, the Armenian script, is an alphabetic w"
+      },
+      {
+        "title": "Matenadaran",
+        "url": "https://en.wikipedia.org/wiki/Matenadaran",
+        "publisher": "Wikipedia",
+        "note": "The Matenadaran (Armenian: Մատենադարան), officially the Mesrop Mashtots Institute of Ancient Manuscripts, is the largest center for the storage, study and popul"
+      }
+    ],
+    "tiles": [
+      {
+        "p": [
+          0,
+          0
+        ],
+        "h": {
+          "hi": "अर्मेनिया की प्राचीन चोटियाँ",
+          "en": "Ancient Peaks of Armenia"
+        },
+        "q": "Armenia mountains ancient monastery",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Traditional_Mount_Zion%2C_from_Tower_over_the_Jaffa_Gate%2C_South._%284879237387%29.jpg/960px-Traditional_Mount_Zion%2C_from_Tower_over_the_Jaffa_Gate%2C_South._%284879237387%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Traditional_Mount_Zion,_from_Tower_over_the_Jaffa_Gate,_South._(4879237387).jpg",
+          "en": "Traditional Mount Zion, from Tower over the Jaffa Gate, South. (4879237387)",
+          "hi": "🇦🇲 Armenia: Traditional Mount Zion, from Tower over the Jaffa Gate, South. (4879237387)",
+          "credit": "OSU Special Collections &amp; Archives : Commons, No restrictions",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          1,
+          1
+        ],
+        "h": {
+          "hi": "बेगाने अक्षरों की उलझन",
+          "en": "Borrowed Scripts Dilemma"
+        },
+        "q": "Ancient Greek Syriac manuscript",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/The_Ark_of_Noah._Detail_of_folio_12a_from_a_copy_of_the_Majma%CA%BF_al-tawarikh._Herat%2C_ca._1428._Topkap%C4%B1_Saray%C4%B1_Library_%28Hazine_1653%29.jpg/960px-The_Ark_of_Noah._Detail_of_folio_12a_from_a_copy_of_the_Majma%CA%BF_al-tawarikh._Herat%2C_ca._1428._Topkap%C4%B1_Saray%C4%B1_Library_%28Hazine_1653%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:The_Ark_of_Noah._Detail_of_folio_12a_from_a_copy_of_the_Majma%CA%BF_al-tawarikh._Herat,_ca._1428._Topkap%C4%B1_Saray%C4%B1_Library_(Hazine_1653).jpg",
+          "en": "The Ark of Noah. Detail of folio 12a from a copy of the Majmaʿ al-tawarikh. Herat, ca. 1428. Topkapı Sarayı Library (Hazine 1653)",
+          "hi": "🇦🇲 Armenia: The Ark of Noah. Detail of folio 12a from a copy of the Majmaʿ al-tawarikh. Herat, ca. 1428. Topkapı Sarayı Library (Hazine 1653)",
+          "credit": "1428 artist, Public domain",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          2,
+          2
+        ],
+        "h": {
+          "hi": "दो साम्राज्यों का दबाव",
+          "en": "Threat of Two Empires"
+        },
+        "q": "Sasanian empire ancient relief",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Gilded_silver_plate_depicting_the_Persian_Sasanian_emperor_Hormizd_II_hunting_ostriches.jpg/960px-Gilded_silver_plate_depicting_the_Persian_Sasanian_emperor_Hormizd_II_hunting_ostriches.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Gilded_silver_plate_depicting_the_Persian_Sasanian_emperor_Hormizd_II_hunting_ostriches.jpg",
+          "en": "Gilded silver plate depicting the Persian Sasanian emperor Hormizd II hunting ostriches",
+          "hi": "🇦🇲 Armenia: Gilded silver plate depicting the Persian Sasanian emperor Hormizd II hunting ostriches",
+          "credit": "Unknown author, Public domain",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          3,
+          3
+        ],
+        "h": {
+          "hi": "मेस्रोप माशटोट्स का संकल्प",
+          "en": "Resolve of Mesrop Mashtots"
+        },
+        "q": "Mesrop Mashtots statue Yerevan",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Mesrop_Mashtots_statue_at_Matenadaran_Yerevan_2026.jpg/960px-Mesrop_Mashtots_statue_at_Matenadaran_Yerevan_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Mesrop_Mashtots_statue_at_Matenadaran_Yerevan_2026.jpg",
+          "en": "Mesrop Mashtots statue at Matenadaran Yerevan 2026",
+          "hi": "🇦🇲 Armenia: Mesrop Mashtots statue at Matenadaran Yerevan 2026",
+          "credit": "Furkan Akkurt, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "ज्ञान की खोज में",
+          "en": "Journey in Search of Knowledge"
+        },
+        "q": "Ancient Edessa city ruins",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/The_East_Gate%2C_Ancient_Edessa_%286974660670%29.jpg/960px-The_East_Gate%2C_Ancient_Edessa_%286974660670%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:The_East_Gate,_Ancient_Edessa_(6974660670).jpg",
+          "en": "The East Gate, Ancient Edessa (6974660670)",
+          "hi": "🇦🇲 Armenia: The East Gate, Ancient Edessa (6974660670)",
+          "credit": "Carole Raddato from Frankfurt, Germany, CC BY-SA 2.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "ध्वनियों को आकार देना",
+          "en": "Shaping the Unique Sounds"
+        },
+        "q": "Ancient manuscript writing parchment",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Bern%2C_Burgerbibliothek%2C_Cod._125%2C_f._267v_%E2%80%93_Marco_Polo_Devisement_du_monde%2C_Jean_de_Mandeville_Voyages%2C_Jean_le_Long_d%27Ypres_R%C3%A9cits_de_voyages.JPG/960px-Bern%2C_Burgerbibliothek%2C_Cod._125%2C_f._267v_%E2%80%93_Marco_Polo_Devisement_du_monde%2C_Jean_de_Mandeville_Voyages%2C_Jean_le_Long_d%27Ypres_R%C3%A9cits_de_voyages.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Bern,_Burgerbibliothek,_Cod._125,_f._267v_%E2%80%93_Marco_Polo_Devisement_du_monde,_Jean_de_Mandeville_Voyages,_Jean_le_Long_d%27Ypres_R%C3%A9cits_de_voyages.JPG",
+          "en": "Composite manuscript consisting of three parts, bringing together French translations of classic reports of voyages to the Far East.",
+          "hi": "🇦🇲 Armenia: Bern, Burgerbibliothek, Cod. 125, f. 267v – Marco Polo Devisement du monde, Jean de Mandeville Voyages, Jean le Long d'Ypres Récits de voyages",
+          "credit": "Marco Polo, Jean de Mandeville, Jean le Long d'Ypres, Public domain",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "भाषा का अध्ययन और साधना",
+          "en": "Study of Phonetics and Faith"
+        },
+        "q": "Illuminated Armenian manuscript page",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Armenian_manuscript_copied_by_the_scribe_Khachatur_dpir_1795.jpg/960px-Armenian_manuscript_copied_by_the_scribe_Khachatur_dpir_1795.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Armenian_manuscript_copied_by_the_scribe_Khachatur_dpir_1795.jpg",
+          "en": "Armenian manuscript copied by the scribe Khachatur dpir 1795",
+          "hi": "🇦🇲 Armenia: Armenian manuscript copied by the scribe Khachatur dpir 1795",
+          "credit": "wellcomecollection.org, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          7,
+          7
+        ],
+        "h": {
+          "hi": "३६ अक्षरों का आविष्कार",
+          "en": "Invention of 36 Letters"
+        },
+        "q": "Armenian Alphabet creation manuscript",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Matenadaran_1.jpg/960px-Matenadaran_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Matenadaran_1.jpg",
+          "en": "Matenadaran 1",
+          "hi": "🇦🇲 Armenia: Matenadaran 1",
+          "credit": "Retlaw Snellac, CC BY 2.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          8,
+          8
+        ],
+        "h": {
+          "hi": "अनुवाद का स्वर्ण युग",
+          "en": "Golden Age of Translation"
+        },
+        "q": "Matenadaran ancient Armenian manuscripts",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/2014_Erywa%C5%84%2C_Matenadaran_%2818%29.jpg/960px-2014_Erywa%C5%84%2C_Matenadaran_%2818%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:2014_Erywa%C5%84,_Matenadaran_(18).jpg",
+          "en": "This is a photo of a monument in Armenia identified by the ID",
+          "hi": "🇦🇲 Armenia: 2014 Erywań, Matenadaran (18)",
+          "credit": "Marcin Konsek, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          9,
+          9
+        ],
+        "h": {
+          "hi": "पहचान का अभेद्य कवच",
+          "en": "Shield of Cultural Identity"
+        },
+        "q": "Tatev Monastery Armenia ancient"
+      },
+      {
+        "p": [
+          10,
+          10
+        ],
+        "h": {
+          "hi": "अक्षरों का अमर स्मारक",
+          "en": "Eternal Monument of Letters"
+        },
+        "q": "Armenian Alphabet Monument Aragats"
+      }
+    ],
+    "tiles_n": 11,
     "story_version": 2
   }
 ]
