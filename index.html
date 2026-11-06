@@ -650,7 +650,7 @@ function mountReader(day, idx){
   $("#bt-text").onclick = () => openSheet("text");
   $("#bt-facts").onclick = () => openSheet("facts");
   $("#bt-src").onclick = () => openSheet("src");
-  $("#bt-save").onclick = () => { closeToolsMenu(); closeToolsMenu(); closeToolsMenu(); closeToolsMenu(); closeToolsMenu();
+  $("#bt-save").onclick = () => { closeToolsMenu();
     saved = saved.includes(day) ? saved.filter(d => d !== day) : [...saved, day]; store.set("saved", saved);
     const on = saved.includes(day), b = $("#bt-save");
     b.classList.toggle("on", on); b.firstElementChild.textContent = on ? "★" : "☆";
