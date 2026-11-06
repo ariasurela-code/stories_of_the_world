@@ -233,7 +233,8 @@ def commons_images(queries, country, flag, limit=2):
                 "en": en_cap, "hi": f"{flag} {country}: {title}",
                 "credit": f"{artist[:80]}, {lic}".strip(", "), "commons": True,
             })
-            break
+            if len(found) >= limit:
+                break
     return found
 
 
@@ -249,7 +250,7 @@ def repair_archive(existing):
                 print(f"Added English version for Day {st.get('day')}.")
             except Exception as exc:
                 print(f"English backfill failed for Day {st.get('day')}: {exc}", file=sys.stderr)
-        if not any(im.get("commons") for im in (st.get("images") or []) if isinstance(im, dict)):
+        if sum(1 for im in (st.get("images") or []) if isinstance(im, dict) and im.get("commons")) < 2:
             title_en = (st.get("en") or {}).get("title", "")
             queries = list(st.get("image_queries") or []) + [f"{st.get('country')} {title_en}".strip(), f"{st.get('country')} landmark"]
             imgs = commons_images(queries, st.get("country", ""), st.get("flag", ""))
