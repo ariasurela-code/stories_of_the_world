@@ -22,17 +22,22 @@ COUNTRIES = [
 ]
 
 
+MAX_ATTEMPTS = 5
+BROWSER_UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+
+
 def request_json(url, headers, payload):
     """POST JSON with bounded retries for temporary provider/network failures."""
     data = json.dumps(payload).encode("utf-8")
     request_headers = {
-        **headers,
         "Content-Type": "application/json",
         "Accept": "application/json",
-        "User-Agent": "StoriesOfTheWorld-GitHubActions/1.0",
+        "User-Agent": BROWSER_UA,
+        **headers,
     }
     last_error = None
-    for attempt in range(3):
+    for attempt in range(MAX_ATTEMPTS):
         req = Request(url, data=data, headers=request_headers, method="POST")
         try:
             with urlopen(req, timeout=120) as response:
@@ -44,21 +49,21 @@ def request_json(url, headers, payload):
             )
             # Retry only errors that are commonly temporary. Authentication,
             # permission and Cloudflare 1010 blocks need configuration changes.
-            if exc.code not in (408, 425, 429, 500, 502, 503, 504) or attempt == 2:
+            if exc.code not in (408, 425, 429, 500, 502, 503, 504) or attempt == MAX_ATTEMPTS - 1:
                 raise last_error from exc
             retry_after = exc.headers.get("Retry-After")
             try:
-                delay = min(30, max(1, int(retry_after))) if retry_after else 2 ** attempt
+                delay = min(60, max(1, int(retry_after))) if retry_after else 5 * 2 ** attempt
             except ValueError:
-                delay = 2 ** attempt
-            print(f"Temporary AI HTTP {exc.code}; retrying in {delay}s (attempt {attempt + 2}/3).")
+                delay = 5 * 2 ** attempt
+            print(f"Temporary AI HTTP {exc.code}; retrying in {delay}s (attempt {attempt + 2}/{MAX_ATTEMPTS}).")
             time.sleep(delay)
         except (URLError, TimeoutError) as exc:
             last_error = RuntimeError(f"AI provider network error: {exc}")
-            if attempt == 2:
+            if attempt == MAX_ATTEMPTS - 1:
                 raise last_error from exc
-            delay = 2 ** attempt
-            print(f"Temporary AI network error; retrying in {delay}s (attempt {attempt + 2}/3).")
+            delay = 5 * 2 ** attempt
+            print(f"Temporary AI network error; retrying in {delay}s (attempt {attempt + 2}/{MAX_ATTEMPTS}).")
             time.sleep(delay)
     raise last_error or RuntimeError("AI provider request failed for an unknown reason.")
 
@@ -103,31 +108,48 @@ def prompt_for(day, country, date_str):
 
 
 def call_gemini(prompt, key):
-    # Gemini REST generateContent endpoint; model can be overridden in repository Variables.
-    model = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-    result = request_json(url, {"x-goog-api-key": key}, {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.7, "responseMimeType": "application/json"}
-    })
-    return result["candidates"][0]["content"]["parts"][0]["text"]
+    # Try the configured model first, then stable fallbacks (a busy/missing model must not stop the day's story).
+    models = [m for m in [os.getenv("GEMINI_MODEL"), "gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-flash-lite"] if m]
+    models = list(dict.fromkeys(models))
+    last = None
+    for model in models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+        try:
+            result = request_json(url, {"x-goog-api-key": key}, {
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {"temperature": 0.7, "responseMimeType": "application/json"}
+            })
+            print(f"Gemini model used: {model}")
+            return result["candidates"][0]["content"]["parts"][0]["text"]
+        except Exception as exc:
+            last = exc
+            print(f"Gemini model {model} failed: {str(exc)[:200]}", file=sys.stderr)
+    raise last
 
 
 def call_groq(prompt, key):
-    model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
-    result = request_json("https://api.groq.com/openai/v1/chat/completions", {
-        "Authorization": f"Bearer {key}",
-        "User-Agent": "StoriesOfTheWorld-GitHubActions/1.0"
-    }, {
-        "model": model,
-        "temperature": 0.7,
-        "response_format": {"type": "json_object"},
-        "messages": [
-            {"role": "system", "content": "You write accurate, engaging educational country stories and return only valid JSON."},
-            {"role": "user", "content": prompt}
-        ]
-    })
-    return result["choices"][0]["message"]["content"]
+    models = [m for m in [os.getenv("GROQ_MODEL"), "llama-3.3-70b-versatile", "llama-3.1-8b-instant"] if m]
+    models = list(dict.fromkeys(models))
+    last = None
+    for model in models:
+        try:
+            result = request_json("https://api.groq.com/openai/v1/chat/completions", {
+                "Authorization": f"Bearer {key}",
+            }, {
+                "model": model,
+                "temperature": 0.7,
+                "response_format": {"type": "json_object"},
+                "messages": [
+                    {"role": "system", "content": "You write accurate, engaging educational country stories and return only valid JSON."},
+                    {"role": "user", "content": prompt}
+                ]
+            })
+            print(f"Groq model used: {model}")
+            return result["choices"][0]["message"]["content"]
+        except Exception as exc:
+            last = exc
+            print(f"Groq model {model} failed: {str(exc)[:200]}", file=sys.stderr)
+    raise last
 
 
 def main():
