@@ -725,7 +725,12 @@ function mountReader(day, idx){
       ${dockBtn("bt-fs", "Aa", ["अक्षर", "अक्षरों का आकार बदलें"], ["Size", "Change text size"], "tool-item")}
       ${dockBtn("bt-listen", "▶", ["कहानी सुनें", "कहानी सुनें / रोकें"], ["Listen", "Listen / stop"], "tool-item")}
       ${dockBtn("bt-bg-audio", backgroundAudio ? "🔊" : "🔇", ["बैकग्राउंड ऑडियो: " + (backgroundAudio ? "चालू" : "बंद"), "बैकग्राउंड ऑडियो चालू/बंद"], ["Background audio: " + (backgroundAudio ? "On" : "Off"), "Toggle background audio"], backgroundAudio ? "tool-item on" : "tool-item")}
-      ${dockBtn("bt-map", "🗺️", ["कहानी का नक्शा", "घटना का स्थान देखें"], ["Journey map", "See the story location"], "tool-item")}\n      ${dockBtn("bt-adventure", "🧭", ["अपना रास्ता चुनें", "कहानी में चुनाव करें"], ["Choose your adventure", "Choose a story path"], "tool-item")}\n      ${dockBtn("bt-quiz", "🏆", ["5 सवालों की चुनौती", "कहानी के बाद क्विज़"], ["5-question challenge", "Take the story quiz"], "tool-item")}\n      ${dockBtn("bt-verify", "✓", ["इतिहास की जाँच", "तथ्य और लोककथा अलग करें"], ["History verification", "Facts vs legend"], "tool-item")}\n      ${dockBtn("bt-then", "⌛", ["तब और अब", "तस्वीरों से बदलाव देखें"], ["Then vs now", "Explore historical visuals"], "tool-item")}\n      ${dockBtn("bt-pdf", "📄", ["चित्रों सहित PDF", "कहानी का PDF बनाएँ"], ["PDF with images", "Create story PDF"], "tool-item")}
+      ${dockBtn("bt-map", "🗺️", ["कहानी का नक्शा", "घटना का स्थान देखें"], ["Journey map", "See the story location"], "tool-item")}
+      ${dockBtn("bt-adventure", "🧭", ["अपना रास्ता चुनें", "कहानी में चुनाव करें"], ["Choose your adventure", "Choose a story path"], "tool-item")}
+      ${dockBtn("bt-quiz", "🏆", ["5 सवालों की चुनौती", "कहानी के बाद क्विज़"], ["5-question challenge", "Take the story quiz"], "tool-item")}
+      ${dockBtn("bt-verify", "✓", ["इतिहास की जाँच", "तथ्य और लोककथा अलग करें"], ["History verification", "Facts vs legend"], "tool-item")}
+      ${dockBtn("bt-then", "⌛", ["तब और अब", "तस्वीरों से बदलाव देखें"], ["Then vs now", "Explore historical visuals"], "tool-item")}
+      ${dockBtn("bt-pdf", "📄", ["चित्रों सहित PDF", "कहानी का PDF बनाएँ"], ["PDF with images", "Create story PDF"], "tool-item")}
     </div>
     </div>
     <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="shT"><div class="sh-bg" id="shbg"></div>
@@ -762,7 +767,12 @@ function mountReader(day, idx){
   };
   $("#bt-listen").onclick = () => { closeToolsMenu(); speakStory(day, $("#bt-listen")); };
   $("#bt-bg-audio").onclick = () => { backgroundAudio = !backgroundAudio; store.set("backgroundAudio", backgroundAudio); const b=$("#bt-bg-audio"); b.classList.toggle("on",backgroundAudio); b.firstElementChild.textContent=backgroundAudio?"🔊":"🔇"; b.querySelector("small").textContent=L("बैकग्राउंड ऑडियो: "+(backgroundAudio?"चालू":"बंद"),"Background audio: "+(backgroundAudio?"On":"Off")); toast(backgroundAudio?L("बैकग्राउंड ऑडियो चालू — वापस जाने पर भी चलेगा","Background audio on — it can continue when you leave"):L("बैकग्राउंड ऑडियो बंद — वापस जाने पर रुक जाएगा","Background audio off — it will stop when you leave")); };
-  $("#bt-map").onclick=()=>{closeToolsMenu();openSheet("journey");};\n  $("#bt-adventure").onclick=()=>{closeToolsMenu();openAdventure(s);};\n  $("#bt-quiz").onclick=()=>{closeToolsMenu();openQuiz(s);};\n  $("#bt-verify").onclick=()=>{closeToolsMenu();openSheet("verify");};\n  $("#bt-then").onclick=()=>{closeToolsMenu();openSheet("then");};\n  $("#bt-pdf").onclick = () => { closeToolsMenu(); generateStoryPdf(day); };
+  $("#bt-map").onclick=()=>{closeToolsMenu();openSheet("journey");};
+  $("#bt-adventure").onclick=()=>{closeToolsMenu();openAdventure(s);};
+  $("#bt-quiz").onclick=()=>{closeToolsMenu();openQuiz(s);};
+  $("#bt-verify").onclick=()=>{closeToolsMenu();openSheet("verify");};
+  $("#bt-then").onclick=()=>{closeToolsMenu();openSheet("then");};
+  $("#bt-pdf").onclick = () => { closeToolsMenu(); generateStoryPdf(day); };
   $("#shx").onclick = closeSheet; $("#shbg").onclick = closeSheet;
   const deck = $("#deck");
   deck.addEventListener("touchstart", e => { tstart = e.touches.length === 1 ? {x: e.touches[0].clientX, y: e.touches[0].clientY} : null; }, {passive: true});
@@ -846,7 +856,10 @@ function openSheet(kind){
   } else if (kind === "text"){
     title = L("पूरी कहानी", "The full story");
     body = `<div class="otxt">${(tr(s, "story") || []).map(p => `<p>${esc(p)}</p>`).join("")}</div>`;
-  } else if(kind==="journey"){title="🗺️ "+L("कहानी की यात्रा","Story journey");body=journeyMarkup(s);}\n  else if(kind==="verify"){title="✓ "+L("इतिहास की जाँच","History verification");const truth=tr(s,"truth")||L("इस कहानी के लिए अलग सत्यापन नोट अभी उपलब्ध नहीं है।","A separate verification note is not available for this story yet.");const where=tr(s,"where")||s.country;body=`<div class="verify-box"><span class="verify-label">${L("ऐतिहासिक संदर्भ","Historical context")}</span><p>${esc(where)}</p><span class="verify-label">${L("प्रमाणित तथ्य और अनिश्चितताएँ","Evidence and uncertainties")}</span><p>${esc(truth)}</p><span class="verify-label">${L("स्रोत","Sources")}</span><ul class="src">${sourcesOf(s).map(x=>`<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)} ↗</a></li>`).join("")}</ul><small>${L("जहाँ स्रोत उपलब्ध नहीं हैं, वहाँ कहानी को स्वतंत्र रूप से सत्यापित न मानें।","Where sources are unavailable, do not treat the story as independently verified.")}</small></div>`;}\n  else if(kind==="then"){title="⌛ "+L("तब और अब","Then vs now");const pics=R.pool.slice(0,4);body=`<p>${L("इस कहानी से जुड़ी उपलब्ध तस्वीरें। इन्हें ऐतिहासिक और वर्तमान जोड़ी के रूप में तभी दिखाया जाएगा जब दोनों प्रकार की सत्यापित तस्वीरें उपलब्ध हों।","Available images related to this story. A true historical/current comparison will only be shown when both verified image types are available.")}</p><div class="then-grid">${pics.map(im=>`<figure>${imgTag(im)}<figcaption>${esc(capOf(im))}</figcaption></figure>`).join("")}</div>`;}\n  else if (kind === "facts"){
+  } else if(kind==="journey"){title="🗺️ "+L("कहानी की यात्रा","Story journey");body=journeyMarkup(s);}
+  else if(kind==="verify"){title="✓ "+L("इतिहास की जाँच","History verification");const truth=tr(s,"truth")||L("इस कहानी के लिए अलग सत्यापन नोट अभी उपलब्ध नहीं है।","A separate verification note is not available for this story yet.");const where=tr(s,"where")||s.country;body=`<div class="verify-box"><span class="verify-label">${L("ऐतिहासिक संदर्भ","Historical context")}</span><p>${esc(where)}</p><span class="verify-label">${L("प्रमाणित तथ्य और अनिश्चितताएँ","Evidence and uncertainties")}</span><p>${esc(truth)}</p><span class="verify-label">${L("स्रोत","Sources")}</span><ul class="src">${sourcesOf(s).map(x=>`<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)} ↗</a></li>`).join("")}</ul><small>${L("जहाँ स्रोत उपलब्ध नहीं हैं, वहाँ कहानी को स्वतंत्र रूप से सत्यापित न मानें।","Where sources are unavailable, do not treat the story as independently verified.")}</small></div>`;}
+  else if(kind==="then"){title="⌛ "+L("तब और अब","Then vs now");const pics=R.pool.slice(0,4);body=`<p>${L("इस कहानी से जुड़ी उपलब्ध तस्वीरें। इन्हें ऐतिहासिक और वर्तमान जोड़ी के रूप में तभी दिखाया जाएगा जब दोनों प्रकार की सत्यापित तस्वीरें उपलब्ध हों।","Available images related to this story. A true historical/current comparison will only be shown when both verified image types are available.")}</p><div class="then-grid">${pics.map(im=>`<figure>${imgTag(im)}<figcaption>${esc(capOf(im))}</figcaption></figure>`).join("")}</div>`;}
+  else if (kind === "facts"){
     title = `📚 ${esc(s.country)} — ${L("जानने लायक बातें", "Quick facts")}`;
     body = `<dl class="facts box">${(tr(s, "info") || []).map(x => `<div><dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd></div>`).join("") || `<p>${L("कोई जानकारी उपलब्ध नहीं।", "No facts available.")}</p>`}</dl>`;
   } else {
