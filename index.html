@@ -208,6 +208,7 @@ body.reading{overflow:hidden}
 .story-overlay .kick{color:inherit;font-size:.85rem;opacity:.96;margin-bottom:8px}
 .story-overlay h2{font-family:var(--serif);font-size:clamp(1.55rem,1.15rem + 2vw,2.4rem);line-height:1.18;margin:0 0 12px;font-weight:700}
 .story-overlay .otxt p{font-family:var(--serif);font-size:calc(var(--fs) - 1px);line-height:1.65;margin:0 0 .8em}
+.story-scrollbar{position:sticky;z-index:6;bottom:0;display:none;height:30px;margin:8px 0 -14px;align-items:center;touch-action:none;cursor:grab}.story-scrollbar.visible{display:flex}.story-scroll-track{position:relative;display:block;width:100%;height:7px;border-radius:99px;background:rgba(255,255,255,.34);box-shadow:0 1px 5px rgba(0,0,0,.25);overflow:hidden}.story-scroll-thumb{position:absolute;left:0;top:0;height:100%;width:22%;border-radius:99px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.12);transition:width .08s}.story-scrollbar:active{cursor:grabbing}.story-scrollbar:focus-visible{outline:2px solid currentColor;outline-offset:4px}.slide[data-tone="light"] .story-scroll-track{background:rgba(20,35,41,.25)}.slide[data-tone="light"] .story-scroll-thumb{background:#142329}
 .slide[data-tone="light"] .story-overlay{color:#142329;text-shadow:0 1px 3px rgba(255,255,255,.95),0 0 14px rgba(255,255,255,.7)}
 .slide[data-tone="light"] .story-overlay .kick{color:#142329}
 .full-story-tile .cr{max-width:52%}
@@ -679,6 +680,7 @@ function slideHtml(k){
     <div class="kick rv" style="--i:0">${k + 1} / ${total} · ${s.flag} ${esc(s.country)}</div>
     <h2 class="rv" style="--i:1">${esc(t.h)}</h2>
     <div class="otxt">${t.text.map((p, n) => `<p class="rv" style="--i:${n + 2}">${esc(p)}</p>`).join("")}</div>
+    <div class="story-scrollbar" aria-label="${L("कहानी में जल्दी ऊपर-नीचे जाएँ","Quickly scroll through the story")}" role="scrollbar" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="story-scroll-track"><i class="story-scroll-thumb"></i></span></div>
   </div>`;
   const media = `<figure class="st m full-story-tile ${t.countryCard ? "country-ending" : ""}" style="--op:${OPS[k % OPS.length]}">${m ? slideImg(m) : `<span class="ghost">${s.flag}</span>`}
     ${t.countryCard ? `<span class="country-flag-on-image" role="img" aria-label="${esc(s.country)} flag">${s.flag || "🌍"}</span>` : ""}<span class="stamp">${pad(k + 1)}</span>${credit(m)}${text}</figure>`;
@@ -807,9 +809,24 @@ function updateDock(){
   $("#page-total").textContent = pad(total);
 }
 function checkMore(){
-  const tt = document.querySelector(".slide .tt"), ts = tt && tt.querySelector(".tscroll"); if (!ts) return;
-  const upd = () => tt.classList.toggle("more", ts.scrollHeight - ts.scrollTop - ts.clientHeight > 6);
-  ts.onscroll = upd; setTimeout(upd, 50); setTimeout(upd, 900);
+  const slide=document.querySelector(".slide"), overlay=slide&&slide.querySelector(".story-overlay");
+  const ts=overlay||((slide&&slide.querySelector(".tt"))||{}).querySelector?.(".tscroll");
+  if(!ts)return;
+  const bar=overlay&&overlay.querySelector(".story-scrollbar"),thumb=bar&&bar.querySelector(".story-scroll-thumb");
+  const upd=()=>{
+    const max=ts.scrollHeight-ts.clientHeight, has=max>8;
+    if(bar){bar.classList.toggle("visible",has);if(has){const ratio=ts.clientHeight/ts.scrollHeight;thumb.style.width=Math.max(12,Math.min(100,ratio*100))+"%";const range=100-Math.max(12,Math.min(100,ratio*100));thumb.style.left=(max?ts.scrollTop/max*range:0)+"%";bar.setAttribute("aria-valuenow",String(Math.round(max?ts.scrollTop/max*100:0)));}}
+    if(slide){const tt=slide.querySelector(".tt");if(tt)tt.classList.toggle("more",max>6&&ts.scrollTop<max-6);}
+  };
+  ts.addEventListener("scroll",upd,{passive:true});
+  if(bar&&thumb){
+    const seek=e=>{const r=bar.getBoundingClientRect(),ratio=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));ts.scrollTop=ratio*(ts.scrollHeight-ts.clientHeight);upd();};
+    bar.addEventListener("pointerdown",e=>{e.preventDefault();bar.setPointerCapture(e.pointerId);seek(e);});
+    bar.addEventListener("pointermove",e=>{if(bar.hasPointerCapture(e.pointerId))seek(e);});
+    bar.addEventListener("pointerup",e=>{if(bar.hasPointerCapture(e.pointerId))bar.releasePointerCapture(e.pointerId);});
+    bar.addEventListener("keydown",e=>{if(e.key==="ArrowRight"||e.key==="ArrowDown"){e.preventDefault();ts.scrollTop+=ts.clientHeight*.35;}else if(e.key==="ArrowLeft"||e.key==="ArrowUp"){e.preventDefault();ts.scrollTop-=ts.clientHeight*.35;}else if(e.key==="End"){e.preventDefault();ts.scrollTop=ts.scrollHeight;}else if(e.key==="Home"){e.preventDefault();ts.scrollTop=0;}});
+  }
+  upd();setTimeout(upd,80);setTimeout(upd,500);
 }
 
 /* ---------- separate sections (sheets) ---------- */
