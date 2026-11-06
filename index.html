@@ -100,6 +100,88 @@ figure.inline figcaption a{color:var(--accent2)}
 .nav button:disabled{opacity:.35;cursor:default}
 @media (prefers-reduced-motion:no-preference){.view{animation:in .3s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
 @media (max-width:480px){.cover h1{font-size:1.7rem}.feature h2{font-size:1.6rem}.brand{font-size:1.25rem}}
+/* ===== bento storybook ===== */
+:root{--vermilion:#C8372D}
+.wrap.wide{max-width:1080px}
+.cover.slim{min-height:210px}.cover.slim .in{padding:54px 22px 20px}.cover.slim h1{font-size:1.8rem}
+.prog{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 16px;margin:16px 0 14px}
+.pt{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.pt b{font-family:var(--serif);font-size:1.05rem;font-weight:600}
+.pbar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--vermilion));border-radius:99px;transition:width .5s}
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:128px;gap:12px}
+.tile{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:20px;padding:0;text-align:left;color:#fff;background:linear-gradient(135deg,var(--accent2),#1b2f36);box-shadow:var(--shadow);grid-column:var(--dc);grid-row:var(--dr);isolation:isolate;transition:transform .25s,box-shadow .25s}
+.tile:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(10,20,25,.28)}
+.tile>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.tile:hover>img{transform:scale(1.07)}
+.tile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,14,18,.05) 35%,rgba(6,14,18,.82) 100%)}
+.tile::before{content:"";position:absolute;inset:6px;border:1px solid rgba(255,255,255,.4);border-radius:15px;pointer-events:none;z-index:1}
+.ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.35;z-index:-2}
+.stamp{position:absolute;top:12px;left:12px;z-index:2;min-width:28px;height:28px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;background:var(--vermilion);color:#fff;font-family:var(--serif);font-weight:700;font-size:.82rem;border-radius:6px;transform:rotate(-4deg);box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.stamp.s{position:static;display:inline-flex;vertical-align:middle;margin-right:6px}
+.ok{position:absolute;top:12px;right:12px;z-index:2;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.92);color:#1a7f4b;font-size:.85rem;font-weight:700;display:none;align-items:center;justify-content:center}
+.tile.seen .ok{display:flex}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 16px;z-index:2;display:block}
+.cap h3{font-family:var(--serif);font-weight:600;font-size:1.02rem;line-height:1.25;margin:0;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.tile.d-big .cap h3{font-size:1.45rem}
+.ex{display:none;margin-top:6px;font-size:.92rem;line-height:1.45;opacity:.92;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tile.d-big .ex{display:-webkit-box}
+.hint{text-align:center;color:var(--muted);font-size:.86rem;margin:12px 0 4px}
+.fulltext{margin:18px 0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:4px 18px}
+.fulltext summary{cursor:pointer;padding:12px 0;font-weight:600}
+.pre{opacity:0}
+.in{animation-duration:.75s;animation-timing-function:cubic-bezier(.2,.7,.2,1);animation-fill-mode:backwards;animation-delay:var(--d,0ms)}
+.tile.a0.in{animation-name:tFade}.tile.a1.in{animation-name:tUp}.tile.a2.in{animation-name:tZoom}
+.tile.a3.in{animation-name:tFlip}.tile.a4.in{animation-name:tLeft}.tile.a5.in{animation-name:tBlur}
+@keyframes tFade{from{opacity:0}}
+@keyframes tUp{from{opacity:0;transform:translateY(34px)}}
+@keyframes tZoom{from{opacity:0;transform:scale(.82)}}
+@keyframes tFlip{from{opacity:0;transform:perspective(700px) rotateX(-65deg);transform-origin:top}}
+@keyframes tLeft{from{opacity:0;transform:translateX(-40px)}}
+@keyframes tBlur{from{opacity:0;filter:blur(14px);transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){.pre{opacity:1}.in{animation:none!important}}
+/* overlay */
+body.lock{overflow:hidden}
+.ov{position:fixed;inset:0;z-index:50;background:#0b161b;color:#f4f1ea;display:flex;flex-direction:column;animation:ovIn .3s ease-out}
+.ov[hidden]{display:none}
+@keyframes ovIn{from{opacity:0;transform:scale(1.03)}}
+.osegs{display:flex;gap:4px;padding:10px 14px 0;padding-top:max(10px,env(safe-area-inset-top))}
+.osegs i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.22)}
+.osegs i.full{background:var(--accent)}.osegs i.now{background:#fff}
+.otop{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px}
+.otitle{font-family:var(--serif);opacity:.8;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.ov .seg,.ov .ibtn{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#fff}
+.ov .seg button[aria-pressed="true"]{background:var(--accent);color:#1b1306}
+.stage{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.stage.in-r{animation:sR .4s cubic-bezier(.2,.7,.2,1)}.stage.in-l{animation:sL .4s cubic-bezier(.2,.7,.2,1)}.stage.in-z{animation:sZ .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes sR{from{opacity:0;transform:translateX(60px)}}@keyframes sL{from{opacity:0;transform:translateX(-60px)}}@keyframes sZ{from{opacity:0;transform:scale(.94)}}
+.ohero{position:relative;margin:0 14px;height:42vh;min-height:190px;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,var(--accent2),#1b2f36);border:1px solid rgba(255,255,255,.18);flex:none}
+.ohero img{width:100%;height:100%;object-fit:cover;display:block}
+.ohero figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 8px;font-size:.74rem;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+.ohero figcaption a{color:#ffd9a0}
+.obody{flex:1;min-height:0;overflow-y:auto;padding:16px 20px 12px;-webkit-overflow-scrolling:touch}
+.kick{font-size:.84rem;letter-spacing:.04em;color:#cfc9bb;margin-bottom:6px}
+.obody h2{font-family:var(--serif);font-weight:600;font-size:1.65rem;line-height:1.22;margin:0 0 12px}
+.otxt p{font-family:var(--serif);font-size:var(--fs);line-height:1.85;margin:0 0 1em;color:#f1ede4}
+.onav{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px;padding-bottom:max(12px,env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.12)}
+.onav button{padding:13px;border-radius:14px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-weight:600}
+.onav button:last-child{background:var(--accent);color:#1b1306;border-color:var(--accent)}
+.onav button:disabled{opacity:.3}
+@media (min-width:900px){
+  .stage{flex-direction:row;max-width:1180px;width:100%;margin:0 auto;padding:6px 14px 6px;gap:26px}
+  .ohero{flex:1.15;margin:0;height:auto;min-height:0}
+  .obody{flex:1;padding:18px 8px 12px 0}
+  .obody h2{font-size:2.2rem}
+  .osegs,.otop,.onav{max-width:1180px;width:100%;margin:0 auto}
+  .onav{border-top:0}
+}
+@media (max-width:640px){
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:104px;gap:10px}
+  .tile{grid-column:var(--mc);grid-row:var(--mr);border-radius:16px}
+  .tile.d-big .ex{display:none}.tile.m-big .ex{display:-webkit-box}
+  .tile.d-big .cap h3{font-size:1.02rem}.tile.m-big .cap h3{font-size:1.28rem}
+  .cover.slim h1{font-size:1.5rem}
+}
 </style>
 </head>
 <body>
@@ -227,14 +309,14 @@ function toggleTheme(){
 }
 function setLanguage(next){ language = next; store.set("language", next); applyPrefs(); route(); }
 
-const langSeg = () => `<div class="seg" role="group" aria-label="Language"><button id="lang-hi" aria-pressed="${language==="hi"}">हिंदी</button><button id="lang-en" aria-pressed="${language==="en"}">English</button></div>`;
+const langSeg = () => `<div class="seg" role="group" aria-label="Language"><button class="lg-hi" aria-pressed="${language==="hi"}">हिंदी</button><button class="lg-en" aria-pressed="${language==="en"}">English</button></div>`;
 const bindCommon = () => {
-  $("#lang-hi").onclick = () => setLanguage("hi"); $("#lang-en").onclick = () => setLanguage("en");
+  app.querySelectorAll(".lg-hi").forEach(x => x.onclick = () => setLanguage("hi")); app.querySelectorAll(".lg-en").forEach(x => x.onclick = () => setLanguage("en"));
   const t = $("#theme"); if (t) t.onclick = toggleTheme;
 };
 
 function home(){
-  window.onscroll = null; $("#progress").style.width = "0";
+  app.classList.remove("wide"); document.body.classList.remove("lock"); window.onscroll = null; $("#progress").style.width = "0";
   const all = sorted();
   const needle = q.trim().toLowerCase();
   const list = all.filter(s => (!onlySaved || saved.includes(s.day)) &&
@@ -263,52 +345,207 @@ function home(){
   app.querySelectorAll("[data-day]").forEach(b => b.onclick = () => location.hash = "day-" + b.dataset.day);
 }
 
-function reader(day){
+/* ================= BENTO STORYBOOK ================= */
+let curDay = null, curTiles = [], curStory = null, curIdx = -1;
+
+const tilesRead = () => store.get("tiles", {});
+function markTile(day, i, total){
+  const all = tilesRead(), arr = all[day] || [];
+  if (!arr.includes(i)){ arr.push(i); all[day] = arr; store.set("tiles", all); }
+  if (arr.length >= total && !read.includes(day)){ read.push(day); store.set("read", read); }
+  return arr;
+}
+
+/* Same grouping rule as scripts/generate_story.py (plan_groups) - used only when a story has no saved tile plan. */
+function fallbackPlan(n){
+  const s = Math.max(1, Math.min(n, Math.max(6, Math.min(11, n))));
+  const base = Math.floor(n / s), extra = n % s, out = []; let i = 0;
+  for (let k = 0; k < s; k++){ const c = base + (k < extra ? 1 : 0); out.push({p: [i, i + c - 1]}); i += c; }
+  return out;
+}
+
+function buildTiles(s){
+  const paras = tr(s, "story") || [];
+  const plan = (Array.isArray(s.tiles) && s.tiles.length) ? s.tiles : fallbackPlan(paras.length);
+  const n = s.tiles_n || paras.length || 1, r = paras.length / n;
+  const pics = imgs(s);
+  const tiles = plan.map((t, k) => {
+    let a = Math.round(t.p[0] * r), b = Math.round((t.p[1] + 1) * r) - 1;
+    if (b < a) b = a;
+    const h = t.h ? (t.h[language] || t.h.en || t.h.hi) : L("भाग " + (k + 1), "Part " + (k + 1));
+    return {h, text: paras.slice(a, b + 1), img: t.image || pics[k % Math.max(1, pics.length)] || null};
+  });
+  const pool = tiles.map(t => t.img).filter(Boolean).concat(pics);
+  const pick = k => pool.length ? pool[(k * 2 + 1) % pool.length] : null;
+  [["why", "🌍", "यह कहानी इतनी मशहूर क्यों है?", "Why is this story famous?"],
+   ["where", "📍", "आज यह कहाँ याद की जाती है?", "Where is it remembered?"],
+   ["truth", "🔍", "सच और कहानी में फ़र्क", "Fact vs. folklore"]].forEach((c, k) => {
+    const txt = tr(s, c[0]); if (txt) tiles.push({h: c[1] + " " + L(c[2], c[3]), text: [txt], img: pick(k + tiles.length), closer: true});
+  });
+  return tiles;
+}
+
+/* Bento placement: every block fills exactly 2 grid rows (desktop, 6 cols) so there are never gaps. */
+const DBLK = {
+  A: [[1,1,4,2],[5,1,2,1],[5,2,2,1]], B: [[1,1,2,1],[1,2,2,1],[3,1,4,2]], C: [[1,1,2,2],[3,1,2,2],[5,1,2,2]],
+  E: [[1,1,3,2],[4,1,3,2]], F: [[1,1,2,2],[3,1,4,2]], G: [[1,1,1,1]]
+};
+function layoutFor(n){
+  const blocks = []; let r = n;
+  while (r > 0){ if (r === 4 || r === 2){ blocks.push(2); r -= 2; } else if (r >= 3){ blocks.push(3); r -= 3; } else { blocks.push(1); r -= 1; } }
+  const out = []; let dRow = 1, mRow = 1, c3 = 0, c2 = 0;
+  for (const sz of blocks){
+    let d, m;
+    if (sz === 3){
+      d = DBLK[["A", "C", "B"][c3 % 3]];
+      m = c3 % 2 === 0 ? [[1,1,2,2],[1,3,1,2],[2,3,1,2]] : [[1,1,1,2],[2,1,1,2],[1,3,2,2]];
+      c3++;
+    } else if (sz === 2){
+      d = DBLK[c2 % 2 ? "F" : "E"]; m = [[1,1,1,2],[2,1,1,2]]; c2++;
+    } else { d = [[1,1,6,2]]; m = [[1,1,2,2]]; }
+    d.forEach((t, k) => {
+      const mm = m[k];
+      out.push({dc: `${t[0]} / span ${t[2]}`, dr: `${dRow + t[1] - 1} / span ${t[3]}`, big: t[2] * t[3] >= 6,
+                mc: `${mm[0]} / span ${mm[2]}`, mr: `${mRow + mm[1] - 1} / span ${mm[3]}`, mbig: mm[2] * mm[3] >= 4});
+    });
+    dRow += 2; mRow += sz === 3 ? 4 : 2;
+  }
+  return out;
+}
+
+const excerpt = t => { const x = (t.text[0] || "").replace(/\s+/g, " "); const m = x.match(/^.{40,130}?[।.!?]/); return m ? m[0] : (x.length > 120 ? x.slice(0, 117).replace(/\s+\S*$/, "") + "…" : x); };
+const pad = n => String(n).padStart(2, "0");
+
+function reader(day, tileNo){
   const list = [...STORIES].sort((a, b) => a.day - b.day);
   const i = list.findIndex(s => s.day === day);
   if (i < 0) return home();
   const s = list[i], prev = list[i - 1], next = list[i + 1];
-  if (!read.includes(s.day)){ read.push(s.day); store.set("read", read); }
   const isSaved = saved.includes(s.day);
-  const pics = imgs(s), paras = tr(s, "story") || [];
-  const mid = Math.min(3, Math.max(1, Math.floor(paras.length / 2) - 1));
-  const body = paras.map((p, n) => `<p class="${n === 0 ? "first" : ""}">${esc(p)}</p>` +
-    (n === mid && pics[1] ? `<figure class="inline">${imgTag(pics[1])}<figcaption>${esc(capOf(pics[1]))}${pics[1].credit ? ` · <i>${esc(pics[1].credit)}</i>` : ""}${pics[1].source ? ` · <a href="${esc(pics[1].source)}" target="_blank" rel="noopener noreferrer">${L("मूल फ़ाइल", "Source")}</a>` : ""}</figcaption></figure>` : "") +
-    (n === Math.floor(paras.length * 0.66) - 1 && paras.length > 6 ? `<div class="sep" aria-hidden="true">✦ ✦ ✦</div>` : "")).join("");
+  const pics = imgs(s);
+  const tiles = buildTiles(s), lay = layoutFor(tiles.length);
+  curDay = day; curStory = s; curTiles = tiles;
+  const done = tilesRead()[day] || [];
   const srcs = sourcesOf(s);
-  app.innerHTML = `<div class="view">
+  const tileHtml = tiles.map((t, k) => `<button class="tile pre a${k % 6}${lay[k].big ? " d-big" : ""}${lay[k].mbig ? " m-big" : ""}${t.img ? "" : " noimg"}${done.includes(k) ? " seen" : ""}" data-i="${k}"
+      style="--dc:${lay[k].dc};--dr:${lay[k].dr};--mc:${lay[k].mc};--mr:${lay[k].mr};--d:${(k % 4) * 90}ms" aria-label="${esc(t.h)}">
+      ${t.img ? imgTag(t.img) : `<span class="ghost">${s.flag}</span>`}
+      <span class="stamp">${pad(k + 1)}</span><span class="ok" aria-hidden="true">✓</span>
+      <span class="cap"><h3>${esc(t.h)}</h3><span class="ex">${esc(excerpt(t))}</span></span></button>`).join("");
+  app.innerHTML = `<div class="view story-view">
     <div class="bar"><button class="ibtn" id="back">← ${L("सभी कहानियाँ", "All stories")}</button><div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="Theme">◐</button></div></div>
-    <header class="cover">${imgTag(pics[0])}<div class="in">
+    <header class="cover slim">${imgTag(pics[0] || (tiles[0] && tiles[0].img))}<div class="in">
       <span class="tag k">${esc(kindLabel(s))}</span> <span class="tag">${s.flag} ${esc(s.country)}</span>
       <h1>${esc(tr(s, "title"))}</h1>
       <div class="m">${L("दिन", "Day")} ${s.day} · ${esc(fmtDate(s.date))} · ${minutes(s)} ${L("मिनट का पाठ", "min read")}</div></div></header>
-    ${pics[0] ? `<p class="count" style="margin:6px 4px 0">📷 ${esc(capOf(pics[0]))}${pics[0].credit ? ` — ${esc(pics[0].credit)}` : ""}${pics[0].source ? ` · <a href="${esc(pics[0].source)}" target="_blank" rel="noopener noreferrer">${L("स्रोत", "source")}</a>` : ""}</p>` : ""}
     <div class="tools"><button class="ibtn" id="sm" aria-label="Smaller text">A−</button><button class="ibtn" id="lg" aria-label="Larger text">A+</button><button class="ibtn" id="sv">${isSaved ? L("★ सहेजी गई", "★ Saved") : L("☆ सहेजें", "☆ Save")}</button>${navigator.share ? `<button class="ibtn" id="sh">${L("↗ साझा करें", "↗ Share")}</button>` : ""}</div>
     ${tr(s, "teaser") ? `<p class="lede">${esc(tr(s, "teaser"))}</p>` : ""}
-    <article>${body}</article>
-    <section class="box"><h3>🌍 ${L("यह कहानी इतनी मशहूर क्यों है?", "Why is this story so famous?")}</h3><p>${esc(tr(s, "why"))}</p></section>
-    <section class="box"><h3>📍 ${L("आज यह कहाँ याद की जाती है?", "Where is it remembered today?")}</h3><p>${esc(tr(s, "where"))}</p></section>
-    <section class="box truth"><h3>🔍 ${L("सच और कहानी में फ़र्क", "Fact vs. folklore")}</h3><p>${esc(tr(s, "truth"))}</p></section>
+    <div class="prog"><div class="pt"><b id="pcount"></b><button class="ibtn" id="go"></button></div><div class="pbar"><i id="pfill"></i></div></div>
+    <div class="bento" id="bento">${tileHtml}</div>
+    <p class="hint">${L("किसी भी टाइल को छुएँ और कहानी को पूरे पर्दे पर पढ़ें · ← → से आगे-पीछे", "Tap any tile to read it full-screen · use ← → to move")}</p>
+    <details class="fulltext"><summary>📖 ${L("पूरी कहानी एक साथ पढ़ें", "Read the whole story as text")}</summary><article>${(tr(s, "story") || []).map((p, n) => `<p class="${n === 0 ? "first" : ""}">${esc(p)}</p>`).join("")}</article></details>
     <section class="box"><h3>📚 ${esc(s.country)} — ${L("जानने लायक बातें", "Quick facts")}</h3><dl class="facts">${(tr(s, "info") || []).map(x => `<div><dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd></div>`).join("")}</dl></section>
     <section class="box"><h3>🔗 ${L("और गहराई से जानें", "Go deeper")}</h3><ul class="src">${srcs.map(x => `<li><a href="${esc(language === "hi" && x.hi_url ? x.hi_url : x.url)}" target="_blank" rel="noopener noreferrer"><b>${esc(x.title)} ↗</b><span>${esc(x.publisher || "Wikipedia")}${x.note ? " · " + esc(x.note) : ""}</span></a></li>`).join("")}</ul></section>
-    <div class="nav"><button id="pv" ${prev ? "" : "disabled"}><small>← ${L("पिछली", "Previous")}</small><b>${prev ? esc(tr(prev, "title")) : ""}</b></button><button id="nx" ${next ? "" : "disabled"}><small>${L("अगली", "Next")} →</small><b>${next ? esc(tr(next, "title")) : ""}</b></button></div></div>`;
-  window.scrollTo(0, 0); bindCommon();
-  const bar = $("#progress");
-  window.onscroll = () => { const h = document.documentElement; bar.style.width = Math.min(100, (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100) + "%"; };
-  window.onscroll();
+    <div class="nav"><button id="pv" ${prev ? "" : "disabled"}><small>← ${L("पिछली कहानी", "Previous story")}</small><b>${prev ? esc(tr(prev, "title")) : ""}</b></button><button id="nx" ${next ? "" : "disabled"}><small>${L("अगली कहानी", "Next story")} →</small><b>${next ? esc(tr(next, "title")) : ""}</b></button></div></div>
+    <div class="ov" id="ov" hidden></div>`;
+  app.classList.add("wide"); window.scrollTo(0, 0); bindCommon();
+  window.onscroll = null; $("#progress").style.width = "0";
   $("#back").onclick = () => location.hash = "";
   $("#sm").onclick = () => { fs = Math.max(15, fs - 1); store.set("fs", fs); applyPrefs(); };
   $("#lg").onclick = () => { fs = Math.min(28, fs + 1); store.set("fs", fs); applyPrefs(); };
   $("#sv").onclick = () => { saved = isSaved ? saved.filter(d => d !== s.day) : [...saved, s.day]; store.set("saved", saved); reader(day); };
-  const sh = $("#sh"); if (sh) sh.onclick = () => navigator.share({title: tr(s, "title"), text: teaser(s), url: location.href}).catch(() => {});
+  const sh = $("#sh"); if (sh) sh.onclick = () => navigator.share({title: tr(s, "title"), text: teaser(s), url: location.href.split("#")[0]}).catch(() => {});
   if (prev) $("#pv").onclick = () => location.hash = "day-" + prev.day;
   if (next) $("#nx").onclick = () => location.hash = "day-" + next.day;
+  app.querySelectorAll(".tile").forEach(b => b.onclick = () => location.hash = `day-${day}/${+b.dataset.i + 1}`);
+  updateProgress();
+  revealTiles();
+  if (tileNo) showTile(tileNo - 1, 0);
 }
 
-function route(){
-  const m = location.hash.match(/^#day-(\d+)$/);
-  m ? reader(+m[1]) : home();
+function updateProgress(){
+  const total = curTiles.length, done = (tilesRead()[curDay] || []).filter(k => k < total);
+  const pc = $("#pcount"); if (!pc) return;
+  pc.textContent = L(`${done.length} / ${total} टाइलें पढ़ी गईं`, `${done.length} / ${total} tiles read`);
+  $("#pfill").style.width = (done.length / total * 100) + "%";
+  const go = $("#go"), first = [...Array(total).keys()].find(k => !done.includes(k));
+  go.textContent = done.length === 0 ? L("▶ कहानी शुरू करें", "▶ Start the story") : (first === undefined ? L("↺ फिर से पढ़ें", "↺ Read again") : L("▶ आगे पढ़ें", "▶ Continue"));
+  go.onclick = () => location.hash = `day-${curDay}/${(first === undefined ? 0 : first) + 1}`;
+  app.querySelectorAll(".tile").forEach(b => b.classList.toggle("seen", done.includes(+b.dataset.i)));
 }
+
+function revealTiles(){
+  const els = [...app.querySelectorAll(".tile.pre")];
+  const go = el => { el.classList.remove("pre"); el.classList.add("in"); };
+  if (!("IntersectionObserver" in window)) return els.forEach(go);
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ go(e.target); io.unobserve(e.target); } }), {threshold: .12});
+  els.forEach(el => io.observe(el));
+  setTimeout(() => els.forEach(el => el.classList.contains("pre") && go(el)), 3500);
+}
+
+/* ---------- immersive overlay ---------- */
+function showTile(k, dir){
+  const total = curTiles.length;
+  if (k < 0 || k >= total) return closeTile();
+  const t = curTiles[k], ov = $("#ov"), first = ov.hidden;
+  curIdx = k;
+  markTile(curDay, k, total); updateProgress();
+  const segs = curTiles.map((_, j) => `<i class="${j < k ? "full" : j === k ? "now" : ""}"></i>`).join("");
+  const stage = `<div class="stage ${dir > 0 ? "in-r" : dir < 0 ? "in-l" : "in-z"}">
+      <figure class="ohero">${t.img ? imgTag(t.img) : `<span class="ghost">${curStory.flag}</span>`}
+        ${t.img ? `<figcaption>${esc(capOf(t.img))}${t.img.credit ? ` · ${esc(t.img.credit)}` : ""}${t.img.source ? ` · <a href="${esc(t.img.source)}" target="_blank" rel="noopener noreferrer">${L("स्रोत", "source")}</a>` : ""}</figcaption>` : ""}</figure>
+      <div class="obody"><div class="kick"><span class="stamp s">${pad(k + 1)}</span> ${k + 1} / ${total} · ${curStory.flag} ${esc(curStory.country)}</div>
+        <h2>${esc(t.h)}</h2><div class="otxt">${t.text.map(p => `<p>${esc(p)}</p>`).join("")}</div></div></div>`;
+  ov.innerHTML = `<div class="osegs" aria-hidden="true">${segs}</div>
+    <div class="otop"><span class="otitle">${esc(tr(curStory, "title"))}</span><div class="ctrl">${langSeg()}<button class="ibtn sq" id="oclose" aria-label="${L("बंद करें", "Close")}">✕</button></div></div>
+    ${stage}
+    <div class="onav"><button id="oprev" ${k === 0 ? "disabled" : ""}>← ${L("पिछली", "Previous")}</button><button id="onext">${k === total - 1 ? L("समाप्त ✓", "Finish ✓") : L("अगली", "Next") + " →"}</button></div>`;
+  ov.hidden = false; document.body.classList.add("lock");
+  ov.querySelectorAll(".lg-hi").forEach(b => b.onclick = () => setLanguage("hi"));
+  ov.querySelectorAll(".lg-en").forEach(b => b.onclick = () => setLanguage("en"));
+  $("#oclose").onclick = closeTile;
+  $("#oprev").onclick = () => k > 0 && (location.hash = `day-${curDay}/${k}`);
+  $("#onext").onclick = () => k < total - 1 ? (location.hash = `day-${curDay}/${k + 2}`) : closeTile();
+  if (first) $("#oclose").focus({preventScroll: true});
+  const txt = ov.querySelector(".obody"); if (txt) txt.scrollTop = 0;
+}
+function closeTile(){
+  const ov = $("#ov"); if (ov) { ov.hidden = true; ov.innerHTML = ""; }
+  document.body.classList.remove("lock"); curIdx = -1;
+  if (/^#day-\d+\/\d+$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search + "#day-" + curDay);
+}
+addEventListener("keydown", e => {
+  if (curIdx < 0) return;
+  if (e.key === "Escape") closeTile();
+  else if (e.key === "ArrowRight") curIdx < curTiles.length - 1 ? location.hash = `day-${curDay}/${curIdx + 2}` : closeTile();
+  else if (e.key === "ArrowLeft" && curIdx > 0) location.hash = `day-${curDay}/${curIdx}`;
+});
+let tx = null;
+addEventListener("touchstart", e => { tx = curIdx >= 0 ? e.touches[0].clientX : null; }, {passive: true});
+addEventListener("touchend", e => {
+  if (tx === null || curIdx < 0) return;
+  const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) < 60) return;
+  if (dx < 0) curIdx < curTiles.length - 1 ? location.hash = `day-${curDay}/${curIdx + 2}` : closeTile();
+  else if (curIdx > 0) location.hash = `day-${curDay}/${curIdx}`;
+}, {passive: true});
+
+let lastTile = -1;
+function route(){
+  const m = location.hash.match(/^#day-(\d+)(?:\/(\d+))?$/);
+  if (!m){ curDay = null; curIdx = -1; document.body.classList.remove("lock"); return home(); }
+  const day = +m[1], no = m[2] ? +m[2] : 0;
+  const sv0 = $(".story-view");
+  if (curDay === day && $("#bento") && sv0 && sv0.dataset.lang === language){
+    if (no) { const dir = no - 1 > lastTile ? 1 : -1; showTile(no - 1, curIdx < 0 ? 0 : dir); lastTile = no - 1; }
+    else closeTile();
+    return;
+  }
+  reader(day, no); lastTile = no - 1;
+  const sv = $(".story-view"); if (sv) sv.dataset.lang = language;
+}
+
+
 applyPrefs();
 addEventListener("hashchange", route);
 route();
@@ -320,11 +557,16 @@ fetch("stories.json?v=" + Date.now(), {cache: "no-store"})
     const have = new Set(STORIES.map(s => s.day));
     let added = false;
     for (const st of list){
+      if (st && have.has(+st.day)){   // built-in story: only borrow extras (tile plan, sources, teaser)
+        const inl = STORIES.find(x => x.day === +st.day);
+        for (const k of ["tiles", "tiles_n", "sources", "teaser", "en"]) if (st[k] && !inl[k]){ inl[k] = st[k]; added = true; }
+        continue;
+      }
       if (st && typeof st === "object" && Number.isFinite(+st.day) && Array.isArray(st.story) && !have.has(+st.day)){
         st.day = +st.day; st.info = st.info || []; STORIES.push(st); have.add(st.day); added = true;
       }
     }
-    if (added) route();
+    if (added){ const sv = $(".story-view"); if (sv) sv.dataset.lang = ""; route(); }
   })
   .catch(() => {});
 </script>

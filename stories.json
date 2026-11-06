@@ -1,5 +1,90 @@
 [
   {
+    "day": 1,
+    "country": "Egypt",
+    "flag": "🇪🇬",
+    "tiles": [
+      {
+        "p": [
+          0,
+          0
+        ],
+        "h": {
+          "hi": "राजाओं की घाटी",
+          "en": "Valley of the Kings"
+        },
+        "q": "Valley of the Kings Luxor Egypt"
+      },
+      {
+        "p": [
+          1,
+          1
+        ],
+        "h": {
+          "hi": "कार्टर की लंबी खोज",
+          "en": "Carter's Long Search"
+        },
+        "q": "Howard Carter archaeologist Tutankhamun excavation"
+      },
+      {
+        "p": [
+          2,
+          2
+        ],
+        "h": {
+          "hi": "रेत के नीचे सीढ़ी",
+          "en": "A Step in the Sand"
+        },
+        "q": "KV62 tomb entrance Valley of the Kings"
+      },
+      {
+        "p": [
+          3,
+          3
+        ],
+        "h": {
+          "hi": "सोने की चमक",
+          "en": "The Glint of Gold"
+        },
+        "q": "Tutankhamun golden mask Egyptian Museum"
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "दुनिया भर में हलचल",
+          "en": "The World Takes Notice"
+        },
+        "q": "Lord Carnarvon Howard Carter 1922"
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "फ़राओ का श्राप",
+          "en": "The Curse Rumours"
+        },
+        "q": "Tutankhamun sarcophagus burial chamber"
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "श्राप से बड़ी खोज",
+          "en": "A Greater Discovery"
+        },
+        "q": "Tutankhamun treasures museum Cairo"
+      }
+    ],
+    "tiles_n": 7
+  },
+  {
     "day": 2,
     "date": "2026-11-04",
     "country": "Afghanistan",
@@ -74,7 +159,120 @@
           "The Hindu Kush mountain range is a significant part of the country's geography and history"
         ]
       ]
-    }
+    },
+    "tiles": [
+      {
+        "p": [
+          0,
+          0
+        ],
+        "h": {
+          "hi": "नदियों के बीच मीनार",
+          "en": "A Tower Between Rivers"
+        },
+        "q": "Minaret of Jam Ghor"
+      },
+      {
+        "p": [
+          1,
+          1
+        ],
+        "h": {
+          "hi": "ग़ोरी दौर की ऊँचाई",
+          "en": "A Ghurid Giant"
+        },
+        "q": "Minaret of Jam"
+      },
+      {
+        "p": [
+          2,
+          2
+        ],
+        "h": {
+          "hi": "कौन-सी तारीख़?",
+          "en": "Which Year?"
+        },
+        "q": "Minaret of Jam inscription"
+      },
+      {
+        "p": [
+          3,
+          3
+        ],
+        "h": {
+          "hi": "किसलिए बनी?",
+          "en": "Why Was It Built?"
+        },
+        "q": "Firuzkuh Ghor Afghanistan"
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "ईंटों की कारीगरी",
+          "en": "Brick Artistry"
+        },
+        "q": "Minaret of Jam brickwork detail"
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "ईंटों में लिखे शब्द",
+          "en": "Words in Brick"
+        },
+        "q": "Minaret of Jam Kufic inscription"
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "दुनिया की नज़र में",
+          "en": "Rediscovery"
+        },
+        "q": "Jam minaret Hari River valley"
+      },
+      {
+        "p": [
+          7,
+          7
+        ],
+        "h": {
+          "hi": "यूनेस्को की सूची",
+          "en": "World Heritage"
+        },
+        "q": "UNESCO World Heritage Minaret of Jam"
+      },
+      {
+        "p": [
+          8,
+          8
+        ],
+        "h": {
+          "hi": "बाढ़ का ख़तरा",
+          "en": "Rising Waters"
+        },
+        "q": "Hari Rud river Ghor Afghanistan"
+      },
+      {
+        "p": [
+          9,
+          9
+        ],
+        "h": {
+          "hi": "विरासत की कहानी",
+          "en": "A Lasting Legacy"
+        },
+        "q": "Minaret of Jam Afghanistan"
+      }
+    ],
+    "tiles_n": 10
   },
   {
     "day": 3,

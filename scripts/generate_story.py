@@ -244,9 +244,9 @@ def strip_html(t):
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", t or "")).strip()
 
 
-def commons_images(queries, country, flag, limit=2):
+def commons_images(queries, country, flag, limit=2, exclude=()):
     """Find real, existing photos on Wikimedia Commons (never trust AI-invented URLs)."""
-    found, seen = [], set()
+    found, seen = [], set(exclude)
     for q in queries:
         if len(found) >= limit:
             break
@@ -315,6 +315,64 @@ def wikipedia_sources(queries, country, limit=3):
     return out
 
 
+def plan_groups(p):
+    """Split p paragraphs into 6-11 consecutive tile groups (same rule as the website fallback)."""
+    if p <= 0:
+        return []
+    n = min(p, max(6, min(11, p)))
+    base, extra = divmod(p, n)
+    out, i = [], 0
+    for k in range(n):
+        c = base + (1 if k < extra else 0)
+        out.append([i, i + c - 1])
+        i += c
+    return out
+
+
+def storyboard_prompt(story, groups):
+    parts = []
+    for k, (a, b) in enumerate(groups, 1):
+        parts.append(f"TILE {k}: " + " ".join(story["story"][a:b + 1])[:420])
+    return (
+        f"Below is a story about {story.get('country')} titled '{story.get('title')}', split into {len(groups)} consecutive tiles "
+        "for a visual storybook. For EACH tile return a short evocative heading in Hindi (2-5 words), the same heading in English "
+        "(2-5 words), and an English Wikimedia Commons image search query (2-5 words) that would find a REAL, relevant photo "
+        "of the place, object, landmark, art or tradition that tile is about (prefer concrete named subjects, not abstract ideas; "
+        "include the country name when helpful). Return ONLY valid JSON: "
+        '{"tiles":[{"heading_hi":"...","heading_en":"...","image_query":"..."}]} with exactly '
+        f"{len(groups)} items in order.\n\n" + "\n\n".join(parts))
+
+
+def resolve_tile_images(tiles, country, flag, story_images=()):
+    used = {im.get("url") for im in story_images if isinstance(im, dict)} | {t["image"]["url"] for t in tiles if t.get("image")}
+    for t in tiles:
+        if t.get("image") or not t.get("q"):
+            continue
+        found = commons_images([t["q"], f"{country} {t['q']}"], country, flag, limit=1, exclude=used)
+        if found:
+            t["image"] = found[0]
+            used.add(found[0]["url"])
+        time.sleep(0.3)
+
+
+def add_tiles(story):
+    """AI storyboard: heading (hi+en) and a real Commons photo for each tile."""
+    paras = story.get("story") or []
+    groups = plan_groups(len(paras))
+    if not groups:
+        return
+    data = extract_json(ask_ai(storyboard_prompt(story, groups)))
+    items = data.get("tiles") if isinstance(data, dict) else None
+    if not isinstance(items, list) or len(items) != len(groups):
+        raise ValueError("storyboard has the wrong number of tiles")
+    tiles = []
+    for g, it in zip(groups, items):
+        tiles.append({"p": g, "h": {"hi": str(it.get("heading_hi", "")).strip() or "भाग", "en": str(it.get("heading_en", "")).strip() or "Part"},
+                      "q": str(it.get("image_query", "")).strip()})
+    resolve_tile_images(tiles, story.get("country", ""), story.get("flag", ""), story.get("images") or [])
+    story["tiles"], story["tiles_n"] = tiles, len(paras)
+
+
 def finish_story(story, country):
     """Attach English text, real photos and real sources to a generated story."""
     story.pop("images", None)  # never keep AI-invented image URLs
@@ -330,6 +388,10 @@ def finish_story(story, country):
     srcs = wikipedia_sources(list(story.get("source_queries") or []) + ([title_en] if title_en else []), country)
     if srcs:
         story["sources"] = srcs
+    try:
+        add_tiles(story)
+    except Exception as exc:
+        print(f"Storyboard failed (will be backfilled next run): {exc}", file=sys.stderr)
     story["story_version"] = 2
     return story
 
@@ -347,7 +409,13 @@ def repair_archive(existing, max_regen=6):
     """Upgrade older stories: retell with the richer storytelling prompt, then fill gaps (English, photos, sources)."""
     changed, regen = False, 0
     for idx, st in enumerate(existing):
-        if not isinstance(st, dict) or int(st.get("day", 0)) < 3:
+        if not isinstance(st, dict):
+            continue
+        if isinstance(st.get("tiles"), list) and any(t.get("q") and not t.get("image") for t in st["tiles"]):
+            resolve_tile_images(st["tiles"], st.get("country", ""), st.get("flag", ""), st.get("images") or [])
+            changed = True
+            print(f"Resolved tile images for Day {st.get('day')}.")
+        if int(st.get("day", 0)) < 3:
             continue  # Day 1 and 2 live inside index.html
         if st.get("story_version", 1) < 2 and regen < max_regen:
             regen += 1
@@ -372,6 +440,12 @@ def repair_archive(existing, max_regen=6):
             imgs = commons_images(queries, st.get("country", ""), st.get("flag", ""))
             if imgs:
                 st["images"] = imgs; changed = True
+        if not st.get("tiles") and isinstance(st.get("story"), list):
+            try:
+                add_tiles(st); changed = True
+                print(f"Added storyboard tiles for Day {st.get('day')}.")
+            except Exception as exc:
+                print(f"Storyboard backfill failed for Day {st.get('day')}: {exc}", file=sys.stderr)
         if not st.get("sources"):
             title_en = (st.get("en") or {}).get("title", "")
             srcs = wikipedia_sources(list(st.get("source_queries") or []) + ([title_en] if title_en else []), st.get("country", ""))
