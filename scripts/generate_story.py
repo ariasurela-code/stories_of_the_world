@@ -5,6 +5,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
@@ -99,12 +100,9 @@ def prompt_for(day, country, date_str):
   "where": "2 से 4 हिंदी वाक्यों में बताएँ कि आज यह कहाँ याद की जाती है या देखी जा सकती है",
   "truth": "2 से 4 हिंदी वाक्यों में प्रमाणित तथ्यों और लोककथा/अनिश्चितता का अंतर बताएँ",
   "info": [["राजधानी", "..."], ["भाषा", "..."], ["मुद्रा", "..."], ["खास बात", "देश से जुड़ी एक उपयोगी जानकारी"]],
-  "images": [
-    {{ "url": "Wikimedia Commons की वास्तविक direct image URL", "source": "उस Commons file page का URL", "en": "English caption", "hi": "हिंदी caption", "credit": "photographer और license" }},
-    {{ "url": "दूसरी अलग वास्तविक direct image URL", "source": "दूसरे Commons file page का URL", "en": "English caption", "hi": "हिंदी caption", "credit": "photographer और license" }}
-  ]
+  "image_queries": ["Wikimedia Commons पर असली फ़ोटो खोजने के लिए अंग्रेज़ी search query (कहानी के मुख्य स्थान/वस्तु की)", "दूसरी अलग अंग्रेज़ी search query"]
 }}
-कहानी मौलिक हो, किसी स्रोत से कॉपी न हो। JSON strings में quotation marks सही तरह escape करें। JSON keys अंग्रेज़ी में ही रखें, लेकिन कहानी और सभी दिखने वाले मान हिंदी में लिखें।'''
+कहानी मौलिक हो, किसी स्रोत से कॉपी न हो। JSON strings में quotation marks सही तरह escape करें। image_queries सिर्फ़ अंग्रेज़ी में हों और कोई URL न दें। JSON keys अंग्रेज़ी में ही रखें, लेकिन कहानी और सभी दिखने वाले मान हिंदी में लिखें।'''
 
 
 def call_gemini(prompt, key):
@@ -152,11 +150,130 @@ def call_groq(prompt, key):
     raise last
 
 
+def ask_ai(prompt):
+    """Gemini first (with model fallbacks), then Groq. Returns raw text."""
+    errors = []
+    gemini_key, groq_key = os.getenv("GEMINI_API_KEY"), os.getenv("GROQ_API_KEY")
+    if gemini_key:
+        try:
+            return call_gemini(prompt, gemini_key)
+        except Exception as exc:
+            errors.append(f"Gemini failed: {exc}")
+            print(errors[-1], file=sys.stderr)
+    if groq_key:
+        try:
+            return call_groq(prompt, groq_key)
+        except Exception as exc:
+            errors.append(f"Groq failed: {exc}")
+            print(errors[-1], file=sys.stderr)
+    raise RuntimeError("No AI provider succeeded. " + " | ".join(errors or ["Add GEMINI_API_KEY or GROQ_API_KEY repository secret."]))
+
+
+def translate_prompt(story):
+    src = {k: story[k] for k in ("title", "story", "why", "where", "truth", "info")}
+    return ("Translate this Hindi story content into clear, natural English. Keep facts exactly the same, keep the "
+            "same number of paragraphs and the same structure. Return ONLY valid JSON with exactly these keys: "
+            "title (string), story (array of strings), why (string), where (string), truth (string), "
+            "info (array of [label, value] pairs, labels and values in English).\n\n"
+            + json.dumps(src, ensure_ascii=False))
+
+
+def add_english(story):
+    en = extract_json(ask_ai(translate_prompt(story)))
+    if not isinstance(en.get("story"), list) or not en.get("title"):
+        raise ValueError("English translation is incomplete")
+    story["en"] = {k: en[k] for k in ("title", "story", "why", "where", "truth", "info") if k in en}
+
+
+def http_get_json(url):
+    req = Request(url, headers={"User-Agent": BROWSER_UA, "Accept": "application/json"})
+    with urlopen(req, timeout=60) as r:
+        return json.loads(r.read().decode("utf-8"))
+
+
+def strip_html(t):
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", t or "")).strip()
+
+
+def commons_images(queries, country, flag, limit=2):
+    """Find real, existing photos on Wikimedia Commons (never trust AI-invented URLs)."""
+    found, seen = [], set()
+    for q in queries:
+        if len(found) >= limit:
+            break
+        params = {
+            "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
+            "gsrsearch": q + " filetype:bitmap", "gsrlimit": 12, "prop": "imageinfo",
+            "iiprop": "url|mime|size|extmetadata", "iiurlwidth": 900,
+        }
+        try:
+            data = http_get_json("https://commons.wikimedia.org/w/api.php?" + urlencode(params))
+        except Exception as exc:
+            print(f"Commons search failed for '{q}': {exc}", file=sys.stderr)
+            continue
+        pages = sorted((data.get("query", {}).get("pages", {})).values(), key=lambda p: p.get("index", 99))
+        for pg in pages:
+            info = (pg.get("imageinfo") or [None])[0]
+            if not info or info.get("mime") not in ("image/jpeg", "image/png"):
+                continue
+            if info.get("width", 0) < 700 or info.get("width", 0) < info.get("height", 0) * 0.7:
+                continue
+            thumb = info.get("thumburl") or info.get("url")
+            if not thumb or thumb in seen:
+                continue
+            seen.add(thumb)
+            meta = info.get("extmetadata", {})
+            title = re.sub(r"^File:|\.[A-Za-z]+$", "", pg.get("title", "")).replace("_", " ")
+            desc = strip_html(meta.get("ImageDescription", {}).get("value", ""))
+            en_cap = (desc if 8 < len(desc) <= 140 else title)
+            artist = strip_html(meta.get("Artist", {}).get("value", "")) or "Wikimedia Commons"
+            lic = strip_html(meta.get("LicenseShortName", {}).get("value", ""))
+            found.append({
+                "url": thumb, "source": info.get("descriptionurl", ""),
+                "en": en_cap, "hi": f"{flag} {country}: {title}",
+                "credit": f"{artist[:80]}, {lic}".strip(", "), "commons": True,
+            })
+            break
+    return found
+
+
+def repair_archive(existing):
+    """Backfill English text and real Commons photos for any story missing them."""
+    changed = False
+    for st in existing:
+        if not isinstance(st, dict):
+            continue
+        if "en" not in st and isinstance(st.get("story"), list):
+            try:
+                add_english(st); changed = True
+                print(f"Added English version for Day {st.get('day')}.")
+            except Exception as exc:
+                print(f"English backfill failed for Day {st.get('day')}: {exc}", file=sys.stderr)
+        if not any(im.get("commons") for im in (st.get("images") or []) if isinstance(im, dict)):
+            title_en = (st.get("en") or {}).get("title", "")
+            queries = list(st.get("image_queries") or []) + [f"{st.get('country')} {title_en}".strip(), f"{st.get('country')} landmark"]
+            imgs = commons_images(queries, st.get("country", ""), st.get("flag", ""))
+            if imgs:
+                st["images"] = imgs; changed = True
+                print(f"Added {len(imgs)} Commons image(s) for Day {st.get('day')}.")
+    return changed
+
+
+def save(existing):
+    ARCHIVE.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def main():
     existing = json.loads(ARCHIVE.read_text(encoding="utf-8")) if ARCHIVE.exists() else []
     if not isinstance(existing, list):
         raise ValueError("stories.json must contain a JSON array")
-    base = json.loads((ROOT / "index.html").read_text(encoding="utf-8")) if False else []
+    # Fix older stories first (English text + working photos). Saved immediately so it is never lost.
+    try:
+        if repair_archive(existing):
+            save(existing)
+    except Exception as exc:
+        print(f"Archive repair skipped: {exc}", file=sys.stderr)
+
     used_days = [int(s.get("day", 0)) for s in existing if isinstance(s, dict)]
     # The original Egypt story (Day 1) lives inside index.html, so the archive starts at Day 2.
     next_day = max([1] + used_days) + 1
@@ -170,36 +287,24 @@ def main():
         return
 
     date_str = datetime.now(timezone.utc).date().isoformat()
-    prompt = prompt_for(next_day, country, date_str)
-    raw = None
-    errors = []
-    gemini_key, groq_key = os.getenv("GEMINI_API_KEY"), os.getenv("GROQ_API_KEY")
-    if gemini_key:
-        try:
-            raw = call_gemini(prompt, gemini_key)
-            print("Story generated with Gemini.")
-        except Exception as exc:
-            errors.append(f"Gemini failed: {exc}")
-            print(errors[-1], file=sys.stderr)
-    if raw is None and groq_key:
-        try:
-            raw = call_groq(prompt, groq_key)
-            print("Story generated with Groq fallback.")
-        except Exception as exc:
-            errors.append(f"Groq failed: {exc}")
-            print(errors[-1], file=sys.stderr)
-    if raw is None:
-        raise RuntimeError("No AI provider succeeded. " + " | ".join(errors or ["Add GEMINI_API_KEY or GROQ_API_KEY repository secret."]))
-
-    story = extract_json(raw)
+    story = extract_json(ask_ai(prompt_for(next_day, country, date_str)))
     required = {"day", "date", "country", "flag", "kind", "title", "story", "why", "where", "truth", "info"}
     if not required.issubset(story):
         raise ValueError("AI story is missing required fields: " + ", ".join(sorted(required - set(story))))
     story["day"], story["date"], story["country"] = next_day, date_str, country
     if not isinstance(story["story"], list) or len(story["story"]) < 5:
         raise ValueError("AI story has too few paragraphs")
+    story.pop("images", None)  # never keep AI-invented image URLs
+    try:
+        add_english(story)
+    except Exception as exc:
+        print(f"English translation failed (will be backfilled next run): {exc}", file=sys.stderr)
+    queries = list(story.get("image_queries") or []) + [f"{country} {(story.get('en') or {}).get('title', '')}".strip(), f"{country} landmark"]
+    imgs = commons_images(queries, country, story.get("flag", ""))
+    if imgs:
+        story["images"] = imgs
     existing.append(story)
-    ARCHIVE.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    save(existing)
     print(f"Published Day {next_day}: {country}")
 
 if __name__ == "__main__":

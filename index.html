@@ -161,7 +161,11 @@ const store = {
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
 };
 let language = store.get('language', 'hi');
-function tr(story, field){ return (TRANSLATIONS[language] && TRANSLATIONS[language][story.day] && TRANSLATIONS[language][story.day][field]) || story[field]; }
+function tr(story, field){
+  if (story[language] && typeof story[language] === "object" && story[language][field] != null) return story[language][field];
+  return (TRANSLATIONS[language] && TRANSLATIONS[language][story.day] && TRANSLATIONS[language][story.day][field]) || story[field];
+}
+const L = (hi, en) => language === "hi" ? hi : en;
 function setLanguage(next){ language=next; store.set('language', next); route(); }
 let read = store.get("read", []), saved = store.get("saved", []);
 let fs = store.get("fs", 19), theme = store.get("theme", "");
@@ -212,15 +216,15 @@ function reader(day){
   app.innerHTML = `<div class="view">
     <div style="display:flex;gap:6px;margin-bottom:12px"><button class="ibtn" id="lang-hi">हिंदी</button><button class="ibtn" id="lang-en">English</button></div><button class="ibtn back" id="back">← ${language==="hi"?"सभी कहानियाँ":"All stories"}</button>
     <header class="hero"><div class="flag">${s.flag}</div><h2>${esc(tr(s,"title"))}</h2>
-      <p>Day ${s.day} · ${esc(s.country)} · ${esc(fmtDate(s.date))}</p>
-      <div class="tools"><button class="ibtn" id="sm" aria-label="Smaller text">A−</button><button class="ibtn" id="lg" aria-label="Larger text">A+</button><button class="ibtn" id="sv">${isSaved ? "★ Saved" : "☆ Save"}</button></div></header>
-    <section class="gallery" aria-label="Story photographs"><h3>${language==="hi"?"📷 कहानी से जुड़ी तस्वीरें":"📷 Photos related to this story"}</h3><div class="gallery-grid">${(s.images || STORY_IMAGES[s.day] || []).slice(0,2).map(im => '<a href="'+esc(im.url)+'" target="_blank" rel="noopener noreferrer"><img src="'+esc(im.url)+'" alt="'+esc(language==="hi"?(im.hi||im.en):(im.en||im.hi))+'" loading="lazy"><figcaption>'+esc(language==="hi"?(im.hi||im.en):(im.en||im.hi))+'</figcaption><small>'+esc(im.credit||"")+' · '+(language==="hi"?"बड़ी तस्वीर खोलें":"Open full image")+'</small></a>').join("")}</div></section>
+      <p>${L("दिन","Day")} ${s.day} · ${esc(s.country)} · ${esc(fmtDate(s.date))}</p>
+      <div class="tools"><button class="ibtn" id="sm" aria-label="Smaller text">A−</button><button class="ibtn" id="lg" aria-label="Larger text">A+</button><button class="ibtn" id="sv">${isSaved ? L("★ सहेजी गई","★ Saved") : L("☆ सहेजें","☆ Save")}</button></div></header>
+    <section class="gallery" aria-label="Story photographs"><h3>${language==="hi"?"📷 कहानी से जुड़ी तस्वीरें":"📷 Photos related to this story"}</h3><div class="gallery-grid">${(s.images || STORY_IMAGES[s.day] || []).slice(0,2).map(im => '<a href="'+esc(im.url)+'" target="_blank" rel="noopener noreferrer"><img src="'+esc(im.url)+'" alt="'+esc(language==="hi"?(im.hi||im.en):(im.en||im.hi))+'" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest(\'a\').style.display=\'none\'"><figcaption>'+esc(language==="hi"?(im.hi||im.en):(im.en||im.hi))+'</figcaption><small>'+esc(im.credit||"")+' · '+(language==="hi"?"बड़ी तस्वीर खोलें":"Open full image")+'</small></a>').join("")}</div></section>
     <article>${tr(s,"story").map(p => `<p>${esc(p)}</p>`).join("")}</article>
-    <section class="box"><h3>🌍 Why is this story so famous?</h3><p>${esc(tr(s,"why"))}</p></section>
-    <section class="box"><h3>📍 Where is it famous?</h3><p>${esc(tr(s,"where"))}</p></section>
-    <section class="box"><h3>🔍 What's the real truth?</h3><p>${esc(tr(s,"truth"))}</p></section>
-    <section class="box"><h3>📚 Knowledge box: ${esc(s.country)}</h3><dl>${tr(s,"info").map(x => `<dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd>`).join("")}</dl></section>
-    <div class="nav"><button id="pv" ${prev ? "" : "disabled"}>← Previous</button><button id="nx" ${next ? "" : "disabled"}>Next →</button></div></div>`;
+    <section class="box"><h3>🌍 ${L("यह कहानी इतनी प्रसिद्ध क्यों है?","Why is this story so famous?")}</h3><p>${esc(tr(s,"why"))}</p></section>
+    <section class="box"><h3>📍 ${L("यह कहाँ प्रसिद्ध है?","Where is it famous?")}</h3><p>${esc(tr(s,"where"))}</p></section>
+    <section class="box"><h3>🔍 ${L("असली सच क्या है?","What's the real truth?")}</h3><p>${esc(tr(s,"truth"))}</p></section>
+    <section class="box"><h3>📚 ${L("ज्ञान बॉक्स","Knowledge box")}: ${esc(s.country)}</h3><dl>${tr(s,"info").map(x => `<dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd>`).join("")}</dl></section>
+    <div class="nav"><button id="pv" ${prev ? "" : "disabled"}>← ${L("पिछली","Previous")}</button><button id="nx" ${next ? "" : "disabled"}>${L("अगली","Next")} →</button></div></div>`;
   window.scrollTo(0, 0);
   $("#lang-hi").onclick=()=>setLanguage("hi"); $("#lang-en").onclick=()=>setLanguage("en");
   $("#back").onclick = () => location.hash = "";

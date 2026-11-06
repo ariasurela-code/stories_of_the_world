@@ -40,6 +40,7 @@ jobs:
         run: python scripts/generate_story.py
 
       - name: Commit and publish story archive
+        if: ${{ !cancelled() }}
         run: |
           if git diff --quiet -- stories.json; then
             echo "No new story was generated."
