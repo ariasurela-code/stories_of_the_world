@@ -374,6 +374,17 @@ body.reading{overflow:hidden}
 .globe-label{background:rgba(5,20,28,.9);border:1px solid rgba(180,230,230,.25);border-radius:9px;padding:6px 9px;color:#fff;font:500 12px var(--sans);white-space:nowrap}
 @media(max-width:480px){.globe-entry{padding:11px 12px;gap:11px}.globe-entry .orb{width:48px;height:48px}.globe-heading b{font-size:1.15rem}}
 
+
+/* World discovery sections */
+.foot-link{color:var(--accent2);text-decoration:none;font-weight:600}
+.discover-chip{white-space:nowrap;background:var(--accent2);color:#fff;border-color:var(--accent2)}
+.section-head{display:flex;align-items:center;gap:12px;margin:4px 0 20px}.section-head>div{flex:1;min-width:0}.section-head h1{font:600 1.45rem var(--serif);margin:0;line-height:1.2}.section-head small{color:var(--muted)}
+.explore-hero{padding:28px 24px;margin-bottom:16px;border-radius:22px;color:#fff;background:radial-gradient(circle at 80% 15%,#397d86,transparent 42%),linear-gradient(120deg,#102e3b,#1b5860)}.explore-hero>span{font-size:2.6rem}.explore-hero h2{font:600 1.65rem var(--serif);margin:8px 0}.explore-hero p{margin:0;color:#d6e9e8}
+.feature-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.feature-links button{min-height:94px;text-align:left;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:13px;font-size:1.35rem}.feature-links b,.feature-links small{display:block}.feature-links b{font:600 1.05rem var(--serif);margin-top:4px}.feature-links small{font-size:.78rem;color:var(--muted)}
+.world-section{margin:24px 0}.world-section h2{font:600 1.4rem var(--serif);margin:0 0 12px}.timeline{border-left:2px solid var(--line);margin:12px 0 12px 12px;padding-left:18px;display:grid;gap:10px}.timeline-item{position:relative;text-align:left;display:grid;grid-template-columns:42px 1fr;gap:0 10px;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--card)}.timeline-item:before{content:"";position:absolute;left:-25px;top:22px;width:10px;height:10px;border-radius:50%;background:var(--accent)}.timeline-item>span{grid-row:span 3;font-size:1.7rem}.timeline-item small,.timeline-item em{color:var(--muted);font-size:.8rem}.timeline-item b{font:600 1rem var(--serif)}
+.passport-card{border-radius:20px;overflow:hidden;background:var(--card);border:1px solid var(--line)}.passport-cover{padding:24px;color:#fff;background:linear-gradient(125deg,#102d3b,#17606a)}.passport-cover>span{font-size:2.5rem;display:block}.passport-cover small{letter-spacing:.14em;font-size:.7rem}.passport-cover h2{font:600 1.6rem var(--serif);margin:6px 0}.passport-cover p{margin:0;color:#d4e6e6}.passport-stats{padding:16px 18px}.passport-stats b{font:600 1.4rem var(--serif);display:block}.passport-stats span{color:var(--muted);font-size:.86rem}.passport-stats i,.passport-stats u{display:block;height:6px;border-radius:9px}.passport-stats i{background:var(--line);margin-top:10px;overflow:hidden}.passport-stats u{background:var(--accent)}.stamp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:0 14px 16px}.passport-stamp{min-height:92px;border:1px dashed var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);opacity:.55}.passport-stamp.earned{opacity:1;border:1px solid var(--accent);color:var(--ink);background:color-mix(in srgb,var(--accent) 9%,var(--card))}.passport-stamp span{font-size:1.6rem}.passport-stamp small{font-size:.72rem;text-align:center}.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.photo-item{position:relative;min-height:160px;border:0;border-radius:14px;overflow:hidden;padding:0;background:var(--card);color:white;text-align:left}.photo-item img{width:100%;height:100%;min-height:160px;object-fit:cover;display:block}.photo-item>span{position:absolute;inset:auto 0 0;padding:30px 10px 10px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:.8rem}.photo-item b{display:block;font:600 .95rem var(--serif)}.audio-note,.empty-state{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--muted);margin-bottom:14px}.audio-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.audio-row>div{min-width:0}.audio-row small{display:block;color:var(--muted);font-size:.78rem}.audio-row b{display:block;font:600 1rem var(--serif)}.advanced-search select{width:100%;padding:11px 12px;margin:0 0 10px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit}.empty-state{text-align:center}.empty-state>span{font-size:2rem}
+@media(max-width:480px){.feature-links{gap:8px}.feature-links button{min-height:88px;padding:10px}.stamp-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.section-head h1{font-size:1.2rem}}
+
 </style>
 </head>
 <body>
@@ -609,44 +620,22 @@ function toast(msg){
   t.textContent = msg; t.classList.add("show"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("show"), 1800);
 }
 function home(){
-  R = null; document.body.classList.remove("reading", "lock"); app.className = "wrap";
-  const all = sorted(), needle = q.trim().toLowerCase(), rd = tilesRead();
-  const list = all.filter(s => (!onlySaved || saved.includes(s.day)) &&
-    (!needle || (s.country + " " + tr(s, "title") + " " + (tr(s, "info") || []).map(x => x.join(" ")).join(" ")).toLowerCase().includes(needle)));
-  const latest = all[0];
-  const showFeature = latest && !needle && !onlySaved;
-  const rest = showFeature ? list.filter(s => s.day !== latest.day) : list;
-  const prog = s => { const n = tileTotal(s); return {n, d: (rd[s.day] || []).filter(k => k < n).length}; };
-  const card = s => { const im = coverOf(s), p = prog(s);
-    return `<button class="card" data-day="${s.day}" aria-label="${esc(s.country)}: ${esc(tr(s, "title"))}">
-      <div class="ph">${im ? imgTag(im) : s.flag}<span class="fl">${s.flag} ${esc(s.country)}</span>${p.d >= p.n ? `<span class="chk">✓</span>` : ""}</div>
-      <div class="tx"><b>${esc(tr(s, "title"))}</b><div class="meta"><span>${esc(kindLabel(s))}</span><span>· ${L("दिन", "Day")} ${s.day}</span></div>
-      ${p.d > 0 && p.d < p.n ? `<i class="mp"><u style="width:${p.d / p.n * 100}%"></u></i>` : ""}</div></button>`; };
-  let feat = "";
-  if (showFeature){ const im = coverOf(latest), p = prog(latest);
-    feat = `<button class="feature" data-day="${latest.day}">${imgTag(im)}
-      <div class="in"><span class="tag k">${L("आज की कहानी", "Today's story")}</span> <span class="tag">${latest.flag} ${esc(latest.country)}</span>
-      <h2>${esc(tr(latest, "title"))}</h2><p>${esc(teaser(latest))}</p>
-      <span class="go">${p.d >= p.n ? L("↺ फिर से पढ़ें", "↺ Read again") : p.d > 0 ? L("▶ आगे पढ़ें", "▶ Continue") : L("▶ पढ़ना शुरू करें", "▶ Start reading")}</span>
-      ${p.d > 0 && p.d < p.n ? `<span class="fprog"><u style="width:${p.d / p.n * 100}%"></u></span>` : ""}</div></button>`; }
-  app.innerHTML = `<div class="view">
-    <div class="bar"><h1 class="brand">Stories of the World<small>${STORIES.length} / ${TOTAL} ${L("देश", "countries")}</small></h1>
-      <div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="${L("थीम बदलें", "Switch theme")}">◐</button></div></div>
-    ${feat}
-    <button class="globe-entry" id="globe-open" type="button"><span class="orb" aria-hidden="true"></span><span class="gl-copy"><b>${L("दुनिया को ग्लोब पर खोजें", "Explore the world")}</b><small>${L("घुमाएँ, ज़ूम करें और देशों की कहानियाँ खोलें", "Rotate, zoom and open stories by country")}</small></span><span class="gl-arrow" aria-hidden="true">↗</span></button>
-    <div class="tb"><label class="sbox"><span aria-hidden="true">🔎</span><input id="q" type="search" placeholder="${L("देश या कहानी खोजें", "Search a country or story")}" value="${esc(q)}" aria-label="Search">${q ? `<button class="x" id="qx" aria-label="${L("साफ़ करें", "Clear")}">✕</button>` : ""}</label>
-      <button class="chip" id="saved" aria-pressed="${onlySaved}">★ ${L("सहेजी", "Saved")}</button></div>
-    ${rest.length ? `<div class="grid">${rest.map(card).join("")}</div>` : (showFeature ? "" : `<p class="empty">${onlySaved && !saved.length ? L("अभी कोई कहानी सहेजी नहीं गई। कहानी में ☆ दबाएँ।", "No saved stories yet. Tap ☆ inside a story.") : L("कोई कहानी नहीं मिली।", "No stories found.")}</p>`)}
-    <p class="foot">${L("तस्वीरें: Wikimedia Commons", "Photos: Wikimedia Commons")}</p></div><div class="toast" id="toast" role="status"></div>`;
-  bindCommon();
-  window.scrollTo(0, 0);
-  $("#q").oninput = e => { q = e.target.value; const p = e.target.selectionStart; home(); const n = $("#q"); n.focus(); n.setSelectionRange(p, p); };
-  const qx = $("#qx"); if (qx) qx.onclick = () => { q = ""; home(); };
-  $("#saved").onclick = () => { onlySaved = !onlySaved; home(); };
-  const globeOpen = $("#globe-open"); if (globeOpen) globeOpen.onclick = () => { location.hash = "globe"; };
-  app.querySelectorAll("[data-day]").forEach(b => b.onclick = () => location.hash = "day-" + b.dataset.day);
+ R=null;document.body.classList.remove("reading","lock");app.className="wrap";
+ const all=sorted(),needle=q.trim().toLowerCase(),rd=tilesRead();
+ const list=all.filter(st=>(!onlySaved||saved.includes(st.day))&&(!needle||(st.country+" "+tr(st,"title")+" "+(tr(st,"info")||[]).map(x=>x.join(" ")).join(" ")).toLowerCase().includes(needle)));
+ const latest=all[0],showFeature=latest&&!needle&&!onlySaved,rest=showFeature?list.filter(st=>st.day!==latest.day):list;
+ const prog=st=>{const n=tileTotal(st);return{n,d:(rd[st.day]||[]).filter(k=>k<n).length};};
+ const card=st=>{const im=coverOf(st),p=prog(st);return `<button class="card" data-day="${st.day}" aria-label="${esc(st.country)}: ${esc(tr(st,"title"))}"><div class="ph">${im?imgTag(im):st.flag}<span class="fl">${st.flag} ${esc(st.country)}</span>${p.d>=p.n?'<span class="chk">✓</span>':""}</div><div class="tx"><b>${esc(tr(st,"title"))}</b><div class="meta"><span>${esc(kindLabel(st))}</span><span>· ${L("दिन","Day")} ${st.day}</span></div>${p.d>0&&p.d<p.n?`<i class="mp"><u style="width:${p.d/p.n*100}%"></u></i>`:""}</div></button>`;};
+ let feat="";
+ if(showFeature){const im=coverOf(latest),p=prog(latest);feat=`<button class="feature" data-day="${latest.day}">${imgTag(im)}<div class="in"><span class="tag k">${L("आज की कहानी","Today's story")}</span> <span class="tag">${latest.flag} ${esc(latest.country)}</span><h2>${esc(tr(latest,"title"))}</h2><p>${esc(teaser(latest))}</p><span class="go">${p.d>=p.n?L("↺ फिर से पढ़ें","↺ Read again"):p.d>0?L("▶ आगे पढ़ें","▶ Continue"):L("▶ पढ़ना शुरू करें","▶ Start reading")}</span>${p.d>0&&p.d<p.n?`<span class="fprog"><u style="width:${p.d/p.n*100}%"></u></span>`:""}</div></button>`;}
+ app.innerHTML=`<div class="view"><div class="bar"><h1 class="brand">Stories of the World<small>${STORIES.length} / ${TOTAL} ${L("देश","countries")}</small></h1><div class="ctrl">${langSeg()}<button class="ibtn sq" id="theme" aria-label="${L("थीम बदलें","Switch theme")}">◐</button></div></div>${feat}
+ <button class="globe-entry" id="globe-open"><span class="orb" aria-hidden="true"></span><span class="gl-copy"><b>${L("दुनिया एक्सप्लोर करें","Explore the world")}</b><small>${L("महाद्वीप, टाइमलाइन, कलेक्शन और 3D ग्लोब","Continents, timeline, collections and 3D globe")}</small></span><span class="gl-arrow">↗</span></button>
+ <div class="tb"><label class="sbox"><span>🔎</span><input id="q" type="search" placeholder="${L("देश या कहानी खोजें","Search a country or story")}" value="${esc(q)}" aria-label="Search">${q?'<button class="x" id="qx">✕</button>':""}</label><button class="chip discover-chip" id="discover">✦ ${L("नई कहानी","Surprise me")}</button></div>
+ ${rest.length?`<div class="grid">${rest.map(card).join("")}</div>`:(showFeature?"":`<p class="empty">${onlySaved&&!saved.length?L("अभी कोई कहानी सहेजी नहीं गई।","No saved stories yet."):L("कोई कहानी नहीं मिली।","No stories found.")}</p>`)}
+ <p class="foot"><a class="foot-link" href="#library">★ ${L("मेरी लाइब्रेरी · सहेजी हुई कहानियाँ","My Library · Saved stories")}</a><br>${L("तस्वीरें: Wikimedia Commons","Photos: Wikimedia Commons")}</p></div><div class="toast" id="toast" role="status"></div>`;
+ bindCommon();window.scrollTo(0,0);$("#q").oninput=e=>{q=e.target.value;const p=e.target.selectionStart;home();$("#q").focus();$("#q").setSelectionRange(p,p);};const qx=$("#qx");if(qx)qx.onclick=()=>{q="";home();};
+ $("#discover").onclick=discoverStory;$("#globe-open").onclick=()=>location.hash="explore";app.querySelectorAll("[data-day]").forEach(x=>x.onclick=()=>location.hash="day-"+x.dataset.day);
 }
-
 /* ================= SLIDE READER ================= */
 function imgFail(i){ if (i.hasAttribute("crossorigin")){ i.removeAttribute("crossorigin"); i.src = i.src; } else i.remove(); }
 /* If the photo is bright, switch the heading / glass panel to the dark style (and vice-versa) so text never matches the picture. */
@@ -922,9 +911,36 @@ function mountGlobe(){
   }catch(e){fallback();}
 }
 
+
+/* World discovery hub and companion features */
+const CONTINENTS={"Asia":["India","China","Japan","Afghanistan","Iran","Iraq","Pakistan","Nepal","Bangladesh","Sri Lanka","Indonesia","Thailand","Cambodia","Vietnam","South Korea","Myanmar","Mongolia","Uzbekistan","Saudi Arabia","Jordan","Syria","Lebanon","Georgia"],"Europe":["United Kingdom","France","Italy","Greece","Turkey","Spain","Germany","Russia","Ukraine"],"Africa":["Egypt","South Africa","Kenya","Ethiopia","Morocco","Nigeria","Ghana","Tanzania"],"North America":["United States","Mexico","Canada"],"South America":["Brazil","Peru","Argentina"],"Oceania":["Australia","New Zealand"]};
+const continentOf=c=>Object.keys(CONTINENTS).find(k=>CONTINENTS[k].includes(c))||"Other";
+const worldCard=st=>{const im=coverOf(st);return `<button class="card" data-day="${st.day}"><div class="ph">${im?imgTag(im):st.flag}<span class="fl">${st.flag} ${esc(st.country)}</span></div><div class="tx"><b>${esc(tr(st,"title"))}</b><div class="meta">${esc(kindLabel(st))} · Day ${st.day}</div></div></button>`;};
+function discoverStory(){const pool=sorted().filter(st=>!read.includes(st.day));const arr=pool.length?pool:sorted();if(arr.length)location.hash="day-"+arr[Math.floor(Math.random()*arr.length)].day;}
+function speakStory(day,btn){if(!("speechSynthesis"in window)){toast(L("इस डिवाइस पर ऑडियो सपोर्ट नहीं है","Audio is not supported on this device"));return;}if(speechSynthesis.speaking){speechSynthesis.cancel();if(btn)btn.textContent="▶ "+L("सुनें","Listen");return;}const st=STORIES.find(x=>x.day===day);if(!st)return;const u=new SpeechSynthesisUtterance([tr(st,"title"),...(tr(st,"story")||[])].join(". "));u.lang=language==="hi"?"hi-IN":"en-IN";u.onend=()=>{if(btn)btn.textContent="▶ "+L("सुनें","Listen");};speechSynthesis.cancel();speechSynthesis.speak(u);if(btn)btn.textContent="Ⅱ "+L("रोकें","Stop");}
+function renderWorldPage(page){
+ R=null;document.body.classList.remove("reading","lock");app.className="wrap";const all=sorted(),completed=all.filter(st=>read.includes(st.day)),savedItems=all.filter(st=>saved.includes(st.day));
+ const names={explore:L("दुनिया को खोजें","Explore the world"),continents:L("महाद्वीप","Continents"),collections:L("कहानी कलेक्शन","Story collections"),timeline:L("इतिहास की टाइमलाइन","History timeline"),passport:L("मेरा वर्ल्ड पासपोर्ट","My World Passport"),gallery:L("फोटो गैलरी","Photo gallery"),library:L("मेरी लाइब्रेरी","My Library"),search:L("एडवांस खोज","Advanced search"),audio:L("ऑडियो कहानियाँ","Audio stories")};
+ const head=`<header class="section-head"><button class="ibtn sq" id="page-back">←</button><div><h1>${names[page]}</h1><small>Stories of the World</small></div>${langSeg()}</header>`;let body="";
+ if(page==="explore")body=`<section class="explore-hero"><span>🌍</span><h2>${L("हर देश की एक नई दुनिया","A new world in every country")}</h2><p>${L("कहानियों, संस्कृतियों और इतिहास के रास्ते दुनिया की सैर करें।","Travel through stories, cultures and history.")}</p></section><div class="feature-links">
+ ${[["globe","🌐","3D Globe","Rotate and zoom"],["continents","🧭","Continents","Browse by region"],["collections","📚","Collections","Stories by theme"],["timeline","⌛","Timeline","History in sequence"],["passport","🎖️","World Passport",completed.length+" stamps earned"],["gallery","🖼️","Photo Gallery","Story photography"],["audio","🎧","Audio Stories","Listen and read"],["search","🔎","Advanced Search","Filter country and theme"],["library","★","My Library",savedItems.length+" saved stories"]].map(x=>`<button data-page="${x[0]}">${x[1]} <b>${L(x[2],x[2])}</b><small>${L(x[3],x[3])}</small></button>`).join("")}</div>`;
+ else if(page==="continents")body=Object.entries(CONTINENTS).map(([c,cs])=>{const items=all.filter(st=>cs.includes(st.country));return `<section class="world-section"><h2>${c}</h2><div class="grid">${items.map(worldCard).join("")||'<p class="muted">Stories coming soon</p>'}</div></section>`;}).join("");
+ else if(page==="collections")body=Object.entries(KINDS).map(([k,v])=>{const items=all.filter(st=>(st.kind||"history")===k);return `<section class="world-section"><h2>${v[language==="hi"?0:1]}</h2><div class="grid">${items.map(worldCard).join("")||'<p class="muted">More stories coming soon</p>'}</div></section>`;}).join("");
+ else if(page==="timeline")body=`<div class="timeline">${[...all].sort((a,b)=>a.day-b.day).map(st=>`<button class="timeline-item" data-day="${st.day}"><span>${st.flag}</span><small>Day ${st.day} · ${esc(kindLabel(st))}</small><b>${esc(tr(st,"title"))}</b><em>${esc(st.country)}</em></button>`).join("")}</div>`;
+ else if(page==="passport"){const pct=all.length?Math.round(completed.length/all.length*100):0;body=`<section class="passport-card"><div class="passport-cover"><span>🌍</span><small>STORIES OF THE WORLD</small><h2>${names.passport}</h2><p>${L("हर पूरी पढ़ी कहानी पर एक देश का स्टैम्प पाएँ।","Earn a country stamp for every completed story.")}</p></div><div class="passport-stats"><b>${completed.length} / ${all.length}</b><span>${L("कहानियाँ पूरी","stories completed")} · ${pct}%</span><i><u style="width:${pct}%"></u></i></div><div class="stamp-grid">${all.map(st=>`<div class="passport-stamp ${read.includes(st.day)?"earned":""}"><span>${st.flag}</span><small>${esc(st.country)}</small>${read.includes(st.day)?"✓":"· · ·"}</div>`).join("")}</div></section>`;}
+ else if(page==="gallery"){const pics=all.flatMap(st=>imgs(st).map(im=>({st,im})));body=pics.length?`<div class="photo-grid">${pics.map(({st,im})=>`<button class="photo-item" data-day="${st.day}">${imgTag(im)}<span>${st.flag} ${esc(st.country)}<b>${esc(capOf(im)||tr(st,"title"))}</b></span></button>`).join("")}</div>`:'<p class="empty">Photos will appear here as stories are added.</p>';}
+ else if(page==="library")body=savedItems.length?`<div class="grid">${savedItems.map(worldCard).join("")}</div>`:`<div class="empty-state"><span>☆</span><h2>${L("आपकी लाइब्रेरी अभी खाली है","Your library is empty")}</h2><p>${L("कहानी में ⋯ मेन्यू से सहेजें।","Save a story from its ⋯ menu.")}</p><button class="chip" data-page="explore">Explore</button></div>`;
+ else if(page==="search")body=`<div class="advanced-search"><input id="world-query" class="search" placeholder="${L("देश, शीर्षक या कीवर्ड","Country, title or keyword")}"><select id="continent-filter"><option value="">All continents</option>${Object.keys(CONTINENTS).map(c=>`<option>${c}</option>`).join("")}</select><select id="kind-filter"><option value="">All themes</option>${Object.entries(KINDS).map(([k,v])=>`<option value="${k}">${v[language==="hi"?0:1]}</option>`).join("")}</select><div class="grid" id="search-results">${all.map(worldCard).join("")}</div></div>`;
+ else if(page==="audio")body=`<p class="audio-note">${L("कहानी सुनें — आवाज़ आपके डिवाइस के टेक्स्ट-टू-स्पीच सपोर्ट पर निर्भर है।","Listen to stories using your device's text-to-speech support.")}</p><div class="audio-list">${all.map(st=>`<article class="audio-row"><div><small>${st.flag} ${esc(st.country)} · ${minutes(st)} min</small><b>${esc(tr(st,"title"))}</b></div><button class="chip" data-audio="${st.day}">▶ ${L("सुनें","Listen")}</button></article>`).join("")}</div>`;
+ app.innerHTML=`<div class="view world-page">${head}${body}<p class="foot"><a class="foot-link" href="#">← ${L("होम पर लौटें","Back to home")}</a></p></div><div class="toast" id="toast" role="status"></div>`;bindCommon();$("#page-back").onclick=()=>location.hash=page==="explore"?"":"explore";
+ app.querySelectorAll("[data-page]").forEach(x=>x.onclick=()=>location.hash=x.dataset.page);app.querySelectorAll("[data-day]").forEach(x=>x.onclick=()=>location.hash="day-"+x.dataset.day);app.querySelectorAll("[data-audio]").forEach(x=>x.onclick=()=>speakStory(+x.dataset.audio,x));
+ if(page==="search"){const filter=()=>{const term=$("#world-query").value.toLowerCase(),co=$("#continent-filter").value,ki=$("#kind-filter").value;const found=all.filter(st=>(!co||continentOf(st.country)===co)&&(!ki||(st.kind||"history")===ki)&&(!term||(st.country+" "+tr(st,"title")+" "+(tr(st,"story")||[]).join(" ")).toLowerCase().includes(term)));$("#search-results").innerHTML=found.map(worldCard).join("")||'<p class="empty">No stories found</p>';$("#search-results").querySelectorAll("[data-day]").forEach(x=>x.onclick=()=>location.hash="day-"+x.dataset.day);};["world-query","continent-filter","kind-filter"].forEach(id=>$("#"+id).addEventListener(id==="world-query"?"input":"change",filter));}
+ window.scrollTo(0,0);
+}
+
 function route(){
-  if(location.hash === "#globe"){ mountGlobe(); return; }
-  stopStoryGlobe();
+  const page=location.hash.slice(1); if(page==="globe"){mountGlobe();return;} stopStoryGlobe();
+  if(["explore","continents","collections","timeline","passport","gallery","library","search","audio"].includes(page)){renderWorldPage(page);return;}
   const m = location.hash.match(/^#day-(\d+)(?:\/(\d+))?$/);
   if (!m) return home();
   const day = +m[1], no = m[2] ? +m[2] : 0;
