@@ -198,6 +198,20 @@ body.reading{overflow:hidden}
 .slide.L4[data-tone="light"] .tt{background:rgba(12,26,32,.86);color:#f4f1ea}
 .slide.L4[data-tone="light"] .kick{color:#b9c6c9}
 .slide.L4[data-tone="light"] .tt .more{background:linear-gradient(transparent,rgba(12,26,32,.95))}
+/* Full-bleed single-image story tile: no side image and no text panel */
+.full-slide{display:block}
+.full-story-tile{position:absolute;inset:0;width:100%;height:100%;margin:0;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:#17252a}
+.full-story-tile>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--op,50% 50%);z-index:0;animation:kb 16s ease-out both}
+.full-story-tile .ghost{z-index:0}
+.full-story-tile .stamp,.full-story-tile .cr{z-index:4}
+.story-overlay{position:absolute;z-index:3;left:0;right:0;bottom:0;top:auto;max-height:76%;overflow-y:auto;padding:22px 22px 26px;color:#fff;text-shadow:0 2px 5px rgba(0,0,0,.95),0 0 18px rgba(0,0,0,.8);scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.story-overlay .kick{color:inherit;font-size:.85rem;opacity:.96;margin-bottom:8px}
+.story-overlay h2{font-family:var(--serif);font-size:clamp(1.55rem,1.15rem + 2vw,2.4rem);line-height:1.18;margin:0 0 12px;font-weight:700}
+.story-overlay .otxt p{font-family:var(--serif);font-size:calc(var(--fs) - 1px);line-height:1.65;margin:0 0 .8em}
+.slide[data-tone="light"] .story-overlay{color:#142329;text-shadow:0 1px 3px rgba(255,255,255,.95),0 0 14px rgba(255,255,255,.7)}
+.slide[data-tone="light"] .story-overlay .kick{color:#142329}
+.full-story-tile .cr{max-width:52%}
+
 /* 8 different opening animations (one per tile, cycling) */
 .slide .m,.slide .s,.slide .tt{animation-duration:.8s;animation-timing-function:cubic-bezier(.2,.7,.2,1);animation-fill-mode:both}
 .o0 .m{animation-name:oFade}.o1 .m{animation-name:oUp}.o2 .m{animation-name:oZoom}.o3 .m{animation-name:oFlip}
@@ -586,21 +600,16 @@ function secondaryFor(k, m){
 }
 
 function slideHtml(k){
-  const t = R.tiles[k], s = R.story, total = R.tiles.length;
-  const m = t.img, sec = m ? secondaryFor(k, m) : null;
-  const lay = layoutOf(k, !!m, !!sec);
-  const hasSec = sec && (lay === "L2" || lay === "L2b");
-  const head = `<h2>${esc(t.h)}</h2>`;
-  const media = `<figure class="st m" style="--op:${OPS[k % OPS.length]}">${m ? slideImg(m) : ""}${m ? "" : `<span class="ghost">${s.flag}</span>`}
-    <span class="stamp">${pad(k + 1)}</span>${credit(m)}${lay === "L4" ? "" : `<figcaption class="mcap">${head}</figcaption>`}</figure>`;
-  const second = hasSec ? `<figure class="st s" style="--op:${OPS[(k + 3) % OPS.length]}">${slideImg(sec)}${credit(sec)}</figure>` : "";
-  const text = `<div class="st tt"><div class="tscroll">
-      <div class="kick rv" style="--i:0">${k + 1} / ${total} · ${s.flag} ${esc(s.country)}</div>
-      ${lay === "L4" ? `<h2 class="rv" style="--i:1">${esc(t.h)}</h2>` : ""}
-      <div class="otxt">${t.text.map((p, n) => `<p class="rv" style="--i:${n + 2}">${esc(p)}</p>`).join("")}</div></div><span class="more" aria-hidden="true">⌄</span></div>`;
-  return `<article class="slide ${lay}${lay === "L4" && ((k >> 1) % 2) ? " rt" : ""} o${k % 8}" data-tone="dark" aria-label="${esc(t.h)}">${media}${second}${text}</article>`;
+  const t = R.tiles[k], s = R.story, total = R.tiles.length, m = t.img;
+  const text = `<div class="story-overlay">
+    <div class="kick rv" style="--i:0">${k + 1} / ${total} · ${s.flag} ${esc(s.country)}</div>
+    <h2 class="rv" style="--i:1">${esc(t.h)}</h2>
+    <div class="otxt">${t.text.map((p, n) => `<p class="rv" style="--i:${n + 2}">${esc(p)}</p>`).join("")}</div>
+  </div>`;
+  const media = `<figure class="st m full-story-tile" style="--op:${OPS[k % OPS.length]}">${m ? slideImg(m) : `<span class="ghost">${s.flag}</span>`}
+    <span class="stamp">${pad(k + 1)}</span>${credit(m)}${text}</figure>`;
+  return `<article class="slide full-slide o${k % 8}" data-tone="dark" aria-label="${esc(t.h)}">${media}</article>`;
 }
-
 function dockBtn(id, icon, hi, en, extra = ""){
   return `<button class="ib ${extra}" id="${id}" aria-label="${L(hi[1], en[1])}" title="${L(hi[1], en[1])}"><span aria-hidden="true">${icon}</span><small>${L(hi[0], en[0])}</small></button>`;
 }
@@ -649,8 +658,6 @@ function mountReader(day, idx){
   };
   toolsBackdrop.onclick = closeToolsMenu;
   $("#back").onclick = () => { location.hash = ""; };
-  $("#pv").onclick = () => step(-1);
-  $("#nx").onclick = () => step(1);
   $("#bt-tiles").onclick = () => openSheet("tiles");
   $("#bt-text").onclick = () => openSheet("text");
   $("#bt-facts").onclick = () => openSheet("facts");
@@ -679,7 +686,7 @@ function mountReader(day, idx){
   }, {passive: true});
   deck.addEventListener("click", e => {
     if (e.target.closest("a,button")) return;
-    if (e.target.closest(".m,.s")) step(1);
+    if (e.target.closest(".full-story-tile,.m,.s")) step(1);
   });
   document.addEventListener("keydown", e => {
     if (document.body.classList.contains("reading") && !$("#sheet")?.hidden) return;
