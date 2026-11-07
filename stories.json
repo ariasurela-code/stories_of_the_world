@@ -3315,5 +3315,333 @@
         "note": "Local government information about the monument and its location."
       }
     ]
+  },
+  {
+    "day": 12,
+    "date": "2026-11-07",
+    "country": "Austria",
+    "flag": "🇦🇹",
+    "kind": "history",
+    "title": "वियना की दीवारों पर वो कड़वे काले दाने",
+    "teaser": "जब एक घिरे हुए शहर की किस्मत बची, तो जलते तंबुओं के बीच एक सिपाही को मिले रहस्यमयी दाने...",
+    "story": [
+      "सितंबर की वह ठंडी और धुंधली सुबह थी, जब ऑस्ट्रिया की राजधानी वियना की ऊँची प्राचीर पर बारूद का धुआँ पसरा हुआ था। दूर क्षितिज तक ओटोमन साम्राज्य की सेना के हज़ारों लाल-सफ़ेद तंबू गड़े थे और शहर के अंदर राशन का आखिरी दाना तक खत्म हो चुका था। क्या यह प्राचीन और सुंदर शहर ढहने वाला था?",
+      "वियना की संकरी पथरीली गलियों में सहमे हुए लोग सिर्फ़ प्रार्थना कर रहे थे। महीनों की घेराबंदी ने सेंट स्टीफन कैथेड्रल के ऊँचे टॉवर से लेकर डेन्यूब नदी के किनारों तक को खामोश कर दिया था। हवा में सीलन, जले हुए बारूद और इंसानी डर की एक भारी गंध घुली हुई थी।",
+      "तभी 12 सितंबर 1683 की रात एक चमत्कार हुआ। पोलैंड के राजा जॉन तृतीय सोबिएस्की के नेतृत्व में एक विशाल राहत सेना पहाड़ियों से नीचे उतरी और इतिहास की सबसे बड़ी घुड़सवार सेना की भिड़ंत हुई। कुछ ही घंटों में घेराबंदी टूट गई और ओटोमन सेना अपना सारा साज़ो-सामान छोड़कर पीछे हट गई।",
+      "जब वियना के निवासियों ने राहत की साँस ली, तो शहर के अफ़सर जलते हुए शिविरों में बिखरी संपत्ति का हिसाब लगाने पहुँचे। वहाँ सोने के बर्तन, रेशमी तंबू और कीमती कालीन तो थे ही, लेकिन एक कोने में सैकड़ों रहस्यमयी बोरियाँ पड़ी थीं। जब बोरियों को खोला गया, तो अंदर छोटे-छोटे, सूखे और भूरे दाने भरे हुए थे।",
+      "अफ़सरों को लगा कि यह शायद ऊँटों का दाना है या कोई ज़हरीली चीज़, इसलिए वे उन बोरियों को जलाकर फेंकने ही वाले थे। लेकिन तभी भीड़ से एक दुबला-पतला आदमी आगे आया, जिसका नाम येज़ी फ्रांसेक कुलचिसकी था। कुलचिसकी कोई आम इंसान नहीं, बल्कि एक दुभाषिया और जासूस था जिसने घेराबंदी के दौरान अपनी जान पर खेलकर वियना तक संदेश पहुँचाया था।",
+      "कुलचिसकी ने तुर्की भाषा और उनकी आदतों को करीब से देखा-समझा था। उसने तुरंत उन दानों को पहचाना और मुस्कुराते हुए कहा कि यह कोई बेकार चीज़ नहीं, बल्कि भुनी हुई कॉफ़ी के बीज हैं। जब वियना के शासकों ने कुलचिसकी से उसकी बहादुरी का इनाम माँगने को कहा, तो उसने सोने-चाँदी की जगह वे सारे बेकार समझे जाने वाले बोरे माँग लिए।",
+      "सोचिए, वियना के लोगों के लिए वह स्वाद बिल्कुल नया था। कुलचिसकी ने उन कड़वे दानों को पीसा, पानी में उबाला और शहर के लोगों को पिलाना शुरू किया। शुरू-शुरू में वियना के निवासियों को वह काला और कड़वा पानी बिल्कुल पसंद नहीं आया और वे मुँह बनाने लगे।",
+      "फिर इस चतुर सिपाही ने एक तरकीब सोची। उसने उस कड़वे पेय में थोड़ा सा दूध और शहद मिला दिया ताकि उसका स्वाद नरम और मीठा हो जाए। साथ ही उसने वियना के बेकरों से एक खास अर्धचंद्राकार पेस्ट्री बनवाई, जिसे तुर्की के झंडे के चाँद जैसा आकार दिया गया था।",
+      "देखते ही देखते वियना की गलियों में कॉफ़ी की महक फैलने लगी। लोग शाम को एक जगह बैठकर गर्म कप हाथों में थामे घंटों बातें करने लगे। वह कड़वा पेय जो कभी दुश्मन की देन समझा गया था, अब वियना के सामाजिक जीवन की धड़कन बन चुका था।",
+      "इस तरह एक खौफनाक युद्ध के मलबे से दुनिया के सबसे मशहूर वियनीज़ कॉफ़ीहाउस कल्चर की नींव पड़ी। धीरे-धीरे लकड़ी की मेज़ों, संगमरमर के काउंटर और अखबारों के स्टैंड वाले ये कॉफ़ीहाउस कलाकारों, दार्शनिकों और वैज्ञानिकों के प्रिय अड्डे बन गए।",
+      "आज भी जब आप वियना की किसी पुरानी सड़क से गुजरेंगे, तो आपको भुनती हुई कॉफ़ी और ताज़ा पकी पेस्ट्री की वही सोंधी महक हवा में तैरती मिलेगी। यह महक उस कठिन दौर की याद दिलाती है जब डर और तबाही के बीच से स्वाद और संस्कृति का एक नया अध्याय शुरू हुआ था।",
+      "इतिहास हमें सिखाता है कि कई बार सबसे अनपेक्षित परिस्थितियाँ दुनिया को सबसे प्यारी परंपराएँ दे जाती हैं। वियना की वह एक कप कॉफ़ी केवल एक पेय नहीं, बल्कि मुश्किल वक्त से उबरने और नई राह खोजने की एक खूबसूरत कहानी है।"
+    ],
+    "why": "यह घटना वियना के 1683 के ऐतिहासिक घेरे और दुनिया भर में मशहूर वियनीज़ कॉफ़ीहाउस परंपरा की शुरुआत से जुड़ी है। इसने एक युद्ध की विभीषिका को एक महान सांस्कृतिक धरोहर में बदल दिया, जिसे यूनेस्को की अमूर्त सांस्कृतिक विरासत में भी शामिल किया गया है।",
+    "where": "आज यह इतिहास वियना के पुराने शहर (Innere Stadt) के ऐतिहासिक कॉफ़ीहाउसों में देखा और महसूस किया जा सकता है। वियना के पहले डिस्ट्रिक्ट में कुलचिसकी की एक प्रतिमा भी बनी हुई है और उनके सम्मान में 'कुलचिसकीगासे' नाम की सड़क भी है।",
+    "truth": "1683 का वियना घेरा और कुलचिसकी का साहसी जासूसी कार्य पूरी तरह प्रमाणित ऐतिहासिक तथ्य है। हालांकि लोकप्रिय लोककथा कुलचिसकी को वियना का पहला कॉफ़ीहाउस खोलने वाला मानती है, लेकिन दस्तावेज़ बताते हैं कि पहला आधिकारिक लाइसेंस 1685 में अर्मेनियाई व्यापारी जोहान्स डियोडैटो को मिला था। कुलचिसकी ने इस पेय को लोकप्रिय बनाने में ऐतिहासिक भूमिका निभाई थी।",
+    "info": [
+      [
+        "राजधानी",
+        "वियना (Vienna)"
+      ],
+      [
+        "भाषा",
+        "जर्मन"
+      ],
+      [
+        "मुद्रा",
+        "यूरो (EUR)"
+      ],
+      [
+        "खास बात",
+        "वियना का कॉफ़ीहाउस कल्चर UNESCO की अमूर्त सांस्कृतिक विरासत सूची में दर्ज है।"
+      ]
+    ],
+    "image_queries": [
+      "Battle of Vienna 1683 painting",
+      "Traditional Viennese coffee house inside historical"
+    ],
+    "source_queries": [
+      "Jerzy Franciszek Kulczycki",
+      "Viennese coffee house culture",
+      "Battle of Vienna 1683"
+    ],
+    "images": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Battle_of_Vienna_1683.PNG/960px-Battle_of_Vienna_1683.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Battle_of_Vienna_1683.PNG",
+        "en": "Battle of Vienna 1683",
+        "hi": "🇦🇹 Austria: Battle of Vienna 1683",
+        "credit": "Jan Damel, Public domain",
+        "commons": true
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Martin_Battle_of_Vienna.jpg/960px-Martin_Battle_of_Vienna.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Martin_Battle_of_Vienna.jpg",
+        "en": "Martin Battle of Vienna",
+        "hi": "🇦🇹 Austria: Martin Battle of Vienna",
+        "credit": "Pierre-Denis Martin, Public domain",
+        "commons": true
+      }
+    ],
+    "tiles": [
+      {
+        "p": [
+          0,
+          1
+        ],
+        "h": {
+          "hi": "घिरे शहर का सन्नाटा",
+          "en": "A Besieged Capital"
+        },
+        "q": "St Stephens Cathedral Vienna",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Stephen_Cathedral_2010_8.jpg/960px-Stephen_Cathedral_2010_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Stephen_Cathedral_2010_8.jpg",
+          "en": "St. Stephen's Cathedral in Vienna as of July 2010.",
+          "hi": "🇦🇹 Austria: Stephen Cathedral 2010 8",
+          "credit": "Perituss, CC0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          2,
+          2
+        ],
+        "h": {
+          "hi": "सोबिएस्की का हमला",
+          "en": "Sobieski's Relief Charge"
+        },
+        "q": "Kahlenberg Vienna hill view",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Kahlenberg%2C_Wien_%28Vienna%29%2C_Austria_%F0%9F%87%A6%F0%9F%87%B9_-_54598174374.jpg/960px-Kahlenberg%2C_Wien_%28Vienna%29%2C_Austria_%F0%9F%87%A6%F0%9F%87%B9_-_54598174374.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Kahlenberg,_Wien_(Vienna),_Austria_%F0%9F%87%A6%F0%9F%87%B9_-_54598174374.jpg",
+          "en": "Kahlenberg Hill was the site of the Second Ottoman Siege in 1683",
+          "hi": "🇦🇹 Austria: Kahlenberg, Wien (Vienna), Austria 🇦🇹 - 54598174374",
+          "credit": "Sharon Hahn Darlin, CC BY 2.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          3,
+          3
+        ],
+        "h": {
+          "hi": "तंबुओं में रहस्य",
+          "en": "Mysterious Camp Sacks"
+        },
+        "q": "Roasted coffee beans burlap",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Green_Bean_Coffee.jpg/960px-Green_Bean_Coffee.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Green_Bean_Coffee.jpg",
+          "en": "This is coffee before it is roasted.",
+          "hi": "🇦🇹 Austria: Green Bean Coffee",
+          "credit": "DeaPeaJay, CC BY-SA 2.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "जासूस कुलचिसकी",
+          "en": "Kulczycki the Scout"
+        },
+        "q": "Jerzy Franciszek Kulczycki statue"
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "अनोखा इनाम",
+          "en": "An Unlikely Prize"
+        },
+        "q": "Burlap sacks coffee beans",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Coffee_beans_at_Longbottom_-_Hillsboro%2C_Oregon.JPG/960px-Coffee_beans_at_Longbottom_-_Hillsboro%2C_Oregon.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Coffee_beans_at_Longbottom_-_Hillsboro,_Oregon.JPG",
+          "en": "Bags of Coffee beans at Longbottom Coffee and Tea in w:Hillsboro, Oregon.",
+          "hi": "🇦🇹 Austria: Coffee beans at Longbottom - Hillsboro, Oregon",
+          "credit": "M.O. Stevens, CC BY-SA 3.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "कड़वा पहला घूँट",
+          "en": "The Bitter First Brew"
+        },
+        "q": "Traditional Turkish coffee pot",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Bosnian_cezves.jpg/960px-Bosnian_cezves.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Bosnian_cezves.jpg",
+          "en": "This photo has been taken in the country: Bosnia and Herzegovina",
+          "hi": "🇦🇹 Austria: Bosnian cezves",
+          "credit": "Ekaterina Kvelidze, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          7,
+          7
+        ],
+        "h": {
+          "hi": "दूध और अर्धचंद्राकार पेस्ट्री",
+          "en": "Milk and Crescent Kipferl"
+        },
+        "q": "Viennese Kipferl pastry"
+      },
+      {
+        "p": [
+          8,
+          8
+        ],
+        "h": {
+          "hi": "महकती वियना की शामें",
+          "en": "Aromatic Viennese Evenings"
+        },
+        "q": "Viennese Melange coffee",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Wiener_Melange_0363wien_img_9691.jpg/960px-Wiener_Melange_0363wien_img_9691.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Wiener_Melange_0363wien_img_9691.jpg",
+          "en": "Wiener Melange",
+          "hi": "🇦🇹 Austria: Wiener Melange 0363wien img 9691",
+          "credit": "Rüdiger Wölk, CC BY-SA 2.0 de",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          9,
+          9
+        ],
+        "h": {
+          "hi": "कॉफ़ीहाउस संस्कृति का जन्म",
+          "en": "Rise of the Coffeehouse"
+        },
+        "q": "Cafe Central Vienna interior",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Vault_Caf%C3%A9_Central_Vienna_Wien.jpg/960px-Vault_Caf%C3%A9_Central_Vienna_Wien.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Vault_Caf%C3%A9_Central_Vienna_Wien.jpg",
+          "en": "Detail of the vault of the \"Café Central\", a famous café in Vienna, Austria.",
+          "hi": "🇦🇹 Austria: Vault Café Central Vienna Wien",
+          "credit": "Jebulon, CC0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          10,
+          10
+        ],
+        "h": {
+          "hi": "सदाबहार सुगंध",
+          "en": "An Enduring Fragrance"
+        },
+        "q": "Vienna Innere Stadt street",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Innere_Stadt%2C_Vienna.jpg/960px-Innere_Stadt%2C_Vienna.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Innere_Stadt,_Vienna.jpg",
+          "en": "Peterskirche, Innere Stadt (first district of Vienna)",
+          "hi": "🇦🇹 Austria: Innere Stadt, Vienna",
+          "credit": "Aleksandra Stojićević, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          11,
+          11
+        ],
+        "h": {
+          "hi": "संकट से उपजी परंपरा",
+          "en": "Tradition Born of Trial"
+        },
+        "q": "Viennese coffee cup marble",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Sachertorte%2C_%C3%96sterreichisches_Hospiz_zur_Heiligen_Familie%2C_2019_%2801%29.jpg/960px-Sachertorte%2C_%C3%96sterreichisches_Hospiz_zur_Heiligen_Familie%2C_2019_%2801%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Sachertorte,_%C3%96sterreichisches_Hospiz_zur_Heiligen_Familie,_2019_(01).jpg",
+          "en": "Sachertorte, Österreichisches Hospiz zur Heiligen Familie, 2019 (01)",
+          "hi": "🇦🇹 Austria: Sachertorte, Österreichisches Hospiz zur Heiligen Familie, 2019 (01)",
+          "credit": "Bahnfrend, CC BY-SA 4.0",
+          "commons": true
+        }
+      }
+    ],
+    "tiles_n": 12,
+    "en": {
+      "title": "Those Bitter Black Beans on the Walls of Vienna",
+      "teaser": "When a besieged city's fate hung by a thread, a cunning scout found mysterious dark beans amidst the smoldering tents...",
+      "story": [
+        "It was a chilly, mist-laden September morning, and acrid plumes of black powder smoke hung low over the towering ramparts of Vienna. Stretching all the way to the horizon stood thousands of red-and-white tents belonging to the Ottoman army, while inside the city walls, the very last grain of food had vanished. It seemed all but certain that this proud, ancient capital was about to crumble.",
+        "Through Vienna's narrow cobblestone alleys, terrified citizens huddled in desperate prayer. Months of unrelenting siege had cast a suffocating silence over everything, from the soaring spire of St. Stephen's Cathedral down to the banks of the Danube. The damp autumn air was thick with the stench of sulfur, smoldering wreckage, and raw human dread.",
+        "Then, on the night of September 12, 1683, the impossible happened. A massive relief army led by King John III Sobieski of Poland swept down from the wooded heights of Kahlenberg, unleashing the largest cavalry charge in recorded history. Within mere hours, the Ottoman perimeter broke, and the besiegers retreated in disarray, abandoning vast piles of supplies in their wake.",
+        "As the people of Vienna dared to breathe again, city inspectors picked their way through the smoldering enemy camp to take inventory of the abandoned spoils. Amidst ornate gold vessels, opulent silk pavilions, and heavy woven carpets, they stumbled upon hundreds of coarse burlap sacks tucked away in a corner. Slicing them open revealed small, dry, shriveled brown beans.",
+        "Assuming the strange grains were merely camel feed or perhaps even some slow-acting poison, the officials prepared to dump the sacks onto a bonfire. Just then, a lean, sharp-eyed man stepped forward from the crowd. His name was Jerzy Franciszek Kulczycki. No ordinary soldier, Kulczycki was an interpreter and daring scout who had risked his life slipping through enemy lines in disguise to carry vital messages for the besieged garrison.",
+        "Having lived among the Turks, Kulczycki knew their tongue and their customs intimately. One glance at the dark beans brought a knowing smile to his face: these were not animal feed at all, but roasted coffee beans. When the grateful city council offered him whatever reward he wished for his wartime heroics, he bypassed the chests of gold and silver and asked simply for the sacks of beans everyone thought were garbage.",
+        "To the palates of everyday Viennese citizens, however, this novel concoction was an utter shock. Kulczycki ground the brittle beans, simmered the powder in boiling water, and eagerly served it up to the locals. But the townsfolk took one sip of the pitch-black, bitter draught, grimaced in disgust, and flatly refused to swallow it.",
+        "Undeterred, the clever soldier devised a stroke of culinary genius. He strained out the grounds and blended the strong, bitter brew with a splash of fresh milk and a spoonful of honey, transforming it into a silky, comforting elixir. Alongside it, he asked local bakers to craft sweet, crescent-shaped pastries called kipferl, whimsically mimicking the crescent moon emblem on the fallen Ottoman banners.",
+        "Before long, the rich, buttery fragrance of freshly brewed coffee began drifting through Vienna's historic quarters. As twilight fell, citizens gathered around warm tables, cradling steaming cups and talking late into the evening. The bitter draught once dismissed as enemy feed had rapidly become the beating heart of Viennese social life.",
+        "From the ashes of a devastating conflict, the world-famous Viennese coffeehouse tradition was born. Over time, these establishments—with their warm timber paneling, polished marble tables, and newspaper racks—grew into vibrant gathering places where poets, philosophers, musicians, and scientists spent hours shaping modern European thought.",
+        "Even today, wandering through the quiet lanes of Vienna's Old Town, you will catch that unmistakable, comforting aroma of dark-roasted beans and buttery pastries floating through the air. It serves as an evocative reminder of an embattled age, when terror and ruins unexpectedly gave birth to a beloved cultural epoch.",
+        "History often proves that the most dire crises leave behind our sweetest traditions. In Vienna, a humble cup of coffee is far more than a morning beverage; it remains a poignant testament to human resilience and the art of turning adversity into timeless joy."
+      ],
+      "why": "This event marks the historic 1683 Siege of Vienna and the dawn of the world-famous Viennese coffeehouse tradition. It transformed the aftermath of a devastating war into a lasting cultural cornerstone, now recognized on UNESCO's Representative List of the Intangible Cultural Heritage of Humanity.",
+      "where": "Today, this heritage thrives in the historic coffeehouses across Vienna's Old Town (Innere Stadt). A bronze memorial statue of Kulczycki adorns the corner of Favoritenstraße and Kolschitzkygasse, a street named in his honor in Vienna's fourth district.",
+      "truth": "The 1683 Siege of Vienna and Kulczycki's daring espionage missions are well-documented historical facts. While widespread folklore credits Kulczycki with opening the city's very first coffeehouse, municipal records indicate that the first official imperial license was granted in 1685 to the Armenian merchant Johannes Theodat (Diodato). Nevertheless, Kulczycki played an iconic role in popularizing coffee in Central Europe.",
+      "info": [
+        [
+          "Capital",
+          "Vienna"
+        ],
+        [
+          "Language",
+          "German"
+        ],
+        [
+          "Currency",
+          "Euro (EUR)"
+        ],
+        [
+          "Notable Distinction",
+          "Viennese coffeehouse culture is inscribed on UNESCO's Intangible Cultural Heritage list."
+        ]
+      ]
+    },
+    "sources": [
+      {
+        "title": "Jerzy Franciszek Kulczycki",
+        "url": "https://en.wikipedia.org/wiki/Jerzy_Franciszek_Kulczycki",
+        "publisher": "Wikipedia",
+        "note": "Jerzy Franciszek Kulczycki of the Sas coat of arms (German: Georg Franz Kolschitzky, Ukrainian: Юрій-Франц Кульчицький, romanized: Yurii-Frants Kulchytskyi; 164"
+      },
+      {
+        "title": "Viennese coffee house culture",
+        "url": "https://en.wikipedia.org/wiki/Viennese_coffee_house_culture",
+        "publisher": "Wikipedia",
+        "note": "The Viennese coffee house (German: das Wiener Kaffeehaus, Bavarian: as Weana Kafeehaus) is a typical institution of Vienna that played an important part in shap"
+      },
+      {
+        "title": "Battle of Vienna",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Vienna",
+        "publisher": "Wikipedia",
+        "note": "The Battle of Vienna took place at Kahlenberg Mountain near Vienna on 12 September 1683 after the city had been besieged by the Ottoman Empire for two months.",
+        "hi_url": "https://hi.wikipedia.org/wiki/वियना_की_लड़ाई"
+      }
+    ],
+    "story_version": 2
   }
 ]
