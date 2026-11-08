@@ -3643,5 +3643,331 @@
       }
     ],
     "story_version": 2
+  },
+  {
+    "day": 13,
+    "date": "2026-11-08",
+    "country": "Azerbaijan",
+    "flag": "🇦🇿",
+    "kind": "history",
+    "title": "पत्थरों से निकलती लपटें",
+    "teaser": "कैस्पियन की बर्फीली हवाओं के बीच ज़मीन से आग फूट रही थी, जिसे देखने दुनिया भर के मुसाफ़िर खिंचे चले आते थे।",
+    "story": [
+      "रात का सन्नाटा हो और कैस्पियन सागर की तरफ़ से नमकीन, सर्द हवा सीटी बजाती हुई आ रही हो। ऐसे में अगर आप अबशेरोन प्रायद्वीप की पथरीली ज़मीन पर खड़े हों, तो दूर एक अजीब सी चमक दिखाई देती थी। न कोई सूखी लकड़ी, न कोई तेल का दिया, फिर भी चूना-पत्थरों की दरारों से नीली-पीली लपटें चुपचाप आसमान की ओर लपक रही थीं।",
+      "अज़रबैजान को सदियों से 'ओदलार युर्दू' यानी आग की सरज़मीं कहा जाता रहा है। यह नाम यूँ ही नहीं पड़ा। यहाँ की धरती के नीचे सदियों से कुदरती गैस और कच्चे तेल का ऐसा खज़ाना दबा था, जो दरारों के रास्ते बाहर आकर हवा के संपर्क में सुलग उठता था। जो मुसाफ़िर पहली बार इसे देखता, वह हैरान रह जाता कि बिना ईंधन के पत्थर कैसे जल रहे हैं।",
+      "रेशम मार्ग से गुज़रने वाले कारवां अक्सर इस वीराने में ठहर जाते थे। ऊँटों की घंटियों की आवाज़ धीमी पड़ जाती और सौदागर खौफ़ और अचरज के मिले-जुले भाव से इस ज़मीनी आग को ताकते रहते। प्राचीन काल में लोगों के लिए यह कोई मामूली घटना नहीं, बल्कि किसी अनदेखी ईश्वरीय शक्ति का साक्षात चमत्कार थी।",
+      "इन्हीं सुलगती ज़मीनों के बीच, बाकू शहर के पास सुराखानी नाम की जगह पर एक अनोखा ठिकाना बना, जिसे 'आतिशगाह' कहा गया। आतिशगाह यानी आग का घर। 17वीं और 18वीं सदी के दौरान यहाँ एक मज़बूत, किले जैसी सराय और मंदिर का रूप दिया गया। इसके बीचों-बीच चार खंभों वाला एक गुंबददार चबूतरा बनाया गया, जिसके मुहाने से दिन-रात कुदरती लपटें निकला करती थीं।",
+      "यहाँ सबसे दिलचस्प बात यह थी कि इस आग के इर्द-गिर्द कौन लोग जमा होते थे। कोई सोच भी नहीं सकता कि कैस्पियन सागर के इस वीराने में हज़ारों मील दूर हिंदुस्तान से आए व्यापारी और साधु-संत भी डेरा डालेंगे। पंजाब, सिंध और उत्तर भारत से रेशम, मसाले और घोड़ों का व्यापार करने निकले मुसाफ़िर इस आग को पवित्र मानकर यहाँ सिर झुकाने आते थे।",
+      "मंदिर की पथरीली दीवारों पर बनी छोटी-छोटी कोठरियों को ग़ौर से देखें, तो इतिहास अपनी कहानी खुद सुनाता है। इन कोठरियों के दरवाज़ों के ऊपर संस्कृत, गुरुमुखी और फ़ारसी में बाक़ायदा शिलालेख तराशे गए हैं। कहीं भगवान गणेश और शिव की स्तुति लिखी है, तो कहीं गुरु ग्रंथ साहिब के श्लोक और दान देने वाले सौदागरों के नाम दर्ज हैं।",
+      "सोचिए, उस दौर में यह जगह कैसी दिखती होगी। चारों तरफ़ वीराना, कड़ाके की ठंड, और किले की तंग कोठरियों में कंबल ओढ़े बैठे दूर-दराज के संन्यासी और व्यापारी। दिन में बाकू के बाज़ारों में सौदेबाज़ी होती और शाम को सब इसी आग के अलाव के पास बैठकर अपनी-अपनी ज़बानों में प्रार्थनाएँ गाते थे। आग ने अलग-अलग मुल्कों और मजहबों के लोगों को एक आंगन में बिठा दिया था।",
+      "पर कुदरत के इस करिश्मे के साथ इंसान की भूख भी जुड़ी थी। 19वीं सदी के आख़िरी दौर में बाकू दुनिया में तेल निकालने का सबसे बड़ा केंद्र बन गया। चारों तरफ़ कुएँ खोदे जाने लगे, बड़ी-बड़ी मशीनें ज़मीन का सीना चीरने लगीं। इस भारी औद्योगिकीकरण का असर आतिशगाह की ज़मीनी गैस पर भी पड़ा।",
+      "ज़मीन के नीचे का दबाव धीरे-धीरे घटने लगा। जो गैस सदियों से आज़ाद होकर ऊपर उठती थी, उसे तेल कंपनियों की पाइपों ने खींच लिया। साल 1969 के आसपास एक मनहूस दिन ऐसा आया, जब सुराखानी की वह ऐतिहासिक लपट आखिरकार बुझ गई, जिसने सदियों तक अंधेरी रातों को रोशन किया था।",
+      "लेकिन इस कहानी का अंत यहीं नहीं हुआ। अज़रबैजान के लोगों ने अपनी इस साझा विरासत को खोने नहीं दिया। आतिशगाह को एक ऐतिहासिक स्मारक का दर्जा दिया गया और केंद्रीय वेदी तक गैस की एक पाइपलाइन जोड़कर उस लौ को फिर से जलाया गया। आज भी वह आग उसी तरह जलती है, ताकि आने वाली पीढ़ियाँ उस पुराने विस्मय को महसूस कर सकें।",
+      "जब आप आज उस शांत प्रांगण में खड़े होते हैं, तो पत्थरों पर हवा की सरसराहट के बीच इतिहास फुसफुसाता हुआ लगता है। वह आग सिर्फ़ ज़मीन से निकली गैस नहीं थी, बल्कि अलग-अलग संस्कृतियों, मुसाफ़िरों और आस्थाओं का एक ऐसा चौराहा थी, जिसने सरहदों के पार जाकर इंसान को एक-दूसरे से जोड़ा था।"
+    ],
+    "why": "यह कहानी इसलिए प्रसिद्ध है क्योंकि यह अज़रबैजान की ऐतिहासिक पहचान 'आग की भूमि' को साक्षात दर्शाती है और रेशम मार्ग के ज़रिए कैस्पियन क्षेत्र और भारतीय उपमहाद्वीप के अनोखे सांस्कृतिक मेल को उजागर करती है।",
+    "where": "यह स्थान अज़रबैजान की राजधानी बाकू के सुराखानी उपनगर में 'आतिशगाह' (Baku Ateshgah) राज्य ऐतिहासिक-स्थापत्य संग्रहालय के रूप में आज भी देखा जा सकता है।",
+    "truth": "मंदिर की दीवारों पर 17वीं-18वीं सदी के संस्कृत, गुरुमुखी और फ़ारसी शिलालेख ऐतिहासिक रूप से प्रमाणित हैं। प्राकृतिक गैस के अत्यधिक दोहन के कारण 1969 में मूल प्राकृतिक लौ बुझ गई थी, जिसे बाद में शहर की गैस लाइन से जोड़कर दोबारा प्रतीकात्मक रूप से प्रज्वलित किया गया।",
+    "info": [
+      [
+        "राजधानी",
+        "बाकू"
+      ],
+      [
+        "भाषा",
+        "अज़रबैजानी"
+      ],
+      [
+        "मुद्रा",
+        "अज़रबैजानी मानात"
+      ],
+      [
+        "खास बात",
+        "दुनिया के लगभग आधे कीचड़ उगलने वाले ज्वालामुखी (Mud Volcanoes) अज़रबैजान में पाए जाते हैं।"
+      ]
+    ],
+    "image_queries": [
+      "Ateshgah of Baku courtyard central altar",
+      "Ateshgah Baku Sanskrit inscription stone cell"
+    ],
+    "source_queries": [
+      "Atashgah of Baku",
+      "Yanar Dag",
+      "Absheron Peninsula natural gas history"
+    ],
+    "images": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Atesgah2.jpg/960px-Atesgah2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Atesgah2.jpg",
+        "en": "This is a photo of a monument in Azerbaijan identified by the ID 1",
+        "hi": "🇦🇿 Azerbaijan: Atesgah2",
+        "credit": "Alasgarlir, CC BY-SA 4.0",
+        "commons": true
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Atesgah1.jpg/960px-Atesgah1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "https://commons.wikimedia.org/wiki/File:Atesgah1.jpg",
+        "en": "This is a photo of a monument in Azerbaijan identified by the ID 1",
+        "hi": "🇦🇿 Azerbaijan: Atesgah1",
+        "credit": "Alasgarlir, CC BY-SA 4.0",
+        "commons": true
+      }
+    ],
+    "tiles": [
+      {
+        "p": [
+          0,
+          0
+        ],
+        "h": {
+          "hi": "जलती हुई ज़मीन",
+          "en": "Flames from the Earth"
+        },
+        "q": "Absheron peninsula burning gas",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Gobustan_and_Absheron_-_GobustanAbsheron8379.jpg/960px-Gobustan_and_Absheron_-_GobustanAbsheron8379.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Gobustan_and_Absheron_-_GobustanAbsheron8379.jpg",
+          "en": "Natural gas vents burning through cracks in the ground at Yanar Dag, a naturally occurring fire site on the Absheron Peninsula.",
+          "hi": "🇦🇿 Azerbaijan: Gobustan and Absheron - GobustanAbsheron8379",
+          "credit": "lumoplank, CC0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          1,
+          1
+        ],
+        "h": {
+          "hi": "आग की सरज़मीं",
+          "en": "Land of Fire"
+        },
+        "q": "Yanar Dag Azerbaijan",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Yanar_Dag%2C_Baku%2C_Azerbaiy%C3%A1n%2C_2016-09-27%2C_DD_03.jpg/960px-Yanar_Dag%2C_Baku%2C_Azerbaiy%C3%A1n%2C_2016-09-27%2C_DD_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Yanar_Dag,_Baku,_Azerbaiy%C3%A1n,_2016-09-27,_DD_03.jpg",
+          "en": "Yanar Dag, Baku, Azerbaijan",
+          "hi": "🇦🇿 Azerbaijan: Yanar Dag, Baku, Azerbaiyán, 2016-09-27, DD 03",
+          "credit": "Diego Delso, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          2,
+          2
+        ],
+        "h": {
+          "hi": "सौदागर और करिश्मा",
+          "en": "Caravans in Wonder"
+        },
+        "q": "Caravanserai Baku Azerbaijan",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Small_caravanserai_in_Baku.jpg/960px-Small_caravanserai_in_Baku.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Small_caravanserai_in_Baku.jpg",
+          "en": "This is a photo of a monument in Azerbaijan identified by the ID 80",
+          "hi": "🇦🇿 Azerbaijan: Small caravanserai in Baku",
+          "credit": "Interfase, CC BY-SA 3.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          3,
+          3
+        ],
+        "h": {
+          "hi": "आतिशगाह का निर्माण",
+          "en": "The House of Fire"
+        },
+        "q": "Ateshgah of Baku courtyard",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Atashgah_Fire_Temple.jpg/960px-Atashgah_Fire_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Atashgah_Fire_Temple.jpg",
+          "en": "Inner courtyard of the complex in Baku, Azerbaijan",
+          "hi": "🇦🇿 Azerbaijan: Atashgah Fire Temple",
+          "credit": "Not home, Public domain",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          4,
+          4
+        ],
+        "h": {
+          "hi": "हिंदुस्तानी मुसाफ़िर",
+          "en": "Pilgrims from India"
+        },
+        "q": "Ateshgah of Baku temple",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Ateshgah_Zoroastrian_Fire_Temple_%28Baku%29.jpg/960px-Ateshgah_Zoroastrian_Fire_Temple_%28Baku%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Ateshgah_Zoroastrian_Fire_Temple_(Baku).jpg",
+          "en": "Ateshgah Zoroastrian Fire Temple, Surakhany, Baku, Azerbaijan",
+          "hi": "🇦🇿 Azerbaijan: Ateshgah Zoroastrian Fire Temple (Baku)",
+          "credit": "Bernard Gagnon, CC BY 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          5,
+          5
+        ],
+        "h": {
+          "hi": "पत्थरों पर इबारतें",
+          "en": "Inscriptions in Stone"
+        },
+        "q": "Ateshgah Baku Sanskrit inscription",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Ateshgah_door_18_inscription.png/960px-Ateshgah_door_18_inscription.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Ateshgah_door_18_inscription.png",
+          "en": "Inscription above door 18 at Ateshgah temple, Surakhany, Baku",
+          "hi": "🇦🇿 Azerbaijan: Ateshgah door 18 inscription",
+          "credit": "Wikifex, CC BY-SA 3.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          6,
+          6
+        ],
+        "h": {
+          "hi": "सांझा आंगन",
+          "en": "A Shared Sanctuary"
+        },
+        "q": "Ateshgah of Baku cells",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Ateshgah_of_Baku_Cells_2.jpg/960px-Ateshgah_of_Baku_Cells_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Ateshgah_of_Baku_Cells_2.jpg",
+          "en": "Cells, Ateshgah of Baku",
+          "hi": "🇦🇿 Azerbaijan: Ateshgah of Baku Cells 2",
+          "credit": "Ymblanter, CC BY-SA 4.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          7,
+          7
+        ],
+        "h": {
+          "hi": "तेल की होड़",
+          "en": "The Oil Boom"
+        },
+        "q": "Baku oil fields historic",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/1886_Petroleum_Oil_Wells_Baku_Tcherny_Gorod_Maccartie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "source": "https://commons.wikimedia.org/wiki/File:1886_Petroleum_Oil_Wells_Baku_Tcherny_Gorod_Maccartie.jpg",
+          "en": "1886 Petroleum Oil Wells Baku Tcherny Gorod Maccartie",
+          "hi": "🇦🇿 Azerbaijan: 1886 Petroleum Oil Wells Baku Tcherny Gorod Maccartie",
+          "credit": "William James Linton, Public domain",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          8,
+          8
+        ],
+        "h": {
+          "hi": "बुझती हुई लौ",
+          "en": "The Extinguished Flame"
+        },
+        "q": "Baku oil industry vintage"
+      },
+      {
+        "p": [
+          9,
+          9
+        ],
+        "h": {
+          "hi": "फिर जली मशाल",
+          "en": "Rekindling the Flame"
+        },
+        "q": "Ateshgah Baku central altar",
+        "image": {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Store%2C_accommodations_etc.-_the_actual_worship_used_to_be_around_that_round_stone_%2837074480186%29.jpg/960px-Store%2C_accommodations_etc.-_the_actual_worship_used_to_be_around_that_round_stone_%2837074480186%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source": "https://commons.wikimedia.org/wiki/File:Store,_accommodations_etc.-_the_actual_worship_used_to_be_around_that_round_stone_(37074480186).jpg",
+          "en": "Store, accommodations etc.- the actual worship used to be around that round stone (37074480186)",
+          "hi": "🇦🇿 Azerbaijan: Store, accommodations etc.- the actual worship used to be around that round stone (37074480186)",
+          "credit": "shankar s. from Dubai, united arab emirates, CC BY 2.0",
+          "commons": true
+        }
+      },
+      {
+        "p": [
+          10,
+          10
+        ],
+        "h": {
+          "hi": "इतिहास की फुसफुसाहट",
+          "en": "Echoes of History"
+        },
+        "q": "Ateshgah of Baku night"
+      }
+    ],
+    "tiles_n": 11,
+    "en": {
+      "title": "Flames from the Stone",
+      "teaser": "Amid the freezing winds of the Caspian, fire burst unbidden from the earth, drawing astonished travelers from the far corners of the world.",
+      "story": [
+        "In the hush of the night, cold and briny gales whistle across the Caspian Sea. Standing upon the rocky expanse of the Absheron Peninsula centuries ago, an uncanny glow would catch your eye in the distance. With neither dry timber nor an oil-soaked wick to sustain it, blue and yellow flames leapt silently toward the heavens straight from the fissures in the limestone.",
+        "For centuries, Azerbaijan has been hailed as Odlar Yurdu—the Land of Fire. The title was earned honestly. Beneath this rugged terrain lay vast reservoirs of pressurized natural gas and petroleum, seeping through cracks in the bedrock and bursting into spontaneous flame upon touching the open air. Wayfarers laying eyes on it for the first time were struck with disbelief: how could barren stone burn endlessly without fuel?",
+        "Caravans navigating the Silk Road would routinely pull their reins in this wilderness. The rhythmic clanking of camel bells would quiet as merchants stared at the burning earth, caught between primal dread and mystical wonder. In ancient times, this was no mundane geological quirk; it was received as a tangible miracle, an undeniable manifestation of an unseen divine presence.",
+        "Surrounded by this smoldering landscape near the city of Baku, a sanctuary arose in an arid outpost called Surakhani: the Ateshgah, or 'House of Fire.' During the seventeenth and eighteenth centuries, it grew into a fortified complex resembling both a fortress-like caravanserai and a temple. At its heart stood a four-pillared, domed stone pavilion, whose central altar spouted natural flames day and night without pause.",
+        "What made this remote sanctuary truly extraordinary were the souls who gathered around its blaze. Few would ever imagine that in this wind-battered desert beside the Caspian, merchants, hermits, and ascetics from thousands of miles away in India would pitch their tents. Travelers from Punjab, Sindh, and northern India—trading in silk, prized spices, and horses—regarded this undying flame as sacred, journeying across mountains and deserts to bow before it.",
+        "A closer look at the modest stone cells ringing the fortress reveals history speaking in its own hand. Carved above the low doorways are delicate inscriptions in Sanskrit, Gurmukhi, and Persian. Some invoke Lord Ganesha and Lord Shiva; others inscribe hymns from the Guru Granth Sahib alongside the names of the pious merchants who funded the quarters.",
+        "Picture the scene in its heyday: a desolate landscape shrouded in bitter winter cold, while inside the cramped stone cells, wandering ascetics and traders sat huddled beneath heavy blankets. By day, they bartered in the busy bazaars of Baku; by nightfall, they congregated around the central flame, chanting prayers in diverse tongues. The unquenchable fire drew disparate lands, faiths, and languages into one shared courtyard.",
+        "Yet nature's ancient wonder could not remain shielded from human appetite forever. By the late nineteenth century, Baku had emerged as the bustling epicenter of the global petroleum boom. Oil derricks sprouted across the horizon, and heavy drills tore deep into the earth. This relentless industrial expansion struck a fatal blow to the subterranean gas pockets that fed the Ateshgah.",
+        "Deep underground, pressure began to plummet. Gas that had escaped freely for centuries was diverted into industrial pipes and refineries. Around 1969, a somber day arrived when the legendary flame of Surakhani flickered, died down, and went completely dark—extinguishing a beacon that had illuminated the night for centuries.",
+        "Yet the story did not end in darkness. The people of Azerbaijan refused to let this shared chapter of world heritage slip away. The Ateshgah was declared a protected historical monument, and a dedicated pipeline was routed to the central altar to rekindle the sacred flame. Today, that fire burns once again, allowing future generations to witness the same bewitching spectacle that held ancient wanderers spellbound.",
+        "Standing in that tranquil courtyard today, as the sea breeze rustles against ancient limestone walls, the whispers of history feel almost audible. The flame was never just ignited hydrocarbon gas; it was a luminous crossroads of cultures, travelers, and faiths that transcended borders to bring humanity together."
+      ],
+      "why": "This story is celebrated because it embodies Azerbaijan's ancient moniker as the 'Land of Fire' and reveals the remarkable cultural bridge forged along the Silk Road between the Caspian shore and the Indian subcontinent.",
+      "where": "The site can be visited today as the Baku Ateshgah State Historical-Architectural Reserve in Surakhani, a suburb of Azerbaijan's capital, Baku.",
+      "truth": "The seventeenth- and eighteenth-century inscriptions in Sanskrit, Gurmukhi, and Persian on the temple's stone lintels are genuine historical artifacts. Heavy industrial drilling drained the natural gas pockets beneath the site, causing the centuries-old natural flame to die out in 1969; it was later rekindled via Baku's municipal gas line to preserve the historic monument.",
+      "info": [
+        [
+          "Capital",
+          "Baku"
+        ],
+        [
+          "Language",
+          "Azerbaijani"
+        ],
+        [
+          "Currency",
+          "Azerbaijani Manat"
+        ],
+        [
+          "Distinctive Feature",
+          "Nearly half of the world's mud volcanoes are located in Azerbaijan."
+        ]
+      ]
+    },
+    "sources": [
+      {
+        "title": "Ateshgah of Baku",
+        "url": "https://en.wikipedia.org/wiki/Ateshgah_of_Baku",
+        "publisher": "Wikipedia",
+        "note": "The Ateshgah of Baku (Persian: آتشگاه, romanized: Atashgah, Middle Persian/ Pahlavi: Ātaš-kadag, \"place or house of fire\"), Azerbaijani: Atəşgah), often called ",
+        "hi_url": "https://hi.wikipedia.org/wiki/बाकू_आतेशगाह"
+      },
+      {
+        "title": "Yanar Dagh",
+        "url": "https://en.wikipedia.org/wiki/Yanar_Dagh",
+        "publisher": "Wikipedia",
+        "note": "Yanar Dagh (Azerbaijani: Yanar Dağ, lit. 'burning mountain') is a natural gas fire that burns perpetually on a hillside on the Absheron Peninsula near Baku, the"
+      },
+      {
+        "title": "Michael Stone (ice hockey)",
+        "url": "https://en.wikipedia.org/wiki/Michael_Stone_(ice_hockey)",
+        "publisher": "Wikipedia",
+        "note": "Michael Robert Stone (born June 7, 1990) is a Canadian former professional ice hockey defenceman."
+      }
+    ],
+    "story_version": 2
   }
 ]
